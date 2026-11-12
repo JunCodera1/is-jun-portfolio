@@ -20,7 +20,9 @@ export default async function ProfilePage({ params }: { params: LocaleParams }) 
 
   return (
     <div className="page pb-8">
-      <PageHeader eyebrow="08" title={t("title")} lead={t("lead")} />
+      <PageHeader eyebrow="08" title={t("title")} lead={t("lead")}>
+        <p className="mt-6"><Link href="/recruiter" className="link label">{t("recruiterLink")} →</Link></p>
+      </PageHeader>
 
       <section aria-labelledby="skills-title" className="py-12 md:py-16">
         <h2 id="skills-title" className="text-3xl md:text-5xl">{t("skillsTitle")}</h2>

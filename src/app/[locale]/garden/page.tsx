@@ -25,7 +25,7 @@ export default async function GardenPage({ params }: { params: LocaleParams }) {
   }));
   return (
     <div className="page pb-8">
-      <PageHeader eyebrow="02 / 03" title={t("garden.title")} lead={t("garden.lead")} />
+      <PageHeader eyebrow="03" title={t("garden.title")} lead={t("garden.lead")} />
       <ContentExplorer ns="garden" items={items} />
     </div>
   );

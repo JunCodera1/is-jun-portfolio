@@ -29,8 +29,10 @@
       "timeline": "Các cột mốc có thể kiểm chứng.",
       "projects": "Các sản phẩm tiêu biểu, kèm bằng chứng.",
       "profile": "Kỹ năng và công nghệ, gắn với dự án thực tế.",
-      "contact": "Cách để liên lạc."
-    }
+      "contact": "Cách để liên lạc.",
+      "recruiter": "Bản tóm tắt gọn, dễ in."
+    },
+    "recruiter": "Bản xem cho nhà tuyển dụng"
   },
   "common": {
     "skip": "Bỏ qua, đến nội dung chính",
@@ -106,7 +108,8 @@
     "lastPush": "Lần push repository gần nhất",
     "pulseSourceLive": "GitHub, lưu đệm tối đa một giờ",
     "pulseSourceSnapshot": "Ảnh chụp dữ liệu GitHub ngày {date}",
-    "metaLine": "Phiên bản 0.1 · đang xây dựng"
+    "metaLine": "Phiên bản 0.1 · đang xây dựng",
+    "chapter": "Chương {n}"
   },
   "about": {
     "title": "Giới thiệu",
@@ -382,5 +385,15 @@
     "rights": "© {year} {name}",
     "sitemap": "Sơ đồ trang",
     "elsewhere": "Những nơi khác"
+  },
+  "recruiter": {
+    "title": "Bản xem cho nhà tuyển dụng",
+    "lead": "Bản tóm tắt gọn, dựng từ cùng dữ liệu đã kiểm chứng như phần còn lại của trang. Trải nghiệm chính vẫn là trang web đầy đủ.",
+    "print": "In hoặc lưu thành PDF",
+    "projects": "Dự án tiêu biểu",
+    "skills": "Công nghệ, kèm dự án chứng minh",
+    "career": "Học vấn & kinh nghiệm",
+    "links": "Liên kết",
+    "verifiedNote": "Mọi công nghệ bên dưới đều được ít nhất một dự án trong danh sách sử dụng; bằng chứng nằm ở trang từng dự án."
   }
 }

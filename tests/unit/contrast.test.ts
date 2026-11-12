@@ -34,6 +34,9 @@ describe("design tokens meet WCAG contrast (parsed from globals.css)", () => {
       ["accent-fg", "bg", 4.5], ["accent-fg", "surface", 4.5],
       ["accent-ink", "accent", 7],
       ["danger", "bg", 4.5],
+      ["sakura-fg", "bg", 4.5], ["sakura-fg", "surface", 4.5],
+      ["outline", "bg", 7], // the manga ink edge must be clearly visible on the page background
+      ["sky", "bg", 3], // decorative accent only (never used for body text)
     ];
     it.each(pairs)("%s on %s ≥ %s:1", (fg, bg, min) => {
       expect(ratio(t[fg]!, t[bg]!)).toBeGreaterThanOrEqual(min);

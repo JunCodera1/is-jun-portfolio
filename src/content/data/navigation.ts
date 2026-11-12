@@ -14,6 +14,7 @@ export const navigation: NavItem[] = [
   { id: "projects", href: "/projects", labelKey: "projects", group: "professional", primary: true },
   { id: "profile", href: "/profile", labelKey: "profile", group: "professional" },
   { id: "contact", href: "/contact", labelKey: "contact", group: "professional", primary: true },
+  { id: "recruiter", href: "/recruiter", labelKey: "recruiter", group: "utility" },
   { id: "terminal", href: "/terminal", labelKey: "terminal", group: "utility" },
   { id: "search", href: "/search", labelKey: "search", group: "utility" },
 ];

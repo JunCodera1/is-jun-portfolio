@@ -1,7 +1,7 @@
 import { expect, type Page } from "@playwright/test";
 
 export const LOCALES = ["en", "ja", "vi"] as const;
-export const STATIC_PATHS = ["", "/about", "/now", "/contact", "/interests", "/timeline", "/projects", "/profile", "/garden", "/journal", "/search", "/terminal"];
+export const STATIC_PATHS = ["", "/about", "/now", "/contact", "/interests", "/timeline", "/projects", "/profile", "/garden", "/journal", "/search", "/terminal", "/recruiter"];
 export const DETAIL_PATHS = ["/projects/green-footprint", "/projects/voiceai", "/garden/how-this-space-is-built", "/journal/three-languages-from-day-one"];
 export const ALL_PATHS = [...STATIC_PATHS, ...DETAIL_PATHS];
 

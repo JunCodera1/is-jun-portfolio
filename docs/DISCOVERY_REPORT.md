@@ -91,7 +91,7 @@ Design foundation → core pages → content ecosystem → interactions → inte
 | Japanese/Vietnamese copy quality. | Authored natively (丁寧語), flagged `draft` where not owner-reviewed; the status mechanism makes that visible. |
 | CSP vs. static rendering + inline theme script. | Documented relaxation (`'unsafe-inline'` for scripts) rather than forcing dynamic rendering; no UGC and no third-party scripts keep the exposure small. |
 | TypeScript/ESLint major-version drift. | TS pinned to 5.9; ESLint 9 with `eslint-config-next`. |
-| **Secrets committed in a public repo** (found during research: `DeepSea-RestAPI` has literal values for `security.key` and `spring.mail.password` in `application.properties`). | Not used or printed anywhere. Reported to the owner for rotation. |
+| Credentials may be present in other public repositories of the owner. | Not used or reproduced anywhere in this project; reported to the owner privately in the chat session. |
 
 ## 9. Missing content
 

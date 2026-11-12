@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useId, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useId, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { useRouter, usePathname } from "@/i18n/navigation";
 import { locales, localeMeta, type Locale } from "@/i18n/routing";
@@ -25,6 +25,20 @@ interface Item {
 
 export const OPEN_PALETTE_EVENT = "open-command-palette";
 
+const indexCache = new Map<string, Promise<SearchEntry[]>>();
+function loadSearchIndex(locale: string): Promise<SearchEntry[]> {
+  let p = indexCache.get(locale);
+  if (!p) {
+    p = fetch(`/${locale}/search-index.json`).then((r) => {
+      if (!r.ok) throw new Error(String(r.status));
+      return r.json() as Promise<SearchEntry[]>;
+    });
+    p.catch(() => indexCache.delete(locale)); // allow a retry on the next open
+    indexCache.set(locale, p);
+  }
+  return p;
+}
+
 /** Searchable in every UI language: typing "japanese" works from the Vietnamese UI too. */
 const ENGLISH_NAME: Record<Locale, string> = { en: "english", ja: "japanese", vi: "vietnamese" };
 
@@ -36,39 +50,41 @@ export function CommandPalette({ pages, githubUrl }: { pages: PalettePage[]; git
   const dialogRef = useRef<HTMLDialogElement>(null);
   const listRef = useRef<HTMLUListElement>(null);
   const listId = useId();
+  const [isOpen, setIsOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [active, setActive] = useState(0);
   const [remote, setRemote] = useState<SearchEntry[] | "error" | null>(null);
-  const [isMac, setIsMac] = useState(false);
+  const isMac = useSyncExternalStore(
+    () => () => {},
+    () => /Mac|iPhone|iPad/.test(navigator.platform),
+    () => false,
+  );
 
-  useEffect(() => { setIsMac(/Mac|iPhone|iPad/.test(navigator.platform)); }, []);
-
-  const requested = useRef(false);
-
-  // Lazy-load the per-locale static search index the first time the palette opens.
-  const loadIndex = useCallback(() => {
-    if (requested.current) return;
-    requested.current = true;
-    fetch(`/${locale}/search-index.json`)
-      .then((r) => { if (!r.ok) throw new Error(String(r.status)); return r.json() as Promise<SearchEntry[]>; })
-      .then(setRemote)
-      .catch(() => setRemote("error"));
-  }, [locale]);
-
-  const close = useCallback(() => dialogRef.current?.close(), []);
-  const open = useCallback(() => {
+  // The dialog's open state is React state; this effect is the only place that touches the DOM element.
+  useEffect(() => {
     const d = dialogRef.current;
-    if (d && !d.open) d.showModal();
-    loadIndex();
-  }, [loadIndex]);
+    if (!d) return;
+    if (isOpen && !d.open) d.showModal();
+    if (!isOpen && d.open) d.close();
+  }, [isOpen]);
+
+  // Load the per-locale static search index the first time the palette opens (cached for the session).
+  useEffect(() => {
+    if (!isOpen) return;
+    let live = true;
+    loadSearchIndex(locale).then((e) => live && setRemote(e)).catch(() => live && setRemote("error"));
+    return () => { live = false; };
+  }, [isOpen, locale]);
+
+  const close = useCallback(() => setIsOpen(false), []);
+  const open = useCallback(() => setIsOpen(true), []);
 
   // Global shortcut (Ctrl/Cmd + K) and an event other components can dispatch.
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
         e.preventDefault();
-        const d = dialogRef.current;
-        if (d?.open) d.close(); else open();
+        setIsOpen((o) => !o);
       }
     };
     window.addEventListener("keydown", onKey);
@@ -125,7 +141,9 @@ export function CommandPalette({ pages, githubUrl }: { pages: PalettePage[]; git
     return [...hits, ...actionHits];
   }, [query, remote, pageEntries, actions, go, locale, t]);
 
-  useEffect(() => { setActive(0); }, [query]);
+  // Reset the highlighted option when the query changes ("adjust state while rendering" pattern, no effect needed).
+  const [prevQuery, setPrevQuery] = useState(query);
+  if (prevQuery !== query) { setPrevQuery(query); setActive(0); }
   useEffect(() => {
     listRef.current?.querySelector<HTMLElement>(`[data-index="${active}"]`)?.scrollIntoView({ block: "nearest" });
   }, [active]);
@@ -159,9 +177,9 @@ export function CommandPalette({ pages, githubUrl }: { pages: PalettePage[]; git
       <dialog
         ref={dialogRef}
         aria-label={t("palette.title")}
-        onClose={() => { setQuery(""); setActive(0); }}
+        onClose={() => { setIsOpen(false); setQuery(""); setActive(0); }}
         onClick={(e) => { if (e.target === dialogRef.current) close(); }}
-        className="m-0 mx-auto mt-[8vh] max-h-[80dvh] w-[min(42rem,calc(100vw-1.5rem))] overflow-hidden border border-line-strong bg-surface p-0 text-fg"
+        className="m-0 mx-auto mt-[8vh] max-h-[80dvh] w-[min(42rem,calc(100vw-1.5rem))] overflow-hidden border-2 border-outline bg-surface p-0 text-fg shadow-[6px_6px_0_var(--outline)]"
       >
         <div className="flex max-h-[80dvh] flex-col">
           <div className="flex items-center gap-3 border-b border-line px-4">

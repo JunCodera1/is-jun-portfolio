@@ -25,6 +25,12 @@
   --accent-ink: #0c0d10;
   --danger: #ff8a7a;
   --atmosphere: color-mix(in oklab, #b8f36b 7%, transparent);
+  /* Anime / manga layer: ink outline, sakura pink, sky cyan, screentone dots */
+  --outline: #f2f3f5;
+  --sakura: #ff7eb6;
+  --sakura-fg: #ff9cc7;
+  --sky: #62dcff;
+  --tone: rgb(255 126 182 / 0.2);
 }
 
 :root[data-theme="light"] {
@@ -42,6 +48,42 @@
   --accent-ink: #0c0d10;
   --danger: #b3261e;
   --atmosphere: color-mix(in oklab, #b8f36b 22%, transparent);
+  --outline: #0e1013;
+  --sakura: #ff7eb6;
+  --sakura-fg: #b4125a;
+  --sky: #0f8fc0;
+  --tone: rgb(180 18 90 / 0.16);
+}
+
+/* ── Metric-matched fallbacks ───────────────────────────────────────────────
+   While a web font loads (or its Vietnamese subset is fetched), text is set in a local font tuned to occupy
+   the same space, so the swap cannot reflow the page (CLS). Values derived from the fonts' own metrics:
+   size-adjust = (avg glyph width of web font) / (avg glyph width of the local font);
+   ascent/descent overrides = metric / (unitsPerEm × size-adjust).   Inter 978/2048 vs Arial 913/2048;
+   Space Grotesk 489/1000 vs Arial; JetBrains Mono is 0.6em like Courier New. */
+@font-face {
+  font-family: "Inter Fallback";
+  src: local("Arial"), local("Helvetica Neue"), local("Liberation Sans");
+  size-adjust: 107.12%;
+  ascent-override: 90.43%;
+  descent-override: 22.52%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: "Space Grotesk Fallback";
+  src: local("Arial"), local("Helvetica Neue"), local("Liberation Sans");
+  size-adjust: 109.69%;
+  ascent-override: 89.71%;
+  descent-override: 26.62%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: "JetBrains Mono Fallback";
+  src: local("Courier New"), local("Liberation Mono"), local("Courier");
+  size-adjust: 100%;
+  ascent-override: 102%;
+  descent-override: 30%;
+  line-gap-override: 0%;
 }
 
 @theme inline {
@@ -57,14 +99,18 @@
   --color-accent-fg: var(--accent-fg);
   --color-accent-ink: var(--accent-ink);
   --color-danger: var(--danger);
+  --color-outline: var(--outline);
+  --color-sakura: var(--sakura);
+  --color-sakura-fg: var(--sakura-fg);
+  --color-sky: var(--sky);
 
   /* Latin face first, then Japanese system faces (row 37: "fallback phù hợp tiếng Nhật").
      Space Grotesk, Inter and JetBrains Mono all ship a Vietnamese subset. */
-  --font-display: "Space Grotesk Variable", "Inter Variable", "Hiragino Sans", "Hiragino Kaku Gothic ProN",
+  --font-display: "Space Grotesk Variable", "Space Grotesk Fallback", "Inter Variable", "Hiragino Sans", "Hiragino Kaku Gothic ProN",
     "Yu Gothic UI", "Yu Gothic", "Meiryo", "Noto Sans JP", "Noto Sans CJK JP", ui-sans-serif, system-ui, sans-serif;
-  --font-sans: "Inter Variable", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic UI", "Yu Gothic", "Meiryo",
+  --font-sans: "Inter Variable", "Inter Fallback", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic UI", "Yu Gothic", "Meiryo",
     "Noto Sans JP", "Noto Sans CJK JP", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "JetBrains Mono Variable", ui-monospace, "SFMono-Regular", Menlo, Consolas, "Hiragino Sans",
+  --font-mono: "JetBrains Mono Variable", "JetBrains Mono Fallback", ui-monospace, "SFMono-Regular", Menlo, Consolas, "Hiragino Sans",
     "Yu Gothic", "Noto Sans CJK JP", monospace;
 
   --breakpoint-xs: 30rem;
@@ -232,68 +278,173 @@
     left: 0;
   }
 
-  /* buttons — rectangular, hairline, tactile press */
+  /* buttons — manga-panel style: thick ink border + hard offset shadow, pressed like a physical key */
   .btn {
     display: inline-flex;
     align-items: center;
     gap: 0.6rem;
     min-height: 2.75rem;
-    padding: 0.6rem 1.1rem;
-    border: 1px solid var(--line-strong);
+    padding: 0.6rem 1.15rem;
+    border: 2px solid var(--outline);
     font-family: var(--font-mono);
     font-size: 0.8rem;
+    font-weight: 700;
     letter-spacing: 0.04em;
     text-transform: uppercase;
-    background: transparent;
+    background: var(--surface);
     color: var(--fg);
-    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.12s ease;
+    box-shadow: 4px 4px 0 var(--outline);
+    transition: transform 0.12s ease, box-shadow 0.12s ease, background-color 0.2s ease;
   }
   .btn:hover {
-    border-color: var(--fg);
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--outline);
   }
   .btn:active {
-    transform: translateY(1px) scale(0.99);
+    transform: translate(3px, 3px);
+    box-shadow: 1px 1px 0 var(--outline);
   }
   .btn-primary {
     background: var(--accent);
-    border-color: var(--accent);
     color: var(--accent-ink);
   }
-  .btn-primary:hover {
-    background: color-mix(in oklab, var(--accent) 88%, white);
-    border-color: color-mix(in oklab, var(--accent) 88%, white);
-  }
 
-  /* chips / pills used for tags & filters — squared, not rounded cards */
+  /* chips / tags — squared, with an ink edge; pressed filters turn lime */
   .chip {
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
-    padding: 0.25rem 0.6rem;
-    border: 1px solid var(--line);
+    padding: 0.2rem 0.6rem;
+    border: 1.5px solid var(--line-strong);
     font-family: var(--font-mono);
     font-size: 0.72rem;
     letter-spacing: 0.03em;
     color: var(--fg-2);
     background: transparent;
-    transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
+    transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease, transform 0.12s ease;
   }
   button.chip:hover,
   a.chip:hover {
-    border-color: var(--fg-2);
+    border-color: var(--outline);
     color: var(--fg);
+    transform: translateY(-1px);
   }
   .chip[aria-pressed="true"] {
     background: var(--accent);
-    border-color: var(--accent);
+    border-color: var(--outline);
     color: var(--accent-ink);
+    box-shadow: 2px 2px 0 var(--outline);
+  }
+
+  /* chapter tag: the numbered "第01話" label, skewed like a manga chapter banner */
+  .chapter {
+    display: inline-block;
+    padding: 0.12rem 0.55rem;
+    border: 2px solid var(--outline);
+    background: var(--accent);
+    color: var(--accent-ink);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    transform: skewX(-9deg);
+    box-shadow: 2px 2px 0 var(--outline);
+    white-space: nowrap;
+  }
+
+  /* speech bubble (greetings) */
+  .bubble {
+    position: relative;
+    display: inline-block;
+    padding: 0.18em 0.8em 0.22em;
+    border: 2px solid var(--outline);
+    border-radius: 1.2em;
+    background: var(--surface);
+    color: var(--fg);
+    box-shadow: 4px 4px 0 var(--outline);
+  }
+  .bubble::after {
+    content: "";
+    position: absolute;
+    left: 1.1em;
+    bottom: -0.5em;
+    width: 0.8em;
+    height: 0.8em;
+    background: inherit;
+    border-right: 2px solid var(--outline);
+    border-bottom: 2px solid var(--outline);
+    transform: rotate(45deg);
+  }
+  .bubble[aria-current="true"] {
+    background: var(--accent);
+    color: var(--accent-ink);
+  }
+
+  /* screentone: halftone dots, the manga way of doing a gradient */
+  .tone {
+    background-image: radial-gradient(circle at center, var(--tone) 1.7px, transparent 2.2px);
+    background-size: 11px 11px;
+  }
+  /* speed lines radiating from a focal point (the hero) */
+  .speed {
+    background: repeating-conic-gradient(from 3deg at var(--fx, 78%) var(--fy, 42%), var(--line-strong) 0deg 0.4deg, transparent 0.4deg 3.6deg);
+    -webkit-mask-image: radial-gradient(circle at var(--fx, 78%) var(--fy, 42%), transparent 8%, #000 26%, transparent 56%);
+    mask-image: radial-gradient(circle at var(--fx, 78%) var(--fy, 42%), transparent 8%, #000 26%, transparent 56%);
+    opacity: 0.55;
+  }
+  /* hand-lettered sound effect (decorative only; always aria-hidden) */
+  .sfx {
+    font-family: var(--font-display);
+    font-weight: 700;
+    line-height: 0.9;
+    color: transparent;
+    -webkit-text-stroke: 2px var(--line-strong);
+    user-select: none;
+    pointer-events: none;
+  }
+  .vtext {
+    writing-mode: vertical-rl;
+    font-family: var(--font-display);
+    letter-spacing: 0.35em;
+    color: var(--fg-3);
+    user-select: none;
+  }
+  /* the oversized name: heavy, with a pink offset shadow like a cover logo */
+  .name-pop {
+    font-weight: 700;
+    text-shadow: 0.035em 0.035em 0 var(--sakura);
+  }
+  /* sakura petals: pure CSS, compositor-only, absent under reduced motion */
+  .petal {
+    position: absolute;
+    top: -6%;
+    left: var(--x);
+    width: var(--s);
+    height: calc(var(--s) * 0.72);
+    background: var(--sakura);
+    opacity: 0.8;
+    border-radius: 85% 0 85% 0;
+    animation: petal-fall var(--d) linear var(--delay) infinite;
+    will-change: transform;
+    pointer-events: none;
+  }
+  /* hanko (red seal) logo */
+  .hanko {
+    border-radius: 9999px;
+    background: var(--sakura);
+    border: 2px solid var(--outline);
+    color: #0c0d10;
+    transform: rotate(-8deg);
+    box-shadow: 2px 2px 0 var(--outline);
   }
 
   /* dashed slot: how every "owner hasn't supplied this yet" state looks */
   .slot {
-    border: 1px dashed var(--line-strong);
+    border: 2px dashed var(--line-strong);
     padding: 1.25rem;
     color: var(--fg-2);
+    /* a blank manga panel: diagonal hatching marks "nothing drawn here yet" */
+    background-image: repeating-linear-gradient(135deg, transparent 0 7px, var(--line) 7px 8px);
   }
 
   /* long-form typography (MDX) */
@@ -424,8 +575,8 @@
   left: 0;
   top: 0;
   bottom: 0;
-  width: 3px;
-  background: var(--accent);
+  width: 6px;
+  background: linear-gradient(var(--accent) 50%, var(--sakura) 50%);
   transform: scaleY(0);
   transform-origin: top;
   transition: transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1);
@@ -435,6 +586,14 @@
 .index-row:hover::after,
 .index-row:focus-visible::after {
   transform: scaleY(1);
+}
+.index-row .idx-title {
+  transition: text-shadow 0.25s ease, transform 0.25s ease;
+}
+.index-row:hover .idx-title,
+.index-row:focus-visible .idx-title {
+  text-shadow: 0.04em 0.04em 0 var(--sakura);
+  transform: translateX(6px);
 }
 .index-row .arrow {
   transition: transform 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);
@@ -485,6 +644,31 @@ dialog[open] {
   to {
     opacity: 1;
     transform: none;
+  }
+}
+
+@keyframes petal-fall {
+  0% {
+    transform: translate3d(0, -10%, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(48px, 52vh, 0) rotate(200deg);
+  }
+  100% {
+    transform: translate3d(-24px, 108vh, 0) rotate(400deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .petal {
+    display: none;
+  }
+}
+@media print {
+  .petal,
+  .speed,
+  .sfx,
+  .vtext {
+    display: none !important;
   }
 }
 

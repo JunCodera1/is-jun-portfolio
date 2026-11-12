@@ -1,5 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import { githubSnapshot } from "@/content/data/github";
+import { ownerTimeline } from "@/content/data/timeline";
+import { textOf } from "@/lib/localized";
 import { firstRepoPerLanguage } from "@/lib/derived";
 import { formatDate } from "@/lib/format";
 import { initLocale, pageMetadata, type LocaleParams } from "@/lib/page";
@@ -12,12 +14,13 @@ export default async function TimelinePage({ params }: { params: LocaleParams })
   const locale = await initLocale(params);
   const t = await getTranslations({ locale, namespace: "timeline" });
 
-  type Row = { date: string; title: string; href?: string };
+  type Row = { date: string; title: string; href?: string; source: "github" | "owner" };
   const rows: Row[] = [
-    { date: githubSnapshot.user.createdAt, title: t("accountCreated"), href: `https://github.com/${githubSnapshot.user.login}` },
-    ...firstRepoPerLanguage(githubSnapshot.repos).map((f) => ({
-      date: f.createdAt, title: t("firstRepo", { language: f.language, repo: f.repo }), href: f.url,
+    { date: githubSnapshot.user.createdAt, title: t("accountCreated"), href: `https://github.com/${githubSnapshot.user.login}`, source: "github" as const },
+    ...firstRepoPerLanguage(githubSnapshot.repos).map((f): Row => ({
+      date: f.createdAt, title: t("firstRepo", { language: f.language, repo: f.repo }), href: f.url, source: "github",
     })),
+    ...ownerTimeline.map((o): Row => ({ date: o.date, title: textOf(o.title, locale), href: o.url, source: "owner" })),
   ].sort((a, b) => (a.date < b.date ? -1 : 1));
 
   return (
@@ -38,7 +41,7 @@ export default async function TimelinePage({ params }: { params: LocaleParams })
               <p className="mt-1 font-display text-xl tracking-tight md:text-2xl">
                 {r.href ? <a href={r.href} target="_blank" rel="noopener noreferrer" className="link">{r.title}</a> : r.title}
               </p>
-              <p className="label mt-1 !text-fg-3">{t("sourceGithub")}</p>
+              <p className="label mt-1 !text-fg-3">{r.source === "owner" ? t("sourceOwner") : t("sourceGithub")}</p>
             </li>
           ))}
         </ol>

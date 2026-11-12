@@ -29,8 +29,10 @@
       "timeline": "Milestones that can be verified.",
       "projects": "Selected work, with its evidence.",
       "profile": "Skills and technologies, backed by projects.",
-      "contact": "Where to reach out."
-    }
+      "contact": "Where to reach out.",
+      "recruiter": "A compact, printable summary."
+    },
+    "recruiter": "Recruiter view"
   },
   "common": {
     "skip": "Skip to content",
@@ -106,7 +108,8 @@
     "lastPush": "Last repository push",
     "pulseSourceLive": "GitHub, cached up to an hour",
     "pulseSourceSnapshot": "GitHub snapshot from {date}",
-    "metaLine": "Version 0.1 · work in progress"
+    "metaLine": "Version 0.1 · work in progress",
+    "chapter": "Ch. {n}"
   },
   "about": {
     "title": "About",
@@ -382,5 +385,15 @@
     "rights": "© {year} {name}",
     "sitemap": "Sitemap",
     "elsewhere": "Elsewhere"
+  },
+  "recruiter": {
+    "title": "Recruiter view",
+    "lead": "A compact summary built from the same verified data as the rest of the site. The main site stays the main experience.",
+    "print": "Print or save as PDF",
+    "projects": "Selected projects",
+    "skills": "Technologies, backed by projects",
+    "career": "Education & experience",
+    "links": "Links",
+    "verifiedNote": "Every technology below is used by at least one project in the list; evidence is on each project page."
   }
 }

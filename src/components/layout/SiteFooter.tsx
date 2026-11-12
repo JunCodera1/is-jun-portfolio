@@ -10,7 +10,7 @@ export const SOURCE_REPO_URL = "https://github.com/JunCodera1/is-jun-portfolio";
 export async function SiteFooter({ locale }: { locale: Locale }) {
   const t = await getTranslations({ locale });
   return (
-    <footer className="mt-32 border-t border-line">
+    <footer className="mt-32 border-t-2 border-outline">
       <div className="page grid gap-12 py-14 md:grid-cols-[1.2fr_1fr_1fr]">
         <div>
           <p className="font-display text-3xl tracking-tight md:text-4xl">{t("meta.siteName")}</p>
@@ -45,7 +45,7 @@ export async function SiteFooter({ locale }: { locale: Locale }) {
       <div className="border-t border-line">
         <div className="page flex flex-wrap items-center justify-between gap-2 py-5">
           <p className="label">{t("footer.rights", { year: new Date().getFullYear(), name: profile.displayName })}</p>
-          <p className="label">v0.1 · {locale.toUpperCase()}</p>
+          <p className="label"><span aria-hidden lang="ja" className="mr-3 inline-block border-2 border-outline px-1.5 font-display text-sm text-fg">完</span>v0.1 · {locale.toUpperCase()}</p>
         </div>
       </div>
     </footer>

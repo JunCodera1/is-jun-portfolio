@@ -8,6 +8,7 @@ import { LText } from "@/components/ui/LText";
 import { Placeholder } from "@/components/ui/Placeholder";
 import { ArrowRight } from "@/components/ui/Icons";
 import { LocalClock } from "@/components/interactive/LocalClock";
+import { Petals } from "@/components/ui/Petals";
 
 const GREETINGS: { locale: Locale; text: string }[] = [
   { locale: "en", text: "Hello" },
@@ -32,6 +33,12 @@ export async function Hero({ locale, feed }: { locale: Locale; feed: RepoFeed })
     <section aria-labelledby="hero-title" className="relative isolate overflow-hidden border-b border-line">
       <div aria-hidden className="atmosphere absolute inset-0 -z-20" />
       <div aria-hidden className="bg-grid absolute inset-0 -z-10" />
+      <div aria-hidden className="speed absolute inset-0 -z-10" />
+      <div aria-hidden className="tone absolute -bottom-10 -right-10 -z-10 h-[55%] w-[55%] opacity-90 [mask-image:linear-gradient(to_top_left,#000,transparent_72%)]" />
+      <Petals />
+      {/* decorative: hand-lettered sound effect + vertical Japanese tagline (aria-hidden, skipped by screen readers) */}
+      <span aria-hidden lang="ja" className="sfx pointer-events-none absolute right-[4%] top-[14%] -z-10 hidden rotate-[8deg] text-[clamp(7rem,16vw,15rem)] md:block">ドン</span>
+      <span aria-hidden lang="ja" className="vtext absolute right-3 top-28 hidden text-sm lg:block">個人のデジタル空間</span>
 
       <div className="page pb-10 pt-8 md:pb-14 md:pt-12">
         <div className="flex items-start justify-between gap-6">
@@ -41,7 +48,7 @@ export async function Hero({ locale, feed }: { locale: Locale; feed: RepoFeed })
 
         <h1
           id="hero-title"
-          className={`relative mt-8 -ml-[0.05em] font-display font-medium leading-[0.8] tracking-[-0.055em] md:mt-12 ${nameSize(profile.displayName)}`}
+          className={`name-pop relative mt-8 -ml-[0.05em] font-display leading-[0.8] tracking-[-0.055em] md:mt-12 ${nameSize(profile.displayName)}`}
         >
           {profile.displayName}
           <span aria-hidden className="text-accent-fg">.</span>
@@ -51,12 +58,18 @@ export async function Hero({ locale, feed }: { locale: Locale; feed: RepoFeed })
         <div className="mt-10 grid gap-10 md:mt-16 md:grid-cols-12 md:gap-8">
           <div className="md:col-span-5">
             <p className="label mb-3">{t("greetingLabel")}</p>
-            <ul className="font-display text-3xl leading-[1.15] tracking-tight md:text-5xl">
-              {GREETINGS.map((g) => {
+            <ul className="flex flex-col items-start gap-6 pb-3 font-display text-2xl leading-[1.15] tracking-tight md:text-4xl">
+              {GREETINGS.map((g, i) => {
                 const active = g.locale === locale;
                 return (
-                  <li key={g.locale} lang={g.locale} aria-current={active ? "true" : undefined} className={active ? "text-fg" : "text-fg-3"}>
-                    <span className={active ? "hl" : undefined}>{g.text}</span>
+                  <li
+                    key={g.locale}
+                    lang={g.locale}
+                    aria-current={active ? "true" : undefined}
+                    className={`bubble ${active ? "" : "!text-fg-2"}`}
+                    style={{ transform: `rotate(${[-2.5, 1.5, -1][i]}deg) translateX(${[0, 22, 6][i]}px)` }}
+                  >
+                    {g.text}
                   </li>
                 );
               })}

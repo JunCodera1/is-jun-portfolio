@@ -29,8 +29,10 @@
       "timeline": "裏づけのあるできごとの記録。",
       "projects": "根拠つきで紹介する主な制作物。",
       "profile": "プロジェクトに裏づけられた技術一覧。",
-      "contact": "連絡の取り方。"
-    }
+      "contact": "連絡の取り方。",
+      "recruiter": "コンパクトで印刷しやすい要約。"
+    },
+    "recruiter": "採用担当者向け表示"
   },
   "common": {
     "skip": "本文へ移動",
@@ -106,7 +108,8 @@
     "lastPush": "最後のリポジトリ更新",
     "pulseSourceLive": "GitHub（最長1時間キャッシュ）",
     "pulseSourceSnapshot": "{date}時点の GitHub スナップショット",
-    "metaLine": "バージョン0.1・制作中"
+    "metaLine": "バージョン0.1・制作中",
+    "chapter": "第{n}話"
   },
   "about": {
     "title": "自己紹介",
@@ -382,5 +385,15 @@
     "rights": "© {year} {name}",
     "sitemap": "サイトマップ",
     "elsewhere": "ほかの場所"
+  },
+  "recruiter": {
+    "title": "採用担当者向け表示",
+    "lead": "サイトのほかのページと同じ、確認済みのデータから作った簡易版です。主役はあくまでサイト本体です。",
+    "print": "印刷またはPDFで保存",
+    "projects": "主なプロジェクト",
+    "skills": "プロジェクトに裏づけられた技術",
+    "career": "学歴・経験",
+    "links": "リンク",
+    "verifiedNote": "以下の技術は、一覧のいずれかのプロジェクトで実際に使われています。根拠は各プロジェクトのページにあります。"
   }
 }

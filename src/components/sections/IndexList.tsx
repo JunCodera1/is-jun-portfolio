@@ -32,10 +32,10 @@ export async function IndexList({ locale }: { locale: Locale }) {
           <li key={entry.id} className="reveal border-b border-line">
             <Link
               href={entry.href}
-              className="index-row grid grid-cols-[2.75rem_1fr_auto] items-baseline gap-x-3 px-2 py-5 md:grid-cols-[5rem_minmax(0,1.1fr)_minmax(0,1.3fr)_9rem_1.5rem] md:gap-x-6 md:px-4 md:py-7"
+              className="index-row grid grid-cols-[5.25rem_1fr_auto] items-baseline gap-x-3 px-2 py-5 md:grid-cols-[7.5rem_minmax(0,1.1fr)_minmax(0,1.3fr)_9rem_1.5rem] md:gap-x-6 md:px-4 md:py-7"
             >
-              <span className="label">{String(i + 1).padStart(2, "0")}</span>
-              <span className="font-display text-[clamp(1.9rem,5vw,4rem)] leading-none tracking-[-0.03em]">{t(`nav.${entry.labelKey}`)}</span>
+              <span className="self-center"><span className="chapter">{t("home.chapter", { n: String(i + 1).padStart(2, "0") })}</span></span>
+              <span className="idx-title font-display text-[clamp(1.9rem,5vw,4rem)] font-bold leading-none tracking-[-0.03em]">{t(`nav.${entry.labelKey}`)}</span>
               <span className="col-span-2 col-start-2 mt-2 text-sm text-fg-2 md:col-span-1 md:col-start-auto md:mt-0 md:text-base">
                 {t(`nav.desc.${entry.id}`)}
               </span>

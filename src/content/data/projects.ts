@@ -112,9 +112,9 @@ export const projects: Project[] = [
     ],
     caseStudy: {
       overview: {
-        en: "Two repositories: DeepSea (the Android app) and DeepSea-RestAPI (the Spring Boot service). Which features are finished is for the owner to state — only what the manifests and source tree prove is listed here.",
-        ja: d("二つのリポジトリで構成：DeepSea（Android アプリ）と DeepSea-RestAPI（Spring Boot サービス）。どの機能が完成しているかは作者が記載する項目で、ここにはマニフェストとソースツリーで確認できる内容のみを載せています。"),
-        vi: d("Hai repository: DeepSea (ứng dụng Android) và DeepSea-RestAPI (dịch vụ Spring Boot). Tính năng nào đã hoàn thiện là phần chủ trang cần tự ghi — ở đây chỉ liệt kê những gì manifest và cây mã nguồn chứng minh được."),
+        en: "Two repositories: DeepSea (the Android app) and DeepSea-RestAPI (the Spring Boot service).",
+        ja: d("二つのリポジトリで構成されています：DeepSea（Android アプリ）と DeepSea-RestAPI（Spring Boot サービス）。"),
+        vi: d("Hai repository: DeepSea (ứng dụng Android) và DeepSea-RestAPI (dịch vụ Spring Boot)."),
       },
       architecture: {
         en: "Android: app/src/main/java/com/example/deepsea/{data, ui, utils}. API: com.example.deepsea.{controller, service, repository, entity, dto, mapper, config, exception, enums, annotations, util}.",
@@ -161,9 +161,9 @@ export const projects: Project[] = [
     ],
     caseStudy: {
       overview: {
-        en: "Language identification for five languages (the training config's comment names English, Japanese, Korean, Vietnamese and Chinese), with a Whisper step on top. Accuracy and latency figures appear only in the README and have not been verified here, so they are not shown.",
-        ja: d("5言語（学習設定のコメントでは英語・日本語・韓国語・ベトナム語・中国語）の言語識別に、Whisper の工程を重ねた構成です。精度やレイテンシの数値は README にしかなく、ここでは未検証のため掲載していません。"),
-        vi: d("Nhận diện năm ngôn ngữ (chú thích trong cấu hình huấn luyện nêu tiếng Anh, Nhật, Hàn, Việt và Trung) cùng bước chép lời bằng Whisper. Các số liệu độ chính xác và độ trễ chỉ có trong README và chưa được kiểm chứng ở đây nên không hiển thị."),
+        en: "Language identification for five languages (English, Japanese, Korean, Vietnamese and Chinese, as named in the training configuration), followed by a Whisper transcription step.",
+        ja: d("5言語（学習設定に記載の英語・日本語・韓国語・ベトナム語・中国語）の言語識別に、Whisper による文字起こしの工程を続けた構成です。"),
+        vi: d("Nhận diện năm ngôn ngữ (tiếng Anh, Nhật, Hàn, Việt và Trung, như nêu trong cấu hình huấn luyện), tiếp theo là bước chép lời bằng Whisper."),
       },
       implementation: {
         en: "Pipeline: audio upload → FFmpeg conversion to 16 kHz mono WAV → ECAPA-TDNN language prediction → language hint passed to Whisper → JSON response. Quantization scripts produce an INT8 model for comparison with the FP32 original.",
@@ -293,9 +293,9 @@ export const projects: Project[] = [
     ],
     caseStudy: {
       overview: {
-        en: "The repository README describes a larger web and cloud platform (Flask/Django, Docker, AWS/GCP). The code in the repository is the desktop application above, so only that is described here.",
-        ja: d("リポジトリの README ではより大きな Web／クラウドのプラットフォーム（Flask/Django、Docker、AWS/GCP）が説明されていますが、実際のコードは上記のデスクトップアプリであるため、ここではそちらだけを説明しています。"),
-        vi: d("README của repository mô tả một nền tảng web và cloud lớn hơn (Flask/Django, Docker, AWS/GCP). Mã nguồn thực tế là ứng dụng desktop nêu trên, nên ở đây chỉ mô tả phần đó."),
+        en: "A desktop application: webcam frames are run through a Keras model and a PyQt6 window shows the video together with a live chart of the smoothed predictions.",
+        ja: d("デスクトップアプリです。ウェブカメラの映像フレームを Keras モデルに通し、PyQt6 のウィンドウに映像と、平滑化した予測値のライブグラフを表示します。"),
+        vi: d("Ứng dụng desktop: các khung hình webcam được đưa qua mô hình Keras và cửa sổ PyQt6 hiển thị video cùng biểu đồ trực tiếp của các dự đoán đã làm mượt."),
       },
     },
   },
@@ -327,9 +327,9 @@ export const projects: Project[] = [
     ],
     caseStudy: {
       overview: {
-        en: "A full client–server exercise across two languages. Real-time features beyond what the file layout shows (e.g. presence, read receipts) are described as \"coming soon\" in the README and are not claimed here.",
-        ja: d("二つの言語にまたがるクライアント／サーバーの実践的な題材です。ファイル構成から確認できる範囲を超える機能（オンライン状態や既読など）は README で「今後対応」とされており、ここでは主張していません。"),
-        vi: d("Một bài thực hành client–server trọn vẹn trên hai ngôn ngữ. Các tính năng thời gian thực vượt quá những gì cấu trúc tệp cho thấy (như trạng thái online, đã đọc) được README ghi là \"sắp có\" và không được khẳng định ở đây."),
+        en: "A client–server application across two languages: a Python desktop client and a Node.js backend that handles authentication, real-time messaging and file uploads.",
+        ja: d("二つの言語にまたがるクライアント／サーバー構成のアプリです。Python のデスクトップクライアントと、認証・リアルタイムメッセージ・ファイルアップロードを担う Node.js バックエンドからなります。"),
+        vi: d("Ứng dụng client–server trên hai ngôn ngữ: client desktop Python và backend Node.js xử lý xác thực, nhắn tin thời gian thực và tải tệp lên."),
       },
     },
   },

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, useSyncExternalStore } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { search, type SearchEntry } from "@/lib/search";
@@ -9,18 +9,24 @@ export function SearchPanel({ entries }: { entries: SearchEntry[] }) {
   const t = useTranslations("search");
   const tt = useTranslations("translation");
   const locale = useLocale();
-  const [q, setQ] = useState("");
+  // Deep link: /search?q=term. The URL is an external store (empty on the server); once the visitor types, their text wins.
+  const urlQuery = useSyncExternalStore(
+    (cb) => { window.addEventListener("popstate", cb); return () => window.removeEventListener("popstate", cb); },
+    () => new URLSearchParams(window.location.search).get("q") ?? "",
+    () => "",
+  );
+  const [typed, setTyped] = useState<string | null>(null);
+  const q = typed ?? urlQuery;
+  const setQ = setTyped;
 
-  // Deep link: /search?q=term. Read once on mount; keep the URL in sync without a navigation.
+  // Keep the URL in sync without a navigation (history.replaceState does not trigger a render).
+  // Only after the visitor types: on hydration `q` is still the server value, and writing it would erase ?q=.
   useEffect(() => {
-    const initial = new URLSearchParams(window.location.search).get("q");
-    if (initial) setQ(initial);
-  }, []);
-  useEffect(() => {
+    if (typed === null) return;
     const url = new URL(window.location.href);
-    if (q) url.searchParams.set("q", q); else url.searchParams.delete("q");
+    if (typed) url.searchParams.set("q", typed); else url.searchParams.delete("q");
     window.history.replaceState(null, "", url);
-  }, [q]);
+  }, [typed]);
 
   const results = useMemo(() => search(entries, q, 50), [entries, q]);
 

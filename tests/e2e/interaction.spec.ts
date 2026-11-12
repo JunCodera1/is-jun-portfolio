@@ -115,7 +115,7 @@ test.describe("index menu (also the mobile menu)", () => {
     await page.getByRole("button", { name: "Open the site index" }).click();
     const dialog = page.getByRole("dialog", { name: "Index of the site" });
     await expect(dialog).toBeVisible();
-    await expect(dialog.getByRole("link")).toHaveCount(11);
+    await expect(dialog.getByRole("link")).toHaveCount(12);
     await page.keyboard.press("Escape");
     await expect(dialog).toBeHidden();
     await page.getByRole("button", { name: "Open the site index" }).click();
@@ -250,4 +250,37 @@ test("reduced motion: smooth scrolling and animations are disabled (row 38)", as
   await page.goto("/en");
   expect(await page.evaluate(() => getComputedStyle(document.documentElement).scrollBehavior)).toBe("auto");
   expect(await page.evaluate(() => getComputedStyle(document.querySelector(".reveal")!).animationName)).not.toBe("reveal-in");
+});
+
+test("dashboard widgets show real data: the visitor's clock and the latest repository push (row 28)", async ({ page }) => {
+  await page.goto("/en");
+  const time = page.locator("dd", { has: page.locator("span.tabular-nums") }).first();
+  await expect(time).toContainText(/\d{1,2}:\d{2}/);
+  const widget = page.getByText("Last repository push").locator("..");
+  await expect(widget.getByRole("link")).toHaveAttribute("href", /^https:\/\/github\.com\/JunCodera1\//);
+  await expect(widget).toContainText(/GitHub/);
+});
+
+test("typography: spec fonts are loaded, with a Japanese-capable fallback stack (row 37)", async ({ page }) => {
+  await page.goto("/ja");
+  await page.evaluate(() => document.fonts.ready);
+  const stacks = await page.evaluate(() => ({
+    h1: getComputedStyle(document.querySelector("h1")!).fontFamily,
+    body: getComputedStyle(document.body).fontFamily,
+    mono: getComputedStyle(document.querySelector(".label")!).fontFamily,
+  }));
+  expect(stacks.h1).toContain("Space Grotesk");
+  expect(stacks.body).toContain("Inter");
+  expect(stacks.mono).toContain("JetBrains Mono");
+  for (const s of [stacks.h1, stacks.body]) expect(s).toMatch(/Hiragino|Yu Gothic|Noto Sans/);
+  expect(await page.evaluate(() => document.fonts.check('16px "Inter Variable"'))).toBe(true);
+});
+
+test("social preview image is generated and referenced in og/twitter metadata", async ({ page, request }) => {
+  await page.goto("/vi");
+  const og = await page.locator('meta[property="og:image"]').getAttribute("content");
+  expect(og).toMatch(/opengraph-image/);
+  const res = await request.get(new URL(og!).pathname);
+  expect(res.headers()["content-type"]).toContain("image/png");
+  await expect(page.locator('meta[name="twitter:image"]')).toHaveCount(1);
 });
