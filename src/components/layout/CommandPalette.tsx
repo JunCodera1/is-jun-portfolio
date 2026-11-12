@@ -18,10 +18,15 @@ interface Item {
   hint?: string;
   badge?: string;
   lang?: string;
+  /** Extra words that make an action findable (e.g. "japanese" for 日本語). */
+  keywords?: string[];
   run: () => void;
 }
 
 export const OPEN_PALETTE_EVENT = "open-command-palette";
+
+/** Searchable in every UI language: typing "japanese" works from the Vietnamese UI too. */
+const ENGLISH_NAME: Record<Locale, string> = { en: "english", ja: "japanese", vi: "vietnamese" };
 
 export function CommandPalette({ pages, githubUrl }: { pages: PalettePage[]; githubUrl: string }) {
   const t = useTranslations();
@@ -38,11 +43,24 @@ export function CommandPalette({ pages, githubUrl }: { pages: PalettePage[]; git
 
   useEffect(() => { setIsMac(/Mac|iPhone|iPad/.test(navigator.platform)); }, []);
 
+  const requested = useRef(false);
+
+  // Lazy-load the per-locale static search index the first time the palette opens.
+  const loadIndex = useCallback(() => {
+    if (requested.current) return;
+    requested.current = true;
+    fetch(`/${locale}/search-index.json`)
+      .then((r) => { if (!r.ok) throw new Error(String(r.status)); return r.json() as Promise<SearchEntry[]>; })
+      .then(setRemote)
+      .catch(() => setRemote("error"));
+  }, [locale]);
+
   const close = useCallback(() => dialogRef.current?.close(), []);
   const open = useCallback(() => {
     const d = dialogRef.current;
     if (d && !d.open) d.showModal();
-  }, []);
+    loadIndex();
+  }, [loadIndex]);
 
   // Global shortcut (Ctrl/Cmd + K) and an event other components can dispatch.
   useEffect(() => {
@@ -61,15 +79,6 @@ export function CommandPalette({ pages, githubUrl }: { pages: PalettePage[]; git
     };
   }, [open]);
 
-  // Lazy-load the per-locale static search index the first time the palette opens.
-  const loadIndex = useCallback(() => {
-    if (remote !== null) return;
-    fetch(`/${locale}/search-index.json`)
-      .then((r) => { if (!r.ok) throw new Error(String(r.status)); return r.json() as Promise<SearchEntry[]>; })
-      .then(setRemote)
-      .catch(() => setRemote("error"));
-  }, [locale, remote]);
-
   const go = useCallback((href: string) => { close(); router.push(href); }, [close, router]);
 
   const pageEntries: SearchEntry[] = useMemo(
@@ -81,11 +90,13 @@ export function CommandPalette({ pages, githubUrl }: { pages: PalettePage[]; git
     const themeItems = (["system", "light", "dark"] as ThemePref[]).map<Item>((mode) => ({
       id: `theme:${mode}`, group: "actions",
       label: t("palette.theme", { mode: t(`theme.${mode}`) }),
+      keywords: [mode, "theme"],
       run: () => { close(); applyTheme(mode); },
     }));
     const langItems = locales.filter((l) => l !== locale).map<Item>((l) => ({
       id: `lang:${l}`, group: "actions",
       label: t("palette.language", { name: localeMeta[l].name }),
+      keywords: [l, ENGLISH_NAME[l], t(`translation.languageNames.${l}`), localeMeta[l].name],
       run: () => { close(); router.replace(pathname, { locale: l }); },
     }));
     const github: Item = {
@@ -110,7 +121,7 @@ export function CommandPalette({ pages, githubUrl }: { pages: PalettePage[]; git
     const corpus = remote && remote !== "error" ? remote : pageEntries;
     const hits = search(corpus, q, 12).map(toItem);
     const nq = normalize(q);
-    const actionHits = actions.filter((a) => normalize(a.label).includes(nq));
+    const actionHits = actions.filter((a) => normalize([a.label, ...(a.keywords ?? [])].join(" ")).includes(nq));
     return [...hits, ...actionHits];
   }, [query, remote, pageEntries, actions, go, locale, t]);
 
@@ -137,18 +148,18 @@ export function CommandPalette({ pages, githubUrl }: { pages: PalettePage[]; git
         type="button"
         onClick={open}
         aria-haspopup="dialog"
-        aria-label={t("common.openPalette")}
         className="tap inline-flex h-9 items-center gap-2 border border-line-strong px-2.5 text-fg-2 transition-colors hover:border-fg hover:text-fg"
       >
         <SearchIcon width={16} height={16} />
+        {/* Name = visible shortcut first, then the action (WCAG 2.5.3). Below md the shortcut is display:none, so the name is just the action. */}
         <span className="hidden font-mono text-[0.7rem] tracking-wider md:inline">{isMac ? "⌘K" : "Ctrl K"}</span>
+        <span className="sr-only">{t("common.openPalette")}</span>
       </button>
 
       <dialog
         ref={dialogRef}
         aria-label={t("palette.title")}
         onClose={() => { setQuery(""); setActive(0); }}
-        onToggle={(e) => { if ((e.target as HTMLDialogElement).open) loadIndex(); }}
         onClick={(e) => { if (e.target === dialogRef.current) close(); }}
         className="m-0 mx-auto mt-[8vh] max-h-[80dvh] w-[min(42rem,calc(100vw-1.5rem))] overflow-hidden border border-line-strong bg-surface p-0 text-fg"
       >

@@ -1,0 +1,14 @@
+import { expect, type Page } from "@playwright/test";
+
+export const LOCALES = ["en", "ja", "vi"] as const;
+export const STATIC_PATHS = ["", "/about", "/now", "/contact", "/interests", "/timeline", "/projects", "/profile", "/garden", "/journal", "/search", "/terminal"];
+export const DETAIL_PATHS = ["/projects/green-footprint", "/projects/voiceai", "/garden/how-this-space-is-built", "/journal/three-languages-from-day-one"];
+export const ALL_PATHS = [...STATIC_PATHS, ...DETAIL_PATHS];
+
+/** Collect console errors/warnings and uncaught exceptions while a page is exercised. */
+export function trackConsole(page: Page) {
+  const problems: string[] = [];
+  page.on("console", (m) => { if (m.type() === "error" || m.type() === "warning") problems.push(`${m.type()}: ${m.text()}`); });
+  page.on("pageerror", (e) => problems.push(`pageerror: ${e.message}`));
+  return { assertClean: () => expect(problems).toEqual([]) };
+}

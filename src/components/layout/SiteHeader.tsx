@@ -25,7 +25,7 @@ export async function SiteHeader({ locale }: { locale: Locale }) {
         <NavLinks items={primary} label={t("nav.primaryLabel")} />
         <div className="flex items-center gap-2 sm:gap-3">
           <LanguageSwitcher />
-          <ThemeControl className="hidden md:inline-flex" />
+          <div className="hidden md:block"><ThemeControl /></div>
           <CommandPalette pages={all} githubUrl={github} />
           <IndexMenu items={all} />
         </div>

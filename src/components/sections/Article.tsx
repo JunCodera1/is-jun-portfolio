@@ -65,7 +65,7 @@ export async function Article({ entry, locale }: { entry: ContentEntry; locale: 
       </header>
 
       <div className="mt-10 grid gap-12 lg:grid-cols-12">
-        <div className="lg:col-span-8">
+        <div className="min-w-0 lg:col-span-8">
           <TranslationBanner status={entry.status} locale={locale} englishHref={`/${kind}/${entry.id}`} />
           {showToc && <details className="mb-10 border border-line p-4 lg:hidden"><summary className="label cursor-pointer">{t("journal.toc")}</summary><div className="mt-4">{toc}</div></details>}
           <MdxContent source={entry.body} lang={entry.lang} />

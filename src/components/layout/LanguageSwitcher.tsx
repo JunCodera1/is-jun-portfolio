@@ -23,15 +23,15 @@ export function LanguageSwitcher({ className = "" }: { className?: string }) {
               <Link
                 href={pathname}
                 locale={l}
-                lang={localeMeta[l].htmlLang}
                 hrefLang={localeMeta[l].htmlLang}
                 aria-current={active ? "true" : undefined}
-                aria-label={t("switchTo", { name: localeMeta[l].name })}
                 className={`tap grid min-h-9 place-items-center px-2.5 font-mono text-[0.72rem] tracking-wide transition-colors ${
                   active ? "text-fg" : "text-fg-3 hover:text-fg"
                 }`}
               >
-                <span className={active ? "hl" : undefined}>{localeMeta[l].label}</span>
+                {/* Accessible name = visible label + action (WCAG 2.5.3 label-in-name); lang only on the foreign-language label */}
+                <span lang={localeMeta[l].htmlLang} className={active ? "hl" : undefined}>{localeMeta[l].label}</span>
+                <span className="sr-only">{`: ${t("switchTo", { name: localeMeta[l].name })}`}</span>
               </Link>
             </li>
           );

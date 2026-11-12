@@ -93,7 +93,7 @@ export default async function ProjectPage({ params }: Props) {
           </div>
         </aside>
 
-        <div className="lg:col-span-9 lg:col-start-4">
+        <div className="min-w-0 lg:col-span-9 lg:col-start-4">
           <TranslationBanner status={status === "untranslated" ? "untranslated" : status} locale={locale} />
 
           <section aria-labelledby="highlights" className="mb-14">
@@ -117,7 +117,7 @@ export default async function ProjectPage({ params }: Props) {
                     <span className="label mr-3 md:mb-1 md:mr-0 md:block">{String(i + 1).padStart(2, "0")}</span>
                     {t(`projects.detail.sections.${key}`)}
                   </h2>
-                  <div className="max-w-[68ch]">
+                  <div className="min-w-0 max-w-[68ch]">
                     {key === "stack" ? (
                       <>
                         <p className="mb-4 text-sm text-fg-2">{t("projects.detail.stackNote")}</p>
