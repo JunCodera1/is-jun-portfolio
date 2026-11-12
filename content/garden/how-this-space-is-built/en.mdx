@@ -1,0 +1,27 @@
+---
+title: How this space is built
+summary: A short map of the choices behind the site — static pages, three locales, content kept in Git.
+date: 2026-11-13
+updated: 2026-11-13
+tags: [meta, site, next-js]
+category: site
+maturity: budding
+related: [placeholders-not-fiction]
+translation: translated
+---
+
+This note describes the site itself. It is starter content, written so the Garden has something true in it from the first day; the owner can replace or delete it.
+
+## The short version
+
+- Every page is generated ahead of time, once per language, so there is almost nothing to wait for when it loads.
+- Text that belongs to the site lives in `messages/`; longer writing lives in `content/` as MDX files; facts about the owner live in `src/content/data/`.
+- Nothing is stored about visitors. The language and theme choices stay in the visitor's own browser.
+
+## Why Git is the content system
+
+A database or a CMS would add a service to run, secure and pay for. For a personal site that grows slowly, a folder of text files is easier to back up, easy to review, and impossible to lose to a vendor. If the writing outgrows that, the file layout is simple enough to move.
+
+## What is intentionally missing
+
+There is no contact form, no guestbook and no comment box. Each of those needs somewhere real to send data, and a control that looks like it works but does not would be worse than no control at all.

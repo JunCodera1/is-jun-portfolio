@@ -1,0 +1,46 @@
+---
+title: Three languages from day one
+summary: How the site handles English, Japanese and Vietnamese in its URLs, its fallbacks and its metadata.
+date: 2026-11-13
+updated: 2026-11-13
+tags: [meta, i18n, site]
+related: []
+translation: translated
+---
+
+This post documents a decision rather than a personal story: the site was built to be trilingual from the first commit, instead of adding translations afterwards. It is starter content about the site itself.
+
+## One URL per language
+
+Every page exists under `/en`, `/ja` and `/vi`. A link to `/ja/projects` always opens the Japanese projects page, whatever the visitor's browser settings are. That makes pages shareable, indexable, and easy to reason about.
+
+The visitor's browser language is used only once, when someone arrives at the bare address `/`. After they pick a language with the switcher, that choice is remembered and wins.
+
+## What happens when a translation is missing
+
+A page never pretends to be translated. There are three states:
+
+| State | Meaning | What the visitor sees |
+| --- | --- | --- |
+| Translated | Written in the language and reviewed | Nothing extra |
+| Draft | Exists, but has not been reviewed | A "Draft translation" notice |
+| Untranslated | No text in this language yet | The English original, a notice, and a link to it |
+
+The text that is shown instead is marked with the correct `lang` attribute, so screen readers pronounce it properly.
+
+## Metadata for search engines
+
+Each page declares its own canonical address and lists its siblings in the other two languages with `hreflang`, plus an `x-default` pointing at English. The sitemap lists every language version of every page.
+
+## Formatting is local too
+
+Dates, numbers and reading times follow the visitor's language. Japanese reading time is estimated from characters, because Japanese text has no spaces to count words with.
+
+```ts
+// Reading time: characters for Japanese, words for everything else
+const minutes = lang === "ja" ? Math.round(chars / 500) : Math.round(words / 200);
+```
+
+## What is still open
+
+The Japanese and Vietnamese copy on this site is written to read naturally, but it has not yet been reviewed by the owner, so it is labelled as draft until then.

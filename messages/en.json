@@ -1,0 +1,386 @@
+{
+  "meta": {
+    "siteName": "My Digital Space",
+    "description": "A personal, multilingual corner of the internet: notes, projects and ongoing experiments in English, Japanese and Vietnamese."
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "now": "Now",
+    "garden": "Garden",
+    "journal": "Journal",
+    "interests": "Interests",
+    "timeline": "Timeline",
+    "projects": "Projects",
+    "profile": "Craft",
+    "contact": "Contact",
+    "terminal": "Terminal",
+    "search": "Search",
+    "primaryLabel": "Primary",
+    "menu": "Index",
+    "menuTitle": "Index of the site",
+    "close": "Close",
+    "desc": {
+      "about": "Story, background and what matters.",
+      "now": "What is happening at the moment, with a date.",
+      "garden": "Short notes, growing over time.",
+      "journal": "Longer writing.",
+      "interests": "Things that are enjoyed, once confirmed.",
+      "timeline": "Milestones that can be verified.",
+      "projects": "Selected work, with its evidence.",
+      "profile": "Skills and technologies, backed by projects.",
+      "contact": "Where to reach out."
+    }
+  },
+  "common": {
+    "skip": "Skip to content",
+    "language": "Language",
+    "theme": "Theme",
+    "search": "Search",
+    "opensNewTab": "opens in a new tab",
+    "published": "Published",
+    "updated": "Updated",
+    "minRead": "{minutes} min read",
+    "tags": "Tags",
+    "all": "All",
+    "clear": "Clear",
+    "back": "Back",
+    "repository": "Repository",
+    "demo": "Live demo",
+    "source": "Source code",
+    "github": "GitHub",
+    "openMenu": "Open the site index",
+    "openPalette": "Open command palette",
+    "viewAll": "View all",
+    "readMore": "Read",
+    "noItems": "Nothing here yet.",
+    "ownerWrites": "The site owner has not written this yet."
+  },
+  "theme": {
+    "label": "Theme",
+    "system": "System",
+    "light": "Light",
+    "dark": "Dark"
+  },
+  "lang": {
+    "label": "Language",
+    "switchTo": "Switch language to {name}"
+  },
+  "translation": {
+    "translated": "Translated",
+    "draft": "Draft",
+    "untranslated": "EN only",
+    "fallbackTitle": "Not translated into {language} yet",
+    "fallbackBody": "This page is shown in its English original until a translation exists.",
+    "fallbackLink": "Read the English original",
+    "draftTitle": "Draft translation",
+    "draftBody": "This translation has not been reviewed yet and may read unnaturally.",
+    "languageNames": {
+      "en": "English",
+      "ja": "Japanese",
+      "vi": "Vietnamese"
+    }
+  },
+  "placeholder": {
+    "label": "Placeholder",
+    "owner": "To be written by the site owner",
+    "unconfirmed": "Not confirmed yet"
+  },
+  "home": {
+    "eyebrow": "An index of a personal digital space",
+    "greetingLabel": "Hello, in three languages",
+    "introPlaceholder": "A short introduction goes here. It stays a placeholder until the site owner writes it.",
+    "ctaExplore": "Open the index",
+    "ctaProjects": "Selected projects",
+    "indexTitle": "Index",
+    "indexHint": "Everything on this site, in the order it is meant to be read.",
+    "entries": "{count, plural, one {# entry} other {# entries}}",
+    "latestTitle": "Latest",
+    "latestEmpty": "No notes or posts published yet.",
+    "featuredTitle": "Selected projects",
+    "featuredHint": "Every technology listed has a file in the repository that proves it.",
+    "allProjects": "All projects",
+    "pulseTitle": "Right now",
+    "localTime": "Your local time",
+    "today": "Today",
+    "lastPush": "Last repository push",
+    "pulseSourceLive": "GitHub, cached up to an hour",
+    "pulseSourceSnapshot": "GitHub snapshot from {date}",
+    "metaLine": "Version 0.1 · work in progress"
+  },
+  "about": {
+    "title": "About",
+    "lead": "The person behind the site — story first, résumé second.",
+    "verifiedTitle": "What the public record shows",
+    "verifiedLead": "Counted from the public GitHub profile, not self-reported.",
+    "repoCount": "{count, plural, one {# public repository} other {# public repositories}} (forks excluded)",
+    "since": "GitHub account created {date}",
+    "languagesTitle": "Primary languages across those repositories",
+    "languagesNote": "A count of repositories, not a skill rating.",
+    "snapshot": "Snapshot taken {date}.",
+    "sections": {
+      "story": {
+        "title": "Story",
+        "prompt": "Who you are, in your own words."
+      },
+      "background": {
+        "title": "Background",
+        "prompt": "Where you come from and what shaped how you work."
+      },
+      "journey": {
+        "title": "Journey",
+        "prompt": "The path so far — what you tried, left, kept."
+      },
+      "interests": {
+        "title": "Interests",
+        "prompt": "What you do when nobody is asking you to."
+      },
+      "values": {
+        "title": "Values",
+        "prompt": "What you care about when making things."
+      },
+      "goals": {
+        "title": "Goals",
+        "prompt": "Where you want to go next."
+      }
+    }
+  },
+  "now": {
+    "title": "Now",
+    "lead": "What is going on at the moment. This page carries a date on purpose.",
+    "updated": "Last updated {date}",
+    "empty": "Nothing posted yet.",
+    "sections": {
+      "learning": "Learning",
+      "building": "Building",
+      "reading": "Reading",
+      "interested": "Interested in",
+      "goals": "Short-term goals"
+    },
+    "githubTitle": "Recently pushed repositories",
+    "githubNote": "Pulled from GitHub, not written by hand.",
+    "pushed": "pushed {date}"
+  },
+  "contact": {
+    "title": "Contact",
+    "lead": "The ways to reach out.",
+    "emailLabel": "Email",
+    "emailMissing": "Email address not set yet",
+    "emailMissingNote": "The site owner has not published a contact address. It will appear here once confirmed.",
+    "elsewhere": "Elsewhere",
+    "noFormTitle": "Why there is no form",
+    "noForm": "A contact form is only honest if messages are delivered somewhere real. Until that exists, this page lists direct links only."
+  },
+  "garden": {
+    "title": "Garden",
+    "lead": "Short, unfinished notes that grow over time. Each one says how mature it is.",
+    "maturity": {
+      "seedling": "Seedling",
+      "budding": "Budding",
+      "evergreen": "Evergreen"
+    },
+    "maturityHint": "Maturity",
+    "filterTags": "Filter by tag",
+    "searchLabel": "Filter notes",
+    "searchPlaceholder": "Filter by title or tag…",
+    "count": "{count, plural, one {# note} other {# notes}}",
+    "empty": "No notes match.",
+    "none": "No notes have been published yet.",
+    "related": "Related notes",
+    "planted": "Planted {date}",
+    "tended": "Last tended {date}"
+  },
+  "journal": {
+    "title": "Journal",
+    "lead": "Longer writing, in the language it was written in.",
+    "count": "{count, plural, one {# post} other {# posts}}",
+    "searchLabel": "Filter posts",
+    "searchPlaceholder": "Filter by title or tag…",
+    "empty": "No posts match.",
+    "none": "No posts have been published yet.",
+    "toc": "On this page",
+    "related": "Related posts",
+    "feed": "RSS feed"
+  },
+  "tagNames": {
+    "meta": "meta",
+    "site": "site",
+    "i18n": "i18n",
+    "design": "design",
+    "next-js": "Next.js"
+  },
+  "interests": {
+    "title": "Interests",
+    "lead": "Space for what is enjoyed outside of work. Only confirmed items will ever appear here.",
+    "empty": "Nothing confirmed here yet.",
+    "categories": {
+      "anime-manga": "Anime & manga",
+      "music": "Music",
+      "books": "Books",
+      "games": "Games",
+      "tools": "Tools",
+      "other": "Other"
+    }
+  },
+  "timeline": {
+    "title": "Timeline",
+    "lead": "Milestones that can be verified. Personal ones appear once the owner adds them.",
+    "sourceGithub": "From GitHub",
+    "sourceOwner": "From the owner",
+    "accountCreated": "GitHub account created",
+    "firstRepo": "First public repository in {language}: {repo}",
+    "ownerSlotTitle": "Personal milestones",
+    "ownerSlot": "Study, work and life milestones are added by the owner. None have been confirmed yet.",
+    "derivedNote": "Derived from repository creation dates in a GitHub snapshot taken {date}. A repository's creation date is when it was published, not when the skill was learned."
+  },
+  "projects": {
+    "title": "Projects",
+    "lead": "Selected work. Technologies are listed only when a file in the repository proves them.",
+    "filterKind": "Filter by kind",
+    "count": "Showing {shown} of {total}",
+    "kinds": {
+      "web": "Web",
+      "mobile": "Mobile",
+      "backend": "Backend",
+      "ml": "ML / AI",
+      "database": "Database",
+      "desktop": "Desktop",
+      "extension": "Browser extension"
+    },
+    "featured": "Featured",
+    "lastPush": "Last push {date}",
+    "created": "Created {date}",
+    "statusLabel": "Status",
+    "status": {
+      "in-progress": "In progress",
+      "shipped": "Shipped",
+      "paused": "Paused",
+      "archived": "Archived"
+    },
+    "statusUnset": "Status not set by the owner",
+    "detail": {
+      "back": "All projects",
+      "highlights": "Technical highlights",
+      "evidenceHeading": "Evidence",
+      "repos": "Repositories",
+      "stackNote": "Each technology links to the file that shows it is used.",
+      "stackColumn": "Technology",
+      "evidenceColumn": "Where it is verified",
+      "repoColumn": "Repository",
+      "sections": {
+        "overview": "Overview",
+        "problem": "Problem",
+        "goals": "Goals",
+        "role": "Role",
+        "stack": "Stack",
+        "architecture": "Architecture",
+        "implementation": "Implementation",
+        "challenges": "Challenges",
+        "results": "Results",
+        "lessons": "Lessons"
+      },
+      "ownerNeeded": "To be written by the owner — only they know this part.",
+      "verifiedFrom": "Written from the repository's files",
+      "lastPushLabel": "Last push",
+      "createdLabel": "Created"
+    }
+  },
+  "profile": {
+    "title": "Craft",
+    "lead": "Skills and technologies, grouped by what they are used for and tied to projects that use them.",
+    "skillsTitle": "Technologies, with evidence",
+    "skillsNote": "No percentages: a technology is listed because a project uses it, and the dots show which ones.",
+    "usedIn": "Used in",
+    "categories": {
+      "languages": "Languages",
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "mobile": "Mobile",
+      "data": "Data & ML",
+      "tooling": "Tooling & delivery"
+    },
+    "educationTitle": "Education",
+    "experienceTitle": "Experience",
+    "careerEmpty": "No verified entries yet. Study and work history will be added by the site owner.",
+    "careerKinds": {
+      "education": "Education",
+      "experience": "Experience",
+      "training": "Training",
+      "activity": "Activity"
+    },
+    "present": "present",
+    "recruiterLink": "Compact view for recruiters"
+  },
+  "search": {
+    "title": "Search",
+    "lead": "Pages, projects, notes and posts in this language.",
+    "label": "Search the site",
+    "placeholder": "Search…",
+    "results": "{count, plural, one {# result} other {# results}}",
+    "none": "No results for “{query}”.",
+    "idle": "Type to search.",
+    "types": {
+      "page": "Page",
+      "project": "Project",
+      "garden": "Note",
+      "journal": "Post"
+    },
+    "loadError": "The search index could not be loaded."
+  },
+  "palette": {
+    "title": "Command palette",
+    "placeholder": "Search pages, projects, notes, actions…",
+    "hint": "↑ ↓ to move · Enter to open · Esc to close",
+    "groupPages": "Pages",
+    "groupContent": "Content",
+    "groupActions": "Actions",
+    "theme": "Theme: {mode}",
+    "language": "Language: {name}",
+    "github": "Open GitHub profile",
+    "empty": "No matches.",
+    "loadError": "Content search is unavailable right now."
+  },
+  "terminal": {
+    "title": "Terminal",
+    "lead": "A simulation. It only reads the site's own content and never runs a real command.",
+    "welcome": "Welcome. Type help to see what is available.",
+    "inputLabel": "Command",
+    "outputLabel": "Terminal output",
+    "prompt": "visitor@space",
+    "unknown": "command not found: {cmd}. Type help.",
+    "help": "Show this list of commands.",
+    "helpTitle": "Available commands",
+    "descriptions": {
+      "about": "Who this site belongs to.",
+      "projects": "List the featured projects.",
+      "skills": "List technologies and where they are used.",
+      "interests": "List confirmed interests.",
+      "journal": "List journal posts.",
+      "garden": "List garden notes.",
+      "now": "Show what is happening now.",
+      "contact": "Show how to get in touch.",
+      "clear": "Clear the screen."
+    },
+    "none": "(nothing yet)",
+    "aboutIntro": "Name: {name} (working name, not confirmed)",
+    "aboutGithub": "GitHub: {url}",
+    "aboutBody": "Longer story: see {path}",
+    "emailMissing": "email: not published yet",
+    "emailLabel": "email: {email}",
+    "hintPlaceholder": "try: help"
+  },
+  "errors": {
+    "notFoundTitle": "Page not found",
+    "notFoundBody": "That address does not exist in this space.",
+    "toIndex": "Back to the index",
+    "errorTitle": "Something went wrong",
+    "errorBody": "The page could not be shown. You can try again.",
+    "retry": "Try again"
+  },
+  "footer": {
+    "colophon": "Content lives in Git; the site is statically generated.",
+    "rights": "© {year} {name}",
+    "sitemap": "Sitemap",
+    "elsewhere": "Elsewhere"
+  }
+}

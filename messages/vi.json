@@ -1,0 +1,386 @@
+{
+  "meta": {
+    "siteName": "My Digital Space",
+    "description": "Góc nhỏ cá nhân trên Internet: ghi chú, dự án và những thử nghiệm đang diễn ra, bằng tiếng Anh, tiếng Nhật và tiếng Việt."
+  },
+  "nav": {
+    "home": "Trang chủ",
+    "about": "Giới thiệu",
+    "now": "Hiện tại",
+    "garden": "Vườn ghi chú",
+    "journal": "Nhật ký",
+    "interests": "Sở thích",
+    "timeline": "Dòng thời gian",
+    "projects": "Dự án",
+    "profile": "Chuyên môn",
+    "contact": "Liên hệ",
+    "terminal": "Terminal",
+    "search": "Tìm kiếm",
+    "primaryLabel": "Menu chính",
+    "menu": "Mục lục",
+    "menuTitle": "Mục lục của trang",
+    "close": "Đóng",
+    "desc": {
+      "about": "Câu chuyện, nền tảng và những điều quan trọng.",
+      "now": "Điều đang diễn ra lúc này, có ghi ngày.",
+      "garden": "Ghi chú ngắn, lớn dần theo thời gian.",
+      "journal": "Những bài viết dài hơn.",
+      "interests": "Những điều yêu thích, sau khi được xác nhận.",
+      "timeline": "Các cột mốc có thể kiểm chứng.",
+      "projects": "Các sản phẩm tiêu biểu, kèm bằng chứng.",
+      "profile": "Kỹ năng và công nghệ, gắn với dự án thực tế.",
+      "contact": "Cách để liên lạc."
+    }
+  },
+  "common": {
+    "skip": "Bỏ qua, đến nội dung chính",
+    "language": "Ngôn ngữ",
+    "theme": "Giao diện",
+    "search": "Tìm kiếm",
+    "opensNewTab": "mở trong tab mới",
+    "published": "Đăng ngày",
+    "updated": "Cập nhật",
+    "minRead": "{minutes} phút đọc",
+    "tags": "Thẻ",
+    "all": "Tất cả",
+    "clear": "Xoá",
+    "back": "Quay lại",
+    "repository": "Repository",
+    "demo": "Bản demo",
+    "source": "Mã nguồn",
+    "github": "GitHub",
+    "openMenu": "Mở mục lục của trang",
+    "openPalette": "Mở bảng lệnh",
+    "viewAll": "Xem tất cả",
+    "readMore": "Đọc",
+    "noItems": "Chưa có gì ở đây.",
+    "ownerWrites": "Chủ trang chưa viết phần này."
+  },
+  "theme": {
+    "label": "Giao diện",
+    "system": "Theo hệ thống",
+    "light": "Sáng",
+    "dark": "Tối"
+  },
+  "lang": {
+    "label": "Ngôn ngữ",
+    "switchTo": "Chuyển ngôn ngữ sang {name}"
+  },
+  "translation": {
+    "translated": "Đã dịch",
+    "draft": "Bản nháp",
+    "untranslated": "Chỉ có tiếng Anh",
+    "fallbackTitle": "Chưa có bản dịch tiếng {language}",
+    "fallbackBody": "Trang này đang hiển thị bản gốc tiếng Anh cho đến khi có bản dịch.",
+    "fallbackLink": "Đọc bản gốc tiếng Anh",
+    "draftTitle": "Bản dịch nháp",
+    "draftBody": "Bản dịch này chưa được rà soát nên có thể đọc chưa tự nhiên.",
+    "languageNames": {
+      "en": "Anh",
+      "ja": "Nhật",
+      "vi": "Việt"
+    }
+  },
+  "placeholder": {
+    "label": "Nội dung giữ chỗ",
+    "owner": "Chủ trang sẽ viết phần này",
+    "unconfirmed": "Chưa được xác nhận"
+  },
+  "home": {
+    "eyebrow": "Mục lục của một không gian số cá nhân",
+    "greetingLabel": "Lời chào bằng ba ngôn ngữ",
+    "introPlaceholder": "Phần giới thiệu ngắn sẽ nằm ở đây. Nó chỉ là nội dung giữ chỗ cho đến khi chủ trang viết.",
+    "ctaExplore": "Mở mục lục",
+    "ctaProjects": "Dự án tiêu biểu",
+    "indexTitle": "Mục lục",
+    "indexHint": "Mọi thứ trên trang này, theo thứ tự nên đọc.",
+    "entries": "{count} mục",
+    "latestTitle": "Mới nhất",
+    "latestEmpty": "Chưa có ghi chú hay bài viết nào được đăng.",
+    "featuredTitle": "Dự án tiêu biểu",
+    "featuredHint": "Mỗi công nghệ được liệt kê đều có một tệp trong repository làm bằng chứng.",
+    "allProjects": "Tất cả dự án",
+    "pulseTitle": "Ngay lúc này",
+    "localTime": "Giờ địa phương của bạn",
+    "today": "Hôm nay",
+    "lastPush": "Lần push repository gần nhất",
+    "pulseSourceLive": "GitHub, lưu đệm tối đa một giờ",
+    "pulseSourceSnapshot": "Ảnh chụp dữ liệu GitHub ngày {date}",
+    "metaLine": "Phiên bản 0.1 · đang xây dựng"
+  },
+  "about": {
+    "title": "Giới thiệu",
+    "lead": "Người đứng sau trang này — câu chuyện trước, hồ sơ sau.",
+    "verifiedTitle": "Hồ sơ công khai cho thấy gì",
+    "verifiedLead": "Được đếm từ hồ sơ GitHub công khai, không phải tự khai.",
+    "repoCount": "{count} repository công khai (không tính fork)",
+    "since": "Tài khoản GitHub được tạo ngày {date}",
+    "languagesTitle": "Ngôn ngữ chính của các repository đó",
+    "languagesNote": "Đây là số lượng repository, không phải thang đánh giá kỹ năng.",
+    "snapshot": "Dữ liệu chụp ngày {date}.",
+    "sections": {
+      "story": {
+        "title": "Câu chuyện",
+        "prompt": "Bạn là ai, bằng chính lời của bạn."
+      },
+      "background": {
+        "title": "Nền tảng",
+        "prompt": "Bạn đến từ đâu và điều gì định hình cách bạn làm việc."
+      },
+      "journey": {
+        "title": "Hành trình",
+        "prompt": "Chặng đường đã qua — điều đã thử, đã bỏ, đã giữ."
+      },
+      "interests": {
+        "title": "Sở thích",
+        "prompt": "Bạn làm gì khi không ai yêu cầu."
+      },
+      "values": {
+        "title": "Giá trị",
+        "prompt": "Điều bạn coi trọng khi tạo ra sản phẩm."
+      },
+      "goals": {
+        "title": "Mục tiêu",
+        "prompt": "Nơi bạn muốn đến tiếp theo."
+      }
+    }
+  },
+  "now": {
+    "title": "Hiện tại",
+    "lead": "Điều đang diễn ra lúc này. Trang này cố ý có ghi ngày.",
+    "updated": "Cập nhật lần cuối {date}",
+    "empty": "Chưa có gì được đăng.",
+    "sections": {
+      "learning": "Đang học",
+      "building": "Đang xây dựng",
+      "reading": "Đang đọc",
+      "interested": "Đang quan tâm",
+      "goals": "Mục tiêu ngắn hạn"
+    },
+    "githubTitle": "Các repository được push gần đây",
+    "githubNote": "Lấy từ GitHub, không viết tay.",
+    "pushed": "push ngày {date}"
+  },
+  "contact": {
+    "title": "Liên hệ",
+    "lead": "Các cách để liên lạc.",
+    "emailLabel": "Email",
+    "emailMissing": "Chưa đặt địa chỉ email",
+    "emailMissingNote": "Chủ trang chưa công bố địa chỉ liên hệ. Địa chỉ sẽ xuất hiện ở đây sau khi được xác nhận.",
+    "elsewhere": "Những nơi khác",
+    "noFormTitle": "Vì sao không có biểu mẫu",
+    "noForm": "Biểu mẫu liên hệ chỉ trung thực khi tin nhắn thực sự được gửi tới một nơi có thật. Cho đến khi có điều đó, trang này chỉ liệt kê các liên kết trực tiếp."
+  },
+  "garden": {
+    "title": "Vườn ghi chú",
+    "lead": "Những ghi chú ngắn, chưa hoàn chỉnh, lớn dần theo thời gian. Mỗi ghi chú cho biết nó đã chín đến đâu.",
+    "maturity": {
+      "seedling": "Hạt giống",
+      "budding": "Nảy mầm",
+      "evergreen": "Xanh bền"
+    },
+    "maturityHint": "Độ chín",
+    "filterTags": "Lọc theo thẻ",
+    "searchLabel": "Lọc ghi chú",
+    "searchPlaceholder": "Lọc theo tiêu đề hoặc thẻ…",
+    "count": "{count} ghi chú",
+    "empty": "Không có ghi chú phù hợp.",
+    "none": "Chưa có ghi chú nào được đăng.",
+    "related": "Ghi chú liên quan",
+    "planted": "Gieo ngày {date}",
+    "tended": "Chăm lần cuối {date}"
+  },
+  "journal": {
+    "title": "Nhật ký",
+    "lead": "Những bài viết dài hơn, giữ nguyên ngôn ngữ đã viết.",
+    "count": "{count} bài viết",
+    "searchLabel": "Lọc bài viết",
+    "searchPlaceholder": "Lọc theo tiêu đề hoặc thẻ…",
+    "empty": "Không có bài viết phù hợp.",
+    "none": "Chưa có bài viết nào được đăng.",
+    "toc": "Trong trang này",
+    "related": "Bài viết liên quan",
+    "feed": "Nguồn cấp RSS"
+  },
+  "tagNames": {
+    "meta": "meta",
+    "site": "trang web",
+    "i18n": "đa ngôn ngữ",
+    "design": "thiết kế",
+    "next-js": "Next.js"
+  },
+  "interests": {
+    "title": "Sở thích",
+    "lead": "Chỗ dành cho những điều yêu thích ngoài công việc. Chỉ những mục đã được xác nhận mới xuất hiện ở đây.",
+    "empty": "Chưa có mục nào được xác nhận.",
+    "categories": {
+      "anime-manga": "Anime & manga",
+      "music": "Âm nhạc",
+      "books": "Sách",
+      "games": "Trò chơi",
+      "tools": "Công cụ",
+      "other": "Khác"
+    }
+  },
+  "timeline": {
+    "title": "Dòng thời gian",
+    "lead": "Các cột mốc có thể kiểm chứng. Những cột mốc cá nhân sẽ xuất hiện khi chủ trang bổ sung.",
+    "sourceGithub": "Từ GitHub",
+    "sourceOwner": "Từ chủ trang",
+    "accountCreated": "Tạo tài khoản GitHub",
+    "firstRepo": "Repository công khai đầu tiên bằng {language}: {repo}",
+    "ownerSlotTitle": "Cột mốc cá nhân",
+    "ownerSlot": "Các cột mốc về học tập, công việc và cuộc sống do chủ trang bổ sung. Hiện chưa có mục nào được xác nhận.",
+    "derivedNote": "Suy ra từ ngày tạo repository trong ảnh chụp dữ liệu GitHub ngày {date}. Ngày tạo repository là lúc đăng lên, không phải lúc học được kỹ năng đó."
+  },
+  "projects": {
+    "title": "Dự án",
+    "lead": "Các sản phẩm tiêu biểu. Công nghệ chỉ được liệt kê khi có tệp trong repository chứng minh.",
+    "filterKind": "Lọc theo loại",
+    "count": "Hiển thị {shown} trên {total}",
+    "kinds": {
+      "web": "Web",
+      "mobile": "Di động",
+      "backend": "Backend",
+      "ml": "ML / AI",
+      "database": "Cơ sở dữ liệu",
+      "desktop": "Desktop",
+      "extension": "Tiện ích trình duyệt"
+    },
+    "featured": "Nổi bật",
+    "lastPush": "Push gần nhất {date}",
+    "created": "Tạo ngày {date}",
+    "statusLabel": "Trạng thái",
+    "status": {
+      "in-progress": "Đang phát triển",
+      "shipped": "Đã phát hành",
+      "paused": "Tạm dừng",
+      "archived": "Đã lưu trữ"
+    },
+    "statusUnset": "Chủ trang chưa đặt trạng thái",
+    "detail": {
+      "back": "Tất cả dự án",
+      "highlights": "Điểm nhấn kỹ thuật",
+      "evidenceHeading": "Bằng chứng",
+      "repos": "Repository",
+      "stackNote": "Mỗi công nghệ đều kèm tệp cho thấy nó thực sự được dùng.",
+      "stackColumn": "Công nghệ",
+      "evidenceColumn": "Nơi kiểm chứng",
+      "repoColumn": "Repository",
+      "sections": {
+        "overview": "Tổng quan",
+        "problem": "Vấn đề",
+        "goals": "Mục tiêu",
+        "role": "Vai trò",
+        "stack": "Công nghệ sử dụng",
+        "architecture": "Kiến trúc",
+        "implementation": "Triển khai",
+        "challenges": "Thách thức",
+        "results": "Kết quả",
+        "lessons": "Bài học"
+      },
+      "ownerNeeded": "Chủ trang sẽ viết phần này — chỉ họ mới biết nội dung này.",
+      "verifiedFrom": "Viết dựa trên các tệp trong repository",
+      "lastPushLabel": "Push gần nhất",
+      "createdLabel": "Ngày tạo"
+    }
+  },
+  "profile": {
+    "title": "Chuyên môn",
+    "lead": "Kỹ năng và công nghệ, nhóm theo mục đích sử dụng và gắn với những dự án thực sự dùng chúng.",
+    "skillsTitle": "Công nghệ, kèm bằng chứng",
+    "skillsNote": "Không có phần trăm: một công nghệ được liệt kê vì có dự án dùng nó, và các chấm cho biết dự án nào.",
+    "usedIn": "Được dùng trong",
+    "categories": {
+      "languages": "Ngôn ngữ",
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "mobile": "Di động",
+      "data": "Dữ liệu & ML",
+      "tooling": "Công cụ & triển khai"
+    },
+    "educationTitle": "Học vấn",
+    "experienceTitle": "Kinh nghiệm",
+    "careerEmpty": "Chưa có mục nào được xác minh. Quá trình học tập và làm việc sẽ do chủ trang bổ sung.",
+    "careerKinds": {
+      "education": "Học vấn",
+      "experience": "Kinh nghiệm",
+      "training": "Đào tạo",
+      "activity": "Hoạt động"
+    },
+    "present": "hiện tại",
+    "recruiterLink": "Bản xem gọn dành cho nhà tuyển dụng"
+  },
+  "search": {
+    "title": "Tìm kiếm",
+    "lead": "Trang, dự án, ghi chú và bài viết bằng ngôn ngữ này.",
+    "label": "Tìm trong trang",
+    "placeholder": "Tìm kiếm…",
+    "results": "{count} kết quả",
+    "none": "Không có kết quả cho “{query}”.",
+    "idle": "Nhập để tìm kiếm.",
+    "types": {
+      "page": "Trang",
+      "project": "Dự án",
+      "garden": "Ghi chú",
+      "journal": "Bài viết"
+    },
+    "loadError": "Không thể tải chỉ mục tìm kiếm."
+  },
+  "palette": {
+    "title": "Bảng lệnh",
+    "placeholder": "Tìm trang, dự án, ghi chú, thao tác…",
+    "hint": "↑ ↓ để di chuyển · Enter để mở · Esc để đóng",
+    "groupPages": "Trang",
+    "groupContent": "Nội dung",
+    "groupActions": "Thao tác",
+    "theme": "Giao diện: {mode}",
+    "language": "Ngôn ngữ: {name}",
+    "github": "Mở hồ sơ GitHub",
+    "empty": "Không có kết quả phù hợp.",
+    "loadError": "Hiện chưa thể tìm trong nội dung."
+  },
+  "terminal": {
+    "title": "Terminal",
+    "lead": "Chỉ là mô phỏng. Nó chỉ đọc nội dung của chính trang này và không bao giờ chạy lệnh thật.",
+    "welcome": "Chào mừng. Gõ help để xem các lệnh có sẵn.",
+    "inputLabel": "Lệnh",
+    "outputLabel": "Kết quả của terminal",
+    "prompt": "visitor@space",
+    "unknown": "không tìm thấy lệnh: {cmd}. Gõ help.",
+    "help": "Hiện danh sách các lệnh.",
+    "helpTitle": "Các lệnh có sẵn",
+    "descriptions": {
+      "about": "Trang này thuộc về ai.",
+      "projects": "Liệt kê các dự án tiêu biểu.",
+      "skills": "Liệt kê công nghệ và nơi chúng được dùng.",
+      "interests": "Liệt kê các sở thích đã xác nhận.",
+      "journal": "Liệt kê các bài viết trong nhật ký.",
+      "garden": "Liệt kê các ghi chú trong vườn.",
+      "now": "Hiện điều đang diễn ra lúc này.",
+      "contact": "Hiện cách liên lạc.",
+      "clear": "Xoá màn hình."
+    },
+    "none": "(chưa có gì)",
+    "aboutIntro": "Tên: {name} (tên tạm, chưa xác nhận)",
+    "aboutGithub": "GitHub: {url}",
+    "aboutBody": "Câu chuyện đầy đủ: xem {path}",
+    "emailMissing": "email: chưa công bố",
+    "emailLabel": "email: {email}",
+    "hintPlaceholder": "thử: help"
+  },
+  "errors": {
+    "notFoundTitle": "Không tìm thấy trang",
+    "notFoundBody": "Địa chỉ này không tồn tại trong không gian này.",
+    "toIndex": "Về mục lục",
+    "errorTitle": "Đã xảy ra lỗi",
+    "errorBody": "Không thể hiển thị trang. Bạn có thể thử lại.",
+    "retry": "Thử lại"
+  },
+  "footer": {
+    "colophon": "Nội dung nằm trong Git; trang được tạo tĩnh.",
+    "rights": "© {year} {name}",
+    "sitemap": "Sơ đồ trang",
+    "elsewhere": "Những nơi khác"
+  }
+}

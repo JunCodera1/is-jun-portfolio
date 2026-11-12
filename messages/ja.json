@@ -1,0 +1,386 @@
+{
+  "meta": {
+    "siteName": "My Digital Space",
+    "description": "ノート、プロジェクト、進行中の試みをまとめた、日本語・英語・ベトナム語の個人サイトです。"
+  },
+  "nav": {
+    "home": "ホーム",
+    "about": "自己紹介",
+    "now": "いま",
+    "garden": "ガーデン",
+    "journal": "ジャーナル",
+    "interests": "好きなこと",
+    "timeline": "年表",
+    "projects": "プロジェクト",
+    "profile": "技術",
+    "contact": "連絡先",
+    "terminal": "ターミナル",
+    "search": "検索",
+    "primaryLabel": "メインメニュー",
+    "menu": "目次",
+    "menuTitle": "サイトの目次",
+    "close": "閉じる",
+    "desc": {
+      "about": "経歴や大切にしていること。",
+      "now": "現在の取り組みを日付つきで。",
+      "garden": "少しずつ育てていく短いノート。",
+      "journal": "まとまった長めの文章。",
+      "interests": "確認できた好きなものだけを掲載します。",
+      "timeline": "裏づけのあるできごとの記録。",
+      "projects": "根拠つきで紹介する主な制作物。",
+      "profile": "プロジェクトに裏づけられた技術一覧。",
+      "contact": "連絡の取り方。"
+    }
+  },
+  "common": {
+    "skip": "本文へ移動",
+    "language": "言語",
+    "theme": "テーマ",
+    "search": "検索",
+    "opensNewTab": "新しいタブで開きます",
+    "published": "公開日",
+    "updated": "更新日",
+    "minRead": "約{minutes}分で読めます",
+    "tags": "タグ",
+    "all": "すべて",
+    "clear": "クリア",
+    "back": "戻る",
+    "repository": "リポジトリ",
+    "demo": "デモ",
+    "source": "ソースコード",
+    "github": "GitHub",
+    "openMenu": "サイトの目次を開く",
+    "openPalette": "コマンドパレットを開く",
+    "viewAll": "すべて見る",
+    "readMore": "読む",
+    "noItems": "まだ何もありません。",
+    "ownerWrites": "サイトの持ち主がまだ書いていません。"
+  },
+  "theme": {
+    "label": "テーマ",
+    "system": "システム",
+    "light": "ライト",
+    "dark": "ダーク"
+  },
+  "lang": {
+    "label": "言語",
+    "switchTo": "言語を{name}に切り替える"
+  },
+  "translation": {
+    "translated": "翻訳済み",
+    "draft": "下書き",
+    "untranslated": "英語のみ",
+    "fallbackTitle": "{language}への翻訳はまだありません",
+    "fallbackBody": "翻訳ができるまで、このページは英語の原文で表示しています。",
+    "fallbackLink": "英語の原文を読む",
+    "draftTitle": "翻訳（下書き）",
+    "draftBody": "この翻訳はまだ確認されておらず、不自然な表現が残っている可能性があります。",
+    "languageNames": {
+      "en": "英語",
+      "ja": "日本語",
+      "vi": "ベトナム語"
+    }
+  },
+  "placeholder": {
+    "label": "プレースホルダー",
+    "owner": "サイトの持ち主が記入します",
+    "unconfirmed": "未確認"
+  },
+  "home": {
+    "eyebrow": "個人のデジタル空間の目次",
+    "greetingLabel": "三つの言語でのあいさつ",
+    "introPlaceholder": "ここに短い自己紹介が入ります。サイトの持ち主が書くまでは仮の文章です。",
+    "ctaExplore": "目次を開く",
+    "ctaProjects": "主なプロジェクト",
+    "indexTitle": "目次",
+    "indexHint": "このサイトのすべてを、読んでほしい順に並べています。",
+    "entries": "{count}件",
+    "latestTitle": "新着",
+    "latestEmpty": "公開済みのノートや記事はまだありません。",
+    "featuredTitle": "主なプロジェクト",
+    "featuredHint": "掲載している技術には、使われていることを示すファイルがリポジトリにあります。",
+    "allProjects": "プロジェクト一覧",
+    "pulseTitle": "いま",
+    "localTime": "あなたの現地時刻",
+    "today": "今日",
+    "lastPush": "最後のリポジトリ更新",
+    "pulseSourceLive": "GitHub（最長1時間キャッシュ）",
+    "pulseSourceSnapshot": "{date}時点の GitHub スナップショット",
+    "metaLine": "バージョン0.1・制作中"
+  },
+  "about": {
+    "title": "自己紹介",
+    "lead": "このサイトの持ち主について。履歴書よりも、まずは物語から。",
+    "verifiedTitle": "公開記録から分かること",
+    "verifiedLead": "自己申告ではなく、公開されている GitHub プロフィールから数えています。",
+    "repoCount": "公開リポジトリ{count}件（フォークを除く）",
+    "since": "GitHub アカウント作成：{date}",
+    "languagesTitle": "リポジトリの主な使用言語",
+    "languagesNote": "リポジトリ数の集計であり、スキルの評価ではありません。",
+    "snapshot": "{date}時点のスナップショットです。",
+    "sections": {
+      "story": {
+        "title": "ストーリー",
+        "prompt": "あなた自身の言葉で、あなたが何者かを。"
+      },
+      "background": {
+        "title": "バックグラウンド",
+        "prompt": "どこから来たのか、仕事の進め方に影響したことは何か。"
+      },
+      "journey": {
+        "title": "歩み",
+        "prompt": "これまでの道のり。試したこと、やめたこと、続けていること。"
+      },
+      "interests": {
+        "title": "好きなこと",
+        "prompt": "誰にも頼まれないときに、何をしているか。"
+      },
+      "values": {
+        "title": "大切にしていること",
+        "prompt": "ものをつくるときに大事にしていること。"
+      },
+      "goals": {
+        "title": "これから",
+        "prompt": "次に目指したい場所。"
+      }
+    }
+  },
+  "now": {
+    "title": "いま",
+    "lead": "現在の取り組みです。このページには意図的に日付を付けています。",
+    "updated": "最終更新：{date}",
+    "empty": "まだ投稿がありません。",
+    "sections": {
+      "learning": "学んでいること",
+      "building": "つくっているもの",
+      "reading": "読んでいるもの",
+      "interested": "関心のあること",
+      "goals": "短期の目標"
+    },
+    "githubTitle": "最近更新されたリポジトリ",
+    "githubNote": "手書きではなく、GitHub から取得しています。",
+    "pushed": "{date}に更新"
+  },
+  "contact": {
+    "title": "連絡先",
+    "lead": "連絡の取り方です。",
+    "emailLabel": "メール",
+    "emailMissing": "メールアドレスは未設定です",
+    "emailMissingNote": "サイトの持ち主が連絡先をまだ公開していません。確認でき次第、ここに表示します。",
+    "elsewhere": "ほかの場所",
+    "noFormTitle": "フォームがない理由",
+    "noForm": "お問い合わせフォームは、メッセージが実際に届く仕組みがあってこそ意味を持ちます。それまでは、直接のリンクだけを掲載します。"
+  },
+  "garden": {
+    "title": "ガーデン",
+    "lead": "少しずつ育てていく、未完成の短いノートです。それぞれに成熟度を示しています。",
+    "maturity": {
+      "seedling": "種",
+      "budding": "芽",
+      "evergreen": "常緑"
+    },
+    "maturityHint": "成熟度",
+    "filterTags": "タグで絞り込む",
+    "searchLabel": "ノートを絞り込む",
+    "searchPlaceholder": "タイトルやタグで絞り込み…",
+    "count": "ノート{count}件",
+    "empty": "条件に合うノートはありません。",
+    "none": "公開済みのノートはまだありません。",
+    "related": "関連ノート",
+    "planted": "作成：{date}",
+    "tended": "最終更新：{date}"
+  },
+  "journal": {
+    "title": "ジャーナル",
+    "lead": "書かれた言語のまま掲載する、長めの文章です。",
+    "count": "記事{count}件",
+    "searchLabel": "記事を絞り込む",
+    "searchPlaceholder": "タイトルやタグで絞り込み…",
+    "empty": "条件に合う記事はありません。",
+    "none": "公開済みの記事はまだありません。",
+    "toc": "このページの内容",
+    "related": "関連記事",
+    "feed": "RSSフィード"
+  },
+  "tagNames": {
+    "meta": "メタ",
+    "site": "サイト",
+    "i18n": "多言語対応",
+    "design": "デザイン",
+    "next-js": "Next.js"
+  },
+  "interests": {
+    "title": "好きなこと",
+    "lead": "仕事以外で楽しんでいることのための場所です。確認できたものだけを掲載します。",
+    "empty": "確認できた項目はまだありません。",
+    "categories": {
+      "anime-manga": "アニメ・マンガ",
+      "music": "音楽",
+      "books": "本",
+      "games": "ゲーム",
+      "tools": "道具",
+      "other": "その他"
+    }
+  },
+  "timeline": {
+    "title": "年表",
+    "lead": "裏づけの取れるできごとの記録です。個人的な節目は、持ち主が追加でき次第掲載します。",
+    "sourceGithub": "GitHub より",
+    "sourceOwner": "持ち主より",
+    "accountCreated": "GitHub アカウントを作成",
+    "firstRepo": "{language}での最初の公開リポジトリ：{repo}",
+    "ownerSlotTitle": "個人的な節目",
+    "ownerSlot": "学業・仕事・暮らしの節目は持ち主が追加します。確認済みのものはまだありません。",
+    "derivedNote": "{date}時点の GitHub スナップショットにあるリポジトリ作成日から導いています。作成日は公開した日であり、技術を習得した日ではありません。"
+  },
+  "projects": {
+    "title": "プロジェクト",
+    "lead": "主な制作物です。技術は、リポジトリ内のファイルで裏づけられるものだけを載せています。",
+    "filterKind": "種類で絞り込む",
+    "count": "{total}件中{shown}件を表示",
+    "kinds": {
+      "web": "Web",
+      "mobile": "モバイル",
+      "backend": "バックエンド",
+      "ml": "機械学習・AI",
+      "database": "データベース",
+      "desktop": "デスクトップ",
+      "extension": "ブラウザ拡張"
+    },
+    "featured": "注目",
+    "lastPush": "最終更新：{date}",
+    "created": "作成：{date}",
+    "statusLabel": "状況",
+    "status": {
+      "in-progress": "進行中",
+      "shipped": "公開済み",
+      "paused": "一時停止",
+      "archived": "アーカイブ"
+    },
+    "statusUnset": "持ち主が未設定",
+    "detail": {
+      "back": "プロジェクト一覧",
+      "highlights": "技術的なポイント",
+      "evidenceHeading": "根拠",
+      "repos": "リポジトリ",
+      "stackNote": "各技術には、使われていることを示すファイルを併記しています。",
+      "stackColumn": "技術",
+      "evidenceColumn": "確認できる場所",
+      "repoColumn": "リポジトリ",
+      "sections": {
+        "overview": "概要",
+        "problem": "課題",
+        "goals": "目標",
+        "role": "担当",
+        "stack": "技術スタック",
+        "architecture": "アーキテクチャ",
+        "implementation": "実装",
+        "challenges": "難しかった点",
+        "results": "成果",
+        "lessons": "学んだこと"
+      },
+      "ownerNeeded": "持ち主が記入する項目です。ご本人にしか分からない内容のためです。",
+      "verifiedFrom": "リポジトリのファイルから記述しています",
+      "lastPushLabel": "最終更新",
+      "createdLabel": "作成日"
+    }
+  },
+  "profile": {
+    "title": "技術",
+    "lead": "用途ごとに分類した技術です。それぞれ、実際に使っているプロジェクトとひもづけています。",
+    "skillsTitle": "根拠つきの技術一覧",
+    "skillsNote": "パーセンテージは使いません。プロジェクトで使われている技術だけを載せ、点でどのプロジェクトかを示します。",
+    "usedIn": "使用プロジェクト",
+    "categories": {
+      "languages": "言語",
+      "frontend": "フロントエンド",
+      "backend": "バックエンド",
+      "mobile": "モバイル",
+      "data": "データ・機械学習",
+      "tooling": "ツール・デリバリー"
+    },
+    "educationTitle": "学歴",
+    "experienceTitle": "経験",
+    "careerEmpty": "確認済みの項目はまだありません。学歴や職歴はサイトの持ち主が追加します。",
+    "careerKinds": {
+      "education": "学歴",
+      "experience": "経験",
+      "training": "研修",
+      "activity": "活動"
+    },
+    "present": "現在",
+    "recruiterLink": "採用担当者向けの簡易表示"
+  },
+  "search": {
+    "title": "検索",
+    "lead": "この言語のページ、プロジェクト、ノート、記事を検索します。",
+    "label": "サイト内検索",
+    "placeholder": "検索…",
+    "results": "{count}件",
+    "none": "「{query}」に一致する結果はありません。",
+    "idle": "キーワードを入力してください。",
+    "types": {
+      "page": "ページ",
+      "project": "プロジェクト",
+      "garden": "ノート",
+      "journal": "記事"
+    },
+    "loadError": "検索インデックスを読み込めませんでした。"
+  },
+  "palette": {
+    "title": "コマンドパレット",
+    "placeholder": "ページ、プロジェクト、ノート、操作を検索…",
+    "hint": "↑ ↓ で移動・Enter で開く・Esc で閉じる",
+    "groupPages": "ページ",
+    "groupContent": "コンテンツ",
+    "groupActions": "操作",
+    "theme": "テーマ：{mode}",
+    "language": "言語：{name}",
+    "github": "GitHub プロフィールを開く",
+    "empty": "一致する項目はありません。",
+    "loadError": "現在、コンテンツ検索を利用できません。"
+  },
+  "terminal": {
+    "title": "ターミナル",
+    "lead": "シミュレーションです。サイト自身の内容を読むだけで、実際のコマンドは実行しません。",
+    "welcome": "ようこそ。help と入力すると使えるコマンドを表示します。",
+    "inputLabel": "コマンド",
+    "outputLabel": "ターミナルの出力",
+    "prompt": "visitor@space",
+    "unknown": "コマンドが見つかりません：{cmd}。help と入力してください。",
+    "help": "コマンドの一覧を表示します。",
+    "helpTitle": "使えるコマンド",
+    "descriptions": {
+      "about": "このサイトの持ち主について。",
+      "projects": "主なプロジェクトを一覧表示します。",
+      "skills": "技術と、それを使っているプロジェクトを一覧表示します。",
+      "interests": "確認済みの好きなことを一覧表示します。",
+      "journal": "ジャーナルの記事を一覧表示します。",
+      "garden": "ガーデンのノートを一覧表示します。",
+      "now": "現在の取り組みを表示します。",
+      "contact": "連絡方法を表示します。",
+      "clear": "画面を消去します。"
+    },
+    "none": "（まだありません）",
+    "aboutIntro": "名前：{name}（仮の呼び名で、未確認です）",
+    "aboutGithub": "GitHub：{url}",
+    "aboutBody": "詳しくは {path} をご覧ください",
+    "emailMissing": "メール：まだ公開されていません",
+    "emailLabel": "メール：{email}",
+    "hintPlaceholder": "例：help"
+  },
+  "errors": {
+    "notFoundTitle": "ページが見つかりません",
+    "notFoundBody": "このアドレスは、この空間には存在しません。",
+    "toIndex": "目次に戻る",
+    "errorTitle": "問題が発生しました",
+    "errorBody": "ページを表示できませんでした。もう一度お試しください。",
+    "retry": "再試行"
+  },
+  "footer": {
+    "colophon": "コンテンツは Git で管理し、サイトは静的に生成しています。",
+    "rights": "© {year} {name}",
+    "sitemap": "サイトマップ",
+    "elsewhere": "ほかの場所"
+  }
+}

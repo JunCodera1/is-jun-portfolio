@@ -1,0 +1,46 @@
+---
+title: Ba ngôn ngữ ngay từ ngày đầu
+summary: Cách trang xử lý tiếng Anh, tiếng Nhật và tiếng Việt trong URL, cơ chế dự phòng và metadata.
+date: 2026-11-13
+updated: 2026-11-13
+tags: [meta, i18n, site]
+related: []
+translation: draft
+---
+
+Bài viết này ghi lại một quyết định thiết kế chứ không phải một câu chuyện cá nhân: trang được xây dựng để có ba ngôn ngữ ngay từ commit đầu tiên, thay vì thêm bản dịch về sau. Đây là nội dung khởi tạo về chính trang web.
+
+## Mỗi ngôn ngữ một URL riêng
+
+Mọi trang đều tồn tại dưới `/en`, `/ja` và `/vi`. Liên kết tới `/ja/projects` luôn mở trang dự án tiếng Nhật, bất kể cài đặt trình duyệt của người xem. Nhờ vậy trang dễ chia sẻ, dễ được lập chỉ mục và dễ hiểu.
+
+Ngôn ngữ của trình duyệt chỉ được dùng một lần, khi ai đó vào địa chỉ gốc `/`. Sau khi người xem chọn ngôn ngữ bằng nút chuyển, lựa chọn đó được ghi nhớ và được ưu tiên.
+
+## Khi thiếu bản dịch thì sao
+
+Một trang không bao giờ giả vờ đã được dịch. Có ba trạng thái:
+
+| Trạng thái | Ý nghĩa | Người xem thấy gì |
+| --- | --- | --- |
+| Đã dịch | Được viết bằng ngôn ngữ đó và đã rà soát | Không có gì thêm |
+| Bản nháp | Đã có nhưng chưa được rà soát | Thông báo "Bản dịch nháp" |
+| Chưa dịch | Chưa có văn bản bằng ngôn ngữ này | Bản gốc tiếng Anh, một thông báo và liên kết tới bản gốc |
+
+Phần văn bản hiển thị thay thế được gắn đúng thuộc tính `lang`, nhờ đó trình đọc màn hình phát âm chính xác.
+
+## Metadata cho công cụ tìm kiếm
+
+Mỗi trang tự khai báo địa chỉ canonical và liệt kê các bản ở hai ngôn ngữ còn lại bằng `hreflang`, kèm `x-default` trỏ về tiếng Anh. Sơ đồ trang liệt kê mọi phiên bản ngôn ngữ của mọi trang.
+
+## Định dạng cũng theo ngôn ngữ
+
+Ngày tháng, số và thời gian đọc đều theo ngôn ngữ của người xem. Thời gian đọc tiếng Nhật được ước tính theo số ký tự, vì văn bản tiếng Nhật không có khoảng trắng để đếm từ.
+
+```ts
+// Thời gian đọc: tiếng Nhật tính theo ký tự, còn lại tính theo từ
+const minutes = lang === "ja" ? Math.round(chars / 500) : Math.round(words / 200);
+```
+
+## Điều còn bỏ ngỏ
+
+Nội dung tiếng Nhật và tiếng Việt trên trang này được viết để đọc tự nhiên, nhưng chưa được chủ trang rà soát, nên được gắn nhãn bản nháp cho đến khi đó.
