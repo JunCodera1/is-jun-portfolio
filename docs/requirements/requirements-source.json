@@ -1,0 +1,646 @@
+{
+ "source": "my_digital_space_requirements.xlsx (sheet: Requirements, v2)",
+ "note": "Extracted verbatim; Excel IDs are group-level, so stable REQ-<group>-<n> IDs were generated. Do not hand-edit.",
+ "rows": [
+  {
+   "id": "REQ-01-01",
+   "excelRow": 2,
+   "excelGroupId": "01",
+   "group": "Định hướng sản phẩm",
+   "requirement": "Website cá nhân / My Digital Space, không phải portfolio/CV đơn thuần",
+   "level": "Bắt buộc",
+   "priority": "P0",
+   "criteria": "Thể hiện con người, sở thích, suy nghĩ, hành trình và công việc; portfolio chỉ là một phần."
+  },
+  {
+   "id": "REQ-01-02",
+   "excelRow": 3,
+   "excelGroupId": "01",
+   "group": "Định hướng sản phẩm",
+   "requirement": "Cân bằng nội dung cá nhân và chuyên môn",
+   "level": "Bắt buộc",
+   "priority": "P0",
+   "criteria": "Định hướng khoảng 70% cá nhân, 30% chuyên môn; không biến toàn bộ website thành trang tuyển dụng."
+  },
+  {
+   "id": "REQ-01-03",
+   "excelRow": 4,
+   "excelGroupId": "01",
+   "group": "Định hướng sản phẩm",
+   "requirement": "Có thể phát triển lâu dài",
+   "level": "Bắt buộc",
+   "priority": "P0",
+   "criteria": "Có thể bổ sung bài viết, ghi chú, dự án, sở thích và kỷ niệm mà không phải xây lại kiến trúc."
+  },
+  {
+   "id": "REQ-02-01",
+   "excelRow": 5,
+   "excelGroupId": "02",
+   "group": "Ngôn ngữ",
+   "requirement": "Hỗ trợ tiếng Anh (en), tiếng Nhật (ja), tiếng Việt (vi) ngay từ đầu",
+   "level": "Bắt buộc",
+   "priority": "P0",
+   "criteria": "Cả ba ngôn ngữ được hỗ trợ trong kiến trúc và giao diện; tiếng Anh là mặc định."
+  },
+  {
+   "id": "REQ-02-02",
+   "excelRow": 6,
+   "excelGroupId": "02",
+   "group": "Ngôn ngữ",
+   "requirement": "Bộ chuyển ngôn ngữ toàn cục",
+   "level": "Bắt buộc",
+   "priority": "P0",
+   "criteria": "Hiển thị EN / 日本語 / VI; chuyển ngôn ngữ giữ trang hiện tại nếu bản dịch tồn tại."
+  },
+  {
+   "id": "REQ-02-03",
+   "excelRow": 7,
+   "excelGroupId": "02",
+   "group": "Ngôn ngữ",
+   "requirement": "URL riêng theo ngôn ngữ",
+   "level": "Bắt buộc",
+   "priority": "P0",
+   "criteria": "Dùng cấu trúc /en/..., /ja/..., /vi/...; truy cập trực tiếp từng URL hoạt động."
+  },
+  {
+   "id": "REQ-02-04",
+   "excelRow": 8,
+   "excelGroupId": "02",
+   "group": "Ngôn ngữ",
+   "requirement": "Lưu lựa chọn ngôn ngữ và xử lý ngôn ngữ trình duyệt",
+   "level": "Nên có",
+   "priority": "P1",
+   "criteria": "Lưu lựa chọn; có thể dùng ngôn ngữ trình duyệt làm gợi ý ban đầu; fallback về EN."
+  },
+  {
+   "id": "REQ-02-05",
+   "excelRow": 9,
+   "excelGroupId": "02",
+   "group": "Ngôn ngữ",
+   "requirement": "Chất lượng bản dịch tự nhiên",
+   "level": "Bắt buộc",
+   "priority": "P0",
+   "criteria": "EN tự nhiên; JP đúng ngữ pháp, dùng 丁寧語 phù hợp; VI thân thiện; không dịch máy móc."
+  },
+  {
+   "id": "REQ-02-06",
+   "excelRow": 10,
+   "excelGroupId": "02",
+   "group": "Ngôn ngữ",
+   "requirement": "Trạng thái bản dịch",
+   "level": "Bắt buộc",
+   "priority": "P0",
+   "criteria": "Mỗi nội dung có translated / draft / untranslated; thiếu bản dịch phải báo rõ và dẫn tới bản gốc."
+  },
+  {
+   "id": "REQ-02-07",
+   "excelRow": 11,
+   "excelGroupId": "02",
+   "group": "Ngôn ngữ",
+   "requirement": "Định dạng địa phương hóa",
+   "level": "Bắt buộc",
+   "priority": "P0",
+   "criteria": "Ngày, số, thời gian đọc, biểu mẫu, lỗi, empty states, terminal, metadata và accessibility labels được địa phương hóa."
+  },
+  {
+   "id": "REQ-02-08",
+   "excelRow": 12,
+   "excelGroupId": "02",
+   "group": "Ngôn ngữ",
+   "requirement": "SEO đa ngôn ngữ",
+   "level": "Bắt buộc",
+   "priority": "P0",
+   "criteria": "Có metadata theo locale, hreflang, canonical, sitemap và thuộc tính lang chính xác."
+  },
+  {
+   "id": "REQ-03-01",
+   "excelRow": 13,
+   "excelGroupId": "03",
+   "group": "Trang chính",
+   "requirement": "Homepage giới thiệu bản thân và điều đang quan tâm",
+   "level": "Bắt buộc",
+   "priority": "P0",
+   "criteria": "Có tên/nhận diện, giới thiệu ngắn, hoạt động hiện tại, dự án nổi bật, bài viết/ghi chú mới và liên kết xã hội."
+  },
+  {
+   "id": "REQ-03-02",
+   "excelRow": 14,
+   "excelGroupId": "03",
+   "group": "Trang chính",
+   "requirement": "About Me",
+   "level": "Bắt buộc",
+   "priority": "P0",
+   "criteria": "Có câu chuyện, nền tảng, hành trình, sở thích, giá trị và mục tiêu; không chỉ là CV."
+  },
+  {
+   "id": "REQ-03-03",
+   "excelRow": 15,
+   "excelGroupId": "03",
+   "group": "Trang chính",
+   "requirement": "Projects",
+   "level": "Bắt buộc",
+   "priority": "P0",
+   "criteria": "Danh sách dự án, bộ lọc/categorization phù hợp, trang chi tiết và liên kết repository/demo khi có."
+  },
+  {
+   "id": "REQ-03-04",
+   "excelRow": 16,
+   "excelGroupId": "03",
+   "group": "Trang chính",
+   "requirement": "Digital Garden",
+   "level": "Nên có",
+   "priority": "P1",
+   "criteria": "Ghi chú Markdown/MDX, tags, category, search, related notes, trạng thái và knowledge graph."
+  },
+  {
+   "id": "REQ-03-05",
+   "excelRow": 17,
+   "excelGroupId": "03",
+   "group": "Trang chính",
+   "requirement": "Journal / Blog",
+   "level": "Nên có",
+   "priority": "P1",
+   "criteria": "Bài viết dài, mục lục, thời gian đọc, related posts, tags và tìm kiếm."
+  },
+  {
+   "id": "REQ-03-06",
+   "excelRow": 18,
+   "excelGroupId": "03",
+   "group": "Trang chính",
+   "requirement": "Interests",
+   "level": "Nên có",
+   "priority": "P1",
+   "criteria": "Không gian cho anime/manga, âm nhạc, sách, game, công cụ và các sở thích được xác nhận."
+  },
+  {
+   "id": "REQ-03-07",
+   "excelRow": 19,
+   "excelGroupId": "03",
+   "group": "Trang chính",
+   "requirement": "Now",
+   "level": "Bắt buộc",
+   "priority": "P0",
+   "criteria": "Đang học gì, xây dựng gì, đọc gì, quan tâm gì, mục tiêu ngắn hạn; có ngày cập nhật."
+  },
+  {
+   "id": "REQ-03-08",
+   "excelRow": 20,
+   "excelGroupId": "03",
+   "group": "Trang chính",
+   "requirement": "Contact",
+   "level": "Bắt buộc",
+   "priority": "P0",
+   "criteria": "Email và liên kết xã hội đã xác nhận; form chỉ triển khai khi có xử lý gửi thực tế."
+  },
+  {
+   "id": "REQ-03-09",
+   "excelRow": 21,
+   "excelGroupId": "03",
+   "group": "Trang chính",
+   "requirement": "Life Timeline",
+   "level": "Nên có",
+   "priority": "P1",
+   "criteria": "Các mốc học tập, dự án, trải nghiệm và cột mốc cá nhân đã xác nhận."
+  },
+  {
+   "id": "REQ-04-01",
+   "excelRow": 22,
+   "excelGroupId": "04",
+   "group": "Portfolio chuyên môn",
+   "requirement": "Hồ sơ kỹ thuật",
+   "level": "Bắt buộc",
+   "priority": "P0",
+   "criteria": "Trình bày kỹ năng, công nghệ, học vấn, kinh nghiệm và dự án có căn cứ."
+  },
+  {
+   "id": "REQ-04-02",
+   "excelRow": 23,
+   "excelGroupId": "04",
+   "group": "Portfolio chuyên môn",
+   "requirement": "Case study dự án",
+   "level": "Nên có",
+   "priority": "P1",
+   "criteria": "Overview, problem, goals, role, stack, architecture, implementation, challenges, results, lessons."
+  },
+  {
+   "id": "REQ-04-03",
+   "excelRow": 24,
+   "excelGroupId": "04",
+   "group": "Portfolio chuyên môn",
+   "requirement": "Recruiter Mode",
+   "level": "Tùy chọn",
+   "priority": "P2",
+   "criteria": "Chế độ xem gọn cho nhà tuyển dụng; không chi phối trải nghiệm website chính."
+  },
+  {
+   "id": "REQ-05-01",
+   "excelRow": 25,
+   "excelGroupId": "05",
+   "group": "Tương tác",
+   "requirement": "Command Palette",
+   "level": "Nên có",
+   "priority": "P1",
+   "criteria": "Ctrl/Cmd+K; tìm trang, dự án, bài viết; chuyển theme và điều hướng bằng bàn phím."
+  },
+  {
+   "id": "REQ-05-02",
+   "excelRow": 26,
+   "excelGroupId": "05",
+   "group": "Tương tác",
+   "requirement": "Terminal mô phỏng",
+   "level": "Nên có",
+   "priority": "P1",
+   "criteria": "Lệnh help, about, projects, skills, interests, journal, garden, now, contact, clear; không chạy shell thật."
+  },
+  {
+   "id": "REQ-05-03",
+   "excelRow": 27,
+   "excelGroupId": "05",
+   "group": "Tương tác",
+   "requirement": "Theme system",
+   "level": "Bắt buộc",
+   "priority": "P0",
+   "criteria": "Dark, light, system; lưu lựa chọn."
+  },
+  {
+   "id": "REQ-05-04",
+   "excelRow": 28,
+   "excelGroupId": "05",
+   "group": "Tương tác",
+   "requirement": "Dashboard widgets",
+   "level": "Tùy chọn",
+   "priority": "P2",
+   "criteria": "Local time, date, hoạt động, GitHub; weather chỉ khi có API đáng tin cậy."
+  },
+  {
+   "id": "REQ-05-05",
+   "excelRow": 29,
+   "excelGroupId": "05",
+   "group": "Tương tác",
+   "requirement": "Personal Library",
+   "level": "Tùy chọn",
+   "priority": "P2",
+   "criteria": "Bộ sưu tập sách, tài liệu, anime/manga, công cụ và website yêu thích."
+  },
+  {
+   "id": "REQ-05-06",
+   "excelRow": 30,
+   "excelGroupId": "05",
+   "group": "Tương tác",
+   "requirement": "Music integration",
+   "level": "Tùy chọn",
+   "priority": "P2",
+   "criteria": "Spotify/Last.fm chỉ khi có quyền truy cập API và credentials; có fallback."
+  },
+  {
+   "id": "REQ-05-07",
+   "excelRow": 31,
+   "excelGroupId": "05",
+   "group": "Tương tác",
+   "requirement": "Guestbook",
+   "level": "Tùy chọn",
+   "priority": "P2",
+   "criteria": "Có validation, rate limit, chống spam, moderation và bảo vệ dữ liệu."
+  },
+  {
+   "id": "REQ-05-08",
+   "excelRow": 32,
+   "excelGroupId": "05",
+   "group": "Tương tác",
+   "requirement": "Skill Graph / Architecture Explorer",
+   "level": "Tùy chọn",
+   "priority": "P2",
+   "criteria": "Biểu diễn quan hệ kỹ năng, dự án và kiến trúc thực tế; không dựng sơ đồ giả."
+  },
+  {
+   "id": "REQ-05-09",
+   "excelRow": 33,
+   "excelGroupId": "05",
+   "group": "Tương tác",
+   "requirement": "Code Playground",
+   "level": "Tùy chọn",
+   "priority": "P2",
+   "criteria": "Chạy demo an toàn trong sandbox; không thực thi code tùy ý trên server."
+  },
+  {
+   "id": "REQ-05-10",
+   "excelRow": 34,
+   "excelGroupId": "05",
+   "group": "Tương tác",
+   "requirement": "3D Workspace / Easter eggs",
+   "level": "Thử nghiệm",
+   "priority": "P3",
+   "criteria": "Chỉ thêm khi có giá trị; lazy-load; website không phụ thuộc 3D."
+  },
+  {
+   "id": "REQ-06-01",
+   "excelRow": 35,
+   "excelGroupId": "06",
+   "group": "Thiết kế",
+   "requirement": "Phong cách editorial, minimalist, personal, subtle futuristic",
+   "level": "Bắt buộc",
+   "priority": "P0",
+   "criteria": "Thiết kế nguyên bản, có cá tính; không giống SaaS dashboard hoặc template portfolio đại trà."
+  },
+  {
+   "id": "REQ-06-02",
+   "excelRow": 36,
+   "excelGroupId": "06",
+   "group": "Thiết kế",
+   "requirement": "Dark và light theme",
+   "level": "Bắt buộc",
+   "priority": "P0",
+   "criteria": "Dark palette gợi ý #0C0D10, surface #15171C, text #F2F3F5, accent #B8F36B; light theme được thiết kế đầy đủ."
+  },
+  {
+   "id": "REQ-06-03",
+   "excelRow": 37,
+   "excelGroupId": "06",
+   "group": "Thiết kế",
+   "requirement": "Typography",
+   "level": "Nên có",
+   "priority": "P1",
+   "criteria": "Geist/Space Grotesk/Inter; JetBrains Mono cho nội dung kỹ thuật; fallback phù hợp tiếng Nhật."
+  },
+  {
+   "id": "REQ-06-04",
+   "excelRow": 38,
+   "excelGroupId": "06",
+   "group": "Thiết kế",
+   "requirement": "Responsive và accessibility",
+   "level": "Bắt buộc",
+   "priority": "P0",
+   "criteria": "Desktop/tablet/mobile; semantic HTML, keyboard navigation, focus indicator, contrast và reduced motion."
+  },
+  {
+   "id": "REQ-06-05",
+   "excelRow": 39,
+   "excelGroupId": "06",
+   "group": "Thiết kế",
+   "requirement": "Tránh thiết kế rập khuôn",
+   "level": "Bắt buộc",
+   "priority": "P0",
+   "criteria": "Tránh gradient/neon/glassmorphism quá mức, animation vô nghĩa, fake buttons, dead links và hover-only interactions."
+  },
+  {
+   "id": "REQ-07-01",
+   "excelRow": 40,
+   "excelGroupId": "07",
+   "group": "Công nghệ",
+   "requirement": "Next.js App Router + React + TypeScript",
+   "level": "Đề xuất chính",
+   "priority": "P0",
+   "criteria": "Dùng phiên bản ổn định tương thích với môi trường."
+  },
+  {
+   "id": "REQ-07-02",
+   "excelRow": 41,
+   "excelGroupId": "07",
+   "group": "Công nghệ",
+   "requirement": "Tailwind CSS và shadcn/ui khi phù hợp",
+   "level": "Đề xuất chính",
+   "priority": "P0",
+   "criteria": "Không phụ thuộc component library nếu làm giảm tính nguyên bản."
+  },
+  {
+   "id": "REQ-07-03",
+   "excelRow": 42,
+   "excelGroupId": "07",
+   "group": "Công nghệ",
+   "requirement": "Motion",
+   "level": "Đề xuất",
+   "priority": "P1",
+   "criteria": "Dùng cho chuyển động có mục đích; hỗ trợ reduced motion."
+  },
+  {
+   "id": "REQ-07-04",
+   "excelRow": 43,
+   "excelGroupId": "07",
+   "group": "Công nghệ",
+   "requirement": "MDX",
+   "level": "Đề xuất",
+   "priority": "P1",
+   "criteria": "Quản lý bài viết, journal và digital garden."
+  },
+  {
+   "id": "REQ-07-05",
+   "excelRow": 44,
+   "excelGroupId": "07",
+   "group": "Công nghệ",
+   "requirement": "next-intl hoặc giải pháp i18n phù hợp",
+   "level": "Bắt buộc",
+   "priority": "P0",
+   "criteria": "Kiến trúc i18n tương thích Next.js App Router."
+  },
+  {
+   "id": "REQ-07-06",
+   "excelRow": 45,
+   "excelGroupId": "07",
+   "group": "Công nghệ",
+   "requirement": "React Flow",
+   "level": "Tùy chọn",
+   "priority": "P2",
+   "criteria": "Chỉ dùng cho knowledge graph hoặc architecture explorer khi cần."
+  },
+  {
+   "id": "REQ-07-07",
+   "excelRow": 46,
+   "excelGroupId": "07",
+   "group": "Công nghệ",
+   "requirement": "GitHub API",
+   "level": "Tùy chọn",
+   "priority": "P2",
+   "criteria": "Đọc dữ liệu repository/activity có cache; lỗi API không làm hỏng website."
+  },
+  {
+   "id": "REQ-07-08",
+   "excelRow": 47,
+   "excelGroupId": "07",
+   "group": "Công nghệ",
+   "requirement": "Supabase",
+   "level": "Tùy chọn",
+   "priority": "P2",
+   "criteria": "Chỉ dùng khi cần dữ liệu người dùng lưu bền vững, ví dụ guestbook."
+  },
+  {
+   "id": "REQ-07-09",
+   "excelRow": 48,
+   "excelGroupId": "07",
+   "group": "Công nghệ",
+   "requirement": "Deployment",
+   "level": "Đề xuất",
+   "priority": "P1",
+   "criteria": "Vercel và GitHub; có hướng dẫn deploy."
+  },
+  {
+   "id": "REQ-08-01",
+   "excelRow": 49,
+   "excelGroupId": "08",
+   "group": "Quản lý nội dung",
+   "requirement": "Tách nội dung khỏi UI",
+   "level": "Bắt buộc",
+   "priority": "P0",
+   "criteria": "Dữ liệu profile, interests, now, timeline, library, navigation, social links nằm trong data files."
+  },
+  {
+   "id": "REQ-08-02",
+   "excelRow": 50,
+   "excelGroupId": "08",
+   "group": "Quản lý nội dung",
+   "requirement": "Nội dung dài theo locale",
+   "level": "Bắt buộc",
+   "priority": "P0",
+   "criteria": "Có thể tổ chức en.mdx, ja.mdx, vi.mdx cho cùng một content ID."
+  },
+  {
+   "id": "REQ-08-03",
+   "excelRow": 51,
+   "excelGroupId": "08",
+   "group": "Quản lý nội dung",
+   "requirement": "Không bịa thông tin",
+   "level": "Bắt buộc",
+   "priority": "P0",
+   "criteria": "Không tự tạo thành tích, trải nghiệm, số liệu, câu chuyện, sở thích hoặc liên kết chưa xác nhận."
+  },
+  {
+   "id": "REQ-08-04",
+   "excelRow": 52,
+   "excelGroupId": "08",
+   "group": "Quản lý nội dung",
+   "requirement": "Placeholder và danh sách nội dung còn thiếu",
+   "level": "Bắt buộc",
+   "priority": "P0",
+   "criteria": "Dùng placeholder rõ ràng; ghi các mục cần chủ website bổ sung vào CONTENT_NEEDED.md."
+  },
+  {
+   "id": "REQ-09-01",
+   "excelRow": 53,
+   "excelGroupId": "09",
+   "group": "Bảo mật & hiệu năng",
+   "requirement": "Bảo vệ secrets và API",
+   "level": "Bắt buộc",
+   "priority": "P0",
+   "criteria": "Secrets chỉ ở server; không commit token; validate input; sanitize user-generated content."
+  },
+  {
+   "id": "REQ-09-02",
+   "excelRow": 54,
+   "excelGroupId": "09",
+   "group": "Bảo mật & hiệu năng",
+   "requirement": "Hiệu năng",
+   "level": "Bắt buộc",
+   "priority": "P0",
+   "criteria": "Tối ưu ảnh/font, lazy-load tính năng nặng, giảm client JS, cache API và tránh layout shift."
+  },
+  {
+   "id": "REQ-09-03",
+   "excelRow": 55,
+   "excelGroupId": "09",
+   "group": "Bảo mật & hiệu năng",
+   "requirement": "SEO",
+   "level": "Bắt buộc",
+   "priority": "P0",
+   "criteria": "Metadata theo trang, Open Graph, sitemap, robots, canonical và structured data khi phù hợp."
+  },
+  {
+   "id": "REQ-10-01",
+   "excelRow": 56,
+   "excelGroupId": "10",
+   "group": "Quy trình triển khai",
+   "requirement": "Khảo sát trước khi code",
+   "level": "Bắt buộc",
+   "priority": "P0",
+   "criteria": "Kiểm tra thư mục, Git status, repository và design references; không sửa/xóa dự án hiện có."
+  },
+  {
+   "id": "REQ-10-02",
+   "excelRow": 57,
+   "excelGroupId": "10",
+   "group": "Quy trình triển khai",
+   "requirement": "Phase 0: Discovery",
+   "level": "Bắt buộc",
+   "priority": "P0",
+   "criteria": "Báo cáo identity, 3 concept homepage, sitemap, feature priority, kiến trúc, roadmap, risks và missing content."
+  },
+  {
+   "id": "REQ-10-03",
+   "excelRow": 58,
+   "excelGroupId": "10",
+   "group": "Quy trình triển khai",
+   "requirement": "Triển khai theo giai đoạn",
+   "level": "Bắt buộc",
+   "priority": "P0",
+   "criteria": "Design foundation → core pages → content ecosystem → interactions → integrations → experimental → QA."
+  },
+  {
+   "id": "REQ-10-04",
+   "excelRow": 59,
+   "excelGroupId": "10",
+   "group": "Quy trình triển khai",
+   "requirement": "Tài liệu dự án",
+   "level": "Bắt buộc",
+   "priority": "P0",
+   "criteria": "Duy trì PROJECT_STATUS.md, TECHNICAL_DECISIONS.md, CONTENT_NEEDED.md, FEATURES.md và README.md."
+  },
+  {
+   "id": "REQ-10-05",
+   "excelRow": 60,
+   "excelGroupId": "10",
+   "group": "Quy trình triển khai",
+   "requirement": "Kiểm thử trước khi hoàn tất",
+   "level": "Bắt buộc",
+   "priority": "P0",
+   "criteria": "Kiểm tra routes, i18n, switching, responsive, interactions, API failures, accessibility, performance, security, SEO và production build."
+  },
+  {
+   "id": "REQ-10-06",
+   "excelRow": 61,
+   "excelGroupId": "10",
+   "group": "Quy trình triển khai",
+   "requirement": "Kiểm soát phạm vi",
+   "level": "Bắt buộc",
+   "priority": "P0",
+   "criteria": "Không tự động triển khai mọi tính năng tùy chọn; ưu tiên nội dung và trải nghiệm cốt lõi."
+  },
+  {
+   "id": "REQ-11-01",
+   "excelRow": 62,
+   "excelGroupId": "11",
+   "group": "Thông tin chủ website",
+   "requirement": "Cung cấp danh tính, câu chuyện và sở thích",
+   "level": "Cần chủ website cung cấp",
+   "priority": "OWNER",
+   "criteria": "Tên hiển thị, nickname, giới thiệu, hành trình, mục tiêu, sở thích và những gì được phép công khai."
+  },
+  {
+   "id": "REQ-11-02",
+   "excelRow": 63,
+   "excelGroupId": "11",
+   "group": "Thông tin chủ website",
+   "requirement": "Cung cấp GitHub và dự án",
+   "level": "Cần chủ website cung cấp",
+   "priority": "OWNER",
+   "criteria": "GitHub URL, repository cần ưu tiên, mô tả/ảnh/demo nếu có; Claude phải kiểm chứng dữ liệu."
+  },
+  {
+   "id": "REQ-11-03",
+   "excelRow": 64,
+   "excelGroupId": "11",
+   "group": "Thông tin chủ website",
+   "requirement": "Cung cấp media và design references",
+   "level": "Cần chủ website cung cấp",
+   "priority": "OWNER",
+   "criteria": "Avatar, ảnh cá nhân, ảnh dự án và 3–5 website/ảnh giao diện tham khảo."
+  },
+  {
+   "id": "REQ-11-04",
+   "excelRow": 65,
+   "excelGroupId": "11",
+   "group": "Thông tin chủ website",
+   "requirement": "Xác nhận quyền riêng tư",
+   "level": "Cần chủ website cung cấp",
+   "priority": "OWNER",
+   "criteria": "Thông tin công khai, thông tin riêng tư, chủ đề không muốn xuất hiện và nội dung cần duyệt trước khi đăng."
+  }
+ ]
+}

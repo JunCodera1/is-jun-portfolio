@@ -1,0 +1,582 @@
+{
+ "fetchedAt": "2026-11-12T17:07:35.021Z",
+ "source": "https://api.github.com/users/JunCodera1",
+ "user": {
+  "login": "JunCodera1",
+  "createdAt": "2023-07-09T01:03:55Z",
+  "publicRepos": 88
+ },
+ "forkCount": 31,
+ "repos": [
+  {
+   "name": "is-jun-portfolio",
+   "url": "https://github.com/JunCodera1/is-jun-portfolio",
+   "description": null,
+   "language": null,
+   "createdAt": "2026-11-12T16:46:46Z",
+   "pushedAt": "2026-11-12T16:46:47Z",
+   "homepage": null,
+   "archived": false
+  },
+  {
+   "name": "JunCodera1",
+   "url": "https://github.com/JunCodera1/JunCodera1",
+   "description": null,
+   "language": null,
+   "createdAt": "2024-09-09T09:43:05Z",
+   "pushedAt": "2026-11-12T05:03:09Z",
+   "homepage": null,
+   "archived": false
+  },
+  {
+   "name": "MidtermMultiplatform",
+   "url": "https://github.com/JunCodera1/MidtermMultiplatform",
+   "description": null,
+   "language": "Dart",
+   "createdAt": "2026-11-10T12:26:37Z",
+   "pushedAt": "2026-11-11T12:46:50Z",
+   "homepage": null,
+   "archived": false
+  },
+  {
+   "name": "SoundBox",
+   "url": "https://github.com/JunCodera1/SoundBox",
+   "description": "This platform is dedicated to music lovers, artists, and anyone who wants to explore and share their passion for music. Whether you’re here to discover new tracks, showcase your own music, or connect with fellow enthusiasts, you’ll find what you’re looking for. This app is a combination of YouTube and Spotify.",
+   "language": "JavaScript",
+   "createdAt": "2024-09-22T03:11:25Z",
+   "pushedAt": "2026-10-30T18:34:12Z",
+   "homepage": "https://sound-box-gilt.vercel.app",
+   "archived": false
+  },
+  {
+   "name": "DeepSea-RestAPI",
+   "url": "https://github.com/JunCodera1/DeepSea-RestAPI",
+   "description": null,
+   "language": "Kotlin",
+   "createdAt": "2025-04-13T16:12:54Z",
+   "pushedAt": "2026-06-29T18:58:11Z",
+   "homepage": null,
+   "archived": false
+  },
+  {
+   "name": "speech-language-model",
+   "url": "https://github.com/JunCodera1/speech-language-model",
+   "description": null,
+   "language": "Jupyter Notebook",
+   "createdAt": "2026-04-23T09:06:57Z",
+   "pushedAt": "2026-06-04T00:08:15Z",
+   "homepage": null,
+   "archived": false
+  },
+  {
+   "name": "bank_system",
+   "url": "https://github.com/JunCodera1/bank_system",
+   "description": null,
+   "language": "TypeScript",
+   "createdAt": "2026-03-25T07:32:33Z",
+   "pushedAt": "2026-03-26T07:40:58Z",
+   "homepage": null,
+   "archived": false
+  },
+  {
+   "name": "select-card-copy-text",
+   "url": "https://github.com/JunCodera1/select-card-copy-text",
+   "description": "A lightweight browser extension that copies data from HTML <select> elements with a single click (or modifier + click).",
+   "language": "JavaScript",
+   "createdAt": "2026-02-26T04:57:59Z",
+   "pushedAt": "2026-02-26T04:58:41Z",
+   "homepage": null,
+   "archived": false
+  },
+  {
+   "name": "google-drive-tools",
+   "url": "https://github.com/JunCodera1/google-drive-tools",
+   "description": "A minimal browser extension (Chrome & Firefox) that automatically copies file data to your clipboard when you click a file in Google Drive. No API keys required — works entirely via DOM inspection.",
+   "language": "JavaScript",
+   "createdAt": "2026-02-25T06:07:08Z",
+   "pushedAt": "2026-02-25T06:09:29Z",
+   "homepage": null,
+   "archived": false
+  },
+  {
+   "name": "dual-transcript-ytb-extensions",
+   "url": "https://github.com/JunCodera1/dual-transcript-ytb-extensions",
+   "description": "Firefox extension that adds bilingual subtitles to YouTube videos — translated text appears directly inside YouTube's caption window, right below the original.",
+   "language": "JavaScript",
+   "createdAt": "2026-02-22T10:18:03Z",
+   "pushedAt": "2026-02-22T10:33:02Z",
+   "homepage": null,
+   "archived": false
+  },
+  {
+   "name": "leetcode-problems",
+   "url": "https://github.com/JunCodera1/leetcode-problems",
+   "description": "This repository only posts algorithms",
+   "language": "C++",
+   "createdAt": "2023-12-10T23:00:18Z",
+   "pushedAt": "2026-01-09T16:41:02Z",
+   "homepage": null,
+   "archived": false
+  },
+  {
+   "name": "EduVision",
+   "url": "https://github.com/JunCodera1/EduVision",
+   "description": "EduVision is an advanced, AI-driven educational platform designed to revolutionize the way students learn and educators teach. Leveraging state-of-the-art computer vision and deep learning technologies, EduVision provides intelligent, interactive, and personalized learning experiences.",
+   "language": "Python",
+   "createdAt": "2025-11-27T15:54:45Z",
+   "pushedAt": "2025-11-27T17:56:02Z",
+   "homepage": null,
+   "archived": false
+  },
+  {
+   "name": "Deplao",
+   "url": "https://github.com/JunCodera1/Deplao",
+   "description": null,
+   "language": "Python",
+   "createdAt": "2025-10-18T08:51:25Z",
+   "pushedAt": "2025-11-20T03:54:28Z",
+   "homepage": null,
+   "archived": false
+  },
+  {
+   "name": "green-footprint-backend",
+   "url": "https://github.com/JunCodera1/green-footprint-backend",
+   "description": "Backend of green-footprint website.",
+   "language": "TypeScript",
+   "createdAt": "2025-06-01T04:47:21Z",
+   "pushedAt": "2025-11-18T10:10:16Z",
+   "homepage": null,
+   "archived": false
+  },
+  {
+   "name": "green-footprint",
+   "url": "https://github.com/JunCodera1/green-footprint",
+   "description": "The website for environment.",
+   "language": "TypeScript",
+   "createdAt": "2025-05-25T09:58:09Z",
+   "pushedAt": "2025-11-16T12:58:08Z",
+   "homepage": "https://green-footprint-juncodera1s-projects.vercel.app/",
+   "archived": false
+  },
+  {
+   "name": "MailServer",
+   "url": "https://github.com/JunCodera1/MailServer",
+   "description": "A problem for practice create mail server.",
+   "language": "Python",
+   "createdAt": "2025-10-01T23:53:01Z",
+   "pushedAt": "2025-10-01T23:54:18Z",
+   "homepage": null,
+   "archived": false
+  },
+  {
+   "name": "qt6_studentlist",
+   "url": "https://github.com/JunCodera1/qt6_studentlist",
+   "description": "A simple homework building multiple clients-server model.",
+   "language": "Makefile",
+   "createdAt": "2025-09-10T14:49:25Z",
+   "pushedAt": "2025-09-10T14:57:11Z",
+   "homepage": null,
+   "archived": false
+  },
+  {
+   "name": "ST-Chat",
+   "url": "https://github.com/JunCodera1/ST-Chat",
+   "description": "Me and my friend redo project chat app because we fail in subject in University :)))",
+   "language": "Java",
+   "createdAt": "2025-06-06T13:49:02Z",
+   "pushedAt": "2025-07-26T11:06:35Z",
+   "homepage": null,
+   "archived": false
+  },
+  {
+   "name": "Portfolio",
+   "url": "https://github.com/JunCodera1/Portfolio",
+   "description": "This website show my portfolio info.",
+   "language": "TypeScript",
+   "createdAt": "2024-08-31T15:59:33Z",
+   "pushedAt": "2025-07-06T04:15:23Z",
+   "homepage": "https://portfolio-website-fawn-phi.vercel.app",
+   "archived": false
+  },
+  {
+   "name": "MockProject_062025_Nhom6",
+   "url": "https://github.com/JunCodera1/MockProject_062025_Nhom6",
+   "description": "A base project intern in CNPT",
+   "language": "TypeScript",
+   "createdAt": "2025-06-19T02:30:01Z",
+   "pushedAt": "2025-06-20T04:25:02Z",
+   "homepage": null,
+   "archived": false
+  },
+  {
+   "name": "myNixOS-config",
+   "url": "https://github.com/JunCodera1/myNixOS-config",
+   "description": "This is my nixOS config. If u like, please give me a star :3.",
+   "language": "Nix",
+   "createdAt": "2025-06-05T13:05:05Z",
+   "pushedAt": "2025-06-12T01:43:59Z",
+   "homepage": null,
+   "archived": false
+  },
+  {
+   "name": "DeepSea",
+   "url": "https://github.com/JunCodera1/DeepSea",
+   "description": "A Learning Language android application.",
+   "language": "Kotlin",
+   "createdAt": "2025-04-11T03:35:51Z",
+   "pushedAt": "2025-06-04T16:48:19Z",
+   "homepage": null,
+   "archived": false
+  },
+  {
+   "name": "Share_Programming_Books",
+   "url": "https://github.com/JunCodera1/Share_Programming_Books",
+   "description": "I share the books I often read in this repository.",
+   "language": null,
+   "createdAt": "2024-08-30T15:41:22Z",
+   "pushedAt": "2025-06-02T14:37:31Z",
+   "homepage": null,
+   "archived": false
+  },
+  {
+   "name": "codehub",
+   "url": "https://github.com/JunCodera1/codehub",
+   "description": "A website for programer.",
+   "language": "TypeScript",
+   "createdAt": "2025-04-05T03:32:43Z",
+   "pushedAt": "2025-05-09T16:39:52Z",
+   "homepage": "https://codehub-gules.vercel.app",
+   "archived": false
+  },
+  {
+   "name": "LearningLanguageAndroid",
+   "url": "https://github.com/JunCodera1/LearningLanguageAndroid",
+   "description": "An Application help people to learning language!",
+   "language": "Kotlin",
+   "createdAt": "2025-02-11T09:15:19Z",
+   "pushedAt": "2025-03-23T05:17:35Z",
+   "homepage": null,
+   "archived": false
+  },
+  {
+   "name": "PandasCoding",
+   "url": "https://github.com/JunCodera1/PandasCoding",
+   "description": null,
+   "language": "Python",
+   "createdAt": "2025-03-05T15:58:43Z",
+   "pushedAt": "2025-03-05T16:15:28Z",
+   "homepage": null,
+   "archived": false
+  },
+  {
+   "name": "project-management",
+   "url": "https://github.com/JunCodera1/project-management",
+   "description": null,
+   "language": "TypeScript",
+   "createdAt": "2025-01-28T08:33:10Z",
+   "pushedAt": "2025-02-02T03:05:05Z",
+   "homepage": null,
+   "archived": false
+  },
+  {
+   "name": "todolist-mobile",
+   "url": "https://github.com/JunCodera1/todolist-mobile",
+   "description": null,
+   "language": "Kotlin",
+   "createdAt": "2025-01-21T11:50:34Z",
+   "pushedAt": "2025-01-22T01:07:33Z",
+   "homepage": null,
+   "archived": false
+  },
+  {
+   "name": "learn_rust",
+   "url": "https://github.com/JunCodera1/learn_rust",
+   "description": null,
+   "language": "Rust",
+   "createdAt": "2025-01-18T10:20:16Z",
+   "pushedAt": "2025-01-21T03:39:36Z",
+   "homepage": null,
+   "archived": false
+  },
+  {
+   "name": "8051-microservice",
+   "url": "https://github.com/JunCodera1/8051-microservice",
+   "description": "all projects about 8051 series microcontroller :>",
+   "language": "Assembly",
+   "createdAt": "2025-01-14T04:10:38Z",
+   "pushedAt": "2025-01-14T04:15:13Z",
+   "homepage": null,
+   "archived": false
+  },
+  {
+   "name": "Stock-Exchange",
+   "url": "https://github.com/JunCodera1/Stock-Exchange",
+   "description": null,
+   "language": "Java",
+   "createdAt": "2024-12-01T16:18:11Z",
+   "pushedAt": "2024-12-02T12:28:23Z",
+   "homepage": null,
+   "archived": false
+  },
+  {
+   "name": "Java-DSA",
+   "url": "https://github.com/JunCodera1/Java-DSA",
+   "description": null,
+   "language": "Java",
+   "createdAt": "2024-10-31T15:31:35Z",
+   "pushedAt": "2024-12-01T15:47:09Z",
+   "homepage": null,
+   "archived": false
+  },
+  {
+   "name": "PHP-coding",
+   "url": "https://github.com/JunCodera1/PHP-coding",
+   "description": null,
+   "language": "HTML",
+   "createdAt": "2024-09-18T14:21:58Z",
+   "pushedAt": "2024-10-17T00:55:42Z",
+   "homepage": null,
+   "archived": false
+  },
+  {
+   "name": "Sushi-Themed-Website",
+   "url": "https://github.com/JunCodera1/Sushi-Themed-Website",
+   "description": null,
+   "language": "CSS",
+   "createdAt": "2024-09-28T02:35:21Z",
+   "pushedAt": "2024-09-29T05:55:37Z",
+   "homepage": null,
+   "archived": false
+  },
+  {
+   "name": "SpringBootLearning",
+   "url": "https://github.com/JunCodera1/SpringBootLearning",
+   "description": null,
+   "language": "Java",
+   "createdAt": "2024-09-27T05:28:53Z",
+   "pushedAt": "2024-09-27T06:10:21Z",
+   "homepage": null,
+   "archived": false
+  },
+  {
+   "name": "Threads-App",
+   "url": "https://github.com/JunCodera1/Threads-App",
+   "description": null,
+   "language": "TypeScript",
+   "createdAt": "2024-09-11T12:25:05Z",
+   "pushedAt": "2024-09-11T16:17:43Z",
+   "homepage": null,
+   "archived": false
+  },
+  {
+   "name": "Responsive-Sidebar-Menu",
+   "url": "https://github.com/JunCodera1/Responsive-Sidebar-Menu",
+   "description": null,
+   "language": "HTML",
+   "createdAt": "2024-09-09T11:13:53Z",
+   "pushedAt": "2024-09-09T16:03:27Z",
+   "homepage": null,
+   "archived": false
+  },
+  {
+   "name": "CSES-challenge",
+   "url": "https://github.com/JunCodera1/CSES-challenge",
+   "description": "Only challenge CSES",
+   "language": null,
+   "createdAt": "2024-08-12T16:35:35Z",
+   "pushedAt": "2024-08-12T16:35:35Z",
+   "homepage": null,
+   "archived": false
+  },
+  {
+   "name": "ReChatApp",
+   "url": "https://github.com/JunCodera1/ReChatApp",
+   "description": null,
+   "language": "CSS",
+   "createdAt": "2024-07-28T13:55:40Z",
+   "pushedAt": "2024-08-04T05:30:26Z",
+   "homepage": null,
+   "archived": false
+  },
+  {
+   "name": "Snake_game",
+   "url": "https://github.com/JunCodera1/Snake_game",
+   "description": null,
+   "language": "C++",
+   "createdAt": "2024-06-29T03:25:20Z",
+   "pushedAt": "2024-07-07T16:58:56Z",
+   "homepage": null,
+   "archived": false
+  },
+  {
+   "name": "Tetris_with_raylib",
+   "url": "https://github.com/JunCodera1/Tetris_with_raylib",
+   "description": null,
+   "language": "C++",
+   "createdAt": "2024-06-29T02:40:01Z",
+   "pushedAt": "2024-06-29T02:48:58Z",
+   "homepage": null,
+   "archived": false
+  },
+  {
+   "name": "Pong-game-with-raylib",
+   "url": "https://github.com/JunCodera1/Pong-game-with-raylib",
+   "description": null,
+   "language": "C++",
+   "createdAt": "2024-06-27T16:44:28Z",
+   "pushedAt": "2024-06-27T16:47:56Z",
+   "homepage": null,
+   "archived": false
+  },
+  {
+   "name": "JunChat",
+   "url": "https://github.com/JunCodera1/JunChat",
+   "description": "Chat Application using swing",
+   "language": "HTML",
+   "createdAt": "2024-05-20T15:30:07Z",
+   "pushedAt": "2024-06-23T03:00:41Z",
+   "homepage": null,
+   "archived": false
+  },
+  {
+   "name": "weather-web",
+   "url": "https://github.com/JunCodera1/weather-web",
+   "description": "Weather app using API",
+   "language": "CSS",
+   "createdAt": "2024-05-11T04:26:49Z",
+   "pushedAt": "2024-05-26T01:06:21Z",
+   "homepage": null,
+   "archived": false
+  },
+  {
+   "name": "MT-Chat",
+   "url": "https://github.com/JunCodera1/MT-Chat",
+   "description": "Networking java Homework",
+   "language": "Java",
+   "createdAt": "2024-05-15T13:44:40Z",
+   "pushedAt": "2024-05-20T13:50:28Z",
+   "homepage": null,
+   "archived": false
+  },
+  {
+   "name": "pacman",
+   "url": "https://github.com/JunCodera1/pacman",
+   "description": "pacman game programing ",
+   "language": null,
+   "createdAt": "2024-05-18T12:41:42Z",
+   "pushedAt": "2024-05-18T12:43:45Z",
+   "homepage": null,
+   "archived": false
+  },
+  {
+   "name": "ecommerce-website",
+   "url": "https://github.com/JunCodera1/ecommerce-website",
+   "description": null,
+   "language": "JavaScript",
+   "createdAt": "2024-05-11T13:22:44Z",
+   "pushedAt": "2024-05-12T12:16:39Z",
+   "homepage": null,
+   "archived": false
+  },
+  {
+   "name": "TaskChat",
+   "url": "https://github.com/JunCodera1/TaskChat",
+   "description": "This application allows you to plan daily and has additional features for deadline assignment and message.",
+   "language": "Java",
+   "createdAt": "2024-04-12T16:46:56Z",
+   "pushedAt": "2024-05-12T05:57:29Z",
+   "homepage": null,
+   "archived": false
+  },
+  {
+   "name": "ChatApp",
+   "url": "https://github.com/JunCodera1/ChatApp",
+   "description": "App chat with GUI.",
+   "language": "Java",
+   "createdAt": "2024-05-10T06:46:21Z",
+   "pushedAt": "2024-05-10T09:13:02Z",
+   "homepage": null,
+   "archived": false
+  },
+  {
+   "name": "Learn-Tailwind",
+   "url": "https://github.com/JunCodera1/Learn-Tailwind",
+   "description": "Learn Tailwind.",
+   "language": null,
+   "createdAt": "2024-05-09T14:23:17Z",
+   "pushedAt": "2024-05-09T14:23:17Z",
+   "homepage": null,
+   "archived": false
+  },
+  {
+   "name": "EmployeeManager",
+   "url": "https://github.com/JunCodera1/EmployeeManager",
+   "description": "This application allows you to manage Employee.",
+   "language": "Java",
+   "createdAt": "2024-04-12T17:02:37Z",
+   "pushedAt": "2024-04-16T07:51:55Z",
+   "homepage": null,
+   "archived": false
+  },
+  {
+   "name": "JavaIO",
+   "url": "https://github.com/JunCodera1/JavaIO",
+   "description": "My code demo java io",
+   "language": "Java",
+   "createdAt": "2024-04-11T05:39:49Z",
+   "pushedAt": "2024-04-11T17:10:11Z",
+   "homepage": null,
+   "archived": false
+  },
+  {
+   "name": "TextEditor",
+   "url": "https://github.com/JunCodera1/TextEditor",
+   "description": null,
+   "language": null,
+   "createdAt": "2024-04-04T15:59:55Z",
+   "pushedAt": "2024-04-05T01:40:30Z",
+   "homepage": null,
+   "archived": false
+  },
+  {
+   "name": "JavaTest",
+   "url": "https://github.com/JunCodera1/JavaTest",
+   "description": "I research and do Homework at here",
+   "language": "Java",
+   "createdAt": "2024-02-27T02:49:19Z",
+   "pushedAt": "2024-03-26T15:27:49Z",
+   "homepage": null,
+   "archived": false
+  },
+  {
+   "name": "Game2D",
+   "url": "https://github.com/JunCodera1/Game2D",
+   "description": "Demo Dragon's Adventure",
+   "language": "Java",
+   "createdAt": "2023-12-05T11:57:12Z",
+   "pushedAt": "2024-01-24T05:58:47Z",
+   "homepage": null,
+   "archived": false
+  },
+  {
+   "name": "ChessGame",
+   "url": "https://github.com/JunCodera1/ChessGame",
+   "description": "you can play chess with my app",
+   "language": "Java",
+   "createdAt": "2023-12-07T11:39:54Z",
+   "pushedAt": "2023-12-11T13:27:32Z",
+   "homepage": null,
+   "archived": false
+  },
+  {
+   "name": "juncodera1.github.io",
+   "url": "https://github.com/JunCodera1/juncodera1.github.io",
+   "description": null,
+   "language": null,
+   "createdAt": "2023-11-17T02:08:42Z",
+   "pushedAt": "2023-11-17T02:08:43Z",
+   "homepage": null,
+   "archived": false
+  }
+ ]
+}

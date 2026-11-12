@@ -1,0 +1,533 @@
+@import "tailwindcss";
+
+/* ──────────────────────────────────────────────────────────────────────────
+   My Digital Space — design tokens
+   Palette from the spec (row 36): #0C0D10 / #15171C / #F2F3F5 / #B8F36B.
+   The light theme is designed in full, not inverted. The lime accent is a
+   *fill* (highlighter) in both themes; as *text* it needs a darker variant on
+   light, so there are two accent roles: --accent (fill) and --accent-fg (text).
+   tests/unit/contrast.test.ts parses this file and enforces WCAG ratios.
+   ────────────────────────────────────────────────────────────────────────── */
+
+:root,
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0c0d10;
+  --surface: #15171c;
+  --surface-2: #1c1f26;
+  --fg: #f2f3f5;
+  --fg-2: #a9aeb8;
+  --fg-3: #8a909c;
+  --line: rgb(242 243 245 / 0.13);
+  --line-strong: rgb(242 243 245 / 0.26);
+  --accent: #b8f36b;
+  --accent-fg: #b8f36b;
+  --accent-ink: #0c0d10;
+  --danger: #ff8a7a;
+  --atmosphere: color-mix(in oklab, #b8f36b 7%, transparent);
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg: #f4f3ee;
+  --surface: #ffffff;
+  --surface-2: #eae9e1;
+  --fg: #0e1013;
+  --fg-2: #444a55;
+  --fg-3: #5f6672;
+  --line: rgb(14 16 19 / 0.14);
+  --line-strong: rgb(14 16 19 / 0.3);
+  --accent: #b8f36b;
+  --accent-fg: #3a6100;
+  --accent-ink: #0c0d10;
+  --danger: #b3261e;
+  --atmosphere: color-mix(in oklab, #b8f36b 22%, transparent);
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-fg: var(--fg);
+  --color-fg-2: var(--fg-2);
+  --color-fg-3: var(--fg-3);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-accent: var(--accent);
+  --color-accent-fg: var(--accent-fg);
+  --color-accent-ink: var(--accent-ink);
+  --color-danger: var(--danger);
+
+  /* Latin face first, then Japanese system faces (row 37: "fallback phù hợp tiếng Nhật").
+     Space Grotesk, Inter and JetBrains Mono all ship a Vietnamese subset. */
+  --font-display: "Space Grotesk Variable", "Inter Variable", "Hiragino Sans", "Hiragino Kaku Gothic ProN",
+    "Yu Gothic UI", "Yu Gothic", "Meiryo", "Noto Sans JP", "Noto Sans CJK JP", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter Variable", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic UI", "Yu Gothic", "Meiryo",
+    "Noto Sans JP", "Noto Sans CJK JP", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, "SFMono-Regular", Menlo, Consolas, "Hiragino Sans",
+    "Yu Gothic", "Noto Sans CJK JP", monospace;
+
+  --breakpoint-xs: 30rem;
+}
+
+/* ── Base ─────────────────────────────────────────────────────────────── */
+
+@layer base {
+  html {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-sans);
+    font-size: 100%;
+    line-height: 1.65;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    scroll-padding-top: 5.5rem;
+    font-feature-settings: "ss01", "cv11";
+  }
+  html:lang(ja) {
+    line-height: 1.9;
+    line-break: strict;
+    word-break: auto-phrase; /* phrase-aware wrapping where supported (Chromium); harmless elsewhere */
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+  body {
+    min-height: 100dvh;
+    background: var(--bg);
+    overflow-x: clip; /* guards against stray horizontal overflow without breaking position: sticky */
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  ::selection {
+    background: var(--accent);
+    color: var(--accent-ink);
+  }
+  :focus-visible {
+    outline: 2px solid var(--accent-fg);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  img,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+  button {
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  /* WCAG 2.5.8 comfortable target on coarse pointers (touch) */
+  @media (pointer: coarse) {
+    .tap {
+      min-height: 44px;
+      min-width: 44px;
+    }
+  }
+}
+
+/* ── Reusable patterns ────────────────────────────────────────────────── */
+
+@layer components {
+  /* page gutters + max width; the whole site hangs off this one measure */
+  .page {
+    width: 100%;
+    max-width: 90rem;
+    margin-inline: auto;
+    padding-inline: clamp(1rem, 4vw, 3rem);
+  }
+
+  /* small technical label — mono, uppercase, tracked */
+  .label {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    line-height: 1.4;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--fg-3);
+  }
+  html:lang(ja) .label,
+  html:lang(vi) .label {
+    letter-spacing: 0.05em;
+  }
+
+  /* the highlighter: the one place the lime accent is used as a fill on text */
+  .hl {
+    background: linear-gradient(transparent 58%, var(--accent) 58%, var(--accent) 94%, transparent 94%);
+    color: inherit;
+    padding-inline: 0.06em;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+  }
+  :root[data-theme="light"] .hl {
+    background: linear-gradient(transparent 52%, var(--accent) 52%, var(--accent) 94%, transparent 94%);
+  }
+
+  /* editorial text link: hairline underline that fills on hover */
+  .link {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    background-size: 100% 1px;
+    transition: background-size 0.25s ease, color 0.2s ease;
+    padding-bottom: 1px;
+  }
+  .link:hover {
+    background-size: 100% 2px;
+    color: var(--accent-fg);
+  }
+
+  /* subtle technical grid, masked so it fades out instead of framing the page */
+  .bg-grid {
+    background-image: linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 72px 72px;
+    -webkit-mask-image: radial-gradient(70% 80% at 25% 15%, #000 0%, transparent 75%);
+    mask-image: radial-gradient(70% 80% at 25% 15%, #000 0%, transparent 75%);
+    opacity: 0.55;
+  }
+  .atmosphere {
+    background: radial-gradient(55% 45% at 88% -5%, var(--atmosphere), transparent 70%);
+  }
+
+  /* registration mark (+) — placed on grid junctions as a quiet identity motif */
+  .reg::before,
+  .reg::after {
+    content: "";
+    position: absolute;
+    background: var(--line-strong);
+  }
+  .reg::before {
+    width: 11px;
+    height: 1px;
+    top: 0;
+    left: -5px;
+  }
+  .reg::after {
+    width: 1px;
+    height: 11px;
+    top: -5px;
+    left: 0;
+  }
+
+  /* buttons — rectangular, hairline, tactile press */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    min-height: 2.75rem;
+    padding: 0.6rem 1.1rem;
+    border: 1px solid var(--line-strong);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    background: transparent;
+    color: var(--fg);
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.12s ease;
+  }
+  .btn:hover {
+    border-color: var(--fg);
+  }
+  .btn:active {
+    transform: translateY(1px) scale(0.99);
+  }
+  .btn-primary {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--accent-ink);
+  }
+  .btn-primary:hover {
+    background: color-mix(in oklab, var(--accent) 88%, white);
+    border-color: color-mix(in oklab, var(--accent) 88%, white);
+  }
+
+  /* chips / pills used for tags & filters — squared, not rounded cards */
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.25rem 0.6rem;
+    border: 1px solid var(--line);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.03em;
+    color: var(--fg-2);
+    background: transparent;
+    transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
+  }
+  button.chip:hover,
+  a.chip:hover {
+    border-color: var(--fg-2);
+    color: var(--fg);
+  }
+  .chip[aria-pressed="true"] {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--accent-ink);
+  }
+
+  /* dashed slot: how every "owner hasn't supplied this yet" state looks */
+  .slot {
+    border: 1px dashed var(--line-strong);
+    padding: 1.25rem;
+    color: var(--fg-2);
+  }
+
+  /* long-form typography (MDX) */
+  .prose-space {
+    font-size: 1.0625rem;
+    max-width: 68ch;
+  }
+  html:lang(ja) .prose-space {
+    max-width: 38em;
+  }
+  .prose-space > * + * {
+    margin-top: 1.25em;
+  }
+  .prose-space h2 {
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    margin-top: 2.4em;
+    scroll-margin-top: 6rem;
+  }
+  .prose-space h3 {
+    font-size: 1.3rem;
+    margin-top: 1.9em;
+    scroll-margin-top: 6rem;
+  }
+  .prose-space a {
+    color: var(--accent-fg);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+    text-decoration-thickness: 1px;
+  }
+  .prose-space ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  .prose-space ul > li {
+    position: relative;
+    padding-left: 1.4em;
+  }
+  .prose-space ul > li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.85em;
+    width: 0.7em;
+    height: 1px;
+    background: var(--accent-fg);
+  }
+  .prose-space ol {
+    padding-left: 1.4em;
+    list-style: decimal;
+  }
+  .prose-space ol > li::marker {
+    font-family: var(--font-mono);
+    color: var(--fg-3);
+  }
+  .prose-space li + li {
+    margin-top: 0.4em;
+  }
+  .prose-space blockquote {
+    border-left: 2px solid var(--accent);
+    padding-left: 1.1em;
+    color: var(--fg-2);
+  }
+  .prose-space code {
+    font-family: var(--font-mono);
+    font-size: 0.88em;
+    background: var(--surface-2);
+    padding: 0.1em 0.35em;
+  }
+  .prose-space pre {
+    overflow-x: auto;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    padding: 1rem 1.2rem;
+    font-size: 0.85rem;
+    line-height: 1.6;
+  }
+  .prose-space pre code {
+    background: none;
+    padding: 0;
+  }
+  .prose-space table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    display: block;
+    overflow-x: auto;
+  }
+  .prose-space th,
+  .prose-space td {
+    border-bottom: 1px solid var(--line);
+    padding: 0.55rem 0.8rem 0.55rem 0;
+    text-align: left;
+    vertical-align: top;
+  }
+  .prose-space th {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--fg-3);
+    font-weight: 500;
+  }
+  .prose-space hr {
+    border: 0;
+    border-top: 1px solid var(--line);
+  }
+}
+
+/* ── Index rows (home): hover fills a lime bar from the left ──────────── */
+
+.index-row {
+  position: relative;
+  isolation: isolate;
+}
+.index-row::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--surface);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1);
+  z-index: -1;
+}
+.index-row::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--accent);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.index-row:hover::before,
+.index-row:focus-visible::before,
+.index-row:hover::after,
+.index-row:focus-visible::after {
+  transform: scaleY(1);
+}
+.index-row .arrow {
+  transition: transform 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.index-row:hover .arrow,
+.index-row:focus-visible .arrow {
+  transform: translate(4px, -4px);
+}
+
+/* ── Scroll reveal: CSS-only (scroll-driven), so nothing is ever hidden without JS ── */
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      animation: reveal-in linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 40%;
+    }
+  }
+}
+@keyframes reveal-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ── Dialogs (command palette + full index menu use native <dialog>) ───── */
+
+dialog {
+  color: inherit;
+}
+dialog::backdrop {
+  background: rgb(5 6 8 / 0.62);
+  backdrop-filter: blur(2px);
+}
+dialog[open] {
+  animation: dialog-in 0.18s ease-out;
+}
+@keyframes dialog-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* caret blink for the terminal */
+@keyframes caret {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* ── Reduced motion: honour the OS setting everywhere ─────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ── Print (Recruiter view prints cleanly on white) ───────────────────── */
+
+@media print {
+  :root,
+  :root[data-theme="dark"] {
+    --bg: #fff;
+    --surface: #fff;
+    --surface-2: #f2f2f2;
+    --fg: #000;
+    --fg-2: #222;
+    --fg-3: #444;
+    --line: #bbb;
+    --line-strong: #888;
+    --accent-fg: #000;
+  }
+  .no-print {
+    display: none !important;
+  }
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #444;
+  }
+}
