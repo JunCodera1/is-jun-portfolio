@@ -1,0 +1,464 @@
+{
+ "note": "Edit statuses here, then run npm run docs:traceability. TESTED/VERIFIED require empty gaps; VERIFIED requires evidence.",
+ "requirements": {
+  "REQ-01-01": {
+   "status": "IMPLEMENTED",
+   "implementation": "Home 'Index' + About/Now/Garden/Journal/Interests/Timeline pages; portfolio is one section (Projects/Craft/Recruiter)",
+   "verification": "e2e: routes spec (all pages × 3 locales)",
+   "gaps": [
+    "personal story, interests and goals are owner-supplied placeholders"
+   ]
+  },
+  "REQ-01-02": {
+   "status": "IMPLEMENTED",
+   "implementation": "Index order and nav groups: 6 personal : 3 professional entries",
+   "verification": "structure only",
+   "gaps": [
+    "real 70/30 balance depends on owner content"
+   ]
+  },
+  "REQ-01-03": {
+   "status": "TESTED",
+   "implementation": "Content = folders of MDX + typed data files; routes, search index, sitemap and feeds are derived from them",
+   "verification": "unit: content.test.ts; e2e: dynamic routes, search index"
+  },
+  "REQ-02-01": {
+   "status": "VERIFIED",
+   "implementation": "next-intl routing en/ja/vi, defaultLocale en, UI chrome in all three",
+   "verification": "unit: messages parity (308 keys × 3); e2e: 36 localized routes",
+   "evidence": [
+    "tests/unit/messages.test.ts",
+    "tests/e2e/routes.spec.ts"
+   ]
+  },
+  "REQ-02-02": {
+   "status": "VERIFIED",
+   "implementation": "LanguageSwitcher (EN / 日本語 / VI) links to the current pathname in each locale",
+   "verification": "e2e: i18n.spec 'keeps the current page'",
+   "evidence": [
+    "tests/e2e/i18n.spec.ts"
+   ]
+  },
+  "REQ-02-03": {
+   "status": "VERIFIED",
+   "implementation": "localePrefix 'always'; every page statically generated per locale",
+   "verification": "e2e: direct access to every /en|/ja|/vi route returns 200",
+   "evidence": [
+    "tests/e2e/routes.spec.ts"
+   ]
+  },
+  "REQ-02-04": {
+   "status": "VERIFIED",
+   "implementation": "proxy.ts: NEXT_LOCALE cookie → Accept-Language → en, only at bare /",
+   "verification": "e2e: redirect matrix + remembered-choice test",
+   "evidence": [
+    "tests/e2e/routes.spec.ts",
+    "tests/e2e/i18n.spec.ts"
+   ]
+  },
+  "REQ-02-05": {
+   "status": "IMPLEMENTED",
+   "implementation": "ja (丁寧語) and vi copy written natively; labelled draft where unreviewed",
+   "verification": "not machine-verifiable",
+   "gaps": [
+    "native-speaker review by the owner"
+   ]
+  },
+  "REQ-02-06": {
+   "status": "VERIFIED",
+   "implementation": "TranslationStatus on MDX frontmatter + LocalizedText; banners, badges, lang attrs, link to the English original",
+   "verification": "unit + e2e: translated/draft/untranslated all exercised",
+   "evidence": [
+    "tests/unit/localized.test.ts",
+    "tests/unit/content.test.ts",
+    "tests/e2e/i18n.spec.ts"
+   ],
+   "notes": "UI strings must be complete in all locales (enforced) rather than carry a status"
+  },
+  "REQ-02-07": {
+   "status": "TESTED",
+   "implementation": "Intl dates/numbers, ICU plurals, reading time (chars for ja), localized forms/errors/empty states/terminal/metadata/aria-labels",
+   "verification": "unit: seo.test (formatDate); e2e: localized dates + reading time"
+  },
+  "REQ-02-08": {
+   "status": "VERIFIED",
+   "implementation": "buildMetadata: canonical, hreflang + x-default, OG locale; sitemap with alternates; html lang",
+   "verification": "unit + e2e + Lighthouse SEO 100 on 6 pages",
+   "evidence": [
+    "tests/unit/seo.test.ts",
+    "tests/e2e/routes.spec.ts",
+    "docs/TESTING_STRATEGY.md#lighthouse"
+   ]
+  },
+  "REQ-03-01": {
+   "status": "IMPLEMENTED",
+   "implementation": "Hero, Index, latest notes, featured projects, widgets, footer links",
+   "verification": "e2e: routes",
+   "gaps": [
+    "short intro and current-activity text are owner-written"
+   ]
+  },
+  "REQ-03-02": {
+   "status": "IMPLEMENTED",
+   "implementation": "About page: six story sections (placeholders) + verified GitHub facts",
+   "verification": "e2e: routes",
+   "gaps": [
+    "owner content (see CONTENT_NEEDED.md)"
+   ]
+  },
+  "REQ-03-03": {
+   "status": "VERIFIED",
+   "implementation": "Projects list with kind filter, case-study detail pages, repo + demo links; every fact traced to files",
+   "verification": "e2e: filter + detail + links; PROJECTS_REVIEW.md",
+   "evidence": [
+    "tests/e2e/interaction.spec.ts",
+    "PROJECTS_REVIEW.md"
+   ]
+  },
+  "REQ-03-04": {
+   "status": "IMPLEMENTED",
+   "implementation": "Garden: MDX, tags, maturity, related, filter + global search",
+   "verification": "e2e: filters",
+   "gaps": [
+    "category is parsed but not surfaced as a filter",
+    "knowledge graph deferred (needs a larger corpus)"
+   ]
+  },
+  "REQ-03-05": {
+   "status": "TESTED",
+   "implementation": "Journal: MDX, TOC, reading time, related posts, tags, filter, RSS",
+   "verification": "e2e: TOC anchors, reading time, feed"
+  },
+  "REQ-03-06": {
+   "status": "IMPLEMENTED",
+   "implementation": "Interests page with six category slots; only confirmed items render",
+   "verification": "e2e: routes",
+   "gaps": [
+    "owner must confirm interests"
+   ]
+  },
+  "REQ-03-07": {
+   "status": "IMPLEMENTED",
+   "implementation": "Now page: five sections + dated header + live GitHub list",
+   "verification": "e2e: routes",
+   "gaps": [
+    "owner content (see CONTENT_NEEDED.md)"
+   ]
+  },
+  "REQ-03-08": {
+   "status": "IMPLEMENTED",
+   "implementation": "Contact: labelled placeholder for e-mail, GitHub link, no form",
+   "verification": "e2e: no mailto, no form, real GitHub link",
+   "gaps": [
+    "e-mail address not supplied"
+   ]
+  },
+  "REQ-03-09": {
+   "status": "IMPLEMENTED",
+   "implementation": "Timeline: derived verified GitHub milestones + data file for owner milestones",
+   "verification": "e2e: routes",
+   "gaps": [
+    "personal milestones not supplied"
+   ]
+  },
+  "REQ-04-01": {
+   "status": "IMPLEMENTED",
+   "implementation": "Craft page: skills grouped by use and linked to projects with evidence; education/experience data file",
+   "verification": "e2e: routes",
+   "gaps": [
+    "education and experience not supplied"
+   ]
+  },
+  "REQ-04-02": {
+   "status": "IMPLEMENTED",
+   "implementation": "All ten case-study sections rendered; verified ones filled, owner-only ones are labelled slots",
+   "verification": "e2e: detail test",
+   "gaps": [
+    "problem, goals, role, challenges, results, lessons are owner knowledge"
+   ]
+  },
+  "REQ-04-03": {
+   "status": "TESTED",
+   "implementation": "/recruiter compact printable view; not in the home Index",
+   "verification": "e2e: routes + axe on /recruiter",
+   "notes": "print button not automated"
+  },
+  "REQ-05-01": {
+   "status": "VERIFIED",
+   "implementation": "CommandPalette (native dialog, combobox ARIA), Ctrl/Cmd+K plus visible trigger; pages/projects/notes/actions",
+   "verification": "e2e: 7 palette tests",
+   "evidence": [
+    "tests/e2e/interaction.spec.ts"
+   ]
+  },
+  "REQ-05-02": {
+   "status": "VERIFIED",
+   "implementation": "Terminal: pure lookup table over precomputed output",
+   "verification": "unit: terminal.test (incl. rm -rf, constructor, __proto__); e2e",
+   "evidence": [
+    "tests/unit/terminal.test.ts",
+    "tests/e2e/interaction.spec.ts"
+   ]
+  },
+  "REQ-05-03": {
+   "status": "VERIFIED",
+   "implementation": "System/light/dark, persisted, no-flash inline script, live OS changes",
+   "verification": "e2e: theme suite (4 tests incl. blocked storage)",
+   "evidence": [
+    "tests/e2e/interaction.spec.ts"
+   ]
+  },
+  "REQ-05-04": {
+   "status": "TESTED",
+   "implementation": "Hero widgets: visitor local time/date + latest repository push (cached, fallback)",
+   "verification": "e2e widgets test; unit github-feed",
+   "notes": "weather intentionally omitted (no trusted API)"
+  },
+  "REQ-05-05": {
+   "status": "DEFERRED",
+   "implementation": "—",
+   "reason": "Needs owner-supplied items; an empty library page adds no value yet. Data model not built."
+  },
+  "REQ-05-06": {
+   "status": "DEFERRED",
+   "implementation": "—",
+   "reason": "Needs the owner's Spotify/Last.fm credentials and consent."
+  },
+  "REQ-05-07": {
+   "status": "DEFERRED",
+   "implementation": "—",
+   "reason": "Needs persistent storage + moderation (Supabase) and abuse protection; no UGC exists today by design."
+  },
+  "REQ-05-08": {
+   "status": "DEFERRED",
+   "implementation": "Skill↔project relations are shown as linked lists on /profile",
+   "reason": "A graph of 7 projects is decoration; revisit with more content (React Flow)."
+  },
+  "REQ-05-09": {
+   "status": "DEFERRED",
+   "implementation": "—",
+   "reason": "Requires a real sandbox; no arbitrary code execution on the server."
+  },
+  "REQ-05-10": {
+   "status": "DEFERRED",
+   "implementation": "—",
+   "reason": "No value yet; the site must not depend on 3D."
+  },
+  "REQ-06-01": {
+   "status": "IMPLEMENTED",
+   "implementation": "Editorial grid + owner-requested anime/manga layer (see TECHNICAL_DECISIONS.md #9)",
+   "verification": "visual review of screenshots at 5 widths, 2 themes",
+   "gaps": [
+    "no owner design references supplied (REQ-11-03) to compare against"
+   ]
+  },
+  "REQ-06-02": {
+   "status": "VERIFIED",
+   "implementation": "Dark per sheet palette; light theme designed separately with a darker accent-as-text",
+   "verification": "unit: contrast.test parses globals.css; e2e axe in both themes",
+   "evidence": [
+    "tests/unit/contrast.test.ts",
+    "tests/e2e/quality.spec.ts"
+   ]
+  },
+  "REQ-06-03": {
+   "status": "TESTED",
+   "implementation": "Space Grotesk + Inter + JetBrains Mono (all with Vietnamese subsets), Japanese system stack, metric-matched fallbacks",
+   "verification": "e2e typography test; Lighthouse CLS 0"
+  },
+  "REQ-06-04": {
+   "status": "VERIFIED",
+   "implementation": "Semantic landmarks, skip link, focus ring, reduced motion, label-in-name fixes",
+   "verification": "e2e: overflow at 375/430/768/1366/1920 for every page × locale; axe WCAG A/AA in both themes; keyboard + focus + reduced-motion tests",
+   "evidence": [
+    "tests/e2e/quality.spec.ts",
+    "tests/e2e/interaction.spec.ts"
+   ],
+   "notes": "no manual screen-reader pass yet"
+  },
+  "REQ-06-05": {
+   "status": "IMPLEMENTED",
+   "implementation": "No dead links, no fake controls, no hover-only actions",
+   "verification": "e2e dead-link crawl",
+   "gaps": [
+    "'not template-like' is a judgement the owner must make"
+   ]
+  },
+  "REQ-07-01": {
+   "status": "VERIFIED",
+   "implementation": "Next 16.4 App Router, React 19.3, TypeScript 5.9 (TS 7 not yet supported by Next)",
+   "verification": "next build green",
+   "evidence": [
+    "TECHNICAL_DECISIONS.md#1"
+   ]
+  },
+  "REQ-07-02": {
+   "status": "VERIFIED",
+   "implementation": "Tailwind 4 via tokens; shadcn/ui deliberately not used",
+   "verification": "build",
+   "evidence": [
+    "TECHNICAL_DECISIONS.md#3"
+   ]
+  },
+  "REQ-07-03": {
+   "status": "DEFERRED",
+   "implementation": "Motion handled with CSS (scroll-driven reveal, transitions) and a global reduced-motion rule",
+   "reason": "No interaction needed a JS animation library; the dependency was removed rather than shipped unused."
+  },
+  "REQ-07-04": {
+   "status": "VERIFIED",
+   "implementation": "next-mdx-remote/rsc, remark-gfm, rehype-slug; frontmatter validated with zod",
+   "verification": "unit + e2e",
+   "evidence": [
+    "tests/unit/content.test.ts"
+   ]
+  },
+  "REQ-07-05": {
+   "status": "VERIFIED",
+   "implementation": "next-intl 4 with proxy.ts",
+   "verification": "build + e2e",
+   "evidence": [
+    "tests/e2e/i18n.spec.ts"
+   ]
+  },
+  "REQ-07-06": {
+   "status": "DEFERRED",
+   "implementation": "—",
+   "reason": "Only for a knowledge/architecture graph, which is deferred."
+  },
+  "REQ-07-07": {
+   "status": "TESTED",
+   "implementation": "Server-side fetch, 1 h revalidate, optional server-only token, committed snapshot fallback",
+   "verification": "unit: github-feed.test (200 / 403 / 429 / 500 / network / bad JSON)"
+  },
+  "REQ-07-08": {
+   "status": "DEFERRED",
+   "implementation": "—",
+   "reason": "Only for persistent user data (guestbook), which is deferred."
+  },
+  "REQ-07-09": {
+   "status": "IMPLEMENTED",
+   "implementation": "docs/DEPLOYMENT_GUIDE.md; env-driven site URL",
+   "verification": "documented; not deployed (requires owner approval)",
+   "gaps": [
+    "actual Vercel deployment is the owner's action"
+   ]
+  },
+  "REQ-08-01": {
+   "status": "IMPLEMENTED",
+   "implementation": "src/content/data/*.ts, messages/*.json, content/**/*.mdx",
+   "verification": "unit: data.test",
+   "gaps": [
+    "Personal Library data file absent (REQ-05-05 deferred)"
+   ]
+  },
+  "REQ-08-02": {
+   "status": "VERIFIED",
+   "implementation": "content/<kind>/<id>/{en,ja,vi}.mdx",
+   "verification": "unit: content.test",
+   "evidence": [
+    "tests/unit/content.test.ts"
+   ]
+  },
+  "REQ-08-03": {
+   "status": "TESTED",
+   "implementation": "Every project fact traced to a manifest, tree or source file; only the GitHub link is rendered as owner contact; displayName flagged unconfirmed",
+   "verification": "PROJECTS_REVIEW.md audit; unit: data.test (evidence, snapshot membership, no e-mail)"
+  },
+  "REQ-08-04": {
+   "status": "VERIFIED",
+   "implementation": "Dashed hatched placeholder slots + CONTENT_NEEDED.md",
+   "verification": "e2e: [data-placeholder] on detail page; file present",
+   "evidence": [
+    "CONTENT_NEEDED.md",
+    "tests/unit/docs.test.ts"
+   ]
+  },
+  "REQ-09-01": {
+   "status": "TESTED",
+   "implementation": "CSP + security headers, zod-validated env, server-only token, no UGC, external links noopener",
+   "verification": "e2e: headers; unit: env.test",
+   "notes": "no write endpoints, so no rate limiting needed"
+  },
+  "REQ-09-02": {
+   "status": "VERIFIED",
+   "implementation": "Static generation, subsetted fonts, metric-matched fallbacks, minimal client JS, ISR for API data",
+   "verification": "Lighthouse mobile: perf 99–100, CLS 0 (see TESTING_STRATEGY)",
+   "evidence": [
+    "docs/TESTING_STRATEGY.md#lighthouse"
+   ],
+   "notes": "re-measure after each visual change"
+  },
+  "REQ-09-03": {
+   "status": "VERIFIED",
+   "implementation": "Per-page metadata, OG + Twitter image, sitemap, robots, canonical, JSON-LD (WebSite, Person, BlogPosting)",
+   "verification": "Lighthouse SEO 100; unit + e2e",
+   "evidence": [
+    "docs/TESTING_STRATEGY.md#lighthouse",
+    "tests/unit/seo.test.ts"
+   ]
+  },
+  "REQ-10-01": {
+   "status": "VERIFIED",
+   "implementation": "Directory, git state and design references inspected; existing projects untouched",
+   "verification": "docs/DISCOVERY_REPORT.md §1",
+   "evidence": [
+    "docs/DISCOVERY_REPORT.md"
+   ]
+  },
+  "REQ-10-02": {
+   "status": "VERIFIED",
+   "implementation": "Identity, 3 concepts, sitemap, priorities, architecture, roadmap, risks, missing content",
+   "verification": "docs/DISCOVERY_REPORT.md",
+   "evidence": [
+    "docs/DISCOVERY_REPORT.md"
+   ]
+  },
+  "REQ-10-03": {
+   "status": "IMPLEMENTED",
+   "implementation": "Foundation → core → content → interactions → integrations → QA, visible in git history",
+   "verification": "git log"
+  },
+  "REQ-10-04": {
+   "status": "TESTED",
+   "implementation": "README, PROJECT_STATUS, TECHNICAL_DECISIONS, CONTENT_NEEDED, FEATURES present",
+   "verification": "unit: docs.test"
+  },
+  "REQ-10-05": {
+   "status": "TESTED",
+   "implementation": "Routes, i18n, switching, responsive, interactions, API failures, a11y, performance, security headers, SEO, production build",
+   "verification": "106 e2e + 104 unit tests; Lighthouse",
+   "notes": "security testing is limited to headers/env; no penetration test"
+  },
+  "REQ-10-06": {
+   "status": "VERIFIED",
+   "implementation": "Optional features not auto-built; deferrals recorded with reasons",
+   "verification": "FEATURES.md",
+   "evidence": [
+    "FEATURES.md"
+   ]
+  },
+  "REQ-11-01": {
+   "status": "BLOCKED",
+   "implementation": "—",
+   "reason": "Needs the owner's real name/nickname, story, interests and privacy choices."
+  },
+  "REQ-11-02": {
+   "status": "IN_PROGRESS",
+   "implementation": "GitHub URL received; repositories researched and verified",
+   "gaps": [
+    "owner's priority repositories, project images and demo confirmations"
+   ]
+  },
+  "REQ-11-03": {
+   "status": "BLOCKED",
+   "implementation": "—",
+   "reason": "Avatar, photos, project images and 3–5 design references not supplied."
+  },
+  "REQ-11-04": {
+   "status": "BLOCKED",
+   "implementation": "—",
+   "reason": "Public/private boundaries and topics to avoid not yet stated."
+  }
+ }
+}
