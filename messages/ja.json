@@ -32,7 +32,8 @@
       "contact": "連絡の取り方。",
       "recruiter": "コンパクトで印刷しやすい要約。"
     },
-    "recruiter": "採用担当者向け表示"
+    "recruiter": "採用担当者向け表示",
+    "menuHint": "↑ ↓ 選択・1〜9 で話数へ移動・Enter で開く・Esc で戻る"
   },
   "common": {
     "skip": "本文へ移動",

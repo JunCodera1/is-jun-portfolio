@@ -32,7 +32,8 @@
       "contact": "Cách để liên lạc.",
       "recruiter": "Bản tóm tắt gọn, dễ in."
     },
-    "recruiter": "Bản xem cho nhà tuyển dụng"
+    "recruiter": "Bản xem cho nhà tuyển dụng",
+    "menuHint": "↑ ↓ chọn · 1–9 nhảy tới chương · Enter mở · Esc quay lại"
   },
   "common": {
     "skip": "Bỏ qua, đến nội dung chính",

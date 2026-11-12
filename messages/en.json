@@ -32,7 +32,8 @@
       "contact": "Where to reach out.",
       "recruiter": "A compact, printable summary."
     },
-    "recruiter": "Recruiter view"
+    "recruiter": "Recruiter view",
+    "menuHint": "↑ ↓ select · 1–9 jump to a chapter · Enter open · Esc back"
   },
   "common": {
     "skip": "Skip to content",

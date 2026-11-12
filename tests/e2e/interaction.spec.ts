@@ -284,3 +284,56 @@ test("social preview image is generated and referenced in og/twitter metadata", 
   expect(res.headers()["content-type"]).toContain("image/png");
   await expect(page.locator('meta[name="twitter:image"]')).toHaveCount(1);
 });
+
+test.describe("game-style interaction layer", () => {
+  test("index menu is keyboard-driven: arrows, Home/End and 1–9 move focus; Enter opens", async ({ page }) => {
+    await page.goto("/en");
+    await page.getByRole("button", { name: "Open the site index" }).click();
+    const dialog = page.getByRole("dialog", { name: "Index of the site" });
+    const links = dialog.getByRole("link");
+    await page.keyboard.press("ArrowDown");
+    await expect(links.nth(0)).toBeFocused();
+    await page.keyboard.press("ArrowDown");
+    await expect(links.nth(1)).toBeFocused();
+    await page.keyboard.press("ArrowUp");
+    await expect(links.nth(0)).toBeFocused();
+    await page.keyboard.press("End");
+    await expect(links.last()).toBeFocused();
+    await page.keyboard.press("Home");
+    await expect(links.first()).toBeFocused();
+    await page.keyboard.press("7");
+    await expect(links.nth(6)).toBeFocused();
+    await page.keyboard.press("Enter");
+    await expect(page).toHaveURL(/\/en\/projects$/);
+  });
+
+  test("route wipe plays after a client navigation, never on first load, and never blocks input", async ({ page }) => {
+    await page.goto("/en");
+    await expect(page.locator(".wipe")).toHaveCount(0);
+    await page.getByRole("link", { name: "About", exact: true }).first().click();
+    await expect(page).toHaveURL(/\/en\/about$/);
+    await expect(page.locator(".wipe")).toHaveCount(1);
+    expect(await page.locator(".wipe").evaluate((e) => getComputedStyle(e).pointerEvents)).toBe("none");
+    // navigation is not delayed by the animation: another click goes through immediately
+    await page.getByRole("link", { name: "Projects", exact: true }).first().click();
+    await expect(page).toHaveURL(/\/en\/projects$/);
+  });
+
+  test("route wipe is removed under prefers-reduced-motion", async ({ page }) => {
+    await page.emulateMedia({ reducedMotion: "reduce" });
+    await page.goto("/en");
+    await page.getByRole("link", { name: "About", exact: true }).first().click();
+    await expect(page).toHaveURL(/\/en\/about$/);
+    expect(await page.locator(".wipe").evaluate((e) => getComputedStyle(e).display)).toBe("none");
+  });
+
+  test("selected nav item uses a skewed plate layer, so the focus outline is never clipped", async ({ page }) => {
+    await page.goto("/en/projects");
+    const link = page.getByRole("navigation", { name: "Primary" }).getByRole("link", { name: "Projects" });
+    await link.focus();
+    const s = await link.evaluate((e) => { const c = getComputedStyle(e); return { clip: c.clipPath, outline: c.outlineStyle, w: c.outlineWidth }; });
+    expect(s.clip).toBe("none");
+    expect(s.outline).toBe("solid");
+    expect(s.w).toBe("2px");
+  });
+});

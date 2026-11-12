@@ -14,15 +14,18 @@ export function NavLinks({ items, label }: { items: { href: string; label: strin
               <Link
                 href={item.href}
                 aria-current={active ? "page" : undefined}
-                className={`relative px-3 py-2 text-[0.9rem] transition-colors ${active ? "text-fg" : "text-fg-2 hover:text-fg"}`}
+                className={`group relative isolate block px-4 py-2 text-[0.9rem] font-medium transition-colors ${
+                  active ? "text-accent-ink" : "text-fg-2 hover:text-fg"
+                }`}
               >
-                {item.label}
+                {/* slanted selection plate: a skewed background layer (not clip-path), so the focus outline stays whole */}
                 <span
                   aria-hidden
-                  className={`absolute inset-x-3 -bottom-px h-[2px] origin-left bg-accent transition-transform duration-300 ${
-                    active ? "scale-x-100" : "scale-x-0"
+                  className={`absolute inset-0 -z-10 origin-left -skew-x-12 transition-transform duration-300 ease-out ${
+                    active ? "scale-x-100 bg-accent" : "scale-x-0 bg-surface-2 group-hover:scale-x-100"
                   }`}
                 />
+                {item.label}
               </Link>
             </li>
           );

@@ -672,6 +672,44 @@ dialog[open] {
   }
 }
 
+/* ── Route cue: a thin accent line sweeps along the top edge after a client navigation ── */
+.wipe {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 60;
+  pointer-events: none;
+  overflow: hidden;
+}
+.wipe::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 28%;
+  background: linear-gradient(90deg, transparent, var(--accent) 35%, var(--sakura) 100%);
+  transform: skewX(-20deg) translateX(-130%);
+  animation: wipe-line 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+@keyframes wipe-line {
+  to {
+    transform: skewX(-20deg) translateX(480%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .wipe {
+    display: none;
+  }
+}
+@media print {
+  .wipe {
+    display: none !important;
+  }
+}
+
 /* caret blink for the terminal */
 @keyframes caret {
   50% {

@@ -11,6 +11,7 @@ import { siteUrl } from "@/lib/site";
 import { THEME_SCRIPT } from "@/lib/theme";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
+import { RouteWipe } from "@/components/layout/RouteWipe";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -63,6 +64,7 @@ export default async function LocaleLayout({
             {children}
           </main>
           <SiteFooter locale={locale as Locale} />
+          <RouteWipe />
         </NextIntlClientProvider>
       </body>
     </html>

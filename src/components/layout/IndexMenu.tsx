@@ -20,6 +20,21 @@ export function IndexMenu({ items }: { items: MenuItem[] }) {
     ref.current?.close();
   }, [pathname]);
 
+  // Menu-style keyboard: ↑/↓ move, Home/End jump, 1–9 pick a chapter. Enter/click follow the focused link as usual.
+  const onMenuKey = (e: React.KeyboardEvent<HTMLElement>) => {
+    const links = [...e.currentTarget.querySelectorAll<HTMLAnchorElement>("a[href]")];
+    const i = links.indexOf(document.activeElement as HTMLAnchorElement);
+    const go = (n: number) => { e.preventDefault(); links[(n + links.length) % links.length]?.focus(); };
+    if (e.key === "ArrowDown") go(i + 1);
+    else if (e.key === "ArrowUp") go(i < 0 ? -1 : i - 1);
+    else if (e.key === "Home") go(0);
+    else if (e.key === "End") go(links.length - 1);
+    else if (/^[1-9]$/.test(e.key) && !e.metaKey && !e.ctrlKey && !e.altKey) {
+      const target = links[Number(e.key) - 1];
+      if (target) { e.preventDefault(); target.focus(); }
+    }
+  };
+
   const show = () => { ref.current?.showModal(); setOpen(true); };
   const hide = () => ref.current?.close();
 
@@ -44,7 +59,7 @@ export function IndexMenu({ items }: { items: MenuItem[] }) {
         onClick={(e) => { if (e.target === ref.current) hide(); }}
         className="fixed inset-0 m-0 h-dvh max-h-none w-screen max-w-none overflow-y-auto bg-bg p-0 text-fg"
       >
-        <div className="page flex min-h-dvh flex-col pb-10">
+        <div className="page flex min-h-dvh flex-col pb-10" onKeyDown={onMenuKey}>
           <div className="flex h-16 items-center justify-between border-b border-line">
             <h2 id="index-menu-title" className="label !text-fg-2">{t("nav.menuTitle")}</h2>
             <button type="button" onClick={hide} className="tap inline-flex h-9 items-center gap-2 border border-line-strong px-3 font-mono text-[0.72rem] uppercase tracking-wider hover:border-fg">
@@ -67,6 +82,7 @@ export function IndexMenu({ items }: { items: MenuItem[] }) {
             </ol>
           </nav>
 
+          <p className="label mt-6 hidden md:block">{t("nav.menuHint")}</p>
           <div className="mt-8 flex items-center justify-between gap-4">
             <span className="label">{t("common.theme")}</span>
             <ThemeControl />

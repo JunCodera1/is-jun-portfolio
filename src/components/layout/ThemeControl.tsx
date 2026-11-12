@@ -21,6 +21,7 @@ export function ThemeControl({ className = "" }: { className?: string }) {
     if (pref !== "system") return;
     const mq = window.matchMedia("(prefers-color-scheme: light)");
     const onChange = () => applyTheme("system");
+    onChange(); // resync once on mount: covers an OS change between the inline script and hydration
     mq.addEventListener("change", onChange);
     return () => mq.removeEventListener("change", onChange);
   }, [pref]);
