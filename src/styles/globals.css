@@ -94,6 +94,15 @@
   descent-override: 26.62%;
   line-gap-override: 0%;
 }
+/* Anton (stage display face): metrics from Next's font data vs Arial (829/2048 vs 913/2048 average width). */
+@font-face {
+  font-family: "Anton Fallback";
+  src: local("Arial Narrow"), local("Arial"), local("Helvetica Neue"), local("Liberation Sans Narrow"), local("Liberation Sans");
+  size-adjust: 90.69%;
+  ascent-override: 129.7%;
+  descent-override: 36.29%;
+  line-gap-override: 0%;
+}
 @font-face {
   font-family: "JetBrains Mono Fallback";
   src: local("Courier New"), local("Liberation Mono"), local("Courier");
@@ -123,7 +132,7 @@
 
   /* Latin face first, then Japanese system faces (row 37: "fallback phù hợp tiếng Nhật").
      Space Grotesk, Inter and JetBrains Mono all ship a Vietnamese subset. */
-  --font-stage: "Anton", "Space Grotesk Variable", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", "Noto Sans JP", "Noto Sans CJK JP", Impact, sans-serif;
+  --font-stage: "Anton", "Anton Fallback", "Space Grotesk Variable", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", "Noto Sans JP", "Noto Sans CJK JP", Impact, sans-serif;
   --font-display: "Space Grotesk Variable", "Space Grotesk Fallback", "Inter Variable", "Hiragino Sans", "Hiragino Kaku Gothic ProN",
     "Yu Gothic UI", "Yu Gothic", "Meiryo", "Noto Sans JP", "Noto Sans CJK JP", ui-sans-serif, system-ui, sans-serif;
   --font-sans: "Inter Variable", "Inter Fallback", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic UI", "Yu Gothic", "Meiryo",

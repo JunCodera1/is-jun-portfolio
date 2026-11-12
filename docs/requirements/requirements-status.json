@@ -134,7 +134,7 @@
    "implementation": "Interests page with six category slots; only confirmed items render",
    "verification": "e2e: routes",
    "gaps": [
-    "owner must confirm interests"
+    "more interests to be confirmed (music, books, games, tools)"
    ]
   },
   "REQ-03-07": {
@@ -232,7 +232,7 @@
   "REQ-05-08": {
    "status": "DEFERRED",
    "implementation": "Skill↔project relations are shown as linked lists on /profile",
-   "reason": "A graph of 7 projects is decoration; revisit with more content (React Flow)."
+   "reason": "Skill↔project relations are shown as linked lists on /profile and as the Lab's evidence board; a graph view is still not justified."
   },
   "REQ-05-09": {
    "status": "DEFERRED",
@@ -246,7 +246,7 @@
   },
   "REQ-06-01": {
    "status": "IMPLEMENTED",
-   "implementation": "Editorial grid + owner-requested anime/manga layer (see TECHNICAL_DECISIONS.md #9)",
+   "implementation": "Editorial grid (Classic) + owner-directed red/black/white stage identity and the immersive world (TECHNICAL_DECISIONS #9, #13, #14)",
    "verification": "visual review of screenshots at 5 widths, 2 themes",
    "gaps": [
     "no owner design references supplied (REQ-11-03) to compare against"
@@ -259,7 +259,8 @@
    "evidence": [
     "tests/unit/contrast.test.ts",
     "tests/e2e/quality.spec.ts"
-   ]
+   ],
+   "notes": "Palette changed from the sheet's lime to the owner's red/black/white; contrast tests updated and still enforce WCAG in both themes"
   },
   "REQ-06-03": {
    "status": "TESTED",
@@ -439,9 +440,11 @@
    ]
   },
   "REQ-11-01": {
-   "status": "BLOCKED",
-   "implementation": "—",
-   "reason": "Needs the owner's real name/nickname, story, interests and privacy choices."
+   "status": "IN_PROGRESS",
+   "implementation": "Owner stated: IT student; software dev, AI/ML, Linux; JLPT N3 passed, N2 target; Hunter × Hunter, Hisoka — entered in data files",
+   "gaps": [
+    "display name/nickname, story, bio, privacy choices, dates for milestones"
+   ]
   },
   "REQ-11-02": {
    "status": "IN_PROGRESS",

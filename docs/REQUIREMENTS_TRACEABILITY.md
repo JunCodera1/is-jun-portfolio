@@ -15,17 +15,17 @@
 | Status | Count | Share of 64 |
 |---|---:|---:|
 | NOT_STARTED | 0 | 0.0% |
-| IN_PROGRESS | 1 | 1.6% |
+| IN_PROGRESS | 2 | 3.1% |
 | IMPLEMENTED | 17 | 26.6% |
 | TESTED | 11 | 17.2% |
 | VERIFIED | 23 | 35.9% |
 | DEFERRED | 9 | 14.1% |
-| BLOCKED | 3 | 4.7% |
+| BLOCKED | 2 | 3.1% |
 | **Total** | **64** | 100% |
 
 * **Done and checked (TESTED + VERIFIED): 34 / 64 = 53.1%**
-* Built but not fully closed (IMPLEMENTED + IN_PROGRESS): 18 = 28.1%
-* Not built (DEFERRED + BLOCKED + NOT_STARTED): 12 = 18.8%
+* Built but not fully closed (IMPLEMENTED + IN_PROGRESS): 19 = 29.7%
+* Not built (DEFERRED + BLOCKED + NOT_STARTED): 11 = 17.2%
 
 By priority:
 
@@ -35,7 +35,7 @@ By priority:
 | P1 | 12 | 4 | 2 | 5 | 0 | 1 | 0 |
 | P2 | 10 | 0 | 3 | 0 | 0 | 7 | 0 |
 | P3 | 1 | 0 | 0 | 0 | 0 | 1 | 0 |
-| OWNER | 4 | 0 | 0 | 0 | 1 | 0 | 3 |
+| OWNER | 4 | 0 | 0 | 0 | 2 | 0 | 2 |
 
 ## Requirements
 
@@ -57,7 +57,7 @@ By priority:
 | REQ-03-03 | 15 | Trang chính | Projects | P0 | `VERIFIED` | Projects list with kind filter, case-study detail pages, repo + demo links; every fact traced to files | e2e: filter + detail + links; PROJECTS_REVIEW.md; tests/e2e/interaction.spec.ts; PROJECTS_REVIEW.md | — |
 | REQ-03-04 | 16 | Trang chính | Digital Garden | P1 | `IMPLEMENTED` | Garden: MDX, tags, maturity, related, filter + global search | e2e: filters | **Open:** category is parsed but not surfaced as a filter; knowledge graph deferred (needs a larger corpus) |
 | REQ-03-05 | 17 | Trang chính | Journal / Blog | P1 | `TESTED` | Journal: MDX, TOC, reading time, related posts, tags, filter, RSS | e2e: TOC anchors, reading time, feed | — |
-| REQ-03-06 | 18 | Trang chính | Interests | P1 | `IMPLEMENTED` | Interests page with six category slots; only confirmed items render | e2e: routes | **Open:** owner must confirm interests |
+| REQ-03-06 | 18 | Trang chính | Interests | P1 | `IMPLEMENTED` | Interests page with six category slots; only confirmed items render | e2e: routes | **Open:** more interests to be confirmed (music, books, games, tools) |
 | REQ-03-07 | 19 | Trang chính | Now | P0 | `IMPLEMENTED` | Now page: five sections + dated header + live GitHub list | e2e: routes | **Open:** owner content (see CONTENT_NEEDED.md) |
 | REQ-03-08 | 20 | Trang chính | Contact | P0 | `IMPLEMENTED` | Contact: labelled placeholder for e-mail, GitHub link, no form | e2e: no mailto, no form, real GitHub link | **Open:** e-mail address not supplied |
 | REQ-03-09 | 21 | Trang chính | Life Timeline | P1 | `IMPLEMENTED` | Timeline: derived verified GitHub milestones + data file for owner milestones | e2e: routes | **Open:** personal milestones not supplied |
@@ -71,11 +71,11 @@ By priority:
 | REQ-05-05 | 29 | Tương tác | Personal Library | P2 | `DEFERRED` | — | — | **Reason:** Needs owner-supplied items; an empty library page adds no value yet. Data model not built. |
 | REQ-05-06 | 30 | Tương tác | Music integration | P2 | `DEFERRED` | — | — | **Reason:** Needs the owner's Spotify/Last.fm credentials and consent. |
 | REQ-05-07 | 31 | Tương tác | Guestbook | P2 | `DEFERRED` | — | — | **Reason:** Needs persistent storage + moderation (Supabase) and abuse protection; no UGC exists today by design. |
-| REQ-05-08 | 32 | Tương tác | Skill Graph / Architecture Explorer | P2 | `DEFERRED` | Skill↔project relations are shown as linked lists on /profile | — | **Reason:** A graph of 7 projects is decoration; revisit with more content (React Flow). |
+| REQ-05-08 | 32 | Tương tác | Skill Graph / Architecture Explorer | P2 | `DEFERRED` | Skill↔project relations are shown as linked lists on /profile | — | **Reason:** Skill↔project relations are shown as linked lists on /profile and as the Lab's evidence board; a graph view is still not justified. |
 | REQ-05-09 | 33 | Tương tác | Code Playground | P2 | `DEFERRED` | — | — | **Reason:** Requires a real sandbox; no arbitrary code execution on the server. |
 | REQ-05-10 | 34 | Tương tác | 3D Workspace / Easter eggs | P3 | `DEFERRED` | — | — | **Reason:** No value yet; the site must not depend on 3D. |
-| REQ-06-01 | 35 | Thiết kế | Phong cách editorial, minimalist, personal, subtle futuristic | P0 | `IMPLEMENTED` | Editorial grid + owner-requested anime/manga layer (see TECHNICAL_DECISIONS.md #9) | visual review of screenshots at 5 widths, 2 themes | **Open:** no owner design references supplied (REQ-11-03) to compare against |
-| REQ-06-02 | 36 | Thiết kế | Dark và light theme | P0 | `VERIFIED` | Dark per sheet palette; light theme designed separately with a darker accent-as-text | unit: contrast.test parses globals.css; e2e axe in both themes; tests/unit/contrast.test.ts; tests/e2e/quality.spec.ts | — |
+| REQ-06-01 | 35 | Thiết kế | Phong cách editorial, minimalist, personal, subtle futuristic | P0 | `IMPLEMENTED` | Editorial grid (Classic) + owner-directed red/black/white stage identity and the immersive world (TECHNICAL_DECISIONS #9, #13, #14) | visual review of screenshots at 5 widths, 2 themes | **Open:** no owner design references supplied (REQ-11-03) to compare against |
+| REQ-06-02 | 36 | Thiết kế | Dark và light theme | P0 | `VERIFIED` | Dark per sheet palette; light theme designed separately with a darker accent-as-text | unit: contrast.test parses globals.css; e2e axe in both themes; tests/unit/contrast.test.ts; tests/e2e/quality.spec.ts | Palette changed from the sheet's lime to the owner's red/black/white; contrast tests updated and still enforce WCAG in both themes |
 | REQ-06-03 | 37 | Thiết kế | Typography | P1 | `TESTED` | Space Grotesk + Inter + JetBrains Mono (all with Vietnamese subsets), Japanese system stack, metric-matched fallbacks | e2e typography test; Lighthouse CLS 0 | — |
 | REQ-06-04 | 38 | Thiết kế | Responsive và accessibility | P0 | `VERIFIED` | Semantic landmarks, skip link, focus ring, reduced motion, label-in-name fixes | e2e: overflow at 375/430/768/1366/1920 for every page × locale; axe WCAG A/AA in both themes; keyboard + focus + reduced-motion tests; tests/e2e/quality.spec.ts; tests/e2e/interaction.spec.ts | no manual screen-reader pass yet |
 | REQ-06-05 | 39 | Thiết kế | Tránh thiết kế rập khuôn | P0 | `IMPLEMENTED` | No dead links, no fake controls, no hover-only actions | e2e dead-link crawl | **Open:** 'not template-like' is a judgement the owner must make |
@@ -101,7 +101,7 @@ By priority:
 | REQ-10-04 | 59 | Quy trình triển khai | Tài liệu dự án | P0 | `TESTED` | README, PROJECT_STATUS, TECHNICAL_DECISIONS, CONTENT_NEEDED, FEATURES present | unit: docs.test | — |
 | REQ-10-05 | 60 | Quy trình triển khai | Kiểm thử trước khi hoàn tất | P0 | `TESTED` | Routes, i18n, switching, responsive, interactions, API failures, a11y, performance, security headers, SEO, production build | 106 e2e + 104 unit tests; Lighthouse | security testing is limited to headers/env; no penetration test |
 | REQ-10-06 | 61 | Quy trình triển khai | Kiểm soát phạm vi | P0 | `VERIFIED` | Optional features not auto-built; deferrals recorded with reasons | FEATURES.md; FEATURES.md | — |
-| REQ-11-01 | 62 | Thông tin chủ website | Cung cấp danh tính, câu chuyện và sở thích | OWNER | `BLOCKED` | — | — | **Reason:** Needs the owner's real name/nickname, story, interests and privacy choices. |
+| REQ-11-01 | 62 | Thông tin chủ website | Cung cấp danh tính, câu chuyện và sở thích | OWNER | `IN_PROGRESS` | Owner stated: IT student; software dev, AI/ML, Linux; JLPT N3 passed, N2 target; Hunter × Hunter, Hisoka — entered in data files | — | **Open:** display name/nickname, story, bio, privacy choices, dates for milestones |
 | REQ-11-02 | 63 | Thông tin chủ website | Cung cấp GitHub và dự án | OWNER | `IN_PROGRESS` | GitHub URL received; repositories researched and verified | — | **Open:** owner's priority repositories, project images and demo confirmations |
 | REQ-11-03 | 64 | Thông tin chủ website | Cung cấp media và design references | OWNER | `BLOCKED` | — | — | **Reason:** Avatar, photos, project images and 3–5 design references not supplied. |
 | REQ-11-04 | 65 | Thông tin chủ website | Xác nhận quyền riêng tư | OWNER | `BLOCKED` | — | — | **Reason:** Public/private boundaries and topics to avoid not yet stated. |

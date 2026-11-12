@@ -6,10 +6,14 @@ import "@fontsource-variable/space-grotesk";
 import "@fontsource-variable/inter";
 import "@fontsource-variable/jetbrains-mono";
 import "@fontsource/anton";
+import antonLatin from "@fontsource/anton/files/anton-latin-400-normal.woff2";
+import antonVietnamese from "@fontsource/anton/files/anton-vietnamese-400-normal.woff2";
 import "@/styles/globals.css";
 import { routing, localeMeta, type Locale } from "@/i18n/routing";
 import { siteUrl } from "@/lib/site";
 import { THEME_SCRIPT } from "@/lib/theme";
+
+const fontUrl = (a: string | { src: string }) => (typeof a === "string" ? a : a.src);
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -48,6 +52,9 @@ export default async function LocaleLayout({
       <head>
         {/* No-flash theme: sets data-theme before first paint. See TECHNICAL_DECISIONS.md (CSP). */}
         <script dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }} />
+        {/* Preload the stage display face so it is ready before first paint (prevents a late swap and layout shift). */}
+        <link rel="preload" as="font" type="font/woff2" crossOrigin="anonymous" href={fontUrl(antonLatin)} />
+        {locale === "vi" && <link rel="preload" as="font" type="font/woff2" crossOrigin="anonymous" href={fontUrl(antonVietnamese)} />}
       </head>
       <body>
         <NextIntlClientProvider>

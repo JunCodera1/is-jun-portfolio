@@ -9,6 +9,7 @@ import { initLocale, pageMetadata, type LocaleParams } from "@/lib/page";
 import { CaseBoard, type CaseFile } from "@/components/world/CaseBoard";
 import { Visit } from "@/components/world/Visit";
 import { WorldTitle } from "@/components/world/WorldTitle";
+import { Mascot } from "@/components/ui/Art";
 import { ArrowUpRight } from "@/components/ui/Icons";
 
 export const generateMetadata = ({ params }: { params: LocaleParams }) => pageMetadata(params, "lab", "/lab");
@@ -28,7 +29,7 @@ export default async function LabPage({ params }: { params: LocaleParams }) {
   return (
     <div className="pb-16">
       <Visit id="place-lab" />
-      <WorldTitle title={t("places.lab.name")} lead={t("lab.lead")} />
+      <WorldTitle title={t("places.lab.name")} lead={t("lab.lead")} art={<Mascot mood="think" className="h-56 w-auto" />} />
       <CaseBoard cases={cases} />
       <section aria-labelledby="field" className="page mt-16">
         <h2 id="field" className="plate !text-xl">{t("lab.fieldTitle")}</h2>

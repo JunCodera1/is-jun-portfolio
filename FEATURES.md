@@ -12,6 +12,10 @@ Legend: ✅ built and tested · 🟡 built, owner content missing · ⏭ deferre
 ## Optional — deferred, with reasons
 ⏭ Personal Library (no items yet) · ⏭ Music integration (needs credentials/consent) · ⏭ Guestbook (needs persistence, moderation, abuse protection; the site has no user-generated content by design) · ⏭ Skill graph/architecture explorer (7 projects don't justify a graph) · ⏭ Code playground (needs a real sandbox) · ⏭ 3D workspace · ⏭ Supabase, React Flow (only needed by the above) · ⏭ Motion library (CSS covers every interaction)
 
+## The world (owner request after the spreadsheet)
+✅ Entrance, City, Hideout (6 interactive objects), Lab (case files + field notes), Station (7 missions, stamps), Arcade (5 games), Archive (shelves), Backstage (secret) · ✅ HUD, shutter transition, opt-in sound, local discoveries · ✅ Japanese notes (kana, grammar), tech news (Hacker News + Zenn)
+⏭ Listening practice (needs audio assets), reading comprehension, Library/music shelf (needs confirmed items)
+
 ## Supplementary (owner requests after the spreadsheet)
 ➕ Anime/manga visual layer (shipped) · ➕ RSS feed (shipped) · ➕ Open Graph image (shipped)
 ➕ Persona-style interaction layer, Japanese hub (journey, kana, grammar), tech news, mascot, mini games — in progress, see PROJECT_STATUS.md

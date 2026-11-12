@@ -1,24 +1,22 @@
-# Project status
+# Progress note
 
-Updated at each green build. Completion numbers come from the generated matrix, never from this file:
-see [docs/REQUIREMENTS_TRACEABILITY.md](docs/REQUIREMENTS_TRACEABILITY.md).
+**My Digital World** — an explorable personal world (Next.js 16, three languages), with the earlier site kept as the *Classic* mode.
 
-## Right now
+## Shipped
+* **Entrance → City** (`/`, `/city`): title screen, illustrated city with five places and three hidden things, day/night, arrow-key navigation.
+* **The Hideout** (`/hideout`): a room whose six objects each open real content (projects, collections, latest notes, milestones with sources, day/night window, current board) and hides a card and a cat.
+* **The Lab** (`/lab`): projects as case files with an evidence board (every technology pinned to the file that proves it) + field notes (Linux, AI/ML, Unreal Engine) linking verified repositories, forks labelled as forks.
+* **The Station** (`/station`): train lines N3 → N2 (+ N1 as a closed gate and a conversation branch); seven missions with a tested engine; ≥80% earns a stamp, stored locally.
+* **The Arcade** (`/arcade`): five original games — Kana Blitz, Kana Match, Vocabulary Speedrun, Reaction Time, Typing Sprint.
+* **The Archive** (`/archive`): shelves of spines that open source-labelled cards.
+* **Backstage** (`/backstage`, hidden, noindex): found via the three city secrets or the Konami code.
+* Shared: slanted shutter transition (never delays navigation, off under reduced motion), opt-in synthesized sound (off by default), local exploration tracker, HUD, `M` for the map.
+* Classic site (`/classic`, About, Projects, Journal, Garden, Now, Timeline, Japanese notes, News, Terminal, Search, Recruiter view) is intact.
 
-* Core site is built and statically generated in three languages; production build, 104 unit tests and 106 Playwright tests (routes ×3 locales, i18n, theme, palette, terminal, filters, overflow at 5 widths, axe in both themes) pass.
-* Visual identity: editorial grid + owner-requested anime/manga layer.
-* Requirements: see the traceability summary (IMPLEMENTED/TESTED/VERIFIED/DEFERRED/BLOCKED counts).
+## Facts that came from the owner (editable in `src/content/data/*`)
+IT student; software development, AI/ML, Linux; JLPT N3 passed, N2 in progress, N1 longer-term; Hunter × Hunter, Hisoka. Dates were not given, so none are shown. Real-life milestones, exploration discoveries, Station stamps and game scores are four separate things and are labelled as such.
 
-## In progress / next (in order)
+## Next ideas (not started)
+Listening exercises (needs audio), reading comprehension, more N2/N1 material, a Library shelf for music/books once items are confirmed, per-place ambient soundscapes, an in-world "journal" quest line.
 
-1. Interaction layer (slanted, kinetic menu states; transitions that respect reduced motion).
-2. Japanese hub: learning journey (owner placeholders), knowledge pages (kana, grammar), kana quiz as the first mini game.
-3. Tech news page (Hacker News + Zenn trending, cached, titles only).
-4. One original mascot (2–3 moods, decorative).
-5. A second original mini game; re-measure Lighthouse on the final build.
-
-New requests from the owner are tracked as **supplementary** in [FEATURES.md](FEATURES.md); they are not part of the 64-row percentages.
-
-## Blocked on the owner
-
-See [CONTENT_NEEDED.md](CONTENT_NEEDED.md). Nothing has been deployed or published under the owner's identity.
+Requirements matrix: `docs/REQUIREMENTS_TRACEABILITY.md` (generated). Open owner items: `CONTENT_NEEDED.md`.

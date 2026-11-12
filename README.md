@@ -1,7 +1,7 @@
-# My Digital Space
+# My Digital World
 
-A multilingual (English · 日本語 · Tiếng Việt) personal website: identity, notes, writing, projects and craft.
-Personal first, professional second. Next.js 16 (App Router) · React 19 · TypeScript · Tailwind 4 · next-intl · MDX.
+An explorable, multilingual (English · 日本語 · Tiếng Việt) personal world: a city with a room, a lab of case files, a Japanese-learning station, an arcade and an archive — plus the original site kept as **Classic** mode (`/classic`).
+Next.js 16 (App Router) · React 19 · TypeScript · Tailwind 4 · next-intl · MDX. Original SVG art, no 3D engine, no accounts, no tracking.
 
 > Status: work in progress. See [PROJECT_STATUS.md](PROJECT_STATUS.md) and the generated
 > [requirements traceability](docs/REQUIREMENTS_TRACEABILITY.md) for exactly what is done, tested and still open.
@@ -25,6 +25,16 @@ npm run test:e2e                # Playwright against the production server (buil
 Playwright uses the system Chromium at `/usr/bin/chromium` locally; set `PLAYWRIGHT_CHROMIUM_PATH` to change it, or run
 `npx playwright install chromium` and unset it in CI.
 
+## Routes
+
+| URL | What |
+|---|---|
+| `/{en,ja,vi}` | Entrance (title screen) |
+| `/city` | The City (hub) · `/hideout` `/lab` `/station` `/arcade` `/archive` — the places · `/backstage` — hidden |
+| `/classic` | The earlier site's Index; About, Projects, Journal, Garden, Now, Timeline, Japanese notes, News, Terminal, Search, Recruiter view |
+
+Keys in the world: **Enter** start · **M** map · **← →** move between places · **Esc** close a panel. Sound is off until you turn it on.
+
 ## Where things live
 
 | What | Where | Edit this to… |
@@ -36,7 +46,11 @@ Playwright uses the system Chromium at `/usr/bin/chromium` locally; set `PLAYWRI
 | Navigation / Index order | `src/content/data/navigation.ts` | reorder or add pages |
 | UI text, all languages | `messages/{en,ja,vi}.json` | change wording (keys must stay identical across files) |
 | Notes and posts | `content/garden/<id>/{en,ja,vi}.mdx`, `content/journal/<id>/…` | write; a missing language falls back to English with a notice |
-| Design tokens | `src/styles/globals.css` | colours, type, the manga layer |
+| World places, hotspots, secrets | `src/content/data/world.ts` | add a place (plus a scene and messages) |
+| Station missions | `src/content/data/station.ts` | add vocabulary, kanji, grammar, conversation items |
+| Archive shelves | `src/content/data/archive.ts` | add items (only confirmed ones) |
+| Japanese journey | `src/content/data/japanese.ts` | level, goal, milestones, study log |
+| Design tokens | `src/styles/globals.css` | colours, type, stage layer |
 
 You never need to touch a component to change content. See [CONTENT_GUIDELINES.md](CONTENT_GUIDELINES.md) and
 [CONTENT_NEEDED.md](CONTENT_NEEDED.md) (the exact list of things only the owner can supply).

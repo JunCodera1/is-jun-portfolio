@@ -25,7 +25,7 @@ export function LanguageSwitcher({ className = "" }: { className?: string }) {
                 locale={l}
                 hrefLang={localeMeta[l].htmlLang}
                 aria-current={active ? "true" : undefined}
-                className={`tap grid min-h-9 place-items-center px-2.5 font-mono text-[0.72rem] tracking-wide transition-colors ${
+                className={`tap grid min-h-9 place-items-center whitespace-nowrap px-2.5 font-mono text-[0.72rem] tracking-wide transition-colors ${
                   active ? "text-fg" : "text-fg-3 hover:text-fg"
                 }`}
               >

@@ -26,8 +26,8 @@ export function ArchiveShelves({ shelves }: { shelves: ShelfView[] }) {
                     type="button" aria-pressed={sel?.id === it.id && sel.shelf === s.id}
                     onClick={() => setSel({ shelf: s.id, id: it.id })}
                     lang={it.lang}
-                    className={`border-2 border-outline px-2 py-3 font-display text-lg leading-tight transition-transform hover:-translate-y-2 focus-visible:-translate-y-2 aria-pressed:-translate-y-3 aria-pressed:ring-4 aria-pressed:ring-accent-fg ${COLORS[it.color]}`}
-                    style={{ writingMode: "vertical-rl", height: `${8 + ((k * 7) % 3) * 1.2}rem` }}
+                    className={`border-2 border-outline px-2 py-3 whitespace-nowrap font-display text-lg leading-tight transition-transform hover:-translate-y-2 focus-visible:-translate-y-2 aria-pressed:-translate-y-3 aria-pressed:ring-4 aria-pressed:ring-accent-fg ${COLORS[it.color]}`}
+                    style={{ writingMode: "vertical-rl", height: `${Math.min(17, 5.5 + it.title.length * 0.62 + ((k * 7) % 3) * 0.8)}rem` }}
                   >{it.title}</button>
                 </li>
               ))}

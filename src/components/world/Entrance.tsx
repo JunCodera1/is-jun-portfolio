@@ -25,7 +25,7 @@ export function Entrance() {
 
   return (
     <section aria-labelledby="entrance-title" className="stage-entrance relative isolate flex min-h-dvh flex-col overflow-hidden bg-bg">
-      <div className="relative z-10 flex items-start justify-between gap-4 px-4 py-4 sm:px-8">
+      <div className="relative z-10 flex flex-wrap items-start justify-between gap-3 px-4 py-4 sm:px-8">
         <p className="plate !text-sm">{t("kicker")}</p>
         <div className="border-2 border-outline bg-[#0a0a0c] text-white [&_a]:!text-white/70 [&_a[aria-current=true]]:!text-white"><LanguageSwitcher /></div>
       </div>

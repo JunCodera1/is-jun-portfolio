@@ -5,6 +5,7 @@ import { initLocale, pageMetadata, type LocaleParams } from "@/lib/page";
 import { ArchiveShelves, type ShelfView } from "@/components/world/ArchiveShelves";
 import { Visit } from "@/components/world/Visit";
 import { WorldTitle } from "@/components/world/WorldTitle";
+import { Neko } from "@/components/ui/Art";
 
 export const generateMetadata = ({ params }: { params: LocaleParams }) => pageMetadata(params, "archive", "/archive");
 
@@ -18,7 +19,7 @@ export default async function ArchivePage({ params }: { params: LocaleParams }) 
   return (
     <div className="pb-16">
       <Visit id="place-archive" />
-      <WorldTitle title={t("places.archive.name")} lead={t("archive.lead")} />
+      <WorldTitle title={t("places.archive.name")} lead={t("archive.lead")} art={<Neko className="h-32 w-auto" />} />
       <ArchiveShelves shelves={shelves} />
     </div>
   );

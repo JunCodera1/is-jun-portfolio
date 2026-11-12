@@ -5,7 +5,7 @@ import { trackConsole } from "./helpers";
 test.describe("the world", () => {
   test("entrance → city with Enter; language switch keeps the place", async ({ page }) => {
     const c = trackConsole(page);
-    await page.goto("/en");
+    await page.goto("/en", { waitUntil: "networkidle" }); // key handlers attach on hydration
     await expect(page.getByRole("heading", { level: 1 })).toContainText(/Digital/i);
     await page.keyboard.press("Enter");
     await expect(page).toHaveURL(/\/en\/city$/);

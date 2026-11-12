@@ -90,7 +90,7 @@ export function StationMap() {
           <section key={l.id} aria-labelledby={`line-${l.id}`}>
             <h2 id={`line-${l.id}`} className="plate !text-xl">{t(`lines.${l.id}.name`)}</h2>
             <p className="mt-2 max-w-[60ch] text-sm text-fg-2">{t(`lines.${l.id}.desc`)}</p>
-            <ol className="relative mt-5 flex flex-wrap gap-x-6 gap-y-6 before:absolute before:left-4 before:right-4 before:top-[1.35rem] before:-z-10 before:h-2 before:bg-accent before:content-['']">
+            <ol className="relative isolate mt-5 flex flex-wrap gap-x-6 gap-y-6 before:absolute before:left-4 before:right-4 before:top-[1.35rem] before:-z-10 before:h-2 before:bg-accent before:content-['']">
               {l.stations.map((s, k) => {
                 const stamped = stamps.includes(s);
                 return (
