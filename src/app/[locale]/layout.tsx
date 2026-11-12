@@ -5,13 +5,11 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import "@fontsource-variable/space-grotesk";
 import "@fontsource-variable/inter";
 import "@fontsource-variable/jetbrains-mono";
+import "@fontsource/anton";
 import "@/styles/globals.css";
 import { routing, localeMeta, type Locale } from "@/i18n/routing";
 import { siteUrl } from "@/lib/site";
 import { THEME_SCRIPT } from "@/lib/theme";
-import { SiteHeader } from "@/components/layout/SiteHeader";
-import { SiteFooter } from "@/components/layout/SiteFooter";
-import { RouteWipe } from "@/components/layout/RouteWipe";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -59,12 +57,7 @@ export default async function LocaleLayout({
           >
             {t("skip")}
           </a>
-          <SiteHeader locale={locale as Locale} />
-          <main id="main" tabIndex={-1} className="outline-none">
-            {children}
-          </main>
-          <SiteFooter locale={locale as Locale} />
-          <RouteWipe />
+          {children}
         </NextIntlClientProvider>
       </body>
     </html>

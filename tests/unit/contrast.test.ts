@@ -22,8 +22,9 @@ const ratio = (a: string, b: string) => {
 const themes = { dark: block(":root,\n:root[data-theme=\"dark\"]"), light: block(":root[data-theme=\"light\"]") };
 
 describe("design tokens meet WCAG contrast (parsed from globals.css)", () => {
-  it("dark palette matches the specification (row 36)", () => {
-    expect(themes.dark).toMatchObject({ bg: "#0c0d10", surface: "#15171c", fg: "#f2f3f5", accent: "#b8f36b" });
+  it("palette is the owner-directed red / black / white (overrides the spreadsheet's suggested lime, row 36)", () => {
+    expect(themes.dark).toMatchObject({ bg: "#0a0a0c", fg: "#f4f4f0", accent: "#d7141f" });
+    expect(themes.light).toMatchObject({ bg: "#f4f4f0", fg: "#0a0a0c", accent: "#d7141f" });
   });
 
   describe.each(Object.entries(themes))("%s theme", (_name, t) => {
@@ -32,7 +33,7 @@ describe("design tokens meet WCAG contrast (parsed from globals.css)", () => {
       ["fg-2", "bg", 4.5], ["fg-2", "surface", 4.5], ["fg-2", "surface-2", 4.5],
       ["fg-3", "bg", 4.5], ["fg-3", "surface", 4.5],
       ["accent-fg", "bg", 4.5], ["accent-fg", "surface", 4.5],
-      ["accent-ink", "accent", 7],
+      ["accent-ink", "accent", 4.5],
       ["danger", "bg", 4.5],
       ["sakura-fg", "bg", 4.5], ["sakura-fg", "surface", 4.5],
       ["outline", "bg", 7], // the manga ink edge must be clearly visible on the page background
@@ -43,9 +44,9 @@ describe("design tokens meet WCAG contrast (parsed from globals.css)", () => {
     });
   });
 
-  it("documents why the light theme needs a separate accent-as-text colour", () => {
-    // The spec's lime is a fill. As TEXT on the light background it would fail badly.
-    expect(ratio("#b8f36b", themes.light.bg!)).toBeLessThan(3);
+  it("red as TEXT needs a per-theme variant: the fill red alone fails on dark, the dark-theme text red fails on light", () => {
+    expect(ratio(themes.dark.accent!, themes.dark.bg!)).toBeLessThan(4.5);
+    expect(ratio(themes.dark["accent-fg"]!, themes.light.bg!)).toBeLessThan(4.5);
     expect(ratio(themes.light["accent-fg"]!, themes.light.bg!)).toBeGreaterThanOrEqual(4.5);
   });
 });

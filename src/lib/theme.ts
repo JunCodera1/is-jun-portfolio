@@ -20,6 +20,13 @@ export function applyTheme(pref: ThemePref): void {
   }
 }
 
+/** Follow the OS only while the REAL preference is "system". Never writes storage, so it can never clobber a saved choice. */
+export function syncSystemTheme(): void {
+  const root = document.documentElement;
+  if (root.dataset.themePref === "light" || root.dataset.themePref === "dark") return;
+  root.dataset.theme = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+}
+
 export function currentThemePref(): ThemePref {
   const v = document.documentElement.dataset.themePref;
   return v === "light" || v === "dark" ? v : "system";

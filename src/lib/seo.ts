@@ -15,6 +15,7 @@ export function buildMetadata(opts: {
   const { locale, path = "", title, description, type = "website", noindex, publishedTime } = opts;
   const base = siteUrl();
   const url = `${base}/${locale}${path}`;
+  const image = `${base}/${locale}/opengraph-image`;
   const languages: Record<string, string> = Object.fromEntries(locales.map((l) => [localeMeta[l].htmlLang, `${base}/${l}${path}`]));
   languages["x-default"] = `${base}/en${path}`;
   return {
@@ -29,9 +30,10 @@ export function buildMetadata(opts: {
       description,
       locale: localeMeta[locale].ogLocale,
       alternateLocale: locales.filter((l) => l !== locale).map((l) => localeMeta[l].ogLocale),
+      images: [{ url: image, width: 1200, height: 630, alt: SITE_NAME }],
       ...(publishedTime ? { publishedTime } : {}),
     },
-    twitter: { card: "summary_large_image", title, description },
+    twitter: { card: "summary_large_image", title, description, images: [image] },
     ...(noindex ? { robots: { index: false, follow: true } } : {}),
   };
 }

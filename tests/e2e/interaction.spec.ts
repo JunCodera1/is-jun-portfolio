@@ -4,7 +4,7 @@ import { trackConsole } from "./helpers";
 test.describe("theme system (rows 27, 36)", () => {
   test("system / light / dark apply immediately and persist across reloads", async ({ page }) => {
     await page.emulateMedia({ colorScheme: "dark" });
-    await page.goto("/en");
+    await page.goto("/en/classic");
     const html = page.locator("html");
     await expect(html).toHaveAttribute("data-theme", "dark");
     await page.getByRole("radio", { name: "Light" }).click();
@@ -13,7 +13,7 @@ test.describe("theme system (rows 27, 36)", () => {
     await page.reload();
     await expect(html).toHaveAttribute("data-theme", "light");
     await expect(page.getByRole("radio", { name: "Light" })).toHaveAttribute("aria-checked", "true");
-    expect(await page.evaluate(() => getComputedStyle(document.body).backgroundColor)).toBe("rgb(244, 243, 238)");
+    expect(await page.evaluate(() => getComputedStyle(document.body).backgroundColor)).toBe("rgb(244, 244, 240)");
     await page.getByRole("radio", { name: "System" }).click();
     await expect(html).toHaveAttribute("data-theme", "dark"); // follows emulated OS scheme again
     expect(await page.evaluate(() => localStorage.getItem("theme"))).toBeNull();
@@ -21,7 +21,7 @@ test.describe("theme system (rows 27, 36)", () => {
 
   test("system mode follows live OS changes", async ({ page }) => {
     await page.emulateMedia({ colorScheme: "light" });
-    await page.goto("/en");
+    await page.goto("/en/classic");
     await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
     await page.emulateMedia({ colorScheme: "dark" });
     await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
@@ -37,7 +37,7 @@ test.describe("theme system (rows 27, 36)", () => {
   test("a blocked localStorage does not break the page", async ({ page }) => {
     await page.addInitScript(() => { Object.defineProperty(window, "localStorage", { get() { throw new Error("blocked"); } }); });
     const c = trackConsole(page);
-    await page.goto("/en");
+    await page.goto("/en/classic");
     await page.getByRole("radio", { name: "Dark" }).click();
     await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
     c.assertClean();
@@ -46,7 +46,7 @@ test.describe("theme system (rows 27, 36)", () => {
 
 test.describe("command palette (row 25)", () => {
   test("Ctrl+K opens, searches pages/projects/notes, Enter navigates, Esc closes", async ({ page }) => {
-    await page.goto("/en");
+    await page.goto("/en/classic");
     await page.keyboard.press("Control+k");
     const dialog = page.getByRole("dialog", { name: "Command palette" });
     await expect(dialog).toBeVisible();
@@ -64,7 +64,7 @@ test.describe("command palette (row 25)", () => {
   });
 
   test("arrow keys move the active option and the combobox exposes aria-activedescendant", async ({ page }) => {
-    await page.goto("/en");
+    await page.goto("/en/classic");
     await page.keyboard.press("Control+k");
     const input = page.getByRole("combobox");
     const first = await input.getAttribute("aria-activedescendant");
@@ -87,21 +87,21 @@ test.describe("command palette (row 25)", () => {
   });
 
   test("finds Vietnamese content without typing diacritics, in the Vietnamese UI", async ({ page }) => {
-    await page.goto("/vi");
+    await page.goto("/vi/classic");
     await page.keyboard.press("Control+k");
     await page.getByRole("combobox").fill("noi dung giu cho");
     await expect(page.getByRole("option", { name: /Nội dung giữ chỗ/ })).toBeVisible();
   });
 
   test("the visible trigger button works for mouse/touch users (no keyboard-only feature)", async ({ page }) => {
-    await page.goto("/en");
+    await page.goto("/en/classic");
     await page.getByRole("button", { name: "Open command palette" }).click();
     await expect(page.getByRole("dialog", { name: "Command palette" })).toBeVisible();
   });
 
   test("an unreachable search index degrades to pages + actions only", async ({ page }) => {
     await page.route("**/search-index.json", (r) => r.fulfill({ status: 500, body: "x" }));
-    await page.goto("/en");
+    await page.goto("/en/classic");
     await page.keyboard.press("Control+k");
     await expect(page.getByRole("option", { name: /About/ }).first()).toBeVisible();
     await page.getByRole("combobox").fill("about");
@@ -111,11 +111,11 @@ test.describe("command palette (row 25)", () => {
 
 test.describe("index menu (also the mobile menu)", () => {
   test("opens a dialog listing every page, closes on Esc and after navigating", async ({ page }) => {
-    await page.goto("/en");
+    await page.goto("/en/classic");
     await page.getByRole("button", { name: "Open the site index" }).click();
     const dialog = page.getByRole("dialog", { name: "Index of the site" });
     await expect(dialog).toBeVisible();
-    await expect(dialog.getByRole("link")).toHaveCount(12);
+    await expect(dialog.getByRole("link")).toHaveCount(21);
     await page.keyboard.press("Escape");
     await expect(dialog).toBeHidden();
     await page.getByRole("button", { name: "Open the site index" }).click();
@@ -239,7 +239,7 @@ test("keyboard: skip link is first tab stop and moves focus to main", async ({ p
 });
 
 test("focus is always visible on interactive elements", async ({ page }) => {
-  await page.goto("/en");
+  await page.goto("/en/classic");
   for (let i = 0; i < 6; i++) await page.keyboard.press("Tab");
   const outline = await page.evaluate(() => { const s = getComputedStyle(document.activeElement!); return `${s.outlineStyle} ${s.outlineWidth}`; });
   expect(outline).toMatch(/solid 2px/);
@@ -247,13 +247,13 @@ test("focus is always visible on interactive elements", async ({ page }) => {
 
 test("reduced motion: smooth scrolling and animations are disabled (row 38)", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
-  await page.goto("/en");
+  await page.goto("/en/classic");
   expect(await page.evaluate(() => getComputedStyle(document.documentElement).scrollBehavior)).toBe("auto");
   expect(await page.evaluate(() => getComputedStyle(document.querySelector(".reveal")!).animationName)).not.toBe("reveal-in");
 });
 
 test("dashboard widgets show real data: the visitor's clock and the latest repository push (row 28)", async ({ page }) => {
-  await page.goto("/en");
+  await page.goto("/en/classic");
   const time = page.locator("dd", { has: page.locator("span.tabular-nums") }).first();
   await expect(time).toContainText(/\d{1,2}:\d{2}/);
   const widget = page.getByText("Last repository push").locator("..");
@@ -262,7 +262,7 @@ test("dashboard widgets show real data: the visitor's clock and the latest repos
 });
 
 test("typography: spec fonts are loaded, with a Japanese-capable fallback stack (row 37)", async ({ page }) => {
-  await page.goto("/ja");
+  await page.goto("/ja/classic");
   await page.evaluate(() => document.fonts.ready);
   const stacks = await page.evaluate(() => ({
     h1: getComputedStyle(document.querySelector("h1")!).fontFamily,
@@ -277,7 +277,7 @@ test("typography: spec fonts are loaded, with a Japanese-capable fallback stack 
 });
 
 test("social preview image is generated and referenced in og/twitter metadata", async ({ page, request }) => {
-  await page.goto("/vi");
+  await page.goto("/vi/classic");
   const og = await page.locator('meta[property="og:image"]').getAttribute("content");
   expect(og).toMatch(/opengraph-image/);
   const res = await request.get(new URL(og!).pathname);
@@ -287,7 +287,7 @@ test("social preview image is generated and referenced in og/twitter metadata", 
 
 test.describe("game-style interaction layer", () => {
   test("index menu is keyboard-driven: arrows, Home/End and 1–9 move focus; Enter opens", async ({ page }) => {
-    await page.goto("/en");
+    await page.goto("/en/classic");
     await page.getByRole("button", { name: "Open the site index" }).click();
     const dialog = page.getByRole("dialog", { name: "Index of the site" });
     const links = dialog.getByRole("link");
@@ -301,14 +301,14 @@ test.describe("game-style interaction layer", () => {
     await expect(links.last()).toBeFocused();
     await page.keyboard.press("Home");
     await expect(links.first()).toBeFocused();
-    await page.keyboard.press("7");
-    await expect(links.nth(6)).toBeFocused();
+    await page.keyboard.press("9");
+    await expect(links.nth(8)).toBeFocused();
     await page.keyboard.press("Enter");
-    await expect(page).toHaveURL(/\/en\/projects$/);
+    await expect(page).toHaveURL(/\/en\/timeline$/);
   });
 
   test("route wipe plays after a client navigation, never on first load, and never blocks input", async ({ page }) => {
-    await page.goto("/en");
+    await page.goto("/en/classic");
     await expect(page.locator(".wipe")).toHaveCount(0);
     await page.getByRole("link", { name: "About", exact: true }).first().click();
     await expect(page).toHaveURL(/\/en\/about$/);
@@ -321,7 +321,7 @@ test.describe("game-style interaction layer", () => {
 
   test("route wipe is removed under prefers-reduced-motion", async ({ page }) => {
     await page.emulateMedia({ reducedMotion: "reduce" });
-    await page.goto("/en");
+    await page.goto("/en/classic");
     await page.getByRole("link", { name: "About", exact: true }).first().click();
     await expect(page).toHaveURL(/\/en\/about$/);
     expect(await page.locator(".wipe").evaluate((e) => getComputedStyle(e).display)).toBe("none");
@@ -336,4 +336,15 @@ test.describe("game-style interaction layer", () => {
     expect(s.outline).toBe("solid");
     expect(s.w).toBe("2px");
   });
+});
+
+test("a saved light/dark choice survives page loads in every area (regression: hydration must not reset it)", async ({ page }) => {
+  await page.emulateMedia({ colorScheme: "dark" });
+  await page.goto("/en/classic");
+  await page.getByRole("radio", { name: "Light" }).click();
+  for (const path of ["/en/classic", "/en/city", "/en/hideout"]) {
+    await page.goto(path);
+    await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
+    expect(await page.evaluate(() => localStorage.getItem("theme"))).toBe("light");
+  }
 });

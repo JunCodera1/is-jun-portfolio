@@ -1,11 +1,13 @@
 import { getLocale, getTranslations } from "next-intl/server";
+import { indexEntries } from "@/content/data/navigation";
 
 /** A two-digit eyebrow ("07") is rendered as the localized chapter banner: 第07話 / Ch. 07 / Chương 07. */
 export async function PageHeader({
-  eyebrow, title, lead, children,
-}: { eyebrow?: string; title: string; lead?: string; children?: React.ReactNode }) {
+  eyebrow, navId, title, lead, children,
+}: { eyebrow?: string; navId?: string; title: string; lead?: string; children?: React.ReactNode }) {
   const t = await getTranslations({ locale: await getLocale(), namespace: "home" });
-  const banner = eyebrow && /^\d{2}$/.test(eyebrow) ? t("chapter", { n: eyebrow }) : eyebrow;
+  const idx = navId ? indexEntries.findIndex((n) => n.id === navId) : -1;
+  const banner = idx >= 0 ? t("chapter", { n: String(idx + 1).padStart(2, "0") }) : eyebrow;
   return (
     <header className="relative isolate overflow-hidden border-b-2 border-outline pb-10 pt-14 md:pb-14 md:pt-20">
       {/* decorative screentone corner */}

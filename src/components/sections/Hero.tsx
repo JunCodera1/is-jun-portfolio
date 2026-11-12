@@ -9,6 +9,7 @@ import { Placeholder } from "@/components/ui/Placeholder";
 import { ArrowRight } from "@/components/ui/Icons";
 import { LocalClock } from "@/components/interactive/LocalClock";
 import { Petals } from "@/components/ui/Petals";
+import { Mascot } from "@/components/ui/Art";
 
 const GREETINGS: { locale: Locale; text: string }[] = [
   { locale: "en", text: "Hello" },
@@ -36,6 +37,7 @@ export async function Hero({ locale, feed }: { locale: Locale; feed: RepoFeed })
       <div aria-hidden className="speed absolute inset-0 -z-10" />
       <div aria-hidden className="tone absolute -bottom-10 -right-10 -z-10 h-[55%] w-[55%] opacity-90 [mask-image:linear-gradient(to_top_left,#000,transparent_72%)]" />
       <Petals />
+      <Mascot mood="wave" className="pointer-events-none absolute bottom-24 right-[3%] z-0 hidden h-[17rem] w-auto xl:block" />
       {/* decorative: hand-lettered sound effect + vertical Japanese tagline (aria-hidden, skipped by screen readers) */}
       <span aria-hidden lang="ja" className="sfx pointer-events-none absolute right-[4%] top-[14%] -z-10 hidden rotate-[8deg] text-[clamp(7rem,16vw,15rem)] md:block">ドン</span>
       <span aria-hidden lang="ja" className="vtext absolute right-3 top-28 hidden text-sm lg:block">個人のデジタル空間</span>

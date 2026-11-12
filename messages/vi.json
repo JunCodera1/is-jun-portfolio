@@ -1,7 +1,7 @@
 {
   "meta": {
-    "siteName": "My Digital Space",
-    "description": "Góc nhỏ cá nhân trên Internet: ghi chú, dự án và những thử nghiệm đang diễn ra, bằng tiếng Anh, tiếng Nhật và tiếng Việt."
+    "siteName": "My Digital World",
+    "description": "Một thế giới cá nhân để khám phá: căn phòng, thí nghiệm, lộ trình học tiếng Nhật, trò chơi nhỏ và bí mật, bằng tiếng Anh, Nhật và Việt."
   },
   "nav": {
     "home": "Trang chủ",
@@ -30,10 +30,32 @@
       "projects": "Các sản phẩm tiêu biểu, kèm bằng chứng.",
       "profile": "Kỹ năng và công nghệ, gắn với dự án thực tế.",
       "contact": "Cách để liên lạc.",
-      "recruiter": "Bản tóm tắt gọn, dễ in."
+      "recruiter": "Bản tóm tắt gọn, dễ in.",
+      "japanese": "Hành trình học và một kho kiến thức nhỏ.",
+      "news": "Tiêu đề từ Hacker News và Zenn.",
+      "play": "Những trò chơi nhỏ, hoàn toàn nguyên bản.",
+      "kana": "Bảng hiragana và katakana.",
+      "grammar": "Trợ từ, động từ và các câu thông dụng.",
+      "city": "Trung tâm của thế giới.",
+      "hideout": "Một căn phòng số để khám phá.",
+      "lab": "Dự án dưới dạng hồ sơ vụ án.",
+      "station": "Lộ trình học tiếng Nhật.",
+      "arcade": "Các trò chơi nhỏ nguyên bản.",
+      "archive": "Bộ sưu tập cá nhân."
     },
     "recruiter": "Bản xem cho nhà tuyển dụng",
-    "menuHint": "↑ ↓ chọn · 1–9 nhảy tới chương · Enter mở · Esc quay lại"
+    "menuHint": "↑ ↓ chọn · 1–9 nhảy tới chương · Enter mở · Esc quay lại",
+    "japanese": "Tiếng Nhật",
+    "news": "Tin công nghệ",
+    "play": "Chơi",
+    "kana": "Kana",
+    "grammar": "Ngữ pháp",
+    "city": "Thành phố",
+    "hideout": "Căn cứ",
+    "lab": "Phòng thí nghiệm",
+    "station": "Nhà ga",
+    "arcade": "Tiệm game",
+    "archive": "Kho lưu trữ"
   },
   "common": {
     "skip": "Bỏ qua, đến nội dung chính",
@@ -147,7 +169,8 @@
         "title": "Mục tiêu",
         "prompt": "Nơi bạn muốn đến tiếp theo."
       }
-    }
+    },
+    "glance": "Nhìn nhanh (do chủ trang tự nêu)"
   },
   "now": {
     "title": "Hiện tại",
@@ -396,5 +419,528 @@
     "career": "Học vấn & kinh nghiệm",
     "links": "Liên kết",
     "verifiedNote": "Mọi công nghệ bên dưới đều được ít nhất một dự án trong danh sách sử dụng; bằng chứng nằm ở trang từng dự án."
+  },
+  "japanese": {
+    "title": "Tiếng Nhật",
+    "lead": "Hành trình học, cùng những điều đáng giữ lại ở một chỗ.",
+    "journey": {
+      "title": "Hành trình học",
+      "lead": "Trình độ, ngày tháng và ghi chú là thông tin cá nhân, nên chỉ hiện khi chủ trang bổ sung.",
+      "level": "Trình độ hiện tại",
+      "levelUnset": "Chưa ghi trình độ",
+      "started": "Bắt đầu học",
+      "startedUnset": "Chưa ghi ngày bắt đầu",
+      "goal": "Mục tiêu",
+      "goalUnset": "Chưa ghi mục tiêu",
+      "milestones": "Cột mốc",
+      "milestonesEmpty": "Chưa có cột mốc nào.",
+      "log": "Nhật ký học",
+      "logEmpty": "Chưa có mục nhật ký học nào.",
+      "noDate": "chưa ghi ngày"
+    },
+    "learn": {
+      "title": "Kho kiến thức",
+      "kana": {
+        "title": "Kana",
+        "desc": "Hiragana và katakana, âm thường và âm đục."
+      },
+      "grammar": {
+        "title": "Ngữ pháp & câu thông dụng",
+        "desc": "Trợ từ, mức độ lịch sự, thể của động từ, câu giao tiếp hằng ngày."
+      },
+      "play": {
+        "title": "Trò chơi luyện tập",
+        "desc": "Kana Blitz và Kana Match."
+      }
+    },
+    "code": {
+      "title": "Nơi tiếng Nhật gặp mã nguồn",
+      "lead": "Những mối liên hệ có thể thấy trong các repository (không phải lời khẳng định về trình độ).",
+      "deepsea": "DeepSea — ứng dụng Android học ngoại ngữ và API đi kèm",
+      "voiceai": "VoiceAI — nhận diện ngôn ngữ nói, có cả tiếng Nhật",
+      "fork": "KanjiDictVN — một bản fork trên GitHub (dự án từ điển kanji)"
+    },
+    "refs": {
+      "title": "Tài liệu tham khảo công khai",
+      "note": "Các nguồn công khai, mang tính tham khảo chung — không phải khẳng định chủ trang đang dùng những nguồn nào.",
+      "jisho": {
+        "name": "Jisho",
+        "desc": "Từ điển tiếng Nhật trực tuyến."
+      },
+      "nhk": {
+        "name": "NHK News Web Easy",
+        "desc": "Tin tức viết bằng tiếng Nhật đơn giản."
+      },
+      "taekim": {
+        "name": "Tae Kim's Guide",
+        "desc": "Tài liệu ngữ pháp miễn phí (tiếng Anh)."
+      },
+      "jlpt": {
+        "name": "JLPT",
+        "desc": "Trang chính thức của kỳ thi năng lực Nhật ngữ."
+      }
+    }
+  },
+  "kana": {
+    "title": "Kana",
+    "lead": "Hai bộ chữ âm tiết của tiếng Nhật. Hiragana dùng cho từ thuần Nhật và ngữ pháp; katakana chủ yếu cho từ mượn và để nhấn mạnh.",
+    "hiragana": "Hiragana",
+    "katakana": "Katakana",
+    "basic": "âm thường",
+    "voiced": "âm đục & bán đục",
+    "empty": "không có chữ",
+    "play": "Luyện trong trò chơi",
+    "note": "Phiên âm theo hệ Hepburn. じ/ぢ và ず/づ phát âm giống nhau."
+  },
+  "grammar": {
+    "title": "Ngữ pháp & câu thông dụng",
+    "lead": "Bảng tra cứu gọn. Các ví dụ dùng thể lịch sự (です・ます).",
+    "particles": {
+      "title": "Trợ từ",
+      "lead": "Những từ nhỏ đánh dấu vai trò của từ đứng trước chúng.",
+      "particle": "Trợ từ",
+      "role": "Vai trò",
+      "example": "Ví dụ",
+      "meaning": "Nghĩa"
+    },
+    "politeness": {
+      "title": "Các mức độ lịch sự",
+      "lead": "Cùng một động từ sẽ đổi dạng tuỳ quan hệ giữa người nói và người nghe.",
+      "levels": {
+        "casual": {
+          "name": "Thể thường",
+          "desc": "Dạng từ điển, dùng giữa bạn bè và người thân."
+        },
+        "polite": {
+          "name": "Thể lịch sự (丁寧語)",
+          "desc": "Mặc định khi nói với người lạ và trong dịch vụ hằng ngày."
+        },
+        "keigo": {
+          "name": "Kính ngữ (敬語)",
+          "desc": "Tôn kính người nghe (尊敬語) hoặc khiêm nhường về mình (謙譲語). Dùng trong công việc và hoàn cảnh trang trọng."
+        }
+      }
+    },
+    "verbs": {
+      "title": "Các thể của động từ",
+      "lead": "Bốn thể hữu ích của bốn động từ thông dụng.",
+      "cols": {
+        "dict": "Dạng từ điển",
+        "polite": "Thể ます",
+        "negative": "Phủ định lịch sự",
+        "past": "Quá khứ lịch sự",
+        "te": "Thể て"
+      },
+      "group": "Nhóm",
+      "groups": {
+        "ichidan": "Nhóm 2 (ichidan)",
+        "godan": "Nhóm 1 (godan)",
+        "irregular": "Bất quy tắc"
+      }
+    },
+    "phrases": {
+      "title": "Câu giao tiếp hằng ngày",
+      "lead": "Lời chào và những câu cố định bạn sẽ nghe liên tục."
+    }
+  },
+  "play": {
+    "title": "Chơi",
+    "lead": "Hai trò chơi nhỏ để luyện kana. Cơ chế nguyên bản, không cần tài khoản, không theo dõi.",
+    "note": "Kỷ lục cá nhân chỉ được lưu trong chính trình duyệt của bạn.",
+    "play": "Chơi",
+    "close": "Đóng",
+    "start": "Bắt đầu",
+    "again": "Chơi lại",
+    "script": "Bảng chữ",
+    "scripts": {
+      "hiragana": "Hiragana",
+      "katakana": "Katakana",
+      "both": "Cả hai"
+    },
+    "pool": "Phạm vi chữ",
+    "pools": {
+      "basic": "46 chữ cơ bản",
+      "all": "Cả 71 chữ"
+    },
+    "time": "Thời gian",
+    "score": "Điểm",
+    "best": "Kỷ lục",
+    "streak": "Chuỗi đúng",
+    "moves": "Số lượt",
+    "correct": "Chính xác!",
+    "wrong": "Chưa đúng — đáp án là {answer}",
+    "gameOver": "Hết giờ",
+    "newBest": "Kỷ lục cá nhân mới!",
+    "blitz": {
+      "title": "Kana Blitz",
+      "desc": "Đọc romaji của càng nhiều chữ kana càng tốt trong 45 giây.",
+      "hint": "Phím 1–4 để chọn đáp án.",
+      "question": "Romaji nào khớp với chữ kana này?"
+    },
+    "match": {
+      "title": "Kana Match",
+      "desc": "Lật thẻ để ghép mỗi chữ kana với romaji của nó trong ít lượt nhất.",
+      "hidden": "Thẻ {n}, đang úp",
+      "won": "Hoàn thành sau {moves} lượt.",
+      "reshuffle": "Xáo lại"
+    },
+    "vocab": {
+      "title": "Chạy nước rút từ vựng",
+      "desc": "Từ N3 và N2, 45 giây, càng nhiều càng tốt.",
+      "hint": "Nghĩa bằng tiếng Anh và Việt, cách đọc bằng tiếng Nhật. Phím 1–4 để trả lời."
+    },
+    "reaction": {
+      "title": "Tốc độ phản xạ",
+      "desc": "Năm vòng. Bấm ngay khi màn hình đổi.",
+      "ready": "Bấm để bắt đầu",
+      "wait": "Chờ…",
+      "go": "Bấm!",
+      "early": "Sớm quá! Bấm để thử lại.",
+      "round": "Vòng {n}/{total}",
+      "last": "vừa rồi {ms} ms",
+      "ms": "{ms} ms",
+      "result": "Trung bình năm vòng"
+    },
+    "typing": {
+      "title": "Chạy nước rút gõ phím",
+      "desc": "Gõ romaji của các từ kana trong 30 giây.",
+      "hint": "Một từ kana hiện ra; hãy gõ romaji (arigatou hay arigato đều được).",
+      "prompt": "Gõ romaji",
+      "words": "Số từ",
+      "wpm": "từ mỗi phút"
+    }
+  },
+  "news": {
+    "title": "Tin công nghệ",
+    "lead": "Tiêu đề từ hai nguồn công khai, làm mới khoảng nửa giờ một lần.",
+    "note": "Tiêu đề và liên kết đến từ bên thứ ba và mở trong tab mới. Không nội dung nào ở đây do chủ trang viết hay bảo chứng.",
+    "empty": "Hiện chưa tải được nguồn này. Trang sẽ tự thử lại.",
+    "opensNewTab": "mở trong tab mới",
+    "points": "{n} điểm",
+    "comments": "{n} bình luận",
+    "hn": {
+      "title": "Hacker News",
+      "desc": "Bài nổi bật · tiếng Anh"
+    },
+    "zenn": {
+      "title": "Zenn thịnh hành",
+      "desc": "Bài thịnh hành · tiếng Nhật"
+    }
+  },
+  "entrance": {
+    "kicker": "Một thế giới nhỏ thuộc về một người",
+    "w1": "Thế giới",
+    "w2": "Số",
+    "w3": "Của tôi",
+    "lead": "Đi dạo qua một thành phố của những căn phòng, thí nghiệm, trò chơi và bí mật. Ở đây không có gì là khuôn mẫu.",
+    "start": "Bước vào thế giới",
+    "press": "Nhấn Enter",
+    "hint": "Phím mũi tên hoặc Tab để di chuyển · Enter để chọn · M để về bản đồ · âm thanh chỉ bật khi bạn muốn."
+  },
+  "hud": {
+    "map": "Bản đồ",
+    "you": "Bạn đang ở thành phố",
+    "sound": "Âm thanh",
+    "on": "bật",
+    "off": "tắt",
+    "discoveries": "Khám phá",
+    "classic": "Trang thường",
+    "close": "Đóng"
+  },
+  "city": {
+    "title": "Thành phố",
+    "lead": "Trung tâm của thế giới: chọn một nơi để khám phá.",
+    "hint": "Rê chuột hoặc focus vào một nơi để đọc giới thiệu. Hãy tìm những dấu ? nhỏ.",
+    "list": "Các địa điểm",
+    "secrets": {
+      "cat": "Một con mèo đen quan sát từ mái nhà Phòng thí nghiệm. Nó chớp mắt một lần, thật chậm.",
+      "vending": "Máy bán hàng tự động rung nhẹ rồi nhả ra một lon “cà phê không lỗi”. Lon còn ấm.",
+      "card": "Một lá bài úp mặt nằm trên đường. Mặt sau có dòng chữ nhỏ: “Ảo thuật là luyện tập mà không ai thấy.”"
+    },
+    "secretLabel": {
+      "cat": "Mèo trên mái nhà (ẩn)",
+      "vending": "Máy bán hàng tự động (ẩn)",
+      "card": "Lá bài trên đường (ẩn)"
+    }
+  },
+  "places": {
+    "hideout": {
+      "name": "Căn cứ",
+      "short": "Một căn phòng của riêng tôi",
+      "desc": "Một căn phòng số: máy tính, giá sách, sổ tay, lịch, cửa sổ. Hãy thử bấm vào mọi thứ."
+    },
+    "lab": {
+      "name": "Phòng thí nghiệm",
+      "short": "Thí nghiệm và hồ sơ vụ án",
+      "desc": "Dự án được trình bày như hồ sơ vụ án: đã làm gì, làm thế nào và bằng chứng."
+    },
+    "station": {
+      "name": "Nhà ga",
+      "short": "Lộ trình học tiếng Nhật",
+      "desc": "Các tuyến tàu cho từ vựng, kanji, ngữ pháp và hội thoại, từ ôn N3 lên N2 và xa hơn."
+    },
+    "arcade": {
+      "name": "Tiệm game",
+      "short": "Trò chơi nhỏ",
+      "desc": "Các trò chơi nhỏ nguyên bản: kana, từ vựng, gõ phím và phản xạ."
+    },
+    "archive": {
+      "name": "Kho lưu trữ",
+      "short": "Bộ sưu tập cá nhân",
+      "desc": "Những kệ đồ tôi thích: anime và manga, công cụ, tài liệu học."
+    }
+  },
+  "discoveries": {
+    "note": "Chỉ là tiến độ khám phá trang web này. Nó không nói gì về thành tích ngoài đời hay trình độ tiếng Nhật, và chỉ được lưu trong trình duyệt của bạn.",
+    "hidden": "???",
+    "done": "đã tìm thấy",
+    "todo": "chưa tìm thấy",
+    "keys": "Phím tắt: M = bản đồ · Esc = đóng bảng · ← → = chuyển giữa các địa điểm.",
+    "found": "Đã khám phá: {name}",
+    "items": {
+      "place-hideout": "Đã ghé Căn cứ",
+      "place-lab": "Đã ghé Phòng thí nghiệm",
+      "place-station": "Đã ghé Nhà ga",
+      "place-arcade": "Đã ghé Tiệm game",
+      "place-archive": "Đã ghé Kho lưu trữ",
+      "cat": "Chú mèo trên mái nhà",
+      "vending": "Máy bán hàng tự động",
+      "card": "Lá bài trên đường",
+      "objects": "Đã xem mọi đồ vật trong Căn cứ",
+      "mission": "Đã hoàn thành một nhiệm vụ ở Nhà ga",
+      "game": "Đã chơi xong một trò ở Tiệm game",
+      "backstage": "Đã tìm thấy Hậu trường"
+    },
+    "backstage": "Bạn đã tìm thấy cả ba bí mật: mở Hậu trường"
+  },
+  "archive": {
+    "shelves": {
+      "anime": "Anime & manga",
+      "tools": "Công cụ",
+      "learning": "Tài liệu học",
+      "books": "Sách",
+      "music": "Âm nhạc"
+    },
+    "title": "Kho lưu trữ",
+    "lead": "Những kệ đồ tôi thích. Mỗi gáy sách là một tấm thẻ bạn có thể mở.",
+    "empty": "Kệ này hiện còn trống.",
+    "pick": "Chọn một gáy sách để đọc thẻ.",
+    "open": "Mở",
+    "newTab": "mở trong tab mới",
+    "source": {
+      "owner": "Do chủ trang nêu",
+      "github": "Một repository GitHub công khai",
+      "public": "Một nguồn tham khảo công khai"
+    }
+  },
+  "hideout": {
+    "title": "Căn cứ",
+    "lead": "Một căn phòng số. Nó cho thấy tôi đang làm gì, đọc gì và khám phá gì.",
+    "hint": "Bấm vào một đồ vật. Mỗi món mở ra một bảng nhỏ.",
+    "list": "Đồ vật trong phòng",
+    "accountCreated": "Tạo tài khoản GitHub",
+    "objects": {
+      "computer": {
+        "label": "Máy tính",
+        "hint": "Chiếc máy tính. Các dự án nằm ở đây.",
+        "title": "Máy tính",
+        "body": "Danh sách dự án nhanh. Hồ sơ đầy đủ nằm ở Phòng thí nghiệm.",
+        "cta": "Mở Phòng thí nghiệm",
+        "terminal": "Mở terminal"
+      },
+      "bookshelf": {
+        "label": "Giá sách",
+        "hint": "Một kệ các bộ sưu tập.",
+        "title": "Giá sách",
+        "body": "Những thứ tôi thích, được cất trong Kho lưu trữ.",
+        "interests": "Trang sở thích"
+      },
+      "notebook": {
+        "label": "Sổ tay",
+        "hint": "Cuốn sổ của những suy nghĩ.",
+        "title": "Sổ tay",
+        "body": "Các ghi chú và bài viết mới nhất.",
+        "journal": "Nhật ký",
+        "garden": "Vườn ghi chú"
+      },
+      "calendar": {
+        "label": "Lịch",
+        "hint": "Các cột mốc, kèm nguồn.",
+        "title": "Lịch",
+        "body": "Các cột mốc ngoài đời, mỗi mốc ghi rõ nguồn. Ngày chỉ hiện khi đã biết.",
+        "noDate": "chưa ghi ngày",
+        "owner": "do chủ trang nêu",
+        "github": "từ GitHub",
+        "timeline": "Xem toàn bộ dòng thời gian"
+      },
+      "window": {
+        "label": "Cửa sổ",
+        "hint": "Thời tiết ngoài kia đổi theo thời điểm trong ngày.",
+        "title": "Cửa sổ",
+        "now": "Bên ngoài hiện là {phase}.",
+        "day": "ban ngày",
+        "night": "ban đêm",
+        "body": "Chuyển đổi sẽ đổi ánh sáng của cả thế giới."
+      },
+      "board": {
+        "label": "Bảng ghim",
+        "hint": "Điều tôi đang khám phá lúc này.",
+        "title": "Bảng ghim",
+        "body": "Những thứ đang được khám phá."
+      }
+    },
+    "card": {
+      "label": "Lá bài dưới bàn (ẩn)",
+      "text": "Bạn tìm thấy một lá bài dưới bàn. Trên đó: “Có những cánh cửa chỉ mở từ bên trong một tâm trí tò mò.”"
+    },
+    "cat": {
+      "label": "Chú mèo đang ngủ (ẩn)",
+      "text": "Chú mèo mở một mắt, quyết định bạn không phải đồ ăn, rồi ngủ tiếp."
+    },
+    "board": {
+      "n2": {
+        "label": "JLPT N2",
+        "note": "Đang hướng tới."
+      },
+      "n1": {
+        "label": "JLPT N1",
+        "note": "Một mục tiêu dài hạn."
+      },
+      "linux": {
+        "label": "Linux",
+        "note": "Thử nghiệm như cấu hình NixOS (myNixOS-config)."
+      },
+      "ai": {
+        "label": "AI / ML",
+        "note": "Các dự án giọng nói và thị giác: VoiceAI và EduVision."
+      },
+      "ue": {
+        "label": "Unreal Engine",
+        "note": "Một plugin Unreal Engine đã fork trên GitHub: KawaiiPhysics."
+      }
+    }
+  },
+  "lab": {
+    "title": "Phòng thí nghiệm",
+    "lead": "Dự án dưới dạng hồ sơ vụ án. Mỗi công nghệ được ghim cùng tệp chứng minh nó.",
+    "folders": "Hồ sơ",
+    "case": "Vụ",
+    "statusUnset": "Trạng thái: chưa nêu",
+    "lastPush": "Push gần nhất",
+    "findings": "Phát hiện",
+    "evidence": "Bảng bằng chứng",
+    "evidenceNote": "Mỗi ghi chú nêu tên tệp trong repository cho thấy công nghệ đó thực sự được dùng.",
+    "demo": "Bản demo",
+    "fullFile": "Hồ sơ đầy đủ",
+    "newTab": "mở trong tab mới",
+    "fieldTitle": "Ghi chú thực địa",
+    "fieldLead": "Các repository đằng sau những điều đang được khám phá. “Tự tạo” là repository tạo trên hồ sơ này; “fork” là bản sao dự án của người khác, nên chỉ cho thấy sự quan tâm chứ không phải quyền tác giả.",
+    "own": "tự tạo",
+    "fork": "fork",
+    "notes": {
+      "linux": {
+        "title": "Linux",
+        "desc": "Cấu hình và công cụ."
+      },
+      "ai": {
+        "title": "AI / ML",
+        "desc": "Thử nghiệm giọng nói và thị giác."
+      },
+      "ue": {
+        "title": "Unreal Engine",
+        "desc": "Một plugin được đánh dấu."
+      }
+    }
+  },
+  "station": {
+    "title": "Nhà ga",
+    "lead": "Chọn một tuyến, lên một nhiệm vụ. Những bài luyện ngắn, thật, về từ vựng, kanji, ngữ pháp và hội thoại.",
+    "notes": "Ghi chú học tập",
+    "lines": {
+      "n3": {
+        "name": "Tuyến ôn N3",
+        "desc": "Đã đỗ. Các ga này giúp giữ cảm giác."
+      },
+      "n2": {
+        "name": "Tuyến N2 (đang đi)",
+        "desc": "Mục tiêu hiện tại."
+      },
+      "extra": {
+        "name": "Nhánh hội thoại",
+        "desc": "Những tình huống đời thường ngắn."
+      },
+      "n1": {
+        "name": "Tuyến N1",
+        "desc": "Chưa mở. Là mục tiêu dài hạn nên hiện chỉ có đường ray và một cổng đóng."
+      }
+    },
+    "missions": {
+      "vocab-n3": {
+        "name": "Từ vựng",
+        "desc": "Làm quen từ ở mức N3."
+      },
+      "kanji-n3": {
+        "name": "Cách đọc kanji",
+        "desc": "Chọn cách đọc đúng."
+      },
+      "grammar-n3": {
+        "name": "Ngữ pháp",
+        "desc": "Điền vào chỗ trống."
+      },
+      "vocab-n2": {
+        "name": "Từ vựng",
+        "desc": "Làm quen từ ở mức N2."
+      },
+      "kanji-n2": {
+        "name": "Cách đọc kanji",
+        "desc": "Các từ ghép khó hơn."
+      },
+      "grammar-n2": {
+        "name": "Ngữ pháp",
+        "desc": "Mẫu câu N2."
+      },
+      "kaiwa": {
+        "name": "Ở cửa hàng tiện lợi",
+        "desc": "Ba đoạn hội thoại ngắn."
+      }
+    },
+    "question": "Câu {n}/{total}",
+    "score": "Điểm",
+    "correct": "Chính xác!",
+    "wrong": "Chưa đúng.",
+    "next": "Tiếp",
+    "finish": "Kết thúc",
+    "result": "Kết quả nhiệm vụ",
+    "stamped": "Đã đóng dấu! Đạt từ 80% là qua ga.",
+    "notYet": "Chưa được đóng dấu. Thử lại nhé.",
+    "localNote": "Tiến độ học chỉ được lưu trong trình duyệt của bạn và tách biệt với các khám phá.",
+    "approx": "Tài liệu là bài luyện ở mức xấp xỉ N3/N2, không phải danh sách chính thức của JLPT.",
+    "retry": "Câu hỏi mới",
+    "backToMap": "Về sơ đồ tuyến",
+    "stampedSr": "đã đóng dấu",
+    "notStampedSr": "chưa đóng dấu"
+  },
+  "arcade": {
+    "title": "Tiệm game",
+    "lead": "Năm trò chơi nhỏ nguyên bản. Không tài khoản, không theo dõi; điểm cao nhất chỉ lưu trong trình duyệt của bạn."
+  },
+  "backstage": {
+    "title": "Hậu trường",
+    "lead": "Bạn đã tìm ra căn phòng bí mật. Đây là cách thế giới này được làm nên.",
+    "builtTitle": "Cách xây dựng",
+    "built": {
+      "a": "Next.js, React, TypeScript, Tailwind CSS và next-intl, ba ngôn ngữ.",
+      "b": "Thành phố, căn phòng và các nhân vật là SVG nguyên bản vẽ riêng cho trang này.",
+      "c": "Âm thanh được tổng hợp ngay trong trình duyệt và tắt cho đến khi bạn bật.",
+      "d": "Tiến độ chỉ lưu trong trình duyệt của bạn. Không gì được gửi đi đâu cả."
+    },
+    "keysTitle": "Phím",
+    "keys": {
+      "a": "M — về bản đồ",
+      "b": "Esc — đóng bảng",
+      "c": "← → — chuyển giữa các địa điểm",
+      "d": "↑ ↑ ↓ ↓ ← → ← → B A — căn phòng này"
+    },
+    "note": "Cảm ơn bạn đã khám phá. Thế giới này lớn dần theo những gì tôi học và làm."
   }
 }

@@ -12,47 +12,64 @@
 :root,
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --bg: #0c0d10;
-  --surface: #15171c;
-  --surface-2: #1c1f26;
-  --fg: #f2f3f5;
-  --fg-2: #a9aeb8;
-  --fg-3: #8a909c;
-  --line: rgb(242 243 245 / 0.13);
-  --line-strong: rgb(242 243 245 / 0.26);
-  --accent: #b8f36b;
-  --accent-fg: #b8f36b;
-  --accent-ink: #0c0d10;
-  --danger: #ff8a7a;
-  --atmosphere: color-mix(in oklab, #b8f36b 7%, transparent);
-  /* Anime / manga layer: ink outline, sakura pink, sky cyan, screentone dots */
-  --outline: #f2f3f5;
-  --sakura: #ff7eb6;
-  --sakura-fg: #ff9cc7;
-  --sky: #62dcff;
-  --tone: rgb(255 126 182 / 0.2);
+  --bg: #0a0a0c;
+  --surface: #141418;
+  --surface-2: #1e1e24;
+  --fg: #f4f4f0;
+  --fg-2: #b3b3ba;
+  --fg-3: #8e8e97;
+  --line: rgb(244 244 240 / 0.14);
+  --line-strong: rgb(244 244 240 / 0.28);
+  --accent: #d7141f;
+  --accent-fg: #ff4d57;
+  --accent-ink: #ffffff;
+  --danger: #ff9a8f;
+  --atmosphere: color-mix(in oklab, #d7141f 14%, transparent);
+  /* Stage layer: ink outline, red, screentone */
+  --outline: #f4f4f0;
+  --sakura: #d7141f;
+  --sakura-fg: #ff6a72;
+  --sky: #8fd0ff;
+  --tone: rgb(215 20 31 / 0.24);
+  /* World scenes */
+  --sky-top: #060608;
+  --sky-bot: #3a0b11;
+  --far: #15151b;
+  --mid: #1c1c24;
+  --near: #0e0e12;
+  --win: #ffd9a0;
+  --win-o: 0.95;
+  --stars: 1;
 }
 
 :root[data-theme="light"] {
   color-scheme: light;
-  --bg: #f4f3ee;
+  --bg: #f4f4f0;
   --surface: #ffffff;
-  --surface-2: #eae9e1;
-  --fg: #0e1013;
-  --fg-2: #444a55;
-  --fg-3: #5f6672;
-  --line: rgb(14 16 19 / 0.14);
-  --line-strong: rgb(14 16 19 / 0.3);
-  --accent: #b8f36b;
-  --accent-fg: #3a6100;
-  --accent-ink: #0c0d10;
+  --surface-2: #e9e9e3;
+  --fg: #0a0a0c;
+  --fg-2: #43434b;
+  --fg-3: #5c5c66;
+  --line: rgb(10 10 12 / 0.14);
+  --line-strong: rgb(10 10 12 / 0.3);
+  --accent: #d7141f;
+  --accent-fg: #b50f1b;
+  --accent-ink: #ffffff;
   --danger: #b3261e;
-  --atmosphere: color-mix(in oklab, #b8f36b 22%, transparent);
-  --outline: #0e1013;
-  --sakura: #ff7eb6;
-  --sakura-fg: #b4125a;
-  --sky: #0f8fc0;
-  --tone: rgb(180 18 90 / 0.16);
+  --atmosphere: color-mix(in oklab, #d7141f 9%, transparent);
+  --outline: #0a0a0c;
+  --sakura: #d7141f;
+  --sakura-fg: #b50f1b;
+  --sky: #0b6fb0;
+  --tone: rgb(215 20 31 / 0.18);
+  --sky-top: #cfd6dc;
+  --sky-bot: #f4f4f0;
+  --far: #c4c8cd;
+  --mid: #adb2b9;
+  --near: #8d939b;
+  --win: #ffffff;
+  --win-o: 0.55;
+  --stars: 0;
 }
 
 /* ── Metric-matched fallbacks ───────────────────────────────────────────────
@@ -106,6 +123,7 @@
 
   /* Latin face first, then Japanese system faces (row 37: "fallback phù hợp tiếng Nhật").
      Space Grotesk, Inter and JetBrains Mono all ship a Vietnamese subset. */
+  --font-stage: "Anton", "Space Grotesk Variable", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", "Noto Sans JP", "Noto Sans CJK JP", Impact, sans-serif;
   --font-display: "Space Grotesk Variable", "Space Grotesk Fallback", "Inter Variable", "Hiragino Sans", "Hiragino Kaku Gothic ProN",
     "Yu Gothic UI", "Yu Gothic", "Meiryo", "Noto Sans JP", "Noto Sans CJK JP", ui-sans-serif, system-ui, sans-serif;
   --font-sans: "Inter Variable", "Inter Fallback", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic UI", "Yu Gothic", "Meiryo",
@@ -753,4 +771,284 @@ dialog[open] {
     font-size: 0.8em;
     color: #444;
   }
+}
+
+/* ══════════════ THE WORLD: stage layer (red / black / white) ══════════════ */
+
+.stage-title {
+  font-family: var(--font-stage);
+  text-transform: uppercase;
+  line-height: 1.02;
+  letter-spacing: 0.01em;
+  font-weight: 400;
+}
+html:lang(ja) .stage-title,
+html:lang(vi) .stage-title {
+  line-height: 1.12;
+}
+
+/* a skewed slab behind a word (pseudo-element, so focus rings and layout stay rectangular) */
+.slab {
+  position: relative;
+  display: inline-block;
+  isolation: isolate;
+  padding: 0.02em 0.22em 0.06em;
+  color: var(--slab-fg, var(--bg));
+}
+.slab::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--slab-bg, var(--fg));
+  transform: skewX(-9deg);
+  box-shadow: 0.05em 0.05em 0 var(--slab-shadow, var(--accent));
+}
+.slab-red {
+  --slab-bg: var(--accent);
+  --slab-fg: #fff;
+  --slab-shadow: #0a0a0c;
+}
+
+/* label plate: black, slanted edge, red tab */
+.plate {
+  position: relative;
+  display: inline-block;
+  isolation: isolate;
+  padding: 0.35rem 0.9rem 0.35rem 1.1rem;
+  font-family: var(--font-stage);
+  font-size: 1.05rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #fff;
+}
+.plate::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: #0a0a0c;
+  border-left: 0.4rem solid var(--accent);
+  transform: skewX(-12deg);
+}
+
+.stage-cta {
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.9rem 2.4rem 0.9rem 2rem;
+  font-family: var(--font-stage);
+  font-size: clamp(1.3rem, 3vw, 1.9rem);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #fff;
+}
+.stage-cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--accent);
+  transform: skewX(-12deg);
+  box-shadow: 6px 6px 0 #0a0a0c, 6px 6px 0 2px var(--fg);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.stage-cta:hover::before,
+.stage-cta:focus-visible::before {
+  transform: skewX(-12deg) translate(-2px, -2px);
+  box-shadow: 9px 9px 0 #0a0a0c, 9px 9px 0 2px var(--fg);
+}
+.stage-cta:active::before {
+  transform: skewX(-12deg) translate(4px, 4px);
+  box-shadow: 1px 1px 0 #0a0a0c;
+}
+
+/* entrance */
+.stage-entrance::before {
+  content: "";
+  position: absolute;
+  top: -10%;
+  bottom: -10%;
+  right: -12%;
+  width: 62%;
+  background: var(--accent);
+  transform: skewX(-14deg);
+}
+.stage-entrance::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at center, rgb(0 0 0 / 0.28) 1.6px, transparent 2.2px);
+  background-size: 12px 12px;
+  -webkit-mask-image: linear-gradient(100deg, transparent 38%, #000 70%);
+  mask-image: linear-gradient(100deg, transparent 38%, #000 70%);
+  pointer-events: none;
+}
+@keyframes slab-in {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .slab-in {
+    animation: slab-in 0.55s cubic-bezier(0.2, 0.9, 0.2, 1) both;
+  }
+  .toast-pop {
+    animation: toast-pop 0.35s cubic-bezier(0.2, 0.9, 0.2, 1) both;
+  }
+  .blink {
+    animation: blink 1.1s steps(2, jump-none) infinite;
+  }
+  .train {
+    animation: train 26s linear infinite;
+  }
+  .beacon {
+    animation: blink 1.6s steps(2, jump-none) infinite;
+  }
+  .twinkle {
+    animation: twinkle 3.2s ease-in-out infinite;
+  }
+}
+@keyframes toast-pop {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.96);
+  }
+}
+@keyframes blink {
+  50% {
+    opacity: 0.25;
+  }
+}
+@keyframes train {
+  from {
+    transform: translateX(-520px);
+  }
+  to {
+    transform: translateX(1700px);
+  }
+}
+@keyframes twinkle {
+  50% {
+    opacity: 0.35;
+  }
+}
+
+/* page-transition shutter (decorative; covers only while a navigation is in flight) */
+.shutter {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  overflow: hidden;
+  visibility: hidden;
+}
+.shutter[data-phase="cover"],
+.shutter[data-phase="reveal"] {
+  visibility: visible;
+}
+.shutter i {
+  position: absolute;
+  top: -10%;
+  bottom: -10%;
+  left: -30%;
+  width: 160%;
+  transform: skewX(-16deg) translateX(-112%);
+}
+.shutter i:nth-child(1) {
+  background: var(--accent);
+}
+.shutter i:nth-child(2) {
+  background: #0a0a0c;
+}
+.shutter[data-phase="cover"] i:nth-child(1) {
+  animation: sh-in 0.22s cubic-bezier(0.3, 0.7, 0.2, 1) forwards;
+}
+.shutter[data-phase="cover"] i:nth-child(2) {
+  animation: sh-in 0.22s 0.06s cubic-bezier(0.3, 0.7, 0.2, 1) forwards;
+}
+.shutter[data-phase="reveal"] i {
+  transform: skewX(-16deg) translateX(0);
+}
+.shutter[data-phase="reveal"] i:nth-child(2) {
+  animation: sh-out 0.3s cubic-bezier(0.6, 0, 0.8, 0.4) forwards;
+}
+.shutter[data-phase="reveal"] i:nth-child(1) {
+  animation: sh-out 0.3s 0.06s cubic-bezier(0.6, 0, 0.8, 0.4) forwards;
+}
+@keyframes sh-in {
+  to {
+    transform: skewX(-16deg) translateX(0);
+  }
+}
+@keyframes sh-out {
+  to {
+    transform: skewX(-16deg) translateX(112%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .shutter {
+    display: none;
+  }
+}
+
+/* generated glyphs: keep them out of the DOM so visible text == accessible name */
+.plate[data-seen]::after {
+  content: " ✓";
+  color: var(--accent-fg);
+  font-weight: 700;
+}
+.qmark {
+  display: grid;
+  height: 1.75rem;
+  width: 1.75rem;
+  place-items: center;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-weight: 700;
+  font-size: 0.875rem;
+}
+.qmark::before {
+  content: "?";
+}
+
+/* hotspots over scene art */
+.hotspot {
+  position: absolute;
+  display: block;
+  outline-offset: 2px;
+}
+.hotspot .plate {
+  position: absolute;
+  left: 50%;
+  bottom: 100%;
+  white-space: nowrap;
+  transform: translate(-50%, 6px);
+  transition: transform 0.18s ease;
+}
+.hotspot:hover .plate,
+.hotspot:focus-visible .plate {
+  transform: translate(-50%, -2px) scale(1.06);
+}
+.hotspot:focus-visible {
+  outline: 3px solid var(--accent-fg);
+  outline-offset: 3px;
+}
+.hotspot:hover::after,
+.hotspot:focus-visible::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(135deg, transparent 0 8px, rgb(215 20 31 / 0.28) 8px 10px);
+  pointer-events: none;
+}
+.scene [data-active="true"] {
+  filter: drop-shadow(0 0 10px rgb(215 20 31 / 0.85));
 }

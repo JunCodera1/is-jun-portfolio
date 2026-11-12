@@ -24,7 +24,7 @@ test.describe("no horizontal overflow", () => {
 
 test("overlays (palette, index menu) fit a 375px screen", async ({ page }) => {
   await page.setViewportSize({ width: 375, height: 700 });
-  await page.goto("/en");
+  await page.goto("/en/classic");
   await page.getByRole("button", { name: "Open command palette" }).click();
   const box = await page.getByRole("dialog", { name: "Command palette" }).boundingBox();
   expect(box!.x).toBeGreaterThanOrEqual(0);
@@ -37,7 +37,7 @@ test("overlays (palette, index menu) fit a 375px screen", async ({ page }) => {
 test("touch targets: header controls are at least 36px on mobile and 44px on coarse pointers", async ({ browser }) => {
   const ctx = await browser.newContext({ viewport: { width: 390, height: 800 }, hasTouch: true, isMobile: true });
   const page = await ctx.newPage();
-  await page.goto("/en");
+  await page.goto("/en/classic");
   for (const name of ["Open command palette", "Open the site index"]) {
     const box = await page.getByRole("button", { name }).boundingBox();
     expect(box!.height, name).toBeGreaterThanOrEqual(36);
@@ -65,7 +65,7 @@ for (const theme of ["dark", "light"] as const) {
 }
 
 test("axe: command palette dialog and index menu are accessible when open", async ({ page }) => {
-  await page.goto("/en");
+  await page.goto("/en/classic");
   await page.keyboard.press("Control+k");
   await page.getByRole("combobox").fill("a");
   let r = await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa"]).analyze();

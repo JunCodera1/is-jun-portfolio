@@ -11,4 +11,4 @@ export function siteUrl(): string {
   return "http://localhost:3000";
 }
 
-export const SITE_NAME = "My Digital Space";
+export const SITE_NAME = "My Digital World";

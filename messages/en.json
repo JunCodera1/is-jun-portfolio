@@ -1,7 +1,7 @@
 {
   "meta": {
-    "siteName": "My Digital Space",
-    "description": "A personal, multilingual corner of the internet: notes, projects and ongoing experiments in English, Japanese and Vietnamese."
+    "siteName": "My Digital World",
+    "description": "An explorable personal world: rooms, experiments, Japanese study routes, mini-games and secrets, in English, Japanese and Vietnamese."
   },
   "nav": {
     "home": "Home",
@@ -30,10 +30,32 @@
       "projects": "Selected work, with its evidence.",
       "profile": "Skills and technologies, backed by projects.",
       "contact": "Where to reach out.",
-      "recruiter": "A compact, printable summary."
+      "recruiter": "A compact, printable summary.",
+      "japanese": "A learning journey and a small knowledge base.",
+      "news": "Headlines from Hacker News and Zenn.",
+      "play": "Small games, all original.",
+      "kana": "Hiragana and katakana charts.",
+      "grammar": "Particles, verbs and useful phrases.",
+      "city": "The hub of the world.",
+      "hideout": "A digital room to explore.",
+      "lab": "Projects as case files.",
+      "station": "Japanese learning routes.",
+      "arcade": "Original mini-games.",
+      "archive": "A personal collection."
     },
     "recruiter": "Recruiter view",
-    "menuHint": "↑ ↓ select · 1–9 jump to a chapter · Enter open · Esc back"
+    "menuHint": "↑ ↓ select · 1–9 jump to a chapter · Enter open · Esc back",
+    "japanese": "Japanese",
+    "news": "Tech news",
+    "play": "Play",
+    "kana": "Kana",
+    "grammar": "Grammar",
+    "city": "The City",
+    "hideout": "The Hideout",
+    "lab": "The Lab",
+    "station": "The Station",
+    "arcade": "The Arcade",
+    "archive": "The Archive"
   },
   "common": {
     "skip": "Skip to content",
@@ -147,7 +169,8 @@
         "title": "Goals",
         "prompt": "Where you want to go next."
       }
-    }
+    },
+    "glance": "At a glance (stated by the owner)"
   },
   "now": {
     "title": "Now",
@@ -396,5 +419,528 @@
     "career": "Education & experience",
     "links": "Links",
     "verifiedNote": "Every technology below is used by at least one project in the list; evidence is on each project page."
+  },
+  "japanese": {
+    "title": "Japanese",
+    "lead": "A learning journey, plus the things worth keeping in one place.",
+    "journey": {
+      "title": "The learning journey",
+      "lead": "Level, dates and notes are personal facts, so they appear only once the owner adds them.",
+      "level": "Current level",
+      "levelUnset": "Level not stated yet",
+      "started": "Started",
+      "startedUnset": "Start date not stated yet",
+      "goal": "Goal",
+      "goalUnset": "Goal not stated yet",
+      "milestones": "Milestones",
+      "milestonesEmpty": "No milestones added yet.",
+      "log": "Study log",
+      "logEmpty": "No study log entries yet.",
+      "noDate": "date not given"
+    },
+    "learn": {
+      "title": "Knowledge base",
+      "kana": {
+        "title": "Kana",
+        "desc": "Hiragana and katakana, basic and voiced."
+      },
+      "grammar": {
+        "title": "Grammar & phrases",
+        "desc": "Particles, politeness, verb forms, everyday phrases."
+      },
+      "play": {
+        "title": "Practice games",
+        "desc": "Kana Blitz and Kana Match."
+      }
+    },
+    "code": {
+      "title": "Where Japanese meets code",
+      "lead": "Connections visible in the repositories (not a statement about proficiency).",
+      "deepsea": "DeepSea — a language-learning Android app and its API",
+      "voiceai": "VoiceAI — spoken-language identification that includes Japanese",
+      "fork": "KanjiDictVN — a fork on GitHub (a kanji dictionary project)"
+    },
+    "refs": {
+      "title": "Public references",
+      "note": "General, public resources — not a statement about which ones the owner uses.",
+      "jisho": {
+        "name": "Jisho",
+        "desc": "Online Japanese dictionary."
+      },
+      "nhk": {
+        "name": "NHK News Web Easy",
+        "desc": "News written in simple Japanese."
+      },
+      "taekim": {
+        "name": "Tae Kim's Guide",
+        "desc": "A free grammar guide."
+      },
+      "jlpt": {
+        "name": "JLPT",
+        "desc": "Official site of the Japanese-Language Proficiency Test."
+      }
+    }
+  },
+  "kana": {
+    "title": "Kana",
+    "lead": "The two Japanese syllabaries. Hiragana is used for native words and grammar; katakana mostly for loanwords and emphasis.",
+    "hiragana": "Hiragana",
+    "katakana": "Katakana",
+    "basic": "basic",
+    "voiced": "voiced & semi-voiced",
+    "empty": "no character",
+    "play": "Practise in the games",
+    "note": "Romanisation is Hepburn. じ/ぢ and ず/づ are pronounced the same."
+  },
+  "grammar": {
+    "title": "Grammar & phrases",
+    "lead": "A compact reference. Examples use polite form (です・ます).",
+    "particles": {
+      "title": "Particles",
+      "lead": "Small words that mark the role of the word before them.",
+      "particle": "Particle",
+      "role": "Role",
+      "example": "Example",
+      "meaning": "Meaning"
+    },
+    "politeness": {
+      "title": "Politeness levels",
+      "lead": "The same verb changes with the relationship between speaker and listener.",
+      "levels": {
+        "casual": {
+          "name": "Plain / casual",
+          "desc": "Dictionary form, among friends and family."
+        },
+        "polite": {
+          "name": "Polite (丁寧語)",
+          "desc": "The default for strangers and everyday service."
+        },
+        "keigo": {
+          "name": "Honorific / humble (敬語)",
+          "desc": "Raises the listener (尊敬語) or lowers oneself (謙譲語). Used in business and formal settings."
+        }
+      }
+    },
+    "verbs": {
+      "title": "Verb forms",
+      "lead": "Four useful forms of four common verbs.",
+      "cols": {
+        "dict": "Dictionary",
+        "polite": "Polite",
+        "negative": "Polite negative",
+        "past": "Polite past",
+        "te": "て-form"
+      },
+      "group": "Group",
+      "groups": {
+        "ichidan": "Ichidan (ru-verb)",
+        "godan": "Godan (u-verb)",
+        "irregular": "Irregular"
+      }
+    },
+    "phrases": {
+      "title": "Everyday phrases",
+      "lead": "Greetings and set phrases you will hear constantly."
+    }
+  },
+  "play": {
+    "title": "Play",
+    "lead": "Two small games for practising kana. Original mechanics, no accounts, no tracking.",
+    "note": "Personal bests are stored only in your own browser.",
+    "play": "Play",
+    "close": "Close",
+    "start": "Start",
+    "again": "Play again",
+    "script": "Script",
+    "scripts": {
+      "hiragana": "Hiragana",
+      "katakana": "Katakana",
+      "both": "Both"
+    },
+    "pool": "Characters",
+    "pools": {
+      "basic": "Basic 46",
+      "all": "All 71"
+    },
+    "time": "Time",
+    "score": "Score",
+    "best": "Best",
+    "streak": "Streak",
+    "moves": "Moves",
+    "correct": "Correct!",
+    "wrong": "Not quite — it was {answer}",
+    "gameOver": "Time's up",
+    "newBest": "New personal best!",
+    "blitz": {
+      "title": "Kana Blitz",
+      "desc": "Name the romaji for as many kana as you can in 45 seconds.",
+      "hint": "Keys 1–4 choose an answer.",
+      "question": "Which romaji matches this kana?"
+    },
+    "match": {
+      "title": "Kana Match",
+      "desc": "Flip cards to pair each kana with its romaji in the fewest moves.",
+      "hidden": "Card {n}, face down",
+      "won": "Cleared in {moves} moves.",
+      "reshuffle": "Reshuffle"
+    },
+    "vocab": {
+      "title": "Vocabulary Speedrun",
+      "desc": "N3 and N2 words, 45 seconds, as many as you can.",
+      "hint": "Meanings in English and Vietnamese, readings in Japanese. Keys 1–4 answer."
+    },
+    "reaction": {
+      "title": "Reaction Time",
+      "desc": "Five rounds. Hit the screen the moment it flips.",
+      "ready": "Click to start",
+      "wait": "Wait…",
+      "go": "Now!",
+      "early": "Too early! Click to try again.",
+      "round": "Round {n} of {total}",
+      "last": "last {ms} ms",
+      "ms": "{ms} ms",
+      "result": "Average of five"
+    },
+    "typing": {
+      "title": "Typing Sprint",
+      "desc": "Type the romaji of kana words for 30 seconds.",
+      "hint": "A kana word appears; type it in romaji (arigatou or arigato both work).",
+      "prompt": "Type the romaji",
+      "words": "Words",
+      "wpm": "words per minute"
+    }
+  },
+  "news": {
+    "title": "Tech news",
+    "lead": "Headlines from two public sources, refreshed about every half hour.",
+    "note": "Titles and links come from third parties and open in a new tab. Nothing here is written or endorsed by the site owner.",
+    "empty": "Couldn't load this feed right now. It will retry automatically.",
+    "opensNewTab": "opens in a new tab",
+    "points": "{n, plural, one {# point} other {# points}}",
+    "comments": "{n, plural, one {# comment} other {# comments}}",
+    "hn": {
+      "title": "Hacker News",
+      "desc": "Top stories · English"
+    },
+    "zenn": {
+      "title": "Zenn trending",
+      "desc": "Trending articles · 日本語"
+    }
+  },
+  "entrance": {
+    "kicker": "A small world that belongs to one person",
+    "w1": "My",
+    "w2": "Digital",
+    "w3": "World",
+    "lead": "Walk through a city of rooms, experiments, games and secrets. Nothing here is a template.",
+    "start": "Enter the world",
+    "press": "Press Enter",
+    "hint": "Arrow keys or Tab to move · Enter to choose · M for the map · sound stays off until you turn it on."
+  },
+  "hud": {
+    "map": "Map",
+    "you": "You are in the city",
+    "sound": "Sound",
+    "on": "on",
+    "off": "off",
+    "discoveries": "Discoveries",
+    "classic": "Classic site",
+    "close": "Close"
+  },
+  "city": {
+    "title": "The City",
+    "lead": "The hub of the world: choose a place to explore.",
+    "hint": "Hover or focus a place to read about it. Look for small ? marks.",
+    "list": "Places",
+    "secrets": {
+      "cat": "A black cat watches from the Lab's rooftop. It blinks once, slowly.",
+      "vending": "The vending machine hums and drops a can labelled “bug-free coffee”. It is warm.",
+      "card": "A playing card lies face-down on the street. On the back, in tiny print: “Magic is practice nobody saw.”"
+    },
+    "secretLabel": {
+      "cat": "Rooftop cat (hidden)",
+      "vending": "Vending machine (hidden)",
+      "card": "Playing card on the street (hidden)"
+    }
+  },
+  "places": {
+    "hideout": {
+      "name": "The Hideout",
+      "short": "A room that is mine",
+      "desc": "A digital room: a computer, a bookshelf, a notebook, a calendar, a window. Click things."
+    },
+    "lab": {
+      "name": "The Lab",
+      "short": "Experiments and case files",
+      "desc": "Projects shown as case files: what was built, how, and the evidence for it."
+    },
+    "station": {
+      "name": "The Station",
+      "short": "Japanese learning routes",
+      "desc": "Train lines for vocabulary, kanji, grammar and conversation, from N3 review to N2 and beyond."
+    },
+    "arcade": {
+      "name": "The Arcade",
+      "short": "Small games",
+      "desc": "Original mini-games: kana, vocabulary, typing and reflexes."
+    },
+    "archive": {
+      "name": "The Archive",
+      "short": "A personal collection",
+      "desc": "Shelves of things I like: anime and manga, tools, learning resources."
+    }
+  },
+  "discoveries": {
+    "note": "Exploration progress for this website only. It says nothing about real-life achievements or Japanese level, and it is stored only in your browser.",
+    "hidden": "???",
+    "done": "found",
+    "todo": "not found yet",
+    "keys": "Shortcuts: M = map · Esc = close a panel · ← → = move between places.",
+    "found": "Discovered: {name}",
+    "items": {
+      "place-hideout": "Visited The Hideout",
+      "place-lab": "Visited The Lab",
+      "place-station": "Visited The Station",
+      "place-arcade": "Visited The Arcade",
+      "place-archive": "Visited The Archive",
+      "cat": "The rooftop cat",
+      "vending": "The vending machine",
+      "card": "The street card",
+      "objects": "Looked at every object in the Hideout",
+      "mission": "Finished a Station mission",
+      "game": "Finished an Arcade game",
+      "backstage": "Found Backstage"
+    },
+    "backstage": "You found all three secrets: open Backstage"
+  },
+  "archive": {
+    "shelves": {
+      "anime": "Anime & manga",
+      "tools": "Tools",
+      "learning": "Learning resources",
+      "books": "Books",
+      "music": "Music"
+    },
+    "title": "The Archive",
+    "lead": "Shelves of things I like. Each spine is a card you can open.",
+    "empty": "This shelf is empty for now.",
+    "pick": "Pick a spine to read its card.",
+    "open": "Open",
+    "newTab": "opens in a new tab",
+    "source": {
+      "owner": "Stated by the owner",
+      "github": "A public GitHub repository",
+      "public": "A public reference"
+    }
+  },
+  "hideout": {
+    "title": "The Hideout",
+    "lead": "A digital room. It shows what I'm working on, reading and exploring.",
+    "hint": "Click an object. Each one opens a small panel.",
+    "list": "Objects in the room",
+    "accountCreated": "GitHub account created",
+    "objects": {
+      "computer": {
+        "label": "Computer",
+        "hint": "The computer. Projects live here.",
+        "title": "The Computer",
+        "body": "Projects as a quick list. The Lab has the full case files.",
+        "cta": "Open the Lab",
+        "terminal": "Open the terminal"
+      },
+      "bookshelf": {
+        "label": "Bookshelf",
+        "hint": "A shelf of collections.",
+        "title": "The Bookshelf",
+        "body": "Collections of things I like, kept in The Archive.",
+        "interests": "Interests page"
+      },
+      "notebook": {
+        "label": "Notebook",
+        "hint": "A notebook of thoughts.",
+        "title": "The Notebook",
+        "body": "The latest notes and posts.",
+        "journal": "Journal",
+        "garden": "Garden"
+      },
+      "calendar": {
+        "label": "Calendar",
+        "hint": "Milestones, each with its source.",
+        "title": "The Calendar",
+        "body": "Real-life milestones, each labelled with where it comes from. Dates appear only when they are known.",
+        "noDate": "date not given",
+        "owner": "stated by the owner",
+        "github": "from GitHub",
+        "timeline": "Full timeline"
+      },
+      "window": {
+        "label": "Window",
+        "hint": "The weather outside follows the time of day.",
+        "title": "The Window",
+        "now": "Outside it is {phase}.",
+        "day": "day",
+        "night": "night",
+        "body": "Switching changes the lighting of the whole world."
+      },
+      "board": {
+        "label": "Board",
+        "hint": "What I am exploring right now.",
+        "title": "The Board",
+        "body": "Things currently being explored."
+      }
+    },
+    "card": {
+      "label": "A card under the desk (hidden)",
+      "text": "You found a card under the desk. On it: “Some doors only open from inside a curious mind.”"
+    },
+    "cat": {
+      "label": "Sleeping cat (hidden)",
+      "text": "The cat opens one eye, decides you are not food, and goes back to sleep."
+    },
+    "board": {
+      "n2": {
+        "label": "JLPT N2",
+        "note": "Working toward it."
+      },
+      "n1": {
+        "label": "JLPT N1",
+        "note": "A longer-term goal."
+      },
+      "linux": {
+        "label": "Linux",
+        "note": "Experiments such as a NixOS configuration (myNixOS-config)."
+      },
+      "ai": {
+        "label": "AI / ML",
+        "note": "Speech and vision projects: VoiceAI and EduVision."
+      },
+      "ue": {
+        "label": "Unreal Engine",
+        "note": "A forked Unreal Engine plugin on GitHub: KawaiiPhysics."
+      }
+    }
+  },
+  "lab": {
+    "title": "The Lab",
+    "lead": "Projects as case files. Every technology is pinned to the file that proves it.",
+    "folders": "Case files",
+    "case": "Case",
+    "statusUnset": "Status: not stated",
+    "lastPush": "Last push",
+    "findings": "Findings",
+    "evidence": "Evidence board",
+    "evidenceNote": "Each note names the file in the repository that shows the technology is really used.",
+    "demo": "Live demo",
+    "fullFile": "Full file",
+    "newTab": "opens in a new tab",
+    "fieldTitle": "Field notes",
+    "fieldLead": "Repositories behind the things being explored. “Own” means created on this profile; “fork” means copied from someone else's project, so it shows interest, not authorship.",
+    "own": "own",
+    "fork": "fork",
+    "notes": {
+      "linux": {
+        "title": "Linux",
+        "desc": "Configuration and tooling."
+      },
+      "ai": {
+        "title": "AI / ML",
+        "desc": "Speech and vision experiments."
+      },
+      "ue": {
+        "title": "Unreal Engine",
+        "desc": "A bookmarked plugin."
+      }
+    }
+  },
+  "station": {
+    "title": "The Station",
+    "lead": "Pick a line, ride a mission. Short, real exercises for vocabulary, kanji, grammar and conversation.",
+    "notes": "Study notes",
+    "lines": {
+      "n3": {
+        "name": "N3 review line",
+        "desc": "Passed. These stations keep it fresh."
+      },
+      "n2": {
+        "name": "N2 line (in progress)",
+        "desc": "The current target."
+      },
+      "extra": {
+        "name": "Conversation branch",
+        "desc": "Short everyday scenes."
+      },
+      "n1": {
+        "name": "N1 line",
+        "desc": "Not open yet. A longer-term goal, so for now it is just track and a closed gate."
+      }
+    },
+    "missions": {
+      "vocab-n3": {
+        "name": "Vocabulary",
+        "desc": "Meet words at N3 level."
+      },
+      "kanji-n3": {
+        "name": "Kanji readings",
+        "desc": "Pick the right reading."
+      },
+      "grammar-n3": {
+        "name": "Grammar",
+        "desc": "Fill the blank."
+      },
+      "vocab-n2": {
+        "name": "Vocabulary",
+        "desc": "Meet words at N2 level."
+      },
+      "kanji-n2": {
+        "name": "Kanji readings",
+        "desc": "Harder compounds."
+      },
+      "grammar-n2": {
+        "name": "Grammar",
+        "desc": "N2 patterns."
+      },
+      "kaiwa": {
+        "name": "At the convenience store",
+        "desc": "Three short conversations."
+      }
+    },
+    "question": "Question {n} of {total}",
+    "score": "Score",
+    "correct": "Correct!",
+    "wrong": "Not quite.",
+    "next": "Next",
+    "finish": "Finish",
+    "result": "Mission result",
+    "stamped": "Stamped! 80% or more clears the station.",
+    "notYet": "Not stamped yet. Try again.",
+    "localNote": "Learning progress is stored only in your browser and is separate from exploration discoveries.",
+    "approx": "Material is practice at an approximate N3/N2 level, not an official JLPT list.",
+    "retry": "New questions",
+    "backToMap": "Back to the map",
+    "stampedSr": "stamped",
+    "notStampedSr": "not stamped yet"
+  },
+  "arcade": {
+    "title": "The Arcade",
+    "lead": "Five original mini-games. No accounts, no tracking; your best scores stay in your browser."
+  },
+  "backstage": {
+    "title": "Backstage",
+    "lead": "You found the secret room. Here is how the world is made.",
+    "builtTitle": "How it is built",
+    "built": {
+      "a": "Next.js, React, TypeScript, Tailwind CSS and next-intl, in three languages.",
+      "b": "The city, the room and the characters are original SVG drawn for this site.",
+      "c": "Sounds are synthesized in your browser and are off until you turn them on.",
+      "d": "Progress is stored only in your browser. Nothing is sent anywhere."
+    },
+    "keysTitle": "Keys",
+    "keys": {
+      "a": "M — back to the map",
+      "b": "Esc — close a panel",
+      "c": "← → — move between places",
+      "d": "↑ ↑ ↓ ↓ ← → ← → B A — this room"
+    },
+    "note": "Thank you for exploring. The world grows as I learn and build."
   }
 }

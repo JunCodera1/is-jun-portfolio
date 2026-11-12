@@ -2,7 +2,7 @@
 
 import { useEffect, useSyncExternalStore } from "react";
 import { useTranslations } from "next-intl";
-import { applyTheme, currentThemePref, type ThemePref } from "@/lib/theme";
+import { applyTheme, currentThemePref, syncSystemTheme, type ThemePref } from "@/lib/theme";
 import { MonitorIcon, MoonIcon, SunIcon } from "@/components/ui/Icons";
 
 function subscribe(cb: () => void) {
@@ -20,8 +20,8 @@ export function ThemeControl({ className = "" }: { className?: string }) {
   useEffect(() => {
     if (pref !== "system") return;
     const mq = window.matchMedia("(prefers-color-scheme: light)");
-    const onChange = () => applyTheme("system");
-    onChange(); // resync once on mount: covers an OS change between the inline script and hydration
+    const onChange = () => syncSystemTheme();
+    onChange(); // resync once on mount: covers an OS change between the inline script and hydration (reads the real preference; never writes storage)
     mq.addEventListener("change", onChange);
     return () => mq.removeEventListener("change", onChange);
   }, [pref]);

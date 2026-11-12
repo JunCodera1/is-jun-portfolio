@@ -42,7 +42,7 @@ describe("content integrity (rows 49, 51)", () => {
   });
   it("navigation ids are unique and locale-less paths", () => {
     expect(new Set(navigation.map((n) => n.id)).size).toBe(navigation.length);
-    for (const n of navigation) expect(n.href).toMatch(/^\/[a-z-]*$/);
+    for (const n of navigation) expect(n.href).toMatch(/^\/[a-z/-]*$/);
   });
   it("no secrets or tokens sneaked into the committed GitHub snapshot", () => {
     const raw = JSON.stringify(githubSnapshot);

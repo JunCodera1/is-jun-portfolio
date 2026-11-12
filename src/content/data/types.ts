@@ -17,7 +17,8 @@ export interface NavItem {
   /** Key under the `nav` namespace in messages/*.json */
   labelKey: string;
   /** Key under `nav.desc` used by the Index on the home page */
-  group: "personal" | "professional" | "utility";
+  /** "sub" pages are reachable via search/palette/sitemap but are not listed in menus or the footer. */
+  group: "personal" | "professional" | "utility" | "sub";
   primary?: boolean;
 }
 
