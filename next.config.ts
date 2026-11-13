@@ -18,6 +18,8 @@ const csp = [
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: blob: https://s4.anilist.co https://covers.openlibrary.org https://archive.org https://*.archive.org https://cdn-images.dzcdn.net",
   "font-src 'self'",
+  "media-src 'self' https://*.dzcdn.net",
+  "frame-src https://www.youtube-nocookie.com https://w.soundcloud.com https://open.spotify.com",
   `connect-src 'self'${isDev ? " ws: wss:" : ""}`,
   "object-src 'none'",
   "base-uri 'self'",
@@ -38,6 +40,8 @@ const securityHeaders = [
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
+  // hide the floating Next.js dev badge ("N · 1 Issue"); errors still show in the terminal and browser console
+  devIndicators: false,
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];
   },

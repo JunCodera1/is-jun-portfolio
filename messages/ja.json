@@ -983,7 +983,7 @@
     },
     "myMusic": {
       "title": "音楽",
-      "desc": "どこのリンクでもOK：YouTube、SoundCloud、Bandcamp など。",
+      "desc": "どこのリンクでもOKなプレイリスト。YouTube・Spotify・SoundCloud はここで再生できます。",
       "empty": "まだ曲がありません。src/content/data/library.ts にリンクを追加できます。"
     },
     "anime": {
@@ -992,7 +992,8 @@
     },
     "chart": {
       "title": "音楽チャート",
-      "desc": "Deezer・世界のトップトラック"
+      "desc": "Deezer・世界のトップトラック",
+      "note": "Deezer の公開チャートの30秒プレビューです。持ち主のおすすめではありません。"
     },
     "books": {
       "title": "注目の本",
@@ -1001,6 +1002,18 @@
     "tech": {
       "title": "プログラミングの本",
       "desc": "Open Library・高評価順"
+    },
+    "player": {
+      "now": "再生中",
+      "pick": "曲を選ぶとここで再生します。選ぶまで何も読み込みません。",
+      "playAll": "再生",
+      "prev": "前へ",
+      "next": "次へ",
+      "openOn": "元のサイトで開く",
+      "noEmbed": "このリンクはここでは再生できません。",
+      "newTab": "新しいタブで開きます",
+      "preview": "30秒プレビュー",
+      "link": "リンク"
     }
   },
   "today": {

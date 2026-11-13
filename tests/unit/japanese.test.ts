@@ -143,3 +143,18 @@ describe("cover images are allow-listed", () => {
     expect(normalizeBook({ key: "/works/OL1W", title: "B", cover_i: "../x" })!.image).toBeUndefined();
   });
 });
+
+describe("music links become embeds only for known providers and well-formed ids", () => {
+  it("YouTube (watch, short, playlist), Spotify and SoundCloud", async () => {
+    const { embedFor } = await import("@/lib/music");
+    expect(embedFor("https://www.youtube.com/watch?v=dQw4w9WgXcQ")!.src).toBe("https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ");
+    expect(embedFor("https://youtu.be/dQw4w9WgXcQ")!.provider).toBe("youtube");
+    expect(embedFor("https://www.youtube.com/playlist?list=PLabcdefghij123")!.src).toContain("videoseries?list=PLabcdefghij123");
+    expect(embedFor("https://open.spotify.com/track/4uLU6hMCjMI75M1A2tKUQC")!).toMatchObject({ provider: "spotify", height: 152 });
+    expect(embedFor("https://soundcloud.com/artist/track")!.src).toContain("w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fartist%2Ftrack");
+  });
+  it("rejects look-alike hosts, bad ids, unsafe schemes and unknown providers", async () => {
+    const { embedFor } = await import("@/lib/music");
+    for (const bad of ["https://youtube.com.evil.example/watch?v=dQw4w9WgXcQ", "https://www.youtube.com/watch?v=short", "https://www.youtube.com/watch?v=dQw4w9WgXcQ\"onload=x", "javascript:alert(1)", "https://artist.bandcamp.com/track/x", "https://open.spotify.com/track/../../x", "https://soundcloud.com/", "not a url"]) expect(embedFor(bad)).toBeNull();
+  });
+});

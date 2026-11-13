@@ -983,7 +983,7 @@
     },
     "myMusic": {
       "title": "Music",
-      "desc": "Links from anywhere: YouTube, SoundCloud, Bandcamp…",
+      "desc": "Playlists with links from anywhere. YouTube, Spotify and SoundCloud play right here.",
       "empty": "No tracks added yet. Add any link in src/content/data/library.ts."
     },
     "anime": {
@@ -992,7 +992,8 @@
     },
     "chart": {
       "title": "Music charts",
-      "desc": "Deezer · worldwide top tracks"
+      "desc": "Deezer · worldwide top tracks",
+      "note": "30-second previews from Deezer's public charts. Not the owner's picks."
     },
     "books": {
       "title": "Trending books",
@@ -1001,6 +1002,18 @@
     "tech": {
       "title": "Programming books",
       "desc": "Open Library · highest rated"
+    },
+    "player": {
+      "now": "Now playing",
+      "pick": "Pick a track to play it here. Nothing loads until you do.",
+      "playAll": "Play",
+      "prev": "Previous",
+      "next": "Next",
+      "openOn": "Open on its site",
+      "noEmbed": "This link can't play here.",
+      "newTab": "opens in a new tab",
+      "preview": "30s preview",
+      "link": "link"
     }
   },
   "today": {

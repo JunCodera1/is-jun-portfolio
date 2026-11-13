@@ -1,7 +1,10 @@
 /* Plain <img>: covers come from a few allow-listed hosts (see the CSP), are tiny, fixed-size and lazy; next/image would add a proxy for no gain. */
 /* eslint-disable @next/next/no-img-element */
 import { getTranslations } from "next-intl/server";
-import { music, shelf } from "@/content/data/library";
+import { playlists, shelf } from "@/content/data/library";
+import { embedFor } from "@/lib/music";
+import { Playlist, type PTrack } from "@/components/library/Playlist";
+import { textOf } from "@/lib/localized";
 import { lookupAnime, musicChart, techBooks, trendingAnime, trendingBooks } from "@/lib/library-feed";
 import type { LibEntry } from "@/lib/library";
 import { safeHttpUrl } from "@/lib/news";
@@ -50,10 +53,11 @@ export default async function LibraryPage({ params }: { params: LocaleParams }) 
     Promise.all(shelf.map(async (s) => (await lookupAnime(s.lookup))[0])),
     trendingAnime(10), trendingBooks(10), techBooks(10), musicChart(10),
   ]);
-  const myMusic: LibEntry[] = music.flatMap((m) => {
-    const url = safeHttpUrl(m.url);
-    return url ? [{ id: m.id, title: m.title, sub: m.artist, meta: new URL(url).hostname.replace(/^www\./, ""), url }] : [];
-  });
+  const mine_pl = playlists.map((p) => ({
+    id: p.id, title: textOf(p.title, locale),
+    tracks: p.tracks.flatMap((m): PTrack[] => { const url = safeHttpUrl(m.url); return url ? [{ id: m.id, title: m.title, artist: m.artist, url, embed: embedFor(url) ?? undefined }] : []; }),
+  }));
+  const chartTracks: PTrack[] = chart.map((e) => ({ id: e.id, title: e.title, artist: e.sub, url: e.url, image: e.image, deezerId: e.id.replace("track-", "") }));
   const common = { empty: t("empty"), newTab: t("opensNewTab") };
   return (
     <div className="page pb-8">
@@ -63,13 +67,23 @@ export default async function LibraryPage({ params }: { params: LocaleParams }) 
       <h2 className="mt-12 text-4xl">{t("mine")}</h2>
       <div className="mt-6 grid gap-14 lg:grid-cols-2">
         <List id="mine-shelf" title={t("shelf.title")} desc={t("shelf.desc")} items={mine.filter((e): e is LibEntry => !!e)} {...common} />
-        <List id="mine-music" title={t("myMusic.title")} desc={t("myMusic.desc")} items={myMusic} empty={t("myMusic.empty")} newTab={t("opensNewTab")} />
+        <section aria-labelledby="mine-music">
+          <h3 id="mine-music" className="text-3xl">{t("myMusic.title")}</h3>
+          <p className="label mt-1 !normal-case !tracking-normal">{t("myMusic.desc")}</p>
+          <div className="mt-6">
+            {mine_pl.every((p) => p.tracks.length === 0) ? <p className="slot">{t("myMusic.empty")}</p> : mine_pl.map((p) => <Playlist key={p.id} title={p.title} tracks={p.tracks} />)}
+          </div>
+        </section>
       </div>
 
       <h2 className="mt-16 text-4xl">{t("discover")}</h2>
       <div className="mt-6 grid gap-14 lg:grid-cols-2">
         <List id="d-anime" title={t("anime.title")} desc={t("anime.desc")} items={anime} {...common} />
-        <List id="d-music" title={t("chart.title")} desc={t("chart.desc")} items={chart} {...common} />
+        <section aria-labelledby="d-music">
+          <h3 id="d-music" className="text-3xl">{t("chart.title")}</h3>
+          <p className="label mt-1 !normal-case !tracking-normal">{t("chart.desc")}</p>
+          <div className="mt-6">{chartTracks.length === 0 ? <p className="slot">{t("empty")}</p> : <Playlist title={t("chart.title")} tracks={chartTracks} note={t("chart.note")} />}</div>
+        </section>
         <List id="d-books" title={t("books.title")} desc={t("books.desc")} items={books} {...common} />
         <List id="d-tech" title={t("tech.title")} desc={t("tech.desc")} items={tech} {...common} />
       </div>

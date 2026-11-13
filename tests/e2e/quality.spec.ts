@@ -8,6 +8,7 @@ const WIDTHS = [375, 430, 768, 1366, 1920];
 test.describe("no horizontal overflow", () => {
   for (const width of WIDTHS) {
     test(`@${width}px — every page, every locale`, async ({ page }) => {
+      test.setTimeout(150_000); // ~95 page loads
       await page.setViewportSize({ width, height: 900 });
       const bad: string[] = [];
       for (const locale of LOCALES) {

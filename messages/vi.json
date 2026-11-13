@@ -983,7 +983,7 @@
     },
     "myMusic": {
       "title": "Nhạc",
-      "desc": "Link từ bất kỳ đâu: YouTube, SoundCloud, Bandcamp…",
+      "desc": "Playlist với link từ bất kỳ đâu. YouTube, Spotify và SoundCloud phát ngay tại đây.",
       "empty": "Chưa có bài nào. Thêm link bất kỳ trong src/content/data/library.ts."
     },
     "anime": {
@@ -992,7 +992,8 @@
     },
     "chart": {
       "title": "Bảng xếp hạng nhạc",
-      "desc": "Deezer · top bài hát thế giới"
+      "desc": "Deezer · top bài hát thế giới",
+      "note": "Bản nghe thử 30 giây từ bảng xếp hạng công khai của Deezer. Không phải gu của chủ trang."
     },
     "books": {
       "title": "Sách đang hot",
@@ -1001,6 +1002,18 @@
     "tech": {
       "title": "Sách lập trình",
       "desc": "Open Library · đánh giá cao nhất"
+    },
+    "player": {
+      "now": "Đang phát",
+      "pick": "Chọn một bài để phát tại đây. Chưa chọn thì chưa tải gì cả.",
+      "playAll": "Phát",
+      "prev": "Trước",
+      "next": "Sau",
+      "openOn": "Mở trên trang gốc",
+      "noEmbed": "Link này không phát được tại đây.",
+      "newTab": "mở trong tab mới",
+      "preview": "Nghe thử 30s",
+      "link": "link"
     }
   },
   "today": {
