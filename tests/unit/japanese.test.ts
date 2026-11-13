@@ -120,3 +120,13 @@ describe("more third-party parsers stay defensive", () => {
     expect(normalizeTrack({ id: 1, title: "T", link: "https://deezer.com/t/1", artist: { name: "A" } })).toMatchObject({ sub: "A" });
   });
 });
+
+describe("daily pick", () => {
+  it("is stable within a UTC day, changes the next day, and handles empty pools", async () => {
+    const { pickDaily } = await import("@/lib/daily");
+    const pool = [1, 2, 3, 4, 5];
+    expect(pickDaily(pool, new Date("2026-11-13T01:00:00Z"))).toBe(pickDaily(pool, new Date("2026-11-13T23:00:00Z")));
+    expect(pickDaily(pool, new Date("2026-11-14T00:00:00Z"))).not.toBe(pickDaily(pool, new Date("2026-11-13T00:00:00Z")));
+    expect(pickDaily([], new Date())).toBeUndefined();
+  });
+});

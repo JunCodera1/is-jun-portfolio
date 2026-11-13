@@ -42,7 +42,9 @@
       "station": "Japanese learning routes.",
       "arcade": "Original mini-games.",
       "archive": "A personal collection.",
-      "library": "Anime, books and music from public sources."
+      "library": "Anime, books and music from public sources.",
+      "log": "Short dated notes, newest first.",
+      "links": "Bookmarks worth keeping."
     },
     "recruiter": "Recruiter view",
     "menuHint": "↑ ↓ select · 1–9 jump to a chapter · Enter open · Esc back",
@@ -57,7 +59,9 @@
     "station": "The Station",
     "arcade": "The Arcade",
     "archive": "The Archive",
-    "library": "Library"
+    "library": "Library",
+    "log": "Log",
+    "links": "Links"
   },
   "common": {
     "skip": "Skip to content",
@@ -988,6 +992,38 @@
     "tech": {
       "title": "Programming books",
       "desc": "Open Library · highest rated"
+    }
+  },
+  "today": {
+    "title": "Today",
+    "word": "Word of the day",
+    "reading": "Kanji reading",
+    "readingQ": "How is it read?",
+    "reveal": "Show reading",
+    "more": "More practice at the Station →"
+  },
+  "log": {
+    "title": "Log",
+    "lead": "Small dated notes: what happened, what was learned, what changed.",
+    "how": "To add a line, edit src/content/data/log.ts.",
+    "tags": {
+      "site": "site",
+      "japanese": "Japanese",
+      "code": "code",
+      "life": "life",
+      "anime": "anime"
+    }
+  },
+  "links": {
+    "title": "Links",
+    "lead": "Bookmarks and references that are worth coming back to.",
+    "note": "Public reference sites, not statements about the owner's habits. Links open in a new tab.",
+    "opensNewTab": "opens in a new tab",
+    "groups": {
+      "japanese": "Japanese",
+      "code": "Code",
+      "linux": "Linux",
+      "ai": "AI & ML"
     }
   }
 }

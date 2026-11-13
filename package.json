@@ -14,6 +14,7 @@
     "i18n:status": "tsx --conditions=react-server scripts/i18n-status.mts",
     "docs:traceability": "tsx scripts/generate-traceability.mts",
     "content:check": "tsx --conditions=react-server scripts/check-content.mts",
+    "new": "node scripts/new-entry.mjs",
     "snapshot:github": "tsx scripts/snapshot-github.mts",
     "check": "npm run lint && npm run typecheck && npm run test && npm run content:check && npm run i18n:status"
   },

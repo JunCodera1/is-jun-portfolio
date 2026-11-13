@@ -9,8 +9,11 @@ import { getRecentRepos } from "@/lib/github-feed";
 import { profile, socialLinks } from "@/content/data/profile";
 import { Hero } from "@/components/sections/Hero";
 import { IndexList } from "@/components/sections/IndexList";
+import { TodayStrip } from "@/components/sections/TodayStrip";
 import { LatestAndFeatured } from "@/components/sections/LatestAndFeatured";
 import { JsonLd } from "@/components/ui/JsonLd";
+
+export const revalidate = 3600;
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -39,6 +42,7 @@ export default async function HomePage({ params }: Props) {
       />
       <Hero locale={locale as Locale} feed={feed} />
       <IndexList locale={locale as Locale} />
+      <TodayStrip locale={locale as Locale} />
       <LatestAndFeatured locale={locale as Locale} />
     </>
   );

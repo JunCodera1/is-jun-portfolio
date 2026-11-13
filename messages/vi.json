@@ -42,7 +42,9 @@
       "station": "Lộ trình học tiếng Nhật.",
       "arcade": "Các trò chơi nhỏ nguyên bản.",
       "archive": "Bộ sưu tập cá nhân.",
-      "library": "Anime, sách và nhạc từ nguồn công khai."
+      "library": "Anime, sách và nhạc từ nguồn công khai.",
+      "log": "Ghi chú ngắn có ngày, mới nhất trước.",
+      "links": "Những liên kết đáng giữ lại."
     },
     "recruiter": "Bản xem cho nhà tuyển dụng",
     "menuHint": "↑ ↓ chọn · 1–9 nhảy tới chương · Enter mở · Esc quay lại",
@@ -57,7 +59,9 @@
     "station": "Nhà ga",
     "arcade": "Tiệm game",
     "archive": "Kho lưu trữ",
-    "library": "Thư viện"
+    "library": "Thư viện",
+    "log": "Nhật ký ngắn",
+    "links": "Liên kết"
   },
   "common": {
     "skip": "Bỏ qua, đến nội dung chính",
@@ -988,6 +992,38 @@
     "tech": {
       "title": "Sách lập trình",
       "desc": "Open Library · đánh giá cao nhất"
+    }
+  },
+  "today": {
+    "title": "Hôm nay",
+    "word": "Từ của ngày",
+    "reading": "Cách đọc kanji",
+    "readingQ": "Đọc như thế nào?",
+    "reveal": "Hiện cách đọc",
+    "more": "Luyện thêm ở Nhà ga →"
+  },
+  "log": {
+    "title": "Nhật ký ngắn",
+    "lead": "Những ghi chú nhỏ có ngày: điều đã xảy ra, điều đã học, điều đã đổi.",
+    "how": "Để thêm một dòng, sửa src/content/data/log.ts.",
+    "tags": {
+      "site": "trang web",
+      "japanese": "tiếng Nhật",
+      "code": "code",
+      "life": "đời sống",
+      "anime": "anime"
+    }
+  },
+  "links": {
+    "title": "Liên kết",
+    "lead": "Các trang tham khảo và dấu trang đáng quay lại.",
+    "note": "Đây là các trang tham khảo công khai, không phải nhận định về thói quen của chủ trang. Link mở trong tab mới.",
+    "opensNewTab": "mở trong tab mới",
+    "groups": {
+      "japanese": "Tiếng Nhật",
+      "code": "Lập trình",
+      "linux": "Linux",
+      "ai": "AI & ML"
     }
   }
 }
