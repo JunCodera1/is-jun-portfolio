@@ -1,3 +1,5 @@
+/* Plain <img>: covers come from a few allow-listed hosts (see the CSP), are tiny, fixed-size and lazy; next/image would add a proxy for no gain. */
+/* eslint-disable @next/next/no-img-element */
 import { getTranslations } from "next-intl/server";
 import { music, shelf } from "@/content/data/library";
 import { lookupAnime, musicChart, techBooks, trendingAnime, trendingBooks } from "@/lib/library-feed";
@@ -22,7 +24,10 @@ function List({ id, title, desc, items, empty, newTab }: { id: string; title: st
         <Stagger as="ul" className="mt-6 border-t-2 border-outline">
           {items.map((e) => (
             <li key={e.id} data-stagger className="border-b border-line">
-              <a href={e.url} target="_blank" rel="noopener noreferrer nofollow" className="index-row grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-x-3 px-2 py-3">
+              <a href={e.url} target="_blank" rel="noopener noreferrer nofollow" className="index-row grid grid-cols-[3rem_minmax(0,1fr)_auto] items-center gap-x-3 px-2 py-3">
+                <span aria-hidden className="relative block h-16 w-12 overflow-hidden border-2 border-outline bg-surface-2">
+                  {e.image && <img src={e.image} alt="" width={48} height={64} loading="lazy" decoding="async" referrerPolicy="no-referrer" className="h-full w-full object-cover" />}
+                </span>
                 <span>
                   <span className="block [overflow-wrap:anywhere] font-display text-lg leading-snug tracking-tight">{e.title}</span>
                   {(e.sub || e.meta) && <span className="label mt-1 block !normal-case !tracking-normal">{[e.sub, e.meta].filter(Boolean).join(" · ")}</span>}

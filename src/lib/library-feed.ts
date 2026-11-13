@@ -9,7 +9,7 @@ const get = async (url: string, init?: RequestInit) => {
 const anilist = async (query: string, variables: Record<string, unknown>) =>
   get("https://graphql.anilist.co", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ query, variables }) });
 
-const FIELDS = "id title{romaji english native} seasonYear averageScore genres siteUrl";
+const FIELDS = "id title{romaji english native} seasonYear averageScore genres siteUrl coverImage{medium}";
 const safe = async (f: () => Promise<LibEntry[]>): Promise<LibEntry[]> => { try { return await f(); } catch { return []; } };
 const pick = (raw: unknown, ...path: string[]): unknown[] => {
   let v: unknown = raw;
@@ -28,7 +28,7 @@ export const trendingBooks = (n = 12) => safe(async () =>
   pick(await get(`https://openlibrary.org/trending/weekly.json?limit=${n}`), "works").map(normalizeBook).filter((e): e is LibEntry => e !== null));
 
 export const techBooks = (n = 12) => safe(async () =>
-  pick(await get(`https://openlibrary.org/search.json?q=${encodeURIComponent('subject:"computer programming" language:eng')}&sort=rating&limit=${n}&fields=key,title,author_name,first_publish_year`), "docs").map(normalizeBook).filter((e): e is LibEntry => e !== null));
+  pick(await get(`https://openlibrary.org/search.json?q=${encodeURIComponent('subject:"computer programming" language:eng')}&sort=rating&limit=${n}&fields=key,title,author_name,first_publish_year,cover_i`), "docs").map(normalizeBook).filter((e): e is LibEntry => e !== null));
 
 export const musicChart = (n = 12) => safe(async () =>
   pick(await get(`https://api.deezer.com/chart/0/tracks?limit=${n}`), "data").map(normalizeTrack).filter((e): e is LibEntry => e !== null));

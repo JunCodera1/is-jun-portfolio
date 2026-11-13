@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { ALL_KANA, BASIC_KANA, BASIC_ROWS, VOICED_ROWS } from "@/content/data/kana";
 import { isMatch, makeDeck, makeQuestion, shuffle } from "@/lib/kana-games";
 import { normalizeDevTo, normalizeHnItem, normalizeLobsters, parseAtomItems, parseRssItems, safeHttpUrl } from "@/lib/news";
-import { normalizeAnime, normalizeBook, normalizeTrack } from "@/lib/library";
+import { normalizeAnime, normalizeBook, normalizeTrack, safeImageUrl } from "@/lib/library";
 
 const seq = (...n: number[]) => { let i = 0; return () => n[i++ % n.length]!; };
 
@@ -128,5 +128,18 @@ describe("daily pick", () => {
     expect(pickDaily(pool, new Date("2026-11-13T01:00:00Z"))).toBe(pickDaily(pool, new Date("2026-11-13T23:00:00Z")));
     expect(pickDaily(pool, new Date("2026-11-14T00:00:00Z"))).not.toBe(pickDaily(pool, new Date("2026-11-13T00:00:00Z")));
     expect(pickDaily([], new Date())).toBeUndefined();
+  });
+});
+
+describe("cover images are allow-listed", () => {
+  it("accepts only https images from the three CDN hosts the CSP allows", () => {
+    expect(safeImageUrl("https://s4.anilist.co/file/x.jpg")).toBeTruthy();
+    expect(safeImageUrl("https://covers.openlibrary.org/b/id/1-M.jpg")).toBeTruthy();
+    expect(safeImageUrl("https://cdn-images.dzcdn.net/images/cover/x/56x56.jpg")).toBeTruthy();
+    for (const bad of ["http://s4.anilist.co/x.jpg", "https://evil.example/x.jpg", "javascript:alert(1)", "https://s4.anilist.co.evil.example/x.jpg", 5, null]) expect(safeImageUrl(bad)).toBeUndefined();
+  });
+  it("books only get a cover from a positive integer id", () => {
+    expect(normalizeBook({ key: "/works/OL1W", title: "B", cover_i: 12 })!.image).toBe("https://covers.openlibrary.org/b/id/12-M.jpg");
+    expect(normalizeBook({ key: "/works/OL1W", title: "B", cover_i: "../x" })!.image).toBeUndefined();
   });
 });
