@@ -138,7 +138,8 @@
     "pulseSourceLive": "GitHub, lưu đệm tối đa một giờ",
     "pulseSourceSnapshot": "Ảnh chụp dữ liệu GitHub ngày {date}",
     "metaLine": "Phiên bản 0.1 · đang xây dựng",
-    "chapter": "Chương {n}"
+    "chapter": "Chương {n}",
+    "tiles": "Đi đâu trước?"
   },
   "about": {
     "title": "Giới thiệu",

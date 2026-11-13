@@ -138,7 +138,8 @@
     "pulseSourceLive": "GitHub（最長1時間キャッシュ）",
     "pulseSourceSnapshot": "{date}時点の GitHub スナップショット",
     "metaLine": "バージョン0.1・制作中",
-    "chapter": "第{n}話"
+    "chapter": "第{n}話",
+    "tiles": "どこへ行く？"
   },
   "about": {
     "title": "自己紹介",

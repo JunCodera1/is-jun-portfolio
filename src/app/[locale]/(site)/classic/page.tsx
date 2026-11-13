@@ -8,6 +8,7 @@ import { siteUrl } from "@/lib/site";
 import { getRecentRepos } from "@/lib/github-feed";
 import { profile, socialLinks } from "@/content/data/profile";
 import { Hero } from "@/components/sections/Hero";
+import { QuickTiles } from "@/components/sections/QuickTiles";
 import { IndexList } from "@/components/sections/IndexList";
 import { TodayStrip } from "@/components/sections/TodayStrip";
 import { LatestAndFeatured } from "@/components/sections/LatestAndFeatured";
@@ -41,6 +42,7 @@ export default async function HomePage({ params }: Props) {
         ]}
       />
       <Hero locale={locale as Locale} feed={feed} />
+      <QuickTiles locale={locale as Locale} />
       <IndexList locale={locale as Locale} />
       <TodayStrip locale={locale as Locale} />
       <LatestAndFeatured locale={locale as Locale} />

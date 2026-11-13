@@ -138,7 +138,8 @@
     "pulseSourceLive": "GitHub, cached up to an hour",
     "pulseSourceSnapshot": "GitHub snapshot from {date}",
     "metaLine": "Version 0.1 · work in progress",
-    "chapter": "Ch. {n}"
+    "chapter": "Ch. {n}",
+    "tiles": "Where to?"
   },
   "about": {
     "title": "About",
