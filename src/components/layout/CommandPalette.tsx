@@ -7,6 +7,9 @@ import { locales, localeMeta, type Locale } from "@/i18n/routing";
 import { applyTheme, type ThemePref } from "@/lib/theme";
 import { normalize, search, type SearchEntry } from "@/lib/search";
 import { SearchIcon, ArrowRight } from "@/components/ui/Icons";
+import { loadSearchIndex } from "@/lib/search-client";
+import { pickSurprise } from "@/lib/surprise";
+import { OPEN_TERMINAL_EVENT } from "@/components/interactive/TerminalOverlay";
 
 export interface PalettePage { id: string; href: string; label: string; desc?: string }
 
@@ -24,20 +27,6 @@ interface Item {
 }
 
 export const OPEN_PALETTE_EVENT = "open-command-palette";
-
-const indexCache = new Map<string, Promise<SearchEntry[]>>();
-function loadSearchIndex(locale: string): Promise<SearchEntry[]> {
-  let p = indexCache.get(locale);
-  if (!p) {
-    p = fetch(`/${locale}/search-index.json`).then((r) => {
-      if (!r.ok) throw new Error(String(r.status));
-      return r.json() as Promise<SearchEntry[]>;
-    });
-    p.catch(() => indexCache.delete(locale)); // allow a retry on the next open
-    indexCache.set(locale, p);
-  }
-  return p;
-}
 
 /** Searchable in every UI language: typing "japanese" works from the Vietnamese UI too. */
 const ENGLISH_NAME: Record<Locale, string> = { en: "english", ja: "japanese", vi: "vietnamese" };
@@ -103,7 +92,7 @@ export function CommandPalette({ pages, githubUrl }: { pages: PalettePage[]; git
   );
 
   const actions: Item[] = useMemo(() => {
-    const themeItems = (["system", "light", "dark"] as ThemePref[]).map<Item>((mode) => ({
+    const themeItems = (["system", "auto", "light", "dark"] as ThemePref[]).map<Item>((mode) => ({
       id: `theme:${mode}`, group: "actions",
       label: t("palette.theme", { mode: t(`theme.${mode}`) }),
       keywords: [mode, "theme"],
@@ -119,7 +108,18 @@ export function CommandPalette({ pages, githubUrl }: { pages: PalettePage[]; git
       id: "github", group: "actions", label: t("palette.github"), hint: "github.com",
       run: () => { close(); window.open(githubUrl, "_blank", "noopener,noreferrer"); },
     };
-    return [...themeItems, ...langItems, github];
+    const surprise: Item = {
+      id: "surprise", group: "actions", label: t("palette.surprise"), hint: "🎲",
+      keywords: ["random", "surprise", "lucky", "ngau nhien", "ランダム"],
+      run: async () => {
+        close();
+        try { const hit = pickSurprise(await loadSearchIndex(locale), pathname); if (hit) router.push(hit.href); } catch { /* stay */ }
+      },
+    };
+    const terminal: Item = { id: "terminal", group: "actions", label: t("palette.terminal"), hint: "`", keywords: ["terminal", "console", "shell", "command"], run: () => { close(); setTimeout(() => window.dispatchEvent(new Event(OPEN_TERMINAL_EVENT)), 60); } };
+    const copy: Item = { id: "copy", group: "actions", label: t("palette.copyLink"), keywords: ["copy", "link", "url", "share"], run: () => { close(); void navigator.clipboard?.writeText(window.location.href).catch(() => {}); } };
+    const top: Item = { id: "top", group: "actions", label: t("palette.top"), keywords: ["top", "scroll", "up"], run: () => { close(); window.scrollTo({ top: 0, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" }); } };
+    return [surprise, ...themeItems, ...langItems, terminal, copy, top, github];
   }, [t, locale, close, router, pathname, githubUrl]);
 
   const items: Item[] = useMemo(() => {

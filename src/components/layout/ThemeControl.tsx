@@ -2,8 +2,8 @@
 
 import { useEffect, useSyncExternalStore } from "react";
 import { useTranslations } from "next-intl";
-import { applyTheme, currentThemePref, syncSystemTheme, type ThemePref } from "@/lib/theme";
-import { MonitorIcon, MoonIcon, SunIcon } from "@/components/ui/Icons";
+import { applyTheme, currentThemePref, syncSystemTheme, syncTimeOfDay, type ThemePref } from "@/lib/theme";
+import { ClockIcon, MonitorIcon, MoonIcon, SunIcon } from "@/components/ui/Icons";
 
 function subscribe(cb: () => void) {
   const mo = new MutationObserver(cb);
@@ -26,8 +26,19 @@ export function ThemeControl({ className = "" }: { className?: string }) {
     return () => mq.removeEventListener("change", onChange);
   }, [pref]);
 
+  // "Time of day": re-check every minute and when the tab becomes visible again
+  useEffect(() => {
+    if (pref !== "auto") return;
+    syncTimeOfDay();
+    const id = setInterval(() => syncTimeOfDay(), 60_000);
+    const onVis = () => { if (!document.hidden) syncTimeOfDay(); };
+    document.addEventListener("visibilitychange", onVis);
+    return () => { clearInterval(id); document.removeEventListener("visibilitychange", onVis); };
+  }, [pref]);
+
   const options: { value: ThemePref; label: string; Icon: typeof SunIcon }[] = [
     { value: "system", label: t("system"), Icon: MonitorIcon },
+    { value: "auto", label: t("auto"), Icon: ClockIcon },
     { value: "light", label: t("light"), Icon: SunIcon },
     { value: "dark", label: t("dark"), Icon: MoonIcon },
   ];
@@ -45,7 +56,7 @@ export function ThemeControl({ className = "" }: { className?: string }) {
             aria-label={label}
             title={label}
             onClick={() => applyTheme(value)}
-            className={`tap grid h-9 w-9 place-items-center transition-colors ${
+            className={`tap grid h-9 w-8 place-items-center sm:w-9 transition-colors ${
               checked ? "bg-accent text-accent-ink" : "text-fg-2 hover:text-fg"
             }`}
           >

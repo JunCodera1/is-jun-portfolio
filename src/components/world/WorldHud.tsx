@@ -11,7 +11,7 @@ import { WorldLink } from "./WorldLink";
 import { useWorld } from "./WorldProvider";
 
 /** Heads-up display: way back to the map, language, day/night, sound, exploration tracker, plain-site escape hatch. */
-export function WorldHud() {
+export function WorldHud({ palette }: { palette?: React.ReactNode }) {
   const t = useTranslations("hud");
   const td = useTranslations("discoveries");
   const pathname = usePathname();
@@ -46,6 +46,7 @@ export function WorldHud() {
         <div className="flex flex-wrap items-center gap-2">
           <div className="border-2 border-white/70 bg-[#0a0a0c] text-white [&_a]:!text-white/70 [&_a[aria-current=true]]:!text-white"><LanguageSwitcher /></div>
           <ThemeControl className="!border-white/70 bg-[#0a0a0c]" />
+          {palette && <div className="[&_button]:!border-white/70 [&_button]:!bg-[#0a0a0c] [&_button]:!text-white">{palette}</div>}
           <button type="button" className={btn} aria-pressed={soundOn} onClick={toggleSound}>{soundOn ? "♪" : "♪̸"} <span className="hidden sm:inline">{t("sound")}: {soundOn ? t("on") : t("off")}</span><span className="sm:hidden">{soundOn ? t("on") : t("off")}</span></button>
           <button type="button" className={btn} onClick={() => { sfx("select"); setOpen(true); }}>★ {found}/{DISCOVERIES.length}<span className="sr-only"> {t("discoveries")}</span></button>
           <Link href="/classic" className={`${btn} hidden md:inline-flex`}>{t("classic")}</Link>

@@ -5,6 +5,8 @@ import { listedPages } from "@/content/data/navigation";
 import { profile, socialLinks } from "@/content/data/profile";
 import { ArrowUpRight } from "@/components/ui/Icons";
 
+import { OpenTerminalButton } from "@/components/interactive/TerminalOverlay";
+
 export const SOURCE_REPO_URL = "https://github.com/JunCodera1/is-jun-portfolio";
 
 export async function SiteFooter({ locale }: { locale: Locale }) {
@@ -45,7 +47,7 @@ export async function SiteFooter({ locale }: { locale: Locale }) {
       <div className="border-t border-line">
         <div className="page flex flex-wrap items-center justify-between gap-2 py-5">
           <p className="label">{t("footer.rights", { year: new Date().getFullYear(), name: profile.displayName })}</p>
-          <p className="label"><span aria-hidden lang="ja" className="mr-3 inline-block border-2 border-outline px-1.5 font-display text-sm text-fg">完</span>v0.1 · {locale.toUpperCase()}</p>
+          <p className="label flex items-center"><OpenTerminalButton className="tap mr-3 border border-line px-1.5 font-mono text-xs text-fg-3 hover:border-fg-2 hover:text-fg" /><span aria-hidden lang="ja" className="mr-3 inline-block border-2 border-outline px-1.5 font-display text-sm text-fg">完</span>v0.1 · {locale.toUpperCase()}</p>
         </div>
       </div>
     </footer>

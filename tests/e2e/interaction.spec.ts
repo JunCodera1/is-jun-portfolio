@@ -115,7 +115,7 @@ test.describe("index menu (also the mobile menu)", () => {
     await page.getByRole("button", { name: "Open the site index" }).click();
     const dialog = page.getByRole("dialog", { name: "Index of the site" });
     await expect(dialog).toBeVisible();
-    await expect(dialog.getByRole("link")).toHaveCount(25);
+    await expect(dialog.getByRole("link")).toHaveCount(26);
     await page.keyboard.press("Escape");
     await expect(dialog).toBeHidden();
     await page.getByRole("button", { name: "Open the site index" }).click();

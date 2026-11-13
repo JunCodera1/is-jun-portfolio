@@ -1,12 +1,12 @@
 import { getTranslations } from "next-intl/server";
 import type { Locale } from "@/i18n/routing";
 import { listedPages, navigation } from "@/content/data/navigation";
-import { profile, socialLinks } from "@/content/data/profile";
+import { profile } from "@/content/data/profile";
 import { Logo } from "./Logo";
 import { NavLinks } from "./NavLinks";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { ThemeControl } from "./ThemeControl";
-import { CommandPalette } from "./CommandPalette";
+import { PaletteMount } from "./PaletteMount";
 import { IndexMenu } from "./IndexMenu";
 
 export async function SiteHeader({ locale }: { locale: Locale }) {
@@ -17,7 +17,6 @@ export async function SiteHeader({ locale }: { locale: Locale }) {
   const primary = navigation.filter((n) => n.primary).map((n) => ({ href: n.href, label: label(n.labelKey) }));
   const mapItem = (n: (typeof navigation)[number]) => ({ id: n.id, href: n.href, label: label(n.labelKey), desc: desc(n.id) });
   const all = listedPages.map(mapItem);
-  const github = socialLinks.find((s) => s.id === "github")!.url;
 
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-bg/90 backdrop-blur-sm">
@@ -27,7 +26,7 @@ export async function SiteHeader({ locale }: { locale: Locale }) {
         <div className="flex items-center gap-2 sm:gap-3">
           <LanguageSwitcher />
           <div className="hidden md:block"><ThemeControl /></div>
-          <CommandPalette pages={navigation.map(mapItem)} githubUrl={github} />
+          <PaletteMount locale={locale} />
           <IndexMenu items={all} />
         </div>
       </div>

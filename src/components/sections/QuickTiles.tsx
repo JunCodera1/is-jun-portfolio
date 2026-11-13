@@ -2,6 +2,7 @@ import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
 import { Stagger } from "@/components/motion/Stagger";
+import { SurpriseButton } from "@/components/interactive/SurpriseButton";
 
 const TILES = [
   { id: "city", href: "/city", glyph: "街" },
@@ -17,7 +18,10 @@ export async function QuickTiles({ locale }: { locale: Locale }) {
   const t = await getTranslations({ locale });
   return (
     <section aria-labelledby="tiles-title" className="page mt-16 md:mt-24">
-      <h2 id="tiles-title" className="label mb-6 !text-fg-2">{t("home.tiles")}</h2>
+      <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
+        <h2 id="tiles-title" className="label !text-fg-2">{t("home.tiles")}</h2>
+        <SurpriseButton />
+      </div>
       <Stagger as="ul" className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6">
         {TILES.map((x) => (
           <li key={x.id} data-stagger>

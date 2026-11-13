@@ -46,7 +46,8 @@
       "log": "日付つきの短いメモ（新しい順）。",
       "links": "取っておきたいブックマーク。",
       "review": "忘れる前に戻ってくるフラッシュカード。",
-      "graph": "使っているもの・学んでいるもののつながり。"
+      "graph": "使っているもの・学んでいるもののつながり。",
+      "orbit": "サイトを惑星として巡ります。"
     },
     "recruiter": "採用担当者向け表示",
     "menuHint": "↑ ↓ 選択・1〜9 で話数へ移動・Enter で開く・Esc で戻る",
@@ -65,7 +66,8 @@
     "log": "ログ",
     "links": "リンク集",
     "review": "復習カード",
-    "graph": "ナレッジグラフ"
+    "graph": "ナレッジグラフ",
+    "orbit": "太陽系"
   },
   "common": {
     "skip": "本文へ移動",
@@ -89,13 +91,15 @@
     "viewAll": "すべて見る",
     "readMore": "読む",
     "noItems": "まだ何もありません。",
-    "ownerWrites": "サイトの持ち主がまだ書いていません。"
+    "ownerWrites": "サイトの持ち主がまだ書いていません。",
+    "surprise": "おまかせ"
   },
   "theme": {
     "label": "テーマ",
     "system": "システム",
     "light": "ライト",
-    "dark": "ダーク"
+    "dark": "ダーク",
+    "auto": "時間帯"
   },
   "lang": {
     "label": "言語",
@@ -321,7 +325,10 @@
       "verifiedFrom": "リポジトリのファイルから記述しています",
       "lastPushLabel": "最終更新",
       "createdLabel": "作成日"
-    }
+    },
+    "exhibition": "展示",
+    "exhibitionHint": "スクロールすると、プロジェクトが一つずつ横に流れます。",
+    "allProjects": "すべてのプロジェクト"
   },
   "profile": {
     "title": "技術",
@@ -376,7 +383,11 @@
     "language": "言語：{name}",
     "github": "GitHub プロフィールを開く",
     "empty": "一致する項目はありません。",
-    "loadError": "現在、コンテンツ検索を利用できません。"
+    "loadError": "現在、コンテンツ検索を利用できません。",
+    "surprise": "おまかせ — ランダムな場所へ",
+    "terminal": "ターミナルを開く",
+    "copyLink": "このページのリンクをコピー",
+    "top": "ページの先頭へ"
   },
   "terminal": {
     "title": "ターミナル",
@@ -397,7 +408,11 @@
       "garden": "ガーデンのノートを一覧表示します。",
       "now": "現在の取り組みを表示します。",
       "contact": "連絡方法を表示します。",
-      "clear": "画面を消去します。"
+      "clear": "画面を消去します。",
+      "theme": "テーマ変更：theme light | dark | auto | system",
+      "lang": "言語変更：lang en | ja | vi",
+      "go": "移動：go city | lab | news …",
+      "surprise": "ランダムな場所へ移動。"
     },
     "none": "（まだありません）",
     "aboutIntro": "名前：{name}（仮の呼び名で、未確認です）",
@@ -405,7 +420,21 @@
     "aboutBody": "詳しくは {path} をご覧ください",
     "emailMissing": "メール：まだ公開されていません",
     "emailLabel": "メール：{email}",
-    "hintPlaceholder": "例：help"
+    "hintPlaceholder": "例：help",
+    "usage": {
+      "theme": "使い方：theme light|dark|auto|system",
+      "lang": "使い方：lang en|ja|vi",
+      "go": "使い方：go city|hideout|lab|station|arcade|archive|home|news|library|graph|log|links|japanese|projects|about|garden|journal|now|contact"
+    },
+    "hiddenHint": "ここに載っていないコマンドもあります。試してみて。",
+    "shortcut": "ヒント：どのページでも ` （バッククォート）でこのターミナルが開きます。",
+    "overlayTitle": "visitor@space — Esc で閉じる",
+    "open": "ターミナルを開く",
+    "whoami": "visitor — My Digital World のゲスト。",
+    "sudo": "残念。ここに root は要りません。",
+    "hisoka": "テーブルの上をカードが滑ってくる。どこから来たのかは見えなかった。",
+    "konami": "キーボードで覚えがある？ 街のマップで試してみて。",
+    "fortyTwo": "答えだけど、問いではない。"
   },
   "errors": {
     "notFoundTitle": "ページが見つかりません",
@@ -1109,5 +1138,20 @@
       "data": "データ・AI",
       "tooling": "ツール"
     }
+  },
+  "gallery": {
+    "prev": "前へ",
+    "next": "次へ",
+    "open": "ケーススタディを開く"
+  },
+  "orbit": {
+    "title": "太陽系",
+    "lead": "サイトを小さな太陽系にしました。惑星はそれぞれサイトの一部です。クリックすると中身がわかります。",
+    "sun": "ホーム",
+    "sunDesc": "クラシックのホームページ。",
+    "planet": "惑星",
+    "pick": "惑星を選んでください。マップの上にいる間は公転が止まります。",
+    "visit": "{name}へ行く",
+    "list": "すべての惑星"
   }
 }

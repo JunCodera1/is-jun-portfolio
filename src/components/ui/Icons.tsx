@@ -12,6 +12,7 @@ export const SearchIcon = (p: P) => (<svg {...base(p)}><circle cx="11" cy="11" r
 export const MenuIcon = (p: P) => (<svg {...base(p)}><path d="M4 8h16M4 16h16" /></svg>);
 export const CloseIcon = (p: P) => (<svg {...base(p)}><path d="M6 6l12 12M18 6 6 18" /></svg>);
 export const SunIcon = (p: P) => (<svg {...base(p)}><circle cx="12" cy="12" r="4" /><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1" /></svg>);
+export const ClockIcon = (p: P) => (<svg {...base(p)}><circle cx="12" cy="12" r="8.5" /><path d="M12 7v5l3 2" /></svg>);
 export const MoonIcon = (p: P) => (<svg {...base(p)}><path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5Z" /></svg>);
 export const MonitorIcon = (p: P) => (<svg {...base(p)}><rect x="3" y="4" width="18" height="12" /><path d="M8 20h8M12 16v4" /></svg>);
 export const GithubIcon = (p: P) => (

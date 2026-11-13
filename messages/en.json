@@ -46,7 +46,8 @@
       "log": "Short dated notes, newest first.",
       "links": "Bookmarks worth keeping.",
       "review": "Flashcards that return just before you forget.",
-      "graph": "How the things I use and learn connect."
+      "graph": "How the things I use and learn connect.",
+      "orbit": "The site as planets you can visit."
     },
     "recruiter": "Recruiter view",
     "menuHint": "↑ ↓ select · 1–9 jump to a chapter · Enter open · Esc back",
@@ -65,7 +66,8 @@
     "log": "Log",
     "links": "Links",
     "review": "Review cards",
-    "graph": "Knowledge graph"
+    "graph": "Knowledge graph",
+    "orbit": "Solar system"
   },
   "common": {
     "skip": "Skip to content",
@@ -89,13 +91,15 @@
     "viewAll": "View all",
     "readMore": "Read",
     "noItems": "Nothing here yet.",
-    "ownerWrites": "The site owner has not written this yet."
+    "ownerWrites": "The site owner has not written this yet.",
+    "surprise": "Surprise me"
   },
   "theme": {
     "label": "Theme",
     "system": "System",
     "light": "Light",
-    "dark": "Dark"
+    "dark": "Dark",
+    "auto": "Time of day"
   },
   "lang": {
     "label": "Language",
@@ -321,7 +325,10 @@
       "verifiedFrom": "Written from the repository's files",
       "lastPushLabel": "Last push",
       "createdLabel": "Created"
-    }
+    },
+    "exhibition": "Exhibition",
+    "exhibitionHint": "Scroll to walk past each project.",
+    "allProjects": "All projects"
   },
   "profile": {
     "title": "Craft",
@@ -376,7 +383,11 @@
     "language": "Language: {name}",
     "github": "Open GitHub profile",
     "empty": "No matches.",
-    "loadError": "Content search is unavailable right now."
+    "loadError": "Content search is unavailable right now.",
+    "surprise": "Surprise me — take me somewhere random",
+    "terminal": "Open the terminal",
+    "copyLink": "Copy link to this page",
+    "top": "Back to top"
   },
   "terminal": {
     "title": "Terminal",
@@ -397,7 +408,11 @@
       "garden": "List garden notes.",
       "now": "Show what is happening now.",
       "contact": "Show how to get in touch.",
-      "clear": "Clear the screen."
+      "clear": "Clear the screen.",
+      "theme": "Change theme: theme light | dark | auto | system.",
+      "lang": "Change language: lang en | ja | vi.",
+      "go": "Jump to a place: go city | lab | news …",
+      "surprise": "Go somewhere random."
     },
     "none": "(nothing yet)",
     "aboutIntro": "Name: {name} (working name, not confirmed)",
@@ -405,7 +420,21 @@
     "aboutBody": "Longer story: see {path}",
     "emailMissing": "email: not published yet",
     "emailLabel": "email: {email}",
-    "hintPlaceholder": "try: help"
+    "hintPlaceholder": "try: help",
+    "usage": {
+      "theme": "usage: theme light|dark|auto|system",
+      "lang": "usage: lang en|ja|vi",
+      "go": "usage: go city|hideout|lab|station|arcade|archive|home|news|library|graph|log|links|japanese|projects|about|garden|journal|now|contact"
+    },
+    "hiddenHint": "Some commands are not listed here. Try your luck.",
+    "shortcut": "Tip: press ` (backtick) on any page to open this terminal.",
+    "overlayTitle": "visitor@space — press Esc to close",
+    "open": "Open the terminal",
+    "whoami": "visitor — a guest in My Digital World.",
+    "sudo": "Nice try. Nothing here needs root.",
+    "hisoka": "A card slides across the table. You didn't see where it came from.",
+    "konami": "Remember this from the keyboard? Try it on the map in the city.",
+    "fortyTwo": "The answer, but not the question."
   },
   "errors": {
     "notFoundTitle": "Page not found",
@@ -1109,5 +1138,20 @@
       "data": "Data and AI",
       "tooling": "Tooling"
     }
+  },
+  "gallery": {
+    "prev": "Previous",
+    "next": "Next",
+    "open": "Open the case study"
+  },
+  "orbit": {
+    "title": "Solar system",
+    "lead": "The site as a small solar system. Each planet is a part of it — click one to see what it is.",
+    "sun": "Home",
+    "sunDesc": "The classic home page.",
+    "planet": "Planet",
+    "pick": "Pick a planet. Moving over the map pauses the orbits.",
+    "visit": "Visit {name}",
+    "list": "All planets"
   }
 }

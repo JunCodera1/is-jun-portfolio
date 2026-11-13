@@ -12,6 +12,9 @@ import "@/styles/globals.css";
 import { routing, localeMeta, type Locale } from "@/i18n/routing";
 import { siteUrl } from "@/lib/site";
 import { THEME_SCRIPT } from "@/lib/theme";
+import { TerminalMount } from "@/components/layout/TerminalMount";
+import { MagneticCursor } from "@/components/motion/MagneticCursor";
+import { AmbientBackground } from "@/components/motion/AmbientBackground";
 
 const fontUrl = (a: string | { src: string }) => (typeof a === "string" ? a : a.src);
 
@@ -57,6 +60,8 @@ export default async function LocaleLayout({
         {locale === "vi" && <link rel="preload" as="font" type="font/woff2" crossOrigin="anonymous" href={fontUrl(antonVietnamese)} />}
       </head>
       <body>
+        <AmbientBackground />
+        <MagneticCursor />
         <NextIntlClientProvider>
           <a
             href="#main"
@@ -65,6 +70,7 @@ export default async function LocaleLayout({
             {t("skip")}
           </a>
           {children}
+          <TerminalMount locale={locale as Locale} />
         </NextIntlClientProvider>
       </body>
     </html>

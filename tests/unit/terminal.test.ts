@@ -33,3 +33,30 @@ describe("simulated terminal (row 26: never runs a real shell)", () => {
     expect(r.lines[0]!.text.length).toBeLessThan(100);
   });
 });
+
+describe("terminal commands that act (arguments come from fixed lists)", () => {
+  const d: TerminalData = { ...data, outputs: { ...data.outputs, sudo: [{ text: "nice try" }] } };
+  it("theme / lang / go return an action only for allowed values", () => {
+    expect(runCommand("theme dark", d).action).toEqual({ type: "theme", value: "dark" });
+    expect(runCommand("THEME auto", d).action).toEqual({ type: "theme", value: "auto" });
+    expect(runCommand("lang ja", d).action).toEqual({ type: "lang", value: "ja" });
+    expect(runCommand("go city", d).action).toEqual({ type: "go", value: "/city" });
+    expect(runCommand("surprise", d).action).toEqual({ type: "surprise" });
+    expect(runCommand("exit", d).action).toEqual({ type: "exit" });
+  });
+  it("bad arguments print usage and never produce an action (no paths, no URLs, no prototype keys)", () => {
+    for (const bad of ["theme", "theme neon", "lang xx", "go", "go /etc/passwd", "go https://evil.example", "go __proto__", "go constructor", "go ../x"]) {
+      const r = runCommand(bad, d);
+      expect(r.action).toBeUndefined();
+      expect(r.lines).toHaveLength(1);
+    }
+  });
+  it("hidden commands come from the data table only", () => {
+    expect(runCommand("sudo make me a sandwich", d).lines).toEqual([{ text: "nice try" }]);
+    expect(runCommand("hisoka", d).lines[0]!.text).toMatch(/^command not found/);
+  });
+  it("help mentions that more exists when the data says so", () => {
+    const withHint = { ...d, labels: { ...d.labels, hiddenHint: "psst" } };
+    expect(runCommand("help", withHint).lines.map((l) => l.text)).toContain("psst");
+  });
+});

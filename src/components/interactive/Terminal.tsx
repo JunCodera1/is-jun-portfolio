@@ -2,13 +2,20 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/navigation";
-import { runCommand, type TerminalData, type TLine } from "@/lib/terminal";
+import { Link, usePathname, useRouter } from "@/i18n/navigation";
+import { applyTheme } from "@/lib/theme";
+import { loadSearchIndex } from "@/lib/search-client";
+import { pickSurprise } from "@/lib/surprise";
+import { useLocale } from "next-intl";
+import { runCommand, type TAction, type TerminalData, type TLine } from "@/lib/terminal";
 
 interface Entry { id: number; input: string; lines: TLine[] }
 
-export function Terminal({ data }: { data: TerminalData }) {
+export function Terminal({ data, onExit }: { data: TerminalData; onExit?: () => void }) {
   const t = useTranslations("terminal");
+  const locale = useLocale();
+  const router = useRouter();
+  const pathname = usePathname();
   const [entries, setEntries] = useState<Entry[]>([]);
   const [value, setValue] = useState("");
   const [history, setHistory] = useState<string[]>([]);
@@ -19,13 +26,26 @@ export function Terminal({ data }: { data: TerminalData }) {
 
   useEffect(() => { endRef.current?.scrollIntoView({ block: "nearest" }); }, [entries]);
 
+  // what a command may ask the page to do (from a fixed list; see lib/terminal.ts)
+  const perform = async (a: TAction) => {
+    if (a.type === "theme") applyTheme(a.value);
+    else if (a.type === "lang") router.replace(pathname, { locale: a.value });
+    else if (a.type === "go") { onExit?.(); router.push(a.value); }
+    else if (a.type === "exit") onExit?.();
+    else if (a.type === "surprise") {
+      try { const hit = pickSurprise(await loadSearchIndex(locale), pathname); if (hit) { onExit?.(); router.push(hit.href); } } catch { /* stay */ }
+    }
+  };
+
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
     const input = value;
     if (input.trim()) setHistory((h) => [...h, input]);
     const res = runCommand(input, data);
     if (res.clear) setEntries([]);
-    else if (input.trim()) setEntries((prev) => [...prev, { id: idRef.current++, input, lines: res.lines }]);
+    else if (input.trim() && res.lines.length) setEntries((prev) => [...prev, { id: idRef.current++, input, lines: res.lines }]);
+    else if (input.trim()) setEntries((prev) => [...prev, { id: idRef.current++, input, lines: [] }]);
+    if (res.action) void perform(res.action);
     setValue("");
     setCursor(null);
   };

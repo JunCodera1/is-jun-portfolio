@@ -46,7 +46,8 @@
       "log": "Ghi chú ngắn có ngày, mới nhất trước.",
       "links": "Những liên kết đáng giữ lại.",
       "review": "Thẻ ghi nhớ quay lại ngay trước khi bạn quên.",
-      "graph": "Những thứ tôi dùng và học kết nối với nhau thế nào."
+      "graph": "Những thứ tôi dùng và học kết nối với nhau thế nào.",
+      "orbit": "Trang web như các hành tinh bạn có thể ghé thăm."
     },
     "recruiter": "Bản xem cho nhà tuyển dụng",
     "menuHint": "↑ ↓ chọn · 1–9 nhảy tới chương · Enter mở · Esc quay lại",
@@ -65,7 +66,8 @@
     "log": "Nhật ký ngắn",
     "links": "Liên kết",
     "review": "Thẻ ôn tập",
-    "graph": "Đồ thị kiến thức"
+    "graph": "Đồ thị kiến thức",
+    "orbit": "Hệ mặt trời"
   },
   "common": {
     "skip": "Bỏ qua, đến nội dung chính",
@@ -89,13 +91,15 @@
     "viewAll": "Xem tất cả",
     "readMore": "Đọc",
     "noItems": "Chưa có gì ở đây.",
-    "ownerWrites": "Chủ trang chưa viết phần này."
+    "ownerWrites": "Chủ trang chưa viết phần này.",
+    "surprise": "Bất ngờ đi"
   },
   "theme": {
     "label": "Giao diện",
     "system": "Theo hệ thống",
     "light": "Sáng",
-    "dark": "Tối"
+    "dark": "Tối",
+    "auto": "Theo giờ"
   },
   "lang": {
     "label": "Ngôn ngữ",
@@ -321,7 +325,10 @@
       "verifiedFrom": "Viết dựa trên các tệp trong repository",
       "lastPushLabel": "Push gần nhất",
       "createdLabel": "Ngày tạo"
-    }
+    },
+    "exhibition": "Triển lãm",
+    "exhibitionHint": "Cuộn để đi qua từng dự án.",
+    "allProjects": "Tất cả dự án"
   },
   "profile": {
     "title": "Chuyên môn",
@@ -376,7 +383,11 @@
     "language": "Ngôn ngữ: {name}",
     "github": "Mở hồ sơ GitHub",
     "empty": "Không có kết quả phù hợp.",
-    "loadError": "Hiện chưa thể tìm trong nội dung."
+    "loadError": "Hiện chưa thể tìm trong nội dung.",
+    "surprise": "Bất ngờ đi — đưa tôi tới chỗ ngẫu nhiên",
+    "terminal": "Mở terminal",
+    "copyLink": "Sao chép liên kết trang này",
+    "top": "Lên đầu trang"
   },
   "terminal": {
     "title": "Terminal",
@@ -397,7 +408,11 @@
       "garden": "Liệt kê các ghi chú trong vườn.",
       "now": "Hiện điều đang diễn ra lúc này.",
       "contact": "Hiện cách liên lạc.",
-      "clear": "Xoá màn hình."
+      "clear": "Xoá màn hình.",
+      "theme": "Đổi theme: theme light | dark | auto | system.",
+      "lang": "Đổi ngôn ngữ: lang en | ja | vi.",
+      "go": "Nhảy tới nơi nào đó: go city | lab | news …",
+      "surprise": "Đi tới một nơi ngẫu nhiên."
     },
     "none": "(chưa có gì)",
     "aboutIntro": "Tên: {name} (tên tạm, chưa xác nhận)",
@@ -405,7 +420,21 @@
     "aboutBody": "Câu chuyện đầy đủ: xem {path}",
     "emailMissing": "email: chưa công bố",
     "emailLabel": "email: {email}",
-    "hintPlaceholder": "thử: help"
+    "hintPlaceholder": "thử: help",
+    "usage": {
+      "theme": "cách dùng: theme light|dark|auto|system",
+      "lang": "cách dùng: lang en|ja|vi",
+      "go": "cách dùng: go city|hideout|lab|station|arcade|archive|home|news|library|graph|log|links|japanese|projects|about|garden|journal|now|contact"
+    },
+    "hiddenHint": "Có vài lệnh không được liệt kê ở đây. Thử vận may xem.",
+    "shortcut": "Mẹo: nhấn ` (backtick) ở bất kỳ trang nào để mở terminal này.",
+    "overlayTitle": "visitor@space — nhấn Esc để đóng",
+    "open": "Mở terminal",
+    "whoami": "visitor — một vị khách trong My Digital World.",
+    "sudo": "Nice try. Ở đây không cần quyền root.",
+    "hisoka": "Một lá bài trượt qua mặt bàn. Bạn không thấy nó từ đâu tới.",
+    "konami": "Nhớ cái này từ bàn phím không? Thử nó trên bản đồ thành phố.",
+    "fortyTwo": "Là câu trả lời, nhưng không phải câu hỏi."
   },
   "errors": {
     "notFoundTitle": "Không tìm thấy trang",
@@ -1109,5 +1138,20 @@
       "data": "Dữ liệu và AI",
       "tooling": "Công cụ"
     }
+  },
+  "gallery": {
+    "prev": "Trước",
+    "next": "Sau",
+    "open": "Mở case study"
+  },
+  "orbit": {
+    "title": "Hệ mặt trời",
+    "lead": "Trang web như một hệ mặt trời nhỏ. Mỗi hành tinh là một phần của nó — bấm vào để xem đó là gì.",
+    "sun": "Trang chủ",
+    "sunDesc": "Trang chủ bản Classic.",
+    "planet": "Hành tinh",
+    "pick": "Chọn một hành tinh. Khi rê chuột trên bản đồ, quỹ đạo sẽ tạm dừng.",
+    "visit": "Đến {name}",
+    "list": "Tất cả hành tinh"
   }
 }

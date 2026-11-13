@@ -1072,3 +1072,76 @@ html:lang(vi) .stage-title {
 }
 a.card-ink:hover { transform: translate(-2px, -2px); box-shadow: 8px 8px 0 var(--accent); }
 a.card-ink:active { transform: translate(2px, 2px); box-shadow: 3px 3px 0 var(--accent); }
+
+/* ── ambient background: light, gradient and a little noise that drift with the pointer and scroll, tinted by the time of day ── */
+:root {
+  --amb-a: rgba(215, 20, 31, 0.07);
+  --amb-b: rgba(120, 120, 170, 0.06);
+}
+:root[data-daypart="morning"] { --amb-a: rgba(255, 170, 90, 0.13); --amb-b: rgba(255, 120, 150, 0.07); }
+:root[data-daypart="day"] { --amb-a: rgba(255, 210, 120, 0.09); --amb-b: rgba(120, 170, 255, 0.07); }
+:root[data-daypart="evening"] { --amb-a: rgba(255, 110, 60, 0.13); --amb-b: rgba(150, 80, 200, 0.09); }
+:root[data-daypart="night"] { --amb-a: rgba(70, 90, 210, 0.15); --amb-b: rgba(215, 20, 31, 0.07); }
+.ambient {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+.ambient::before {
+  content: "";
+  position: absolute;
+  inset: -15%;
+  background:
+    radial-gradient(42vmax 42vmax at calc(var(--ax, 0.25) * 100%) calc(var(--ay, 0.2) * 100%), var(--amb-a), transparent 70%),
+    radial-gradient(48vmax 48vmax at calc(100% - var(--ax, 0.25) * 55%) calc(100% - var(--ay, 0.2) * 45%), var(--amb-b), transparent 72%);
+}
+.ambient::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.07;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+:root[data-theme="light"] .ambient::after { opacity: 0.05; mix-blend-mode: multiply; }
+@media print { .ambient { display: none; } }
+
+/* ── magnetic cursor (additive: the real cursor always stays visible) ── */
+.cursor-ring,
+.cursor-dot {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 2147483000;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.cursor-ring {
+  width: 28px;
+  height: 28px;
+  border: 2px solid var(--accent-fg);
+  transition: opacity 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, border-width 0.15s ease;
+}
+.cursor-dot { width: 6px; height: 6px; border-radius: 999px; background: var(--accent-fg); }
+.cursor-ring[data-show], .cursor-dot[data-show] { opacity: 1; }
+.cursor-ring[data-mode="link"] { background: color-mix(in srgb, var(--accent) 12%, transparent); border-color: var(--accent); }
+.cursor-ring[data-mode="media"] { border-style: dashed; }
+.cursor-ring[data-down] { border-width: 4px; }
+@media print { .cursor-ring, .cursor-dot { display: none; } }
+
+/* ── image reveal: a grey halftone veil with a hole of colour under the pointer ── */
+.reveal-veil {
+  position: absolute;
+  inset: -12px;
+  pointer-events: none;
+  backdrop-filter: grayscale(1) contrast(0.95) brightness(1.02);
+  background-image: radial-gradient(circle at 1.5px 1.5px, color-mix(in srgb, var(--fg) 22%, transparent) 1.2px, transparent 1.6px);
+  background-size: 7px 7px;
+  /* two masks intersected: a hole of colour under the pointer, and a soft fade at the edges so there is no hard box */
+  -webkit-mask-image: radial-gradient(circle var(--rr, 0px) at var(--rx, -999px) var(--ry, -999px), transparent 0, transparent 62%, #000 100%), radial-gradient(ellipse at center, #000 52%, transparent 74%);
+  -webkit-mask-composite: source-in;
+  mask-image: radial-gradient(circle var(--rr, 0px) at var(--rx, -999px) var(--ry, -999px), transparent 0, transparent 62%, #000 100%), radial-gradient(ellipse at center, #000 52%, transparent 74%);
+  mask-composite: intersect;
+}

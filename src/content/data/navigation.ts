@@ -22,6 +22,7 @@ export const navigation: NavItem[] = [
   { id: "projects", href: "/projects", labelKey: "projects", group: "professional", primary: true },
   { id: "profile", href: "/profile", labelKey: "profile", group: "professional" },
   { id: "contact", href: "/contact", labelKey: "contact", group: "professional", primary: true },
+  { id: "orbit", href: "/orbit", labelKey: "orbit", group: "utility" },
   { id: "hideout", href: "/hideout", labelKey: "hideout", group: "utility" },
   { id: "lab", href: "/lab", labelKey: "lab", group: "utility" },
   { id: "station", href: "/station", labelKey: "station", group: "utility" },
