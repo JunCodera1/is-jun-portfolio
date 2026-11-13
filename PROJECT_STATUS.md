@@ -17,6 +17,6 @@
 IT student; software development, AI/ML, Linux; JLPT N3 passed, N2 in progress, N1 longer-term; Hunter × Hunter, Hisoka. Dates were not given, so none are shown. Real-life milestones, exploration discoveries, Station stamps and game scores are four separate things and are labelled as such.
 
 ## Next ideas (not started)
-Listening exercises (needs audio), reading comprehension, more N2/N1 material, a Library shelf for music/books once items are confirmed, per-place ambient soundscapes, an in-world "journal" quest line.
+Listening exercises (needs audio), reading comprehension, more N2/N1 material, owner-confirmed music/books for the Library "Mine" block, per-place ambient soundscapes, an in-world "journal" quest line.
 
 Requirements matrix: `docs/REQUIREMENTS_TRACEABILITY.md` (generated). Open owner items: `CONTENT_NEEDED.md`.

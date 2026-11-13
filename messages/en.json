@@ -32,7 +32,7 @@
       "contact": "Where to reach out.",
       "recruiter": "A compact, printable summary.",
       "japanese": "A learning journey and a small knowledge base.",
-      "news": "Headlines from Hacker News and Zenn.",
+      "news": "Tech news from nine sources, worldwide.",
       "play": "Small games, all original.",
       "kana": "Hiragana and katakana charts.",
       "grammar": "Particles, verbs and useful phrases.",
@@ -41,7 +41,8 @@
       "lab": "Projects as case files.",
       "station": "Japanese learning routes.",
       "arcade": "Original mini-games.",
-      "archive": "A personal collection."
+      "archive": "A personal collection.",
+      "library": "Anime, books and music from public sources."
     },
     "recruiter": "Recruiter view",
     "menuHint": "↑ ↓ select · 1–9 jump to a chapter · Enter open · Esc back",
@@ -55,7 +56,8 @@
     "lab": "The Lab",
     "station": "The Station",
     "arcade": "The Arcade",
-    "archive": "The Archive"
+    "archive": "The Archive",
+    "library": "Library"
   },
   "common": {
     "skip": "Skip to content",
@@ -612,7 +614,7 @@
   },
   "news": {
     "title": "Tech news",
-    "lead": "Headlines from two public sources, refreshed about every half hour.",
+    "lead": "A tech blog feed: world headlines, developer news, Japanese and Vietnamese sources, refreshed about every half hour.",
     "note": "Titles and links come from third parties and open in a new tab. Nothing here is written or endorsed by the site owner.",
     "empty": "Couldn't load this feed right now. It will retry automatically.",
     "opensNewTab": "opens in a new tab",
@@ -625,6 +627,17 @@
     "zenn": {
       "title": "Zenn trending",
       "desc": "Trending articles · 日本語"
+    },
+    "all": "All",
+    "sources": "Sources",
+    "shown": "{n} stories",
+    "sourcesOk": "{ok} of {total} sources loaded.",
+    "down": "unavailable right now",
+    "groups": {
+      "world": "World tech",
+      "dev": "Developers",
+      "ja": "日本語",
+      "vi": "Tiếng Việt"
     }
   },
   "entrance": {
@@ -942,5 +955,39 @@
       "d": "↑ ↑ ↓ ↓ ← → ← → B A — this room"
     },
     "note": "Thank you for exploring. The world grows as I learn and build."
+  },
+  "library": {
+    "title": "Library",
+    "lead": "A shelf for anime, books and music, filled from public sources on the web.",
+    "note": "The \"Mine\" block is controlled by the site owner. Everything under \"Discover\" is public charts and trending lists from third parties — it is not a statement of the owner's taste.",
+    "empty": "Couldn't load this list right now. It will retry automatically.",
+    "opensNewTab": "opens in a new tab",
+    "mine": "Mine",
+    "discover": "Discover",
+    "shelf": {
+      "title": "Shelf",
+      "desc": "Titles the owner has said they like, with public data."
+    },
+    "myMusic": {
+      "title": "Music",
+      "desc": "Links from anywhere: YouTube, SoundCloud, Bandcamp…",
+      "empty": "No tracks added yet. Add any link in src/content/data/library.ts."
+    },
+    "anime": {
+      "title": "Trending anime",
+      "desc": "AniList · this week"
+    },
+    "chart": {
+      "title": "Music charts",
+      "desc": "Deezer · worldwide top tracks"
+    },
+    "books": {
+      "title": "Trending books",
+      "desc": "Open Library · this week"
+    },
+    "tech": {
+      "title": "Programming books",
+      "desc": "Open Library · highest rated"
+    }
   }
 }

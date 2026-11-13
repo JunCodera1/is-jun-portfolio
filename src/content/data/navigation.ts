@@ -13,6 +13,7 @@ export const navigation: NavItem[] = [
   { id: "journal", href: "/journal", labelKey: "journal", group: "personal", primary: true },
   { id: "japanese", href: "/japanese", labelKey: "japanese", group: "personal" },
   { id: "news", href: "/news", labelKey: "news", group: "personal" },
+  { id: "library", href: "/library", labelKey: "library", group: "personal" },
   { id: "interests", href: "/interests", labelKey: "interests", group: "personal" },
   { id: "timeline", href: "/timeline", labelKey: "timeline", group: "personal" },
   { id: "projects", href: "/projects", labelKey: "projects", group: "professional", primary: true },

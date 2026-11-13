@@ -1,7 +1,8 @@
 import { describe, expect, it } from "vitest";
 import { ALL_KANA, BASIC_KANA, BASIC_ROWS, VOICED_ROWS } from "@/content/data/kana";
 import { isMatch, makeDeck, makeQuestion, shuffle } from "@/lib/kana-games";
-import { normalizeHnItem, parseRssItems, safeHttpUrl } from "@/lib/news";
+import { normalizeDevTo, normalizeHnItem, normalizeLobsters, parseAtomItems, parseRssItems, safeHttpUrl } from "@/lib/news";
+import { normalizeAnime, normalizeBook, normalizeTrack } from "@/lib/library";
 
 const seq = (...n: number[]) => { let i = 0; return () => n[i++ % n.length]!; };
 
@@ -95,5 +96,27 @@ describe("news parsing treats third-party data as hostile", () => {
   it("garbage in → empty out", () => {
     expect(parseRssItems("")).toEqual([]);
     expect(parseRssItems("<html>not rss</html>")).toEqual([]);
+  });
+});
+
+describe("more third-party parsers stay defensive", () => {
+  it("Atom entries need a title and an http(s) link", () => {
+    const xml = `<feed><entry><title type="html">A &amp; B</title><link rel="alternate" href="https://x.test/a?x=1&amp;y=2"/><published>2026-01-02T03:04:05Z</published></entry><entry><title>Bad</title><link href="javascript:alert(1)"/></entry></feed>`;
+    const r = parseAtomItems(xml, 5, "en");
+    expect(r).toHaveLength(1);
+    expect(r[0]).toMatchObject({ title: "A & B", url: "https://x.test/a?x=1&y=2" });
+  });
+  it("dev.to and Lobsters items reject bad shapes and unsafe links", () => {
+    expect(normalizeDevTo({ id: 1, title: "t", url: "https://dev.to/x", public_reactions_count: 5 })).toMatchObject({ points: 5 });
+    expect(normalizeDevTo({ id: 1, title: "t", url: "javascript:x" })).toBeNull();
+    expect(normalizeLobsters({ short_id: "a", title: "t", url: "", comments_url: "https://lobste.rs/s/a" })!.url).toBe("https://lobste.rs/s/a");
+    expect(normalizeLobsters({ title: "t" })).toBeNull();
+  });
+  it("library entries are bounded and link-checked", () => {
+    expect(normalizeAnime({ id: 1, title: { english: "X", native: "エックス" }, siteUrl: "https://anilist.co/anime/1", seasonYear: 2011, averageScore: 90, genres: ["A"] })).toMatchObject({ title: "X", meta: "2011 · 90/100 · A" });
+    expect(normalizeAnime({ id: 1, title: { english: "X" }, siteUrl: "javascript:1" })).toBeNull();
+    expect(normalizeBook({ key: "/works/OL1W", title: "B" })!.url).toBe("https://openlibrary.org/works/OL1W");
+    expect(normalizeBook({ key: "../evil", title: "B" })).toBeNull();
+    expect(normalizeTrack({ id: 1, title: "T", link: "https://deezer.com/t/1", artist: { name: "A" } })).toMatchObject({ sub: "A" });
   });
 });

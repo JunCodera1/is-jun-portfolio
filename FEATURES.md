@@ -10,11 +10,11 @@ Legend: ✅ built and tested · 🟡 built, owner content missing · ⏭ deferre
 ✅ Dashboard widgets (visitor clock/date, latest repository push) · ✅ GitHub API with cache + snapshot fallback
 
 ## Optional — deferred, with reasons
-⏭ Personal Library (no items yet) · ⏭ Music integration (needs credentials/consent) · ⏭ Guestbook (needs persistence, moderation, abuse protection; the site has no user-generated content by design) · ⏭ Skill graph/architecture explorer (7 projects don't justify a graph) · ⏭ Code playground (needs a real sandbox) · ⏭ 3D workspace · ⏭ Supabase, React Flow (only needed by the above) · ⏭ Motion library (CSS covers every interaction)
+⏭ Guestbook (needs persistence, moderation, abuse protection; the site has no user-generated content by design) · ⏭ Skill graph/architecture explorer (7 projects don't justify a graph) · ⏭ Code playground (needs a real sandbox) · ⏭ 3D workspace · ⏭ Supabase, React Flow (only needed by the above) · ⏭ Motion library (CSS covers every interaction)
 
 ## The world (owner request after the spreadsheet)
-✅ Entrance, City, Hideout (6 interactive objects), Lab (case files + field notes), Station (7 missions, stamps), Arcade (5 games), Archive (shelves), Backstage (secret) · ✅ HUD, shutter transition, opt-in sound, local discoveries · ✅ Japanese notes (kana, grammar), tech news (Hacker News + Zenn)
-⏭ Listening practice (needs audio assets), reading comprehension, Library/music shelf (needs confirmed items)
+✅ Entrance, City, Hideout (6 interactive objects), Lab (case files + field notes), Station (7 missions, stamps), Arcade (5 games), Archive (shelves), Backstage (secret) · ✅ HUD, shutter transition, opt-in sound, local discoveries · ✅ Japanese notes (kana, grammar), tech news blog (9 sources: The Verge, Ars Technica, BBC, Hacker News, Lobsters, DEV, Zenn, GIGAZINE, VnExpress; filter by group/source) · ✅ Library (`/library`: owner shelf + music links from any site in `src/content/data/library.ts`; public Discover lists from AniList, Open Library, Deezer — labelled as not the owner's taste)
+⏭ Listening practice (needs audio assets), reading comprehension
 
 ## Supplementary (owner requests after the spreadsheet)
 ➕ Anime/manga visual layer (shipped) · ➕ RSS feed (shipped) · ➕ Open Graph image (shipped)

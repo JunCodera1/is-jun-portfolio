@@ -32,7 +32,7 @@
       "contact": "Cách để liên lạc.",
       "recruiter": "Bản tóm tắt gọn, dễ in.",
       "japanese": "Hành trình học và một kho kiến thức nhỏ.",
-      "news": "Tiêu đề từ Hacker News và Zenn.",
+      "news": "Tin công nghệ từ chín nguồn trên thế giới.",
       "play": "Những trò chơi nhỏ, hoàn toàn nguyên bản.",
       "kana": "Bảng hiragana và katakana.",
       "grammar": "Trợ từ, động từ và các câu thông dụng.",
@@ -41,7 +41,8 @@
       "lab": "Dự án dưới dạng hồ sơ vụ án.",
       "station": "Lộ trình học tiếng Nhật.",
       "arcade": "Các trò chơi nhỏ nguyên bản.",
-      "archive": "Bộ sưu tập cá nhân."
+      "archive": "Bộ sưu tập cá nhân.",
+      "library": "Anime, sách và nhạc từ nguồn công khai."
     },
     "recruiter": "Bản xem cho nhà tuyển dụng",
     "menuHint": "↑ ↓ chọn · 1–9 nhảy tới chương · Enter mở · Esc quay lại",
@@ -55,7 +56,8 @@
     "lab": "Phòng thí nghiệm",
     "station": "Nhà ga",
     "arcade": "Tiệm game",
-    "archive": "Kho lưu trữ"
+    "archive": "Kho lưu trữ",
+    "library": "Thư viện"
   },
   "common": {
     "skip": "Bỏ qua, đến nội dung chính",
@@ -612,7 +614,7 @@
   },
   "news": {
     "title": "Tin công nghệ",
-    "lead": "Tiêu đề từ hai nguồn công khai, làm mới khoảng nửa giờ một lần.",
+    "lead": "Bảng tin kiểu blog công nghệ: tin thế giới, tin cho lập trình viên, nguồn tiếng Nhật và tiếng Việt, làm mới khoảng nửa giờ một lần.",
     "note": "Tiêu đề và liên kết đến từ bên thứ ba và mở trong tab mới. Không nội dung nào ở đây do chủ trang viết hay bảo chứng.",
     "empty": "Hiện chưa tải được nguồn này. Trang sẽ tự thử lại.",
     "opensNewTab": "mở trong tab mới",
@@ -625,6 +627,17 @@
     "zenn": {
       "title": "Zenn thịnh hành",
       "desc": "Bài thịnh hành · tiếng Nhật"
+    },
+    "all": "Tất cả",
+    "sources": "Nguồn",
+    "shown": "{n} bài",
+    "sourcesOk": "Đã tải {ok}/{total} nguồn.",
+    "down": "tạm thời không dùng được",
+    "groups": {
+      "world": "Công nghệ thế giới",
+      "dev": "Lập trình viên",
+      "ja": "日本語",
+      "vi": "Tiếng Việt"
     }
   },
   "entrance": {
@@ -942,5 +955,39 @@
       "d": "↑ ↑ ↓ ↓ ← → ← → B A — căn phòng này"
     },
     "note": "Cảm ơn bạn đã khám phá. Thế giới này lớn dần theo những gì tôi học và làm."
+  },
+  "library": {
+    "title": "Thư viện",
+    "lead": "Một kệ cho anime, sách và nhạc, lấy dữ liệu từ các nguồn công khai trên mạng.",
+    "note": "Khối \"Của tôi\" do chủ trang quản lý. Mọi thứ trong \"Khám phá\" là bảng xếp hạng và danh sách thịnh hành công khai của bên thứ ba, không phải gu của chủ trang.",
+    "empty": "Hiện chưa tải được danh sách này. Trang sẽ tự thử lại.",
+    "opensNewTab": "mở trong tab mới",
+    "mine": "Của tôi",
+    "discover": "Khám phá",
+    "shelf": {
+      "title": "Kệ",
+      "desc": "Những tựa chủ trang đã nói là thích, kèm dữ liệu công khai."
+    },
+    "myMusic": {
+      "title": "Nhạc",
+      "desc": "Link từ bất kỳ đâu: YouTube, SoundCloud, Bandcamp…",
+      "empty": "Chưa có bài nào. Thêm link bất kỳ trong src/content/data/library.ts."
+    },
+    "anime": {
+      "title": "Anime đang hot",
+      "desc": "AniList · tuần này"
+    },
+    "chart": {
+      "title": "Bảng xếp hạng nhạc",
+      "desc": "Deezer · top bài hát thế giới"
+    },
+    "books": {
+      "title": "Sách đang hot",
+      "desc": "Open Library · tuần này"
+    },
+    "tech": {
+      "title": "Sách lập trình",
+      "desc": "Open Library · đánh giá cao nhất"
+    }
   }
 }
