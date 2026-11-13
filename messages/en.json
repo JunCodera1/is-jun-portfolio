@@ -45,7 +45,8 @@
       "library": "Anime, books and music from public sources.",
       "log": "Short dated notes, newest first.",
       "links": "Bookmarks worth keeping.",
-      "review": "Flashcards that return just before you forget."
+      "review": "Flashcards that return just before you forget.",
+      "graph": "How the things I use and learn connect."
     },
     "recruiter": "Recruiter view",
     "menuHint": "↑ ↓ select · 1–9 jump to a chapter · Enter open · Esc back",
@@ -63,7 +64,8 @@
     "library": "Library",
     "log": "Log",
     "links": "Links",
-    "review": "Review cards"
+    "review": "Review cards",
+    "graph": "Knowledge graph"
   },
   "common": {
     "skip": "Skip to content",
@@ -1063,5 +1065,36 @@
     "best": "Best: {n}",
     "heatAria": "{n} study days in the last 12 weeks",
     "localNote": "Saved only in this browser."
+  },
+  "graph": {
+    "title": "Knowledge graph",
+    "lead": "How projects, technologies, notes and learning paths connect. Click a node to read about it and follow the links.",
+    "note": "Every link is real: a project is linked to a technology only when the repository shows it (the evidence is in the panel), and notes are linked through their \"related\" field.",
+    "filter": "Show",
+    "kinds": {
+      "path": "Learning path",
+      "note": "Note",
+      "project": "Project",
+      "tech": "Technology"
+    },
+    "jumpToList": "Prefer a list? Jump to it",
+    "pick": "Pick a node on the map to see what it is and what it connects to.",
+    "connected": "Connected to",
+    "open": {
+      "path": "Open the page",
+      "note": "Open the note",
+      "project": "Open the case study",
+      "tech": "See the technical profile"
+    },
+    "listTitle": "The same graph as a list",
+    "listLead": "Each item with what it is connected to.",
+    "categories": {
+      "languages": "Language",
+      "frontend": "Front end",
+      "backend": "Back end",
+      "mobile": "Mobile",
+      "data": "Data and AI",
+      "tooling": "Tooling"
+    }
   }
 }

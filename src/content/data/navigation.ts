@@ -15,6 +15,7 @@ export const navigation: NavItem[] = [
   { id: "news", href: "/news", labelKey: "news", group: "personal", primary: true },
   { id: "log", href: "/log", labelKey: "log", group: "personal" },
   { id: "library", href: "/library", labelKey: "library", group: "personal", primary: true },
+  { id: "graph", href: "/graph", labelKey: "graph", group: "personal" },
   { id: "links", href: "/links", labelKey: "links", group: "personal" },
   { id: "interests", href: "/interests", labelKey: "interests", group: "personal" },
   { id: "timeline", href: "/timeline", labelKey: "timeline", group: "personal" },

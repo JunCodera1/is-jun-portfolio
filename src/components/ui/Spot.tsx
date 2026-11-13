@@ -9,7 +9,7 @@ function Frame({ children, className }: { children: React.ReactNode; className?:
   return <svg viewBox="0 0 200 160" className={className} aria-hidden focusable="false">{children}</svg>;
 }
 
-export type SpotId = "books" | "laptop" | "notebook" | "newspaper" | "plant" | "calendar" | "chain" | "envelope";
+export type SpotId = "books" | "laptop" | "notebook" | "newspaper" | "plant" | "calendar" | "chain" | "envelope" | "graph";
 
 const ART: Record<SpotId, React.ReactNode> = {
   books: (
@@ -67,6 +67,13 @@ const ART: Record<SpotId, React.ReactNode> = {
       <rect x={90} y={58} width={80} height={44} rx={22} fill="none" stroke={INK} strokeWidth={16} /><rect x={90} y={58} width={80} height={44} rx={22} fill="none" stroke={PAPER} strokeWidth={9} />
       <path d="M92 60a22 22 0 0 0-2 40" fill="none" stroke={INK} strokeWidth={16} /><path d="M92 62a20 20 0 0 0-1 36" fill="none" stroke={RED} strokeWidth={9} />
       <path d="M176 28l6 10 10 2-8 8 2 10-10-5-10 5 2-10-8-8 10-2Z" fill={GOLD} {...S} strokeWidth={2} />
+    </>
+  ),
+  graph: (
+    <>
+      <path d="M50 110 100 60M100 60 156 100M100 60 108 26M50 110 92 132M156 100 120 132" fill="none" stroke={INK} strokeWidth={3.5} strokeLinecap="round" />
+      <circle cx={100} cy={60} r={20} fill={RED} {...S} /><circle cx={50} cy={110} r={14} fill={PAPER} {...S} /><circle cx={156} cy={100} r={16} fill={DARK} {...S} />
+      <circle cx={108} cy={26} r={10} fill={GOLD} {...S} /><circle cx={92} cy={132} r={11} fill={PAPER} {...S} /><circle cx={120} cy={132} r={9} fill={RED} {...S} />
     </>
   ),
   envelope: (

@@ -45,7 +45,8 @@
       "library": "Anime, sách và nhạc từ nguồn công khai.",
       "log": "Ghi chú ngắn có ngày, mới nhất trước.",
       "links": "Những liên kết đáng giữ lại.",
-      "review": "Thẻ ghi nhớ quay lại ngay trước khi bạn quên."
+      "review": "Thẻ ghi nhớ quay lại ngay trước khi bạn quên.",
+      "graph": "Những thứ tôi dùng và học kết nối với nhau thế nào."
     },
     "recruiter": "Bản xem cho nhà tuyển dụng",
     "menuHint": "↑ ↓ chọn · 1–9 nhảy tới chương · Enter mở · Esc quay lại",
@@ -63,7 +64,8 @@
     "library": "Thư viện",
     "log": "Nhật ký ngắn",
     "links": "Liên kết",
-    "review": "Thẻ ôn tập"
+    "review": "Thẻ ôn tập",
+    "graph": "Đồ thị kiến thức"
   },
   "common": {
     "skip": "Bỏ qua, đến nội dung chính",
@@ -1063,5 +1065,36 @@
     "best": "Tốt nhất: {n}",
     "heatAria": "{n} ngày học trong 12 tuần qua",
     "localNote": "Chỉ lưu trong trình duyệt này."
+  },
+  "graph": {
+    "title": "Đồ thị kiến thức",
+    "lead": "Cách dự án, công nghệ, ghi chú và lộ trình học kết nối với nhau. Bấm vào một nút để đọc và đi theo các liên kết.",
+    "note": "Mọi liên kết đều có thật: dự án chỉ nối với công nghệ khi repository chứng minh được (bằng chứng hiện trong bảng), còn ghi chú nối với nhau qua trường \"related\".",
+    "filter": "Hiển thị",
+    "kinds": {
+      "path": "Lộ trình học",
+      "note": "Ghi chú",
+      "project": "Dự án",
+      "tech": "Công nghệ"
+    },
+    "jumpToList": "Xem dạng danh sách",
+    "pick": "Chọn một nút trên bản đồ để xem nó là gì và nối với những gì.",
+    "connected": "Kết nối với",
+    "open": {
+      "path": "Mở trang",
+      "note": "Mở ghi chú",
+      "project": "Mở case study",
+      "tech": "Xem hồ sơ kỹ thuật"
+    },
+    "listTitle": "Cùng đồ thị này dạng danh sách",
+    "listLead": "Từng mục và những mục nó nối tới.",
+    "categories": {
+      "languages": "Ngôn ngữ",
+      "frontend": "Front end",
+      "backend": "Back end",
+      "mobile": "Di động",
+      "data": "Dữ liệu và AI",
+      "tooling": "Công cụ"
+    }
   }
 }

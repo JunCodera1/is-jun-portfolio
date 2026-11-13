@@ -18,6 +18,7 @@ function headerArt(navId?: string): React.ReactNode {
     case "projects": case "profile": return spot("laptop");
     case "log": case "timeline": return spot("calendar");
     case "links": return spot("chain");
+    case "graph": return spot("graph");
     case "contact": return spot("envelope");
     case "interests": return <Neko className="h-full w-full" />;
     default: return null;
