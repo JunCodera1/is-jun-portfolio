@@ -157,21 +157,6 @@ export function Neko({ className, title }: Common) {
   );
 }
 
-/** A flat Mt. Fuji and sun, used as a quiet divider. Colours come from the theme tokens. */
-export function FujiScene({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 1200 200" preserveAspectRatio="xMidYMax slice" className={className} aria-hidden focusable="false">
-      <circle cx={860} cy={104} r={54} style={{ fill: "var(--sakura)" }} opacity={0.9} />
-      <g opacity={0.14} style={{ fill: "var(--fg)" }}>
-        <ellipse cx={220} cy={60} rx={70} ry={14} /><ellipse cx={270} cy={48} rx={46} ry={12} /><ellipse cx={1010} cy={46} rx={64} ry={13} />
-      </g>
-      <path d="M300 200 L520 62 L560 62 L790 200 Z" style={{ fill: "var(--surface-2)", stroke: "var(--outline)" }} strokeWidth={3} strokeLinejoin="round" />
-      <path d="M489 84 L520 62 L560 62 L590 86 L568 78 L548 94 L530 76 L510 94 Z" fill="#fff" stroke="var(--outline)" strokeWidth={2.5} strokeLinejoin="round" />
-      <path d="M0 200 C150 156 280 176 420 190 C600 150 800 176 1000 166 C1100 162 1160 176 1200 186 L1200 200 Z" style={{ fill: "var(--surface)", stroke: "var(--outline)" }} strokeWidth={3} />
-    </svg>
-  );
-}
-
 /** A small torii gate. */
 export function Torii({ className }: { className?: string }) {
   return (

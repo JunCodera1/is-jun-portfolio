@@ -4,7 +4,6 @@ import type { Locale } from "@/i18n/routing";
 import { listedPages } from "@/content/data/navigation";
 import { profile, socialLinks } from "@/content/data/profile";
 import { ArrowUpRight } from "@/components/ui/Icons";
-import { FujiScene } from "@/components/ui/Art";
 
 export const SOURCE_REPO_URL = "https://github.com/JunCodera1/is-jun-portfolio";
 
@@ -12,7 +11,6 @@ export async function SiteFooter({ locale }: { locale: Locale }) {
   const t = await getTranslations({ locale });
   return (
     <footer className="mt-24 border-t-2 border-outline">
-      <FujiScene className="-mt-[7.5rem] h-28 w-full" />
       <div className="page grid gap-12 py-14 md:grid-cols-[1.2fr_1fr_1fr]">
         <div>
           <p className="font-display text-3xl tracking-tight md:text-4xl">{t("meta.siteName")}</p>

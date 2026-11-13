@@ -6,7 +6,7 @@ import { initLocale, pageMetadata, type LocaleParams } from "@/lib/page";
 import { textOf } from "@/lib/localized";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { Placeholder } from "@/components/ui/Placeholder";
-import { FujiScene, Mascot } from "@/components/ui/Art";
+import { Mascot } from "@/components/ui/Art";
 import { ArrowRight, ArrowUpRight } from "@/components/ui/Icons";
 import { StudyStats } from "@/components/japanese/StudyStats";
 
@@ -107,7 +107,6 @@ export default async function JapanesePage({ params }: { params: LocaleParams })
           ))}
         </ul>
       </section>
-      <FujiScene className="mt-6 h-32 w-full" />
     </div>
   );
 }
