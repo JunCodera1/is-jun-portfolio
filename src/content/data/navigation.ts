@@ -30,6 +30,7 @@ export const navigation: NavItem[] = [
   { id: "recruiter", href: "/recruiter", labelKey: "recruiter", group: "utility" },
   { id: "terminal", href: "/terminal", labelKey: "terminal", group: "utility" },
   { id: "search", href: "/search", labelKey: "search", group: "utility" },
+  { id: "review", href: "/japanese/review", labelKey: "review", group: "sub" },
   { id: "kana", href: "/japanese/kana", labelKey: "kana", group: "sub" },
   { id: "grammar", href: "/japanese/grammar", labelKey: "grammar", group: "sub" },
 ];

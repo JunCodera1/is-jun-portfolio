@@ -6,7 +6,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { lines, type MissionId } from "@/content/data/station";
 import { buildMission, passes, type MissionQuestion } from "@/lib/station";
 import type { Locale } from "@/i18n/routing";
-import { stampStore } from "@/lib/world-store";
+import { markStudiedToday, stampStore } from "@/lib/world-store";
 import { Panel } from "./Panel";
 import { useWorld } from "./WorldProvider";
 
@@ -46,6 +46,7 @@ function Runner({ id, onClose }: { id: MissionId; onClose: () => void }) {
     setI(i + 1);
     if (last) {
       discover("mission");
+      markStudiedToday();
       if (passes(score, qs.length)) { const cur = stampStore.get(); if (!cur.includes(id)) stampStore.set([...cur, id]); }
     }
   };

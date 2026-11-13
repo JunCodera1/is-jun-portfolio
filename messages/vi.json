@@ -44,7 +44,8 @@
       "archive": "Bộ sưu tập cá nhân.",
       "library": "Anime, sách và nhạc từ nguồn công khai.",
       "log": "Ghi chú ngắn có ngày, mới nhất trước.",
-      "links": "Những liên kết đáng giữ lại."
+      "links": "Những liên kết đáng giữ lại.",
+      "review": "Thẻ ghi nhớ quay lại ngay trước khi bạn quên."
     },
     "recruiter": "Bản xem cho nhà tuyển dụng",
     "menuHint": "↑ ↓ chọn · 1–9 nhảy tới chương · Enter mở · Esc quay lại",
@@ -61,7 +62,8 @@
     "archive": "Kho lưu trữ",
     "library": "Thư viện",
     "log": "Nhật ký ngắn",
-    "links": "Liên kết"
+    "links": "Liên kết",
+    "review": "Thẻ ôn tập"
   },
   "common": {
     "skip": "Bỏ qua, đến nội dung chính",
@@ -458,6 +460,10 @@
       "play": {
         "title": "Trò chơi luyện tập",
         "desc": "Kana Blitz và Kana Match."
+      },
+      "review": {
+        "title": "Thẻ ôn tập",
+        "desc": "Flashcard lặp lại ngắt quãng cho từ vựng và cách đọc kanji."
       }
     },
     "code": {
@@ -1001,7 +1007,8 @@
     "reading": "Cách đọc kanji",
     "readingQ": "Đọc như thế nào?",
     "reveal": "Hiện cách đọc",
-    "more": "Luyện thêm ở Nhà ga →"
+    "more": "Luyện thêm ở Nhà ga →",
+    "review": "Ôn bằng flashcard →"
   },
   "log": {
     "title": "Nhật ký ngắn",
@@ -1026,5 +1033,35 @@
       "linux": "Linux",
       "ai": "AI & ML"
     }
+  },
+  "review": {
+    "title": "Thẻ ôn tập",
+    "lead": "Thẻ ghi nhớ quay lại ngay trước khi bạn quên.",
+    "approx": "Tài liệu luyện tập ở mức xấp xỉ N3 / N2, không phải danh sách JLPT chính thức.",
+    "due": "Đến hạn",
+    "new": "Mới",
+    "learned": "Đã thuộc",
+    "caughtUp": "Bạn đã ôn xong. Mai quay lại, hoặc luyện thêm ở Nhà ga.",
+    "start": "Bắt đầu ({n} thẻ)",
+    "how": "Xem đáp án rồi cho biết bạn có nhớ không. Thẻ nhớ sẽ quay lại muộn hơn, thẻ quên sẽ quay lại vào ngày mai.",
+    "counter": "Thẻ {n}/{total}",
+    "vocab": "Từ vựng",
+    "kanji": "Cách đọc kanji",
+    "think": "Bạn có nhớ cách đọc và nghĩa không?",
+    "reveal": "Xem đáp án",
+    "gotIt": "Nhớ rồi",
+    "again": "Làm lại",
+    "keys": "Space: xem đáp án · →: nhớ rồi · ←: làm lại",
+    "listen": "Nghe",
+    "listenNote": "Phần nghe dùng giọng của trình duyệt nên chất lượng khác nhau.",
+    "done": "Hoàn thành phiên",
+    "result": "Nhớ {ok}/{total} thẻ",
+    "back": "Quay lại",
+    "toStation": "Luyện ở Nhà ga",
+    "streak": "Chuỗi ngày học",
+    "days": "{n} ngày",
+    "best": "Tốt nhất: {n}",
+    "heatAria": "{n} ngày học trong 12 tuần qua",
+    "localNote": "Chỉ lưu trong trình duyệt này."
   }
 }

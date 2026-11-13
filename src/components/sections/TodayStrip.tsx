@@ -30,7 +30,7 @@ export async function TodayStrip({ locale }: { locale: Locale }) {
           <details className="mt-1"><summary className="link cursor-pointer">{t("reveal")}</summary><p lang="ja" className="mt-1 text-lg">{k.reading}</p></details>
         </div>
       </Stagger>
-      <p className="mt-4"><Link href="/station" className="link">{t("more")}</Link></p>
+      <p className="mt-4 flex flex-wrap gap-x-6 gap-y-2"><Link href="/japanese/review" className="link">{t("review")}</Link><Link href="/station" className="link">{t("more")}</Link></p>
     </section>
   );
 }

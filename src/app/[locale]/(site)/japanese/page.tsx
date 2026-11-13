@@ -6,8 +6,9 @@ import { initLocale, pageMetadata, type LocaleParams } from "@/lib/page";
 import { textOf } from "@/lib/localized";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { Placeholder } from "@/components/ui/Placeholder";
-import { FujiScene, Mascot, Torii } from "@/components/ui/Art";
+import { FujiScene, Mascot } from "@/components/ui/Art";
 import { ArrowRight, ArrowUpRight } from "@/components/ui/Icons";
+import { StudyStats } from "@/components/japanese/StudyStats";
 
 export const generateMetadata = ({ params }: { params: LocaleParams }) => pageMetadata(params, "japanese", "/japanese");
 
@@ -21,7 +22,6 @@ export default async function JapanesePage({ params }: { params: LocaleParams })
     <div className="page pb-8">
       <PageHeader navId="japanese" title={t("title")} lead={t("lead")}>
         <Mascot mood="think" className="pointer-events-none absolute -bottom-2 right-2 hidden h-52 w-auto md:block lg:right-16 lg:h-64" />
-        <Torii className="pointer-events-none absolute right-[14rem] top-8 hidden h-24 w-auto lg:block" />
       </PageHeader>
 
       <section aria-labelledby="jp-journey" className="py-12 md:py-16">
@@ -68,8 +68,9 @@ export default async function JapanesePage({ params }: { params: LocaleParams })
 
       <section aria-labelledby="jp-learn" className="border-t-2 border-outline py-12 md:py-16">
         <h2 id="jp-learn" className="text-3xl md:text-5xl">{t("learn.title")}</h2>
-        <ul className="mt-8 grid gap-6 md:grid-cols-3">
-          {([["kana", "/japanese/kana"], ["grammar", "/japanese/grammar"], ["play", "/play"]] as const).map(([id, href]) => (
+        <div className="mt-8 max-w-2xl"><StudyStats /></div>
+        <ul className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          {([["review", "/japanese/review"], ["kana", "/japanese/kana"], ["grammar", "/japanese/grammar"], ["play", "/play"]] as const).map(([id, href]) => (
             <li key={id}>
               <Link href={href} className="btn !flex h-full min-h-40 flex-col !items-start !justify-between !normal-case !tracking-normal">
                 <span><span className="block font-display text-3xl normal-case tracking-tight">{t(`learn.${id}.title`)}</span><span className="mt-2 block font-sans text-sm font-normal text-fg-2">{t(`learn.${id}.desc`)}</span></span>

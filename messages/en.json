@@ -44,7 +44,8 @@
       "archive": "A personal collection.",
       "library": "Anime, books and music from public sources.",
       "log": "Short dated notes, newest first.",
-      "links": "Bookmarks worth keeping."
+      "links": "Bookmarks worth keeping.",
+      "review": "Flashcards that return just before you forget."
     },
     "recruiter": "Recruiter view",
     "menuHint": "↑ ↓ select · 1–9 jump to a chapter · Enter open · Esc back",
@@ -61,7 +62,8 @@
     "archive": "The Archive",
     "library": "Library",
     "log": "Log",
-    "links": "Links"
+    "links": "Links",
+    "review": "Review cards"
   },
   "common": {
     "skip": "Skip to content",
@@ -458,6 +460,10 @@
       "play": {
         "title": "Practice games",
         "desc": "Kana Blitz and Kana Match."
+      },
+      "review": {
+        "title": "Review cards",
+        "desc": "Spaced-repetition flashcards for vocabulary and kanji readings."
       }
     },
     "code": {
@@ -1001,7 +1007,8 @@
     "reading": "Kanji reading",
     "readingQ": "How is it read?",
     "reveal": "Show reading",
-    "more": "More practice at the Station →"
+    "more": "More practice at the Station →",
+    "review": "Review flashcards →"
   },
   "log": {
     "title": "Log",
@@ -1026,5 +1033,35 @@
       "linux": "Linux",
       "ai": "AI & ML"
     }
+  },
+  "review": {
+    "title": "Review cards",
+    "lead": "Flashcards that come back just before you forget them.",
+    "approx": "Practice material at an approximate N3 / N2 level — not an official JLPT list.",
+    "due": "Due",
+    "new": "New",
+    "learned": "Learned",
+    "caughtUp": "All caught up. Come back tomorrow, or practise at the Station.",
+    "start": "Start a session ({n, plural, one {# card} other {# cards}})",
+    "how": "Show the answer, then say whether you remembered it. Cards you remember come back later; the ones you miss come back tomorrow.",
+    "counter": "Card {n} of {total}",
+    "vocab": "Vocabulary",
+    "kanji": "Kanji reading",
+    "think": "Can you recall the reading and meaning?",
+    "reveal": "Show answer",
+    "gotIt": "Got it",
+    "again": "Again",
+    "keys": "Space: show answer · → got it · ← again",
+    "listen": "Listen",
+    "listenNote": "Listening uses your browser's voice; quality varies.",
+    "done": "Session complete",
+    "result": "{ok} of {total} remembered",
+    "back": "Back",
+    "toStation": "Practise at the Station",
+    "streak": "Study streak",
+    "days": "{n, plural, one {# day} other {# days}}",
+    "best": "Best: {n}",
+    "heatAria": "{n} study days in the last 12 weeks",
+    "localNote": "Saved only in this browser."
   }
 }
