@@ -1,9 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { places, secrets, type PlaceId } from "@/content/data/world";
 import { CityArt } from "./CityArt";
+import { Stagger } from "@/components/motion/Stagger";
+import { animate, spring, reducedMotion, stagger } from "@/lib/motion";
 import { WorldLink } from "./WorldLink";
 import { useWorld } from "./WorldProvider";
 
@@ -13,6 +15,24 @@ export function CityMap() {
   const { discover, discovered, sfx } = useWorld();
   const [active, setActive] = useState<PlaceId | null>(null);
   const [note, setNote] = useState<string | null>(null);
+
+  // plates drop in one after another with a springy settle (anime.js); skipped under reduced motion
+  useEffect(() => {
+    if (reducedMotion()) return;
+    const plates = [...document.querySelectorAll<HTMLElement>(".hotspot .plate")];
+    const a = animate(plates, { translateY: [-26, 0], duration: 900, delay: stagger(110, { start: 120 }), ease: spring({ stiffness: 170, damping: 11 }) });
+    return () => { a.revert(); };
+  }, []);
+
+  // the plate of the place you hover or focus pops
+  useEffect(() => {
+    if (!active || reducedMotion()) return;
+    const place = places.find((p) => p.id === active);
+    const el = place && document.querySelector<HTMLElement>(`.hotspot[href$="${place.href}"] .plate`);
+    if (!el) return;
+    const a = animate(el, { scale: [1, 1.08], duration: 450, ease: spring({ stiffness: 320, damping: 10 }) });
+    return () => { a.revert(); };
+  }, [active]);
 
   const onSecret = (id: (typeof secrets)[number]["id"]) => {
     sfx("select");
@@ -82,9 +102,9 @@ export function CityMap() {
         </div>
       </div>
 
-      <ul className="page mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-5" aria-label={tc("list")}>
+      <Stagger as="ul" className="page mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-5" aria-label={tc("list")}>
         {places.map((p, i) => (
-          <li key={p.id}>
+          <li key={p.id} data-stagger>
             <WorldLink href={p.href} className="btn !flex h-full !flex-col !items-start !normal-case !tracking-normal">
               <span className="chapter">{String(i + 1).padStart(2, "0")}</span>
               <span className="stage-title mt-2 text-2xl">{t(`${p.id}.name`)}</span>
@@ -92,7 +112,7 @@ export function CityMap() {
             </WorldLink>
           </li>
         ))}
-      </ul>
+      </Stagger>
     </div>
   );
 }

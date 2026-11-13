@@ -170,7 +170,7 @@ export function CommandPalette({ pages, githubUrl }: { pages: PalettePage[]; git
       >
         <SearchIcon width={16} height={16} />
         {/* Name = visible shortcut first, then the action (WCAG 2.5.3). Below md the shortcut is display:none, so the name is just the action. */}
-        <span className="hidden font-mono text-[0.7rem] tracking-wider md:inline">{isMac ? "⌘K" : "Ctrl K"}</span>
+        <span className="hidden whitespace-nowrap font-mono text-[0.7rem] tracking-wider md:inline">{isMac ? "⌘K" : "Ctrl K"}</span>
         <span className="sr-only">{t("common.openPalette")}</span>
       </button>
 

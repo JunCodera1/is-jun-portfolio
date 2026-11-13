@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { animate, reducedMotion } from "@/lib/motion";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { LanguageSwitcher } from "@/components/layout/LanguageSwitcher";
@@ -22,6 +23,14 @@ export function Entrance() {
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [go, sfx]);
+
+  // idle float for the characters (anime.js); still under reduced motion
+  useEffect(() => {
+    if (reducedMotion()) return;
+    const a = animate(".float-a", { translateY: [0, -12], duration: 2600, alternate: true, loop: true, ease: "inOutSine" });
+    const b = animate(".float-b", { translateY: [0, -7], duration: 1900, alternate: true, loop: true, ease: "inOutSine", delay: 400 });
+    return () => { a.revert(); b.revert(); };
+  }, []);
 
   return (
     <section aria-labelledby="entrance-title" className="stage-entrance relative isolate flex min-h-dvh flex-col overflow-hidden bg-bg">
@@ -54,8 +63,8 @@ export function Entrance() {
         <p className="label mt-6 max-w-[60ch] !normal-case !tracking-normal">{t("hint")}</p>
       </div>
 
-      <Mascot mood="wave" className="pointer-events-none absolute bottom-0 right-[4%] z-10 hidden h-[min(58vh,30rem)] w-auto lg:block" />
-      <Neko className="pointer-events-none absolute bottom-3 right-[26%] z-10 hidden h-24 w-auto xl:block" />
+      <Mascot mood="wave" className="float-a pointer-events-none absolute bottom-0 right-[4%] z-10 hidden h-[min(58vh,30rem)] w-auto lg:block" />
+      <Neko className="float-b pointer-events-none absolute bottom-3 right-[26%] z-10 hidden h-24 w-auto xl:block" />
     </section>
   );
 }

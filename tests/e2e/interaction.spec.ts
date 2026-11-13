@@ -115,7 +115,7 @@ test.describe("index menu (also the mobile menu)", () => {
     await page.getByRole("button", { name: "Open the site index" }).click();
     const dialog = page.getByRole("dialog", { name: "Index of the site" });
     await expect(dialog).toBeVisible();
-    await expect(dialog.getByRole("link")).toHaveCount(21);
+    await expect(dialog.getByRole("link")).toHaveCount(24);
     await page.keyboard.press("Escape");
     await expect(dialog).toBeHidden();
     await page.getByRole("button", { name: "Open the site index" }).click();
@@ -304,7 +304,7 @@ test.describe("game-style interaction layer", () => {
     await page.keyboard.press("9");
     await expect(links.nth(8)).toBeFocused();
     await page.keyboard.press("Enter");
-    await expect(page).toHaveURL(/\/en\/timeline$/);
+    await expect(page).toHaveURL(/\/en\/library$/);
   });
 
   test("route wipe plays after a client navigation, never on first load, and never blocks input", async ({ page }) => {

@@ -5,6 +5,7 @@ import type { LibEntry } from "@/lib/library";
 import { safeHttpUrl } from "@/lib/news";
 import { initLocale, pageMetadata, type LocaleParams } from "@/lib/page";
 import { PageHeader } from "@/components/ui/PageHeader";
+import { Stagger } from "@/components/motion/Stagger";
 import { ArrowUpRight } from "@/components/ui/Icons";
 
 export const revalidate = 21600;
@@ -18,12 +19,12 @@ function List({ id, title, desc, items, empty, newTab }: { id: string; title: st
       {items.length === 0 ? (
         <p className="slot mt-6">{empty}</p>
       ) : (
-        <ul className="mt-6 border-t-2 border-outline">
+        <Stagger as="ul" className="mt-6 border-t-2 border-outline">
           {items.map((e) => (
-            <li key={e.id} className="border-b border-line">
-              <a href={e.url} target="_blank" rel="noopener noreferrer nofollow" className="index-row grid grid-cols-[1fr_auto] items-baseline gap-x-3 px-2 py-3">
+            <li key={e.id} data-stagger className="border-b border-line">
+              <a href={e.url} target="_blank" rel="noopener noreferrer nofollow" className="index-row grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-x-3 px-2 py-3">
                 <span>
-                  <span className="block font-display text-lg leading-snug tracking-tight">{e.title}</span>
+                  <span className="block [overflow-wrap:anywhere] font-display text-lg leading-snug tracking-tight">{e.title}</span>
                   {(e.sub || e.meta) && <span className="label mt-1 block !normal-case !tracking-normal">{[e.sub, e.meta].filter(Boolean).join(" · ")}</span>}
                 </span>
                 <ArrowUpRight width={16} height={16} className="arrow text-fg-3" />
@@ -31,7 +32,7 @@ function List({ id, title, desc, items, empty, newTab }: { id: string; title: st
               </a>
             </li>
           ))}
-        </ul>
+        </Stagger>
       )}
     </section>
   );

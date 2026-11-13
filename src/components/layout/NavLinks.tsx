@@ -14,7 +14,7 @@ export function NavLinks({ items, label }: { items: { href: string; label: strin
               <Link
                 href={item.href}
                 aria-current={active ? "page" : undefined}
-                className={`group relative isolate block px-4 py-2 text-[0.9rem] font-medium transition-colors ${
+                className={`group relative isolate block whitespace-nowrap px-3.5 py-2 text-[0.9rem] font-medium transition-colors ${
                   active ? "text-accent-ink" : "text-fg-2 hover:text-fg"
                 }`}
               >

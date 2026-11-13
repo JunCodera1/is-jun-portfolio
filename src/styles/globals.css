@@ -1061,3 +1061,14 @@ html:lang(vi) .stage-title {
 .scene [data-active="true"] {
   filter: drop-shadow(0 0 10px rgb(215 20 31 / 0.85));
 }
+
+/* a raised paper card with a red offset edge: readable in both themes, lifts on hover */
+.card-ink {
+  background: var(--surface);
+  color: var(--fg);
+  border: 2px solid var(--outline);
+  box-shadow: 6px 6px 0 var(--accent);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+a.card-ink:hover { transform: translate(-2px, -2px); box-shadow: 8px 8px 0 var(--accent); }
+a.card-ink:active { transform: translate(2px, 2px); box-shadow: 3px 3px 0 var(--accent); }
