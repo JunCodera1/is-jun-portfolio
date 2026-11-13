@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { pop, staggerIn } from "@/lib/motion";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { ArrowUpRight } from "@/components/ui/Icons";
@@ -15,6 +16,14 @@ export function CaseBoard({ cases }: { cases: CaseFile[] }) {
   const t = useTranslations("lab");
   const [i, setI] = useState(0);
   const c = cases[i]!;
+  // switching folders: findings and evidence cards slide in one after another, the chosen tab pops
+  useEffect(() => {
+    const panel = document.getElementById("case-panel");
+    if (!panel) return;
+    const a = staggerIn([...panel.querySelectorAll("header, ol > li, ul > li")], { from: 18, step: 45 });
+    pop(document.getElementById(`case-tab-${i}`), 1.04);
+    return () => { a?.revert(); };
+  }, [i]);
   return (
     <div className="page mt-10 grid gap-8 lg:grid-cols-[17rem_1fr]">
       <div

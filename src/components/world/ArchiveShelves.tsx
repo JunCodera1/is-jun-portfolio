@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { pop, riseIn } from "@/lib/motion";
 import { useTranslations } from "next-intl";
 import { ArrowUpRight } from "@/components/ui/Icons";
 
@@ -11,9 +12,17 @@ const COLORS = { red: "bg-accent text-accent-ink", white: "bg-[#f4f4f0] text-[#0
 export function ArchiveShelves({ shelves }: { shelves: ShelfView[] }) {
   const t = useTranslations("archive");
   const [sel, setSel] = useState<{ shelf: string; id: string } | null>(null);
+  const root = useRef<HTMLDivElement>(null);
+  const card = useRef<HTMLElement>(null);
+  // books slide up onto the shelf one after another
+  useEffect(() => {
+    const a = riseIn([...(root.current?.querySelectorAll("[data-spine]") ?? [])], { from: 70, step: 28 });
+    return () => { a?.revert(); };
+  }, []);
+  useEffect(() => { if (sel) pop(card.current, 1.02); }, [sel]);
   const current = sel ? shelves.find((s) => s.id === sel.shelf)?.items.find((i) => i.id === sel.id) : null;
   return (
-    <div className="page mt-10">
+    <div className="page mt-10" ref={root}>
       <div className="space-y-10">
         {shelves.map((s) => (
           <section key={s.id} aria-labelledby={`shelf-${s.id}`}>
@@ -21,7 +30,7 @@ export function ArchiveShelves({ shelves }: { shelves: ShelfView[] }) {
             <ul className="mt-3 flex min-h-[10rem] flex-wrap items-end gap-2 border-b-[10px] border-outline px-3 pb-0 pt-4">
               {s.items.length === 0 && <li className="slot mb-3 w-full max-w-md">{t("empty")}</li>}
               {s.items.map((it, k) => (
-                <li key={it.id}>
+                <li key={it.id} data-spine>
                   <button
                     type="button" aria-pressed={sel?.id === it.id && sel.shelf === s.id}
                     onClick={() => setSel({ shelf: s.id, id: it.id })}
@@ -37,7 +46,7 @@ export function ArchiveShelves({ shelves }: { shelves: ShelfView[] }) {
       </div>
       <div className="mt-10 min-h-40" role="status" aria-live="polite">
         {current ? (
-          <article className="max-w-2xl border-2 border-outline bg-surface p-6 shadow-[6px_6px_0_var(--accent)]">
+          <article ref={card} className="max-w-2xl border-2 border-outline bg-surface p-6 shadow-[6px_6px_0_var(--accent)]">
             <p className="label">{t(`source.${current.source}`)}</p>
             <h3 lang={current.lang} className="stage-title mt-1 text-4xl">{current.title}</h3>
             <p lang={current.lang} className="mt-3 text-lg text-fg-2">{current.note}</p>

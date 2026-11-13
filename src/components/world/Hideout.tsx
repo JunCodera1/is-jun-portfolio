@@ -1,9 +1,11 @@
 "use client";
 
-import { useState, useSyncExternalStore } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { applyTheme } from "@/lib/theme";
+import { Stagger } from "@/components/motion/Stagger";
+import { pop, riseIn } from "@/lib/motion";
 import { HideoutArt } from "./HideoutArt";
 import { Panel } from "./Panel";
 import { WorldLink } from "./WorldLink";
@@ -41,6 +43,17 @@ export function Hideout({ data }: { data: HideoutData }) {
   const [note, setNote] = useState<string | null>(null);
   const phase = useSyncExternalStore(subTheme, themeNow, () => "night");
   const clock = useSyncExternalStore((cb) => { const id = setInterval(cb, 20_000); return () => clearInterval(id); }, () => Math.floor(Date.now() / 20_000), () => 0);
+
+  // plates rise one by one when the room appears; the hovered one pops
+  useEffect(() => {
+    const a = riseIn([...document.querySelectorAll(".hotspot .plate")], { from: 24, delay: 150, step: 90 });
+    return () => { a?.revert(); };
+  }, []);
+  useEffect(() => {
+    if (!hot) return;
+    const i = OBJECTS.findIndex((o) => o.id === hot);
+    pop(document.querySelectorAll(".hotspot .plate")[i], 1.1);
+  }, [hot]);
 
   const openObj = (id: ObjectId) => {
     sfx("select");
@@ -81,9 +94,9 @@ export function Hideout({ data }: { data: HideoutData }) {
         </div>
       </div>
 
-      <ul className="page mt-6 flex flex-wrap gap-3" aria-label={t("list")}>
-        {OBJECTS.map((o) => <li key={o.id}><button type="button" className="chip tap" onClick={() => openObj(o.id)}>{t(`objects.${o.id}.label`)}</button></li>)}
-      </ul>
+      <Stagger as="ul" className="page mt-6 flex flex-wrap gap-3" aria-label={t("list")}>
+        {OBJECTS.map((o) => <li key={o.id} data-stagger><button type="button" className="chip tap" onClick={() => openObj(o.id)}>{t(`objects.${o.id}.label`)}</button></li>)}
+      </Stagger>
 
       <Panel open={open === "computer"} onClose={() => setOpen(null)} title={t("objects.computer.title")}>
         <p className="text-fg-2">{t("objects.computer.body")}</p>

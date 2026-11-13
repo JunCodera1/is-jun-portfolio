@@ -2,7 +2,10 @@
 
 import dynamic from "next/dynamic";
 import { useState } from "react";
+import { useEffect, useRef } from "react";
 import { useTranslations } from "next-intl";
+import { Stagger } from "@/components/motion/Stagger";
+import { riseIn } from "@/lib/motion";
 
 // Each game's code is fetched only when its Play button is pressed.
 const KanaBlitz = dynamic(() => import("./KanaBlitz"), { ssr: false, loading: () => <p className="label">…</p> });
@@ -23,11 +26,18 @@ export function GamesHub() {
     { id: "reaction" as const, no: "04" },
     { id: "typing" as const, no: "05" },
   ];
+  const stage = useRef<HTMLDivElement>(null);
+  // the opened game slides up into view
+  useEffect(() => {
+    if (!active || !stage.current) return;
+    const a = riseIn(stage.current, { from: 36 });
+    return () => { a?.revert(); };
+  }, [active]);
   return (
     <div>
-      <ul className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <Stagger as="ul" className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {games.map((g) => (
-          <li key={g.id} className="border-2 border-outline bg-surface p-6 shadow-[5px_5px_0_var(--outline)]">
+          <li key={g.id} data-stagger className="border-2 border-outline bg-surface p-6 shadow-[5px_5px_0_var(--outline)]">
             <span className="chapter">{g.no}</span>
             <h2 className="mt-4 text-3xl">{t(`${g.id}.title`)}</h2>
             <p className="mt-2 text-fg-2">{t(`${g.id}.desc`)}</p>
@@ -36,8 +46,8 @@ export function GamesHub() {
             </button>
           </li>
         ))}
-      </ul>
-      <div className="mt-10">{active === "blitz" && <KanaBlitz />}{active === "match" && <KanaMatch />}{active === "vocab" && <VocabSpeedrun />}{active === "reaction" && <Reaction />}{active === "typing" && <TypingSprint />}</div>
+      </Stagger>
+      <div className="mt-10" ref={stage}>{active === "blitz" && <KanaBlitz />}{active === "match" && <KanaMatch />}{active === "vocab" && <VocabSpeedrun />}{active === "reaction" && <Reaction />}{active === "typing" && <TypingSprint />}</div>
     </div>
   );
 }

@@ -3,6 +3,7 @@
 import { useEffect, useId, useRef } from "react";
 import { useTranslations } from "next-intl";
 import { CloseIcon } from "@/components/ui/Icons";
+import { animate, spring, reducedMotion, staggerIn } from "@/lib/motion";
 
 /** A modal "dialogue panel" on a native <dialog>: focus trap, Esc to close, backdrop click, focus returns to the opener. */
 export function Panel({ open, onClose, title, children }: { open: boolean; onClose: () => void; title: string; children: React.ReactNode }) {
@@ -14,6 +15,12 @@ export function Panel({ open, onClose, title, children }: { open: boolean; onClo
     if (!d) return;
     if (open && !d.open) d.showModal();
     if (!open && d.open) d.close();
+    if (open && !reducedMotion()) {
+      // the panel springs up, then its blocks slide in one after another
+      const a = animate(d, { translateY: [36, 0], scale: [0.97, 1], duration: 650, ease: spring({ stiffness: 190, damping: 16 }) });
+      const b = staggerIn([...d.querySelectorAll("[data-panel-body] > *")], { from: 14, step: 55 });
+      return () => { a.revert(); b?.revert(); };
+    }
   }, [open]);
   return (
     <dialog
@@ -31,7 +38,7 @@ export function Panel({ open, onClose, title, children }: { open: boolean; onClo
               <CloseIcon width={16} height={16} /><span>{t("close")}</span>
             </button>
           </div>
-          <div className="p-5 md:p-7">{children}</div>
+          <div data-panel-body className="p-5 md:p-7">{children}</div>
         </div>
       )}
     </dialog>
