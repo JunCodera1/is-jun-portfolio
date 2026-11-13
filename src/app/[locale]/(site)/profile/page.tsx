@@ -7,6 +7,7 @@ import { initLocale, pageMetadata, type LocaleParams } from "@/lib/page";
 import { textOf } from "@/lib/localized";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { Placeholder } from "@/components/ui/Placeholder";
+import { PrintButton } from "@/components/interactive/PrintButton";
 
 export const generateMetadata = ({ params }: { params: LocaleParams }) => pageMetadata(params, "profile", "/profile");
 
@@ -21,7 +22,7 @@ export default async function ProfilePage({ params }: { params: LocaleParams }) 
   return (
     <div className="page pb-8">
       <PageHeader navId="profile" title={t("title")} lead={t("lead")}>
-        <p className="mt-6"><Link href="/recruiter" className="link label">{t("recruiterLink")} →</Link></p>
+        <div className="mt-6 print:hidden"><PrintButton label={t("print")} /></div>
       </PageHeader>
 
       <section aria-labelledby="skills-title" className="py-12 md:py-16">

@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import { applyTheme } from "@/lib/theme";
 import { loadSearchIndex } from "@/lib/search-client";
-import { pickSurprise } from "@/lib/surprise";
+import { pickDiscovery } from "@/lib/discover";
 import { useLocale } from "next-intl";
 import { runCommand, type TAction, type TerminalData, type TLine } from "@/lib/terminal";
 
@@ -33,7 +33,7 @@ export function Terminal({ data, onExit }: { data: TerminalData; onExit?: () => 
     else if (a.type === "go") { onExit?.(); router.push(a.value); }
     else if (a.type === "exit") onExit?.();
     else if (a.type === "surprise") {
-      try { const hit = pickSurprise(await loadSearchIndex(locale), pathname); if (hit) { onExit?.(); router.push(hit.href); } } catch { /* stay */ }
+      try { const hit = pickDiscovery(await loadSearchIndex(locale), pathname); if (hit) { onExit?.(); router.push(hit.href); } } catch { /* stay */ }
     }
   };
 

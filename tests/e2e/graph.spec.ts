@@ -9,7 +9,7 @@ test.describe("knowledge graph", () => {
     const board = page.locator("[data-node]");
     expect(await board.count()).toBeGreaterThan(20);
 
-    await page.locator('[data-node="t:Python"]').click();
+    await page.locator('[data-node="tech:Python"]').click();
     const panel = page.locator("aside");
     await expect(panel.getByRole("heading", { name: "Python" })).toBeVisible();
     await expect(panel).toContainText("requirements.txt"); // evidence for the link to a project
@@ -25,7 +25,7 @@ test.describe("knowledge graph", () => {
 
   test("a note node opens the note; filters remove node kinds; the list twin exists", async ({ page }) => {
     await page.goto("/en/graph");
-    await page.locator('[data-node^="n:garden/how-this-space-is-built"]').click();
+    await page.locator('[data-node^="garden:how-this-space-is-built"]').click();
     await page.locator("aside").getByRole("link", { name: "Open the note" }).click();
     await expect(page).toHaveURL(/\/en\/garden\/how-this-space-is-built$/);
 

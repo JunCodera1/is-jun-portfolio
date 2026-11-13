@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { loadSearchIndex } from "@/lib/search-client";
-import { pickSurprise } from "@/lib/surprise";
+import { pickDiscovery } from "@/lib/discover";
 
 /** Takes you somewhere random on the site: a page, a project, a note. */
 export function useSurprise() {
@@ -13,7 +13,7 @@ export function useSurprise() {
   const pathname = usePathname();
   return async () => {
     try {
-      const hit = pickSurprise(await loadSearchIndex(locale), pathname);
+      const hit = pickDiscovery(await loadSearchIndex(locale), pathname);
       if (hit) router.push(hit.href);
     } catch { /* offline or blocked: stay where you are */ }
   };

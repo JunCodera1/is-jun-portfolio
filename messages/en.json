@@ -1,6 +1,6 @@
 {
   "meta": {
-    "siteName": "My Digital World",
+    "siteName": "A Place Called Me",
     "description": "An explorable personal world: rooms, experiments, Japanese study routes, mini-games and secrets, in English, Japanese and Vietnamese."
   },
   "nav": {
@@ -14,7 +14,6 @@
     "projects": "Projects",
     "profile": "Craft",
     "contact": "Contact",
-    "terminal": "Terminal",
     "search": "Search",
     "primaryLabel": "Primary",
     "menu": "Index",
@@ -30,10 +29,8 @@
       "projects": "Selected work, with its evidence.",
       "profile": "Skills and technologies, backed by projects.",
       "contact": "Where to reach out.",
-      "recruiter": "A compact, printable summary.",
       "japanese": "A learning journey and a small knowledge base.",
       "news": "Tech news from nine sources, worldwide.",
-      "play": "Small games, all original.",
       "kana": "Hiragana and katakana charts.",
       "grammar": "Particles, verbs and useful phrases.",
       "city": "The hub of the world.",
@@ -43,17 +40,14 @@
       "arcade": "Original mini-games.",
       "archive": "A personal collection.",
       "library": "Anime, books and music from public sources.",
-      "log": "Short dated notes, newest first.",
-      "links": "Bookmarks worth keeping.",
       "review": "Flashcards that return just before you forget.",
       "graph": "How the things I use and learn connect.",
-      "orbit": "The site as planets you can visit."
+      "vault": "Concepts, research, mistakes, decisions, ideas and a glossary.",
+      "observatory": "How the site's sources, languages and connections are doing."
     },
-    "recruiter": "Recruiter view",
     "menuHint": "↑ ↓ select · 1–9 jump to a chapter · Enter open · Esc back",
     "japanese": "Japanese",
     "news": "Tech news",
-    "play": "Play",
     "kana": "Kana",
     "grammar": "Grammar",
     "city": "The City",
@@ -63,11 +57,19 @@
     "arcade": "The Arcade",
     "archive": "The Archive",
     "library": "Library",
-    "log": "Log",
-    "links": "Links",
     "review": "Review cards",
     "graph": "Knowledge graph",
-    "orbit": "Solar system"
+    "vault": "Knowledge Vault",
+    "vaultConcepts": "Concept Explainer",
+    "vaultResearch": "Research Notes",
+    "vaultMistakes": "Mistake Archive",
+    "vaultDecisions": "Decision Journal",
+    "vaultIdeas": "Idea Incubator",
+    "vaultGlossary": "Personal Glossary",
+    "vaultReading": "Reading Progress",
+    "vaultLearning": "Learning Tracker",
+    "vaultRoadmap": "Learning Roadmap",
+    "observatory": "Observatory"
   },
   "common": {
     "skip": "Skip to content",
@@ -266,14 +268,43 @@
   },
   "timeline": {
     "title": "Timeline",
-    "lead": "Milestones that can be verified. Personal ones appear once the owner adds them.",
+    "lead": "Everything that has a real date, in one place: notes, Vault entries, site changes and milestones.",
     "sourceGithub": "From GitHub",
     "sourceOwner": "From the owner",
     "accountCreated": "GitHub account created",
     "firstRepo": "First public repository in {language}: {repo}",
     "ownerSlotTitle": "Personal milestones",
     "ownerSlot": "Study, work and life milestones are added by the owner. None have been confirmed yet.",
-    "derivedNote": "Derived from repository creation dates in a GitHub snapshot taken {date}. A repository's creation date is when it was published, not when the skill was learned."
+    "derivedNote": "Derived from repository creation dates in a GitHub snapshot taken {date}. A repository's creation date is when it was published, not when the skill was learned.",
+    "all": "Everything",
+    "filter": "Show",
+    "groups": {
+      "writing": "Notes & posts",
+      "vault": "Vault",
+      "site": "Site log",
+      "milestones": "Milestones"
+    },
+    "kinds": {
+      "note": "Note",
+      "post": "Post",
+      "decision": "Decision",
+      "mistake": "Mistake",
+      "research": "Research",
+      "idea": "Idea",
+      "log": "Site log",
+      "event": "Milestone",
+      "project": "Project",
+      "concept": "Concept",
+      "path": "Learning step"
+    },
+    "source": {
+      "owner": "Owner",
+      "site": "This site",
+      "github": "GitHub",
+      "public": "Public reference"
+    },
+    "newTab": "opens in a new tab",
+    "derivedNote2": "Built from the same data as search, the graph and the feeds. Items without a real date are not placed here; milestone dates come from the owner or the committed GitHub snapshot."
   },
   "projects": {
     "title": "Projects",
@@ -354,7 +385,7 @@
       "activity": "Activity"
     },
     "present": "present",
-    "recruiterLink": "Compact view for recruiters"
+    "print": "Print or save as PDF"
   },
   "search": {
     "title": "Search",
@@ -368,7 +399,8 @@
       "page": "Page",
       "project": "Project",
       "garden": "Note",
-      "journal": "Post"
+      "journal": "Post",
+      "vault": "Vault"
     },
     "loadError": "The search index could not be loaded."
   },
@@ -391,7 +423,6 @@
   },
   "terminal": {
     "title": "Terminal",
-    "lead": "A simulation. It only reads the site's own content and never runs a real command.",
     "welcome": "Welcome. Type help to see what is available.",
     "inputLabel": "Command",
     "outputLabel": "Terminal output",
@@ -427,10 +458,9 @@
       "go": "usage: go city|hideout|lab|station|arcade|archive|home|news|library|graph|log|links|japanese|projects|about|garden|journal|now|contact"
     },
     "hiddenHint": "Some commands are not listed here. Try your luck.",
-    "shortcut": "Tip: press ` (backtick) on any page to open this terminal.",
     "overlayTitle": "visitor@space — press Esc to close",
     "open": "Open the terminal",
-    "whoami": "visitor — a guest in My Digital World.",
+    "whoami": "visitor — a guest in A Place Called Me.",
     "sudo": "Nice try. Nothing here needs root.",
     "hisoka": "A card slides across the table. You didn't see where it came from.",
     "konami": "Remember this from the keyboard? Try it on the map in the city.",
@@ -449,16 +479,6 @@
     "rights": "© {year} {name}",
     "sitemap": "Sitemap",
     "elsewhere": "Elsewhere"
-  },
-  "recruiter": {
-    "title": "Recruiter view",
-    "lead": "A compact summary built from the same verified data as the rest of the site. The main site stays the main experience.",
-    "print": "Print or save as PDF",
-    "projects": "Selected projects",
-    "skills": "Technologies, backed by projects",
-    "career": "Education & experience",
-    "links": "Links",
-    "verifiedNote": "Every technology below is used by at least one project in the list; evidence is on each project page."
   },
   "japanese": {
     "title": "Japanese",
@@ -684,9 +704,9 @@
   },
   "entrance": {
     "kicker": "A small world that belongs to one person",
-    "w1": "My",
-    "w2": "Digital",
-    "w3": "World",
+    "w1": "A Place",
+    "w2": "Called",
+    "w3": "Me",
     "lead": "Walk through a city of rooms, experiments, games and secrets. Nothing here is a template.",
     "start": "Enter the world",
     "press": "Press Enter",
@@ -1054,21 +1074,7 @@
     "more": "More practice at the Station →",
     "review": "Review flashcards →"
   },
-  "log": {
-    "title": "Log",
-    "lead": "Small dated notes: what happened, what was learned, what changed.",
-    "how": "To add a line, edit src/content/data/log.ts.",
-    "tags": {
-      "site": "site",
-      "japanese": "Japanese",
-      "code": "code",
-      "life": "life",
-      "anime": "anime"
-    }
-  },
   "links": {
-    "title": "Links",
-    "lead": "Bookmarks and references that are worth coming back to.",
     "note": "Public reference sites, not statements about the owner's habits. Links open in a new tab.",
     "opensNewTab": "opens in a new tab",
     "groups": {
@@ -1110,14 +1116,16 @@
   },
   "graph": {
     "title": "Knowledge graph",
-    "lead": "How projects, technologies, notes and learning paths connect. Click a node to read about it and follow the links.",
-    "note": "Every link is real: a project is linked to a technology only when the repository shows it (the evidence is in the panel), and notes are linked through their \"related\" field.",
+    "lead": "One map of everything on this site: projects, technologies, notes, Vault entries, learning paths and topics. Click a node to read about it and follow the links.",
+    "note": "Every link is real and carries its evidence: a project is linked to a technology only when the repository shows it, notes link through \"related\", and a replaced decision points at what replaced it.",
     "filter": "Show",
     "kinds": {
       "path": "Learning path",
       "note": "Note",
       "project": "Project",
-      "tech": "Technology"
+      "tech": "Technology",
+      "vault": "Vault entry",
+      "topic": "Topic"
     },
     "jumpToList": "Prefer a list? Jump to it",
     "pick": "Pick a node on the map to see what it is and what it connects to.",
@@ -1126,7 +1134,9 @@
       "path": "Open the page",
       "note": "Open the note",
       "project": "Open the case study",
-      "tech": "See the technical profile"
+      "tech": "See the technical profile",
+      "vault": "Open the entry",
+      "topic": "Search this topic"
     },
     "listTitle": "The same graph as a list",
     "listLead": "Each item with what it is connected to.",
@@ -1137,21 +1147,235 @@
       "mobile": "Mobile",
       "data": "Data and AI",
       "tooling": "Tooling"
-    }
+    },
+    "find": "Find a node",
+    "findPlaceholder": "Type a name…",
+    "findResults": "Matching nodes",
+    "provenance": "Source"
   },
   "gallery": {
     "prev": "Previous",
     "next": "Next",
     "open": "Open the case study"
   },
-  "orbit": {
-    "title": "Solar system",
-    "lead": "The site as a small solar system. Each planet is a part of it — click one to see what it is.",
-    "sun": "Home",
-    "sunDesc": "The classic home page.",
-    "planet": "Planet",
-    "pick": "Pick a planet. Moving over the map pauses the orbits.",
-    "visit": "Visit {name}",
-    "list": "All planets"
+  "vault": {
+    "title": "Knowledge Vault",
+    "lead": "A personal store of what is learned, decided and gotten wrong — sorted by kind and by topic.",
+    "note": "Entries here come from what really happened while building this site, or from what the owner has stated. Empty modules are waiting for the owner's own entries.",
+    "tabsLabel": "Vault sections",
+    "hub": "Overview",
+    "empty": "Empty — waiting for entries",
+    "count": "{n, plural, one {# entry} other {# entries}}",
+    "latest": "Latest entries",
+    "allTopics": "All topics",
+    "filterTopic": "Filter by topic",
+    "newTab": "opens in a new tab",
+    "topics": {
+      "web": "Web",
+      "ai": "AI & ML",
+      "linux": "Linux",
+      "japanese": "Japanese",
+      "tooling": "Tooling",
+      "design": "Design",
+      "general": "General"
+    },
+    "status": {
+      "active": "Active",
+      "superseded": "Superseded",
+      "doing": "In progress",
+      "paused": "Paused",
+      "done": "Done",
+      "planned": "Planned"
+    },
+    "fields": {
+      "context": "Context",
+      "decision": "Decision",
+      "why": "Why",
+      "cost": "Cost",
+      "happened": "What happened",
+      "cause": "Cause",
+      "fix": "Fix",
+      "lesson": "Lesson",
+      "question": "Question",
+      "findings": "What was found",
+      "sources": "Sources",
+      "next": "Next",
+      "goal": "Goal",
+      "log": "Study log"
+    },
+    "supersededBy": "Replaced by:",
+    "checked": "Checked {date}",
+    "mistakesNote": "Real mistakes made while building this site. Add your own the same way in src/content/data/vault/mistakes.ts.",
+    "researchNote": "Every finding was checked on the date shown; sources are listed under each note.",
+    "ideasNote": "Ideas for this site, from first spark to shipped. Add your own project ideas in src/content/data/vault/ideas.ts.",
+    "noIdeas": "Nothing here yet.",
+    "stages": {
+      "spark": "Spark",
+      "exploring": "Exploring",
+      "building": "Building",
+      "shipped": "Shipped",
+      "parked": "Parked"
+    },
+    "glossarySearch": "Search the glossary",
+    "glossaryPlaceholder": "Any language: hydration, ハイドレーション, trợ từ…",
+    "glossaryCount": "{n} terms",
+    "glossaryNone": "No term matches.",
+    "readingEmptyTitle": "No reading list yet",
+    "readingEmpty": "Nothing has been added. Add books, articles and documents with their progress in src/content/data/vault/reading.ts; they will appear here, grouped by status.",
+    "readingStatus": {
+      "reading": "Reading",
+      "queued": "Up next",
+      "done": "Finished"
+    },
+    "readingKind": {
+      "book": "Book",
+      "article": "Article",
+      "doc": "Document",
+      "paper": "Paper"
+    },
+    "unit": {
+      "pages": "pages",
+      "chapters": "chapters",
+      "minutes": "minutes"
+    },
+    "startedOn": "started {date}",
+    "logEmpty": "No study log yet. Add dated lines in src/content/data/vault/learning.ts.",
+    "learningAdd": "To track another technology or skill, add an entry in src/content/data/vault/learning.ts.",
+    "roadmapAdd": "Add a track or milestone in src/content/data/vault/roadmap.ts. Dates appear only when you give them.",
+    "readConcept": "Read the explainer →",
+    "relatedTerms": "Related terms",
+    "modules": {
+      "concepts": {
+        "name": "Concept Explainer",
+        "desc": "Technical ideas explained with a diagram and an example.",
+        "lead": "Technical ideas explained with a diagram and a worked example."
+      },
+      "research": {
+        "name": "Research Notes",
+        "desc": "Questions, findings, conclusions and sources.",
+        "lead": "A question, what was found, the conclusion and the sources."
+      },
+      "mistakes": {
+        "name": "Mistake Archive",
+        "desc": "What went wrong, why, and the lesson.",
+        "lead": "What went wrong, why it happened, and what to do differently."
+      },
+      "decisions": {
+        "name": "Decision Journal",
+        "desc": "The reasons behind technical decisions.",
+        "lead": "What was decided, why, and what it cost."
+      },
+      "ideas": {
+        "name": "Idea Incubator",
+        "desc": "Ideas from first spark to shipped.",
+        "lead": "Ideas from first spark to shipped."
+      },
+      "glossary": {
+        "name": "Personal Glossary",
+        "desc": "Terms in English, Japanese and Vietnamese.",
+        "lead": "Terms in English, Japanese and Vietnamese, searchable in any of them."
+      },
+      "reading": {
+        "name": "Reading Progress",
+        "desc": "Books, articles and documents in progress.",
+        "lead": "Books, articles and documents with progress, plus the reference sites worth coming back to."
+      },
+      "learning": {
+        "name": "Learning Tracker",
+        "desc": "Following the progress of one skill at a time.",
+        "lead": "Following one technology or skill at a time."
+      },
+      "roadmap": {
+        "name": "Learning Roadmap",
+        "desc": "Tracks and the milestones reached.",
+        "lead": "Tracks, milestones and where each one stands."
+      }
+    },
+    "learning": {
+      "localTitle": "Recorded in this browser",
+      "learned": "Cards learned",
+      "due": "Cards due",
+      "stamps": "Missions stamped",
+      "streak": "Study streak",
+      "days": "{n, plural, one {# day} other {# days}}",
+      "localNote": "Only on this device, not a verified result.",
+      "review": "Review cards"
+    },
+    "diagram": {
+      "leitner": {
+        "aria": "Five Leitner boxes. A correct answer moves a card to the next box; a wrong answer sends it back to box 1.",
+        "box": "Box {n}",
+        "wait": "{n, plural, one {# day} other {# days}}",
+        "miss": "wrong → back to box 1",
+        "right": "I remembered",
+        "wrong": "I forgot",
+        "reset": "Reset",
+        "start": "A new card starts in box 1. Answer to move it.",
+        "state": "Now in box {box}. It comes back in {wait, plural, one {# day} other {# days}} (day {due})."
+      },
+      "csp": {
+        "aria": "A page with a policy. Its own scripts and an allow-listed image host are allowed; an unknown third-party script is blocked.",
+        "page": "Your page",
+        "policy": "with a policy",
+        "self": "script from the same site",
+        "allowed": "image from a listed host",
+        "unknown": "script from an unknown host"
+      },
+      "isr": {
+        "aria": "Build once, serve instantly, then rebuild in the background after a timer and serve the new copy.",
+        "build": "Build",
+        "buildSub": "HTML is ready",
+        "serve": "Serve",
+        "serveSub": "instantly",
+        "regen": "Rebuild",
+        "regenSub": "in the background",
+        "loop": "after the timer runs out"
+      },
+      "layout": {
+        "aria": "A small graph. Every node pushes the others away; each link pulls its two ends together.",
+        "push": "nodes push apart",
+        "pull": "links pull together"
+      }
+    },
+    "referencesTitle": "References"
+  },
+  "observatory": {
+    "title": "Observatory",
+    "lead": "How this place is doing: which connected sources answer, how complete each language is, and where the knowledge graph has gaps.",
+    "sources": "Connected sources",
+    "sourcesSummary": "{up} of {total} sources answered.",
+    "sourcesNote": "Every source is optional: when one is down, its section simply shows nothing.",
+    "live": "live, cached up to 1 hour",
+    "snapshot": "committed snapshot from {date}",
+    "cache": "refreshed about every {n, plural, one {# minute} other {# minutes}}",
+    "ok": "Available",
+    "down": "Not answering right now",
+    "content": "What is here",
+    "contentNote": "{n} entries with real content (technologies and topics are not counted).",
+    "languages": "Language coverage",
+    "languagesNote": "Translated = reviewed. Draft = written but not reviewed by a native speaker. Missing = shown in English with a tag.",
+    "lang": {
+      "en": "English",
+      "ja": "日本語",
+      "vi": "Tiếng Việt"
+    },
+    "coverage": "{a} translated · {b} draft · {c} missing",
+    "coverageAria": "{a} translated, {b} draft, {c} missing",
+    "todoTitle": "Next to translate",
+    "status": {
+      "translated": "translated",
+      "draft": "draft",
+      "untranslated": "English only"
+    },
+    "graph": "Connections",
+    "hubs": "Most connected",
+    "orphans": "Not connected to anything",
+    "noOrphans": "Every entry is connected.",
+    "suggestions": "Possible connections",
+    "noSuggestions": "No suggestions right now.",
+    "shared": "shared",
+    "suggestNote": "Suggestions only; nothing is written. Add a related link in the data file or note to accept one.",
+    "open": "Open data",
+    "openNote": "Everything public is also available as plain data. Nothing private is included."
   }
 }

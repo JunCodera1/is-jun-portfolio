@@ -1,18 +1,23 @@
 /** Knowledge-graph helpers: pure and deterministic (no randomness), so layout is testable and identical on every build. */
-export type NodeKind = "tech" | "project" | "note" | "path";
+export type NodeKind = "tech" | "project" | "note" | "path" | "vault" | "topic";
 export interface GEdge { from: string; to: string }
 export interface Pos { x: number; y: number }
 
-/** Approximate on-screen footprint of a node in a 16 × 10 unit board: wide labels take more room. */
-export const nodeBox = (label: string): { w: number; h: number } => ({ w: Math.min(3.4, 0.9 + [...label].length * 0.105), h: 0.62 });
+/** The board is 24 × 15 abstract units; one unit is UNIT_PX pixels at the board's minimum width. */
+export const BOARD = { w: 24, h: 15 } as const;
+export const UNIT_PX = 62;
 
-export const BOARD = { w: 16, h: 10 } as const;
+/** Approximate on-screen footprint of a node in board units: wide labels take more room, CJK characters are wider, hubs are a little bigger. */
+export const nodeBox = (label: string, big = false): { w: number; h: number } => {
+  const px = [...label].reduce((s, c) => s + ((c.codePointAt(0) ?? 0) >= 0x2e80 ? 13 : 7.2), 0);
+  return { w: Math.min(260 / UNIT_PX, (px + (big ? 44 : 30)) / UNIT_PX), h: (big ? 40 : 32) / UNIT_PX };
+};
 
 /**
  * Force-directed layout (Fruchterman–Reingold) followed by a label-collision pass.
  * Returns positions in 0..1 for the node ids, deterministically.
  */
-export function layoutGraph(nodes: { id: string; label: string }[], edges: GEdge[], iterations = 320): Record<string, Pos> {
+export function layoutGraph(nodes: { id: string; label: string; big?: boolean }[], edges: GEdge[], iterations = 320): Record<string, Pos> {
   const n = nodes.length;
   if (n === 0) return {};
   const { w: W, h: H } = BOARD;
@@ -52,7 +57,7 @@ export function layoutGraph(nodes: { id: string; label: string }[], edges: GEdge
     temp = Math.max(0.02, temp * 0.985);
   }
   // collision pass: push label boxes apart along the axis of smaller overlap
-  const boxes = nodes.map((nd) => nodeBox(nd.label));
+  const boxes = nodes.map((nd) => nodeBox(nd.label, nd.big));
   for (let pass = 0; pass < 140; pass++) {
     let moved = false;
     for (let i = 0; i < n; i++) for (let j = i + 1; j < n; j++) {

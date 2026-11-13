@@ -80,6 +80,7 @@ test.describe("command palette (row 25)", () => {
     await page.getByRole("combobox").fill("light");
     await page.getByRole("option", { name: /Theme: Light/ }).click();
     await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
+    await page.waitForLoadState("networkidle"); // the shortcut attaches on hydration
     await page.keyboard.press("Control+k");
     await page.getByRole("combobox").fill("japanese");
     await page.getByRole("option", { name: /Language: 日本語/ }).click();
@@ -115,7 +116,7 @@ test.describe("index menu (also the mobile menu)", () => {
     await page.getByRole("button", { name: "Open the site index" }).click();
     const dialog = page.getByRole("dialog", { name: "Index of the site" });
     await expect(dialog).toBeVisible();
-    await expect(dialog.getByRole("link")).toHaveCount(26);
+    await expect(dialog.getByRole("link")).toHaveCount(22);
     await page.keyboard.press("Escape");
     await expect(dialog).toBeHidden();
     await page.getByRole("button", { name: "Open the site index" }).click();
@@ -127,8 +128,9 @@ test.describe("index menu (also the mobile menu)", () => {
 
 test.describe("terminal (row 26)", () => {
   test("runs the advertised commands, shows errors for unknown ones, never a real shell", async ({ page }) => {
-    await page.goto("/en/terminal");
-    const input = page.getByRole("textbox", { name: /Command/ });
+    await page.goto("/en/classic");
+    await page.keyboard.press("`");
+    const input = page.getByRole("dialog", { name: "Terminal" }).getByRole("textbox", { name: /Command/ });
     const log = page.getByRole("log");
     await input.fill("help"); await input.press("Enter");
     for (const c of ["about", "projects", "skills", "interests", "journal", "garden", "now", "contact", "clear"]) await expect(log).toContainText(c);
@@ -143,8 +145,9 @@ test.describe("terminal (row 26)", () => {
   });
 
   test("history recall with ArrowUp and localized output", async ({ page }) => {
-    await page.goto("/ja/terminal");
-    const input = page.getByRole("textbox", { name: /コマンド/ });
+    await page.goto("/ja/classic");
+    await page.keyboard.press("`");
+    const input = page.getByRole("dialog", { name: "ターミナル" }).getByRole("textbox", { name: /コマンド/ });
     await input.fill("garden"); await input.press("Enter");
     await input.press("ArrowUp");
     await expect(input).toHaveValue("garden");
@@ -303,8 +306,9 @@ test.describe("game-style interaction layer", () => {
     await expect(links.first()).toBeFocused();
     await page.keyboard.press("9");
     await expect(links.nth(8)).toBeFocused();
+    const ninth = await links.nth(8).getAttribute("href");
     await page.keyboard.press("Enter");
-    await expect(page).toHaveURL(/\/en\/library$/);
+    await expect(page).toHaveURL(new RegExp(`${ninth}$`));
   });
 
   test("route wipe plays after a client navigation, never on first load, and never blocks input", async ({ page }) => {

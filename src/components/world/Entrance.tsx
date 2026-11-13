@@ -2,7 +2,6 @@
 
 import { useEffect } from "react";
 import { animate, reducedMotion, spring, stagger } from "@/lib/motion";
-import { Parallax } from "@/components/motion/Parallax";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { LanguageSwitcher } from "@/components/layout/LanguageSwitcher";
@@ -65,8 +64,8 @@ export function Entrance() {
         <p className="enter-rise label mt-6 max-w-[60ch] !normal-case !tracking-normal">{t("hint")}</p>
       </div>
 
-      <Parallax strength={20} className="pointer-events-none absolute bottom-0 right-[4%] z-10 hidden lg:block"><Mascot mood="wave" className="float-a h-[min(58vh,30rem)] w-auto" /></Parallax>
-      <Parallax strength={34} className="pointer-events-none absolute bottom-3 right-[26%] z-10 hidden xl:block"><Neko className="float-b h-24 w-auto" /></Parallax>
+      <Mascot mood="wave" className="float-a pointer-events-none absolute bottom-0 right-[4%] z-10 hidden h-[min(58vh,30rem)] w-auto lg:block" />
+      <Neko className="float-b pointer-events-none absolute bottom-3 right-[26%] z-10 hidden h-24 w-auto xl:block" />
     </section>
   );
 }

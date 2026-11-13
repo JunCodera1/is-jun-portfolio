@@ -6,7 +6,7 @@ import type { LocalizedText } from "@/lib/localized";
  */
 const L = (en: string, ja: string, vi: string): LocalizedText => ({ en, ja: { text: ja, status: "draft" }, vi: { text: vi, status: "draft" } });
 
-export interface LogEntry { id: string; date: string; tag: "site" | "japanese" | "code" | "life" | "anime"; text: LocalizedText }
+export interface LogEntry { visibility?: "public" | "unlisted" | "private"; id: string; date: string; tag: "site" | "japanese" | "code" | "life" | "anime"; text: LocalizedText }
 
 export const log: LogEntry[] = [
   { id: "2026-11-13-news-library", date: "2026-11-13", tag: "site", text: L("Added a nine-source tech news blog and a Library for anime, books and music.", "9つの情報源のテックニュースと、アニメ・本・音楽のライブラリを追加しました。", "Thêm blog tin công nghệ chín nguồn và Thư viện anime, sách, nhạc.") },

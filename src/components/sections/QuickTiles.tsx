@@ -10,7 +10,7 @@ const TILES = [
   { id: "library", href: "/library", glyph: "本" },
   { id: "japanese", href: "/japanese", glyph: "日" },
   { id: "projects", href: "/projects", glyph: "作" },
-  { id: "log", href: "/log", glyph: "記" },
+  { id: "vault", href: "/vault", glyph: "蔵" },
 ] as const;
 
 /** "Where to?" — the six most useful doors, big enough to hit with a thumb. The full index follows below. */

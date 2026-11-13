@@ -1,6 +1,6 @@
-# My Digital World
+# A Place Called Me
 
-An explorable, multilingual (English · 日本語 · Tiếng Việt) personal world: a city with a room, a lab of case files, a Japanese-learning station, an arcade and an archive — plus the original site kept as **Classic** mode (`/classic`).
+A personal digital ecosystem in English · 日本語 · Tiếng Việt: a world to wander, a site to read, a knowledge vault, and open feeds — connected to the open Internet and fully readable without it. See [docs/REDEFINITION.md](docs/REDEFINITION.md) for the product definition, architecture and decisions.
 Next.js 16 (App Router) · React 19 · TypeScript · Tailwind 4 · next-intl · MDX. Original SVG art, no 3D engine, no accounts, no tracking.
 
 > Status: work in progress. See [PROJECT_STATUS.md](PROJECT_STATUS.md) and the generated

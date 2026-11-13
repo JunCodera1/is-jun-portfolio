@@ -10,6 +10,10 @@ export const profile = {
   githubHandle: "JunCodera1",
   /** UNCONFIRMED working name derived from the GitHub handle. Replace with the real display name. */
   displayName: "Jun",
+  /** Set to true once the owner confirms the display name. Until then the open profile publishes `name: null`. */
+  displayNameConfirmed: false,
+  /** Publish /profile.json (only fields already shown on the site). Set to false to switch the endpoint off. */
+  publishProfileJson: true,
   /** Used for the monogram in the header. */
   monogram: "J",
   tagline: {

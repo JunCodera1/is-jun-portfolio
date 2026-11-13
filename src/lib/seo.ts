@@ -21,7 +21,7 @@ export function buildMetadata(opts: {
   return {
     title,
     description,
-    alternates: { canonical: url, languages },
+    alternates: { canonical: url, languages, types: { "application/feed+json": `${base}/${locale}/feed.json`, "application/rss+xml": `${base}/${locale}/feed.xml` } },
     openGraph: {
       type,
       url,

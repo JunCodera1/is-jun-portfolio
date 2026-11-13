@@ -8,7 +8,7 @@ import { applyTheme, type ThemePref } from "@/lib/theme";
 import { normalize, search, type SearchEntry } from "@/lib/search";
 import { SearchIcon, ArrowRight } from "@/components/ui/Icons";
 import { loadSearchIndex } from "@/lib/search-client";
-import { pickSurprise } from "@/lib/surprise";
+import { pickDiscovery } from "@/lib/discover";
 import { OPEN_TERMINAL_EVENT } from "@/components/interactive/TerminalOverlay";
 
 export interface PalettePage { id: string; href: string; label: string; desc?: string }
@@ -113,7 +113,7 @@ export function CommandPalette({ pages, githubUrl }: { pages: PalettePage[]; git
       keywords: ["random", "surprise", "lucky", "ngau nhien", "ランダム"],
       run: async () => {
         close();
-        try { const hit = pickSurprise(await loadSearchIndex(locale), pathname); if (hit) router.push(hit.href); } catch { /* stay */ }
+        try { const hit = pickDiscovery(await loadSearchIndex(locale), pathname); if (hit) router.push(hit.href); } catch { /* stay */ }
       },
     };
     const terminal: Item = { id: "terminal", group: "actions", label: t("palette.terminal"), hint: "`", keywords: ["terminal", "console", "shell", "command"], run: () => { close(); setTimeout(() => window.dispatchEvent(new Event(OPEN_TERMINAL_EVENT)), 60); } };

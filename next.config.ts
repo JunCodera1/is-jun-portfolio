@@ -42,6 +42,14 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   // hide the floating Next.js dev badge ("N · 1 Issue"); errors still show in the terminal and browser console
   devIndicators: false,
+  // Pages that were merged into others keep working: same content, new home (see docs/REDEFINITION.md, section I)
+  async redirects() {
+    const moved: [string, string][] = [["play", "arcade"], ["recruiter", "profile"], ["terminal", "classic"], ["links", "vault/reading"], ["log", "timeline"], ["orbit", "graph"]];
+    return moved.flatMap(([from, to]) => [
+      { source: `/:locale(en|ja|vi)/${from}`, destination: `/:locale/${to}`, permanent: true },
+      { source: `/${from}`, destination: `/${to}`, permanent: true },
+    ]);
+  },
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];
   },

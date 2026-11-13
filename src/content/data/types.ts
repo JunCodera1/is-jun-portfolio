@@ -52,4 +52,6 @@ export interface Project {
   /** Owner-controlled status. Left undefined until confirmed. */
   status?: "in-progress" | "shipped" | "paused" | "archived";
   featured: boolean;
+  /** Omitted = public. */
+  visibility?: "public" | "unlisted" | "private";
 }

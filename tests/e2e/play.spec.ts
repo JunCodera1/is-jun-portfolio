@@ -4,7 +4,7 @@ import { trackConsole } from "./helpers";
 test.describe("mini games (original, keyboard-operable)", () => {
   test("Kana Blitz: lazy-loaded, keys 1–4 answer, score/streak update, ends with a result", async ({ page }) => {
     const c = trackConsole(page);
-    await page.goto("/en/play");
+    await page.goto("/en/arcade");
     expect(await page.locator("script[src]").evaluateAll((s) => s.map((x) => x.getAttribute("src")).join(" "))).not.toContain("KanaBlitz");
     await page.getByRole("button", { name: "Play" }).first().click();
     const game = page.getByRole("group", { name: "Kana Blitz" });
@@ -21,7 +21,7 @@ test.describe("mini games (original, keyboard-operable)", () => {
   });
 
   test("Kana Blitz: a correct answer scores and a wrong one resets the streak", async ({ page }) => {
-    await page.goto("/en/play");
+    await page.goto("/en/arcade");
     await page.getByRole("button", { name: "Play" }).first().click();
     const game = page.getByRole("group", { name: "Kana Blitz" });
     await game.getByRole("button", { name: "Start" }).click();
@@ -38,7 +38,7 @@ test.describe("mini games (original, keyboard-operable)", () => {
   });
 
   test("Kana Match: flipping pairs, mismatches flip back, moves count, reshuffle works", async ({ page }) => {
-    await page.goto("/en/play");
+    await page.goto("/en/arcade");
     await page.getByRole("button", { name: "Play" }).nth(1).click();
     const game = page.getByRole("group", { name: "Kana Match" });
     await expect(game.getByRole("button", { name: /Card \d+, face down/ })).toHaveCount(12);
@@ -53,7 +53,7 @@ test.describe("mini games (original, keyboard-operable)", () => {
   test("games still work when localStorage is blocked", async ({ page }) => {
     await page.addInitScript(() => { Object.defineProperty(window, "localStorage", { get() { throw new Error("blocked"); } }); });
     const c = trackConsole(page);
-    await page.goto("/en/play");
+    await page.goto("/en/arcade");
     await page.getByRole("button", { name: "Play" }).nth(1).click();
     await expect(page.getByRole("group", { name: "Kana Match" })).toBeVisible();
     c.assertClean();

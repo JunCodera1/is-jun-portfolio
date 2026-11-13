@@ -70,7 +70,7 @@ export default async function JapanesePage({ params }: { params: LocaleParams })
         <h2 id="jp-learn" className="text-3xl md:text-5xl">{t("learn.title")}</h2>
         <div className="mt-8 max-w-2xl"><StudyStats /></div>
         <ul className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {([["review", "/japanese/review"], ["kana", "/japanese/kana"], ["grammar", "/japanese/grammar"], ["play", "/play"]] as const).map(([id, href]) => (
+          {([["review", "/japanese/review"], ["kana", "/japanese/kana"], ["grammar", "/japanese/grammar"], ["play", "/arcade"]] as const).map(([id, href]) => (
             <li key={id}>
               <Link href={href} className="btn !flex h-full min-h-40 flex-col !items-start !justify-between !normal-case !tracking-normal">
                 <span><span className="block font-display text-3xl normal-case tracking-tight">{t(`learn.${id}.title`)}</span><span className="mt-2 block font-sans text-sm font-normal text-fg-2">{t(`learn.${id}.desc`)}</span></span>

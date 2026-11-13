@@ -31,7 +31,7 @@ export async function SiteFooter({ locale }: { locale: Locale }) {
           <ul className="space-y-2 text-sm">
             {socialLinks.map((s) => (
               <li key={s.id}>
-                <a href={s.url} target="_blank" rel="noopener noreferrer" className="link inline-flex items-center gap-1.5">
+                <a href={s.url} target="_blank" rel="me noopener noreferrer" className="link inline-flex items-center gap-1.5">
                   {s.label}<ArrowUpRight width={13} height={13} /><span className="sr-only"> ({t("common.opensNewTab")})</span>
                 </a>
               </li>

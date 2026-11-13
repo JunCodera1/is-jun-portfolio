@@ -4,6 +4,7 @@ import path from "node:path";
 import matter from "gray-matter";
 import { z } from "zod";
 import { defaultLocale, locales, type Locale } from "@/i18n/routing";
+import type { Visibility } from "@/lib/knowledge/types";
 import type { TranslationStatus } from "@/lib/localized";
 import { readingMinutes, extractToc, type TocItem } from "@/lib/text";
 
@@ -21,6 +22,8 @@ export const frontmatterSchema = z.object({
   /** Digital-garden maturity (row 16 "trạng thái"). */
   maturity: z.enum(["seedling", "budding", "evergreen"]).optional(),
   related: z.array(z.string()).default([]),
+  /** public = listed everywhere; unlisted = reachable by URL only; private = not built at all. */
+  visibility: z.enum(["public", "unlisted", "private"]).default("public"),
   /** Review state of THIS locale file. English source files are always "translated". */
   translation: z.enum(["translated", "draft"]).default("translated"),
 });
@@ -42,6 +45,7 @@ export interface ContentEntry {
   category?: string;
   maturity?: Frontmatter["maturity"];
   related: string[];
+  visibility: Visibility;
   body: string;
   readingMinutes: number;
   toc: TocItem[];
@@ -77,6 +81,7 @@ export function getEntry(collection: Collection, id: string, locale: Locale): Co
   if (!fs.existsSync(source)) return null;
   const available = locales.filter((l) => fs.existsSync(fileOf(collection, id, l)));
   const base = parseFile(source);
+  if (base.data.visibility === "private") return null; // private entries are not built, linked or fetchable
 
   const hasLocale = available.includes(locale);
   const chosen = hasLocale ? parseFile(fileOf(collection, id, locale)) : base;
@@ -98,6 +103,7 @@ export function getEntry(collection: Collection, id: string, locale: Locale): Co
     category: base.data.category,
     maturity: base.data.maturity,
     related: base.data.related,
+    visibility: base.data.visibility,
     body: chosen.body,
     readingMinutes: readingMinutes(chosen.body, lang),
     toc: extractToc(chosen.body),
@@ -108,7 +114,7 @@ export function getEntry(collection: Collection, id: string, locale: Locale): Co
 export function getEntries(collection: Collection, locale: Locale): ContentEntry[] {
   return listIds(collection)
     .map((id) => getEntry(collection, id, locale))
-    .filter((e): e is ContentEntry => e !== null)
+    .filter((e): e is ContentEntry => e !== null && e.visibility === "public")
     .sort((a, b) => (a.date < b.date ? 1 : -1));
 }
 

@@ -1,7 +1,5 @@
 import { getLocale, getTranslations } from "next-intl/server";
 import { indexEntries } from "@/content/data/navigation";
-import { Float } from "@/components/motion/Float";
-import { RevealArt } from "@/components/motion/RevealArt";
 import { Mascot, Neko } from "@/components/ui/Art";
 import { Spot, type SpotId } from "@/components/ui/Spot";
 
@@ -17,9 +15,8 @@ function headerArt(navId?: string): React.ReactNode {
     case "library": return spot("books");
     case "japanese": return null; // the Japanese hub draws its own art
     case "projects": case "profile": return spot("laptop");
-    case "log": case "timeline": return spot("calendar");
-    case "links": return spot("chain");
-    case "graph": case "orbit": return spot("graph");
+    case "timeline": return spot("calendar");
+    case "graph": return spot("graph");
     case "contact": return spot("envelope");
     case "interests": return <Neko className="h-full w-full" />;
     default: return null;
@@ -38,7 +35,7 @@ export async function PageHeader({
     <header className="relative isolate overflow-hidden border-b-2 border-outline pb-10 pt-14 md:pb-14 md:pt-20">
       {/* decorative screentone corner */}
       <span aria-hidden className="tone absolute -right-6 -top-6 -z-10 h-full w-1/2 opacity-80 [mask-image:linear-gradient(to_bottom_left,#000,transparent_70%)]" />
-      {art && <Float className="pointer-events-none absolute right-0 top-8 -z-0 hidden h-40 w-52 sm:block md:top-10 md:h-60 md:w-80 lg:h-72 lg:w-96"><RevealArt className="h-full w-full">{art}</RevealArt></Float>}
+      {art && <div aria-hidden className="pointer-events-none absolute right-0 top-8 -z-0 hidden h-40 w-52 sm:block md:top-10 md:h-60 md:w-80 lg:h-72 lg:w-96">{art}</div>}
       {banner && <p className="mb-6"><span className="chapter">{banner}</span></p>}
       <h1 className="name-pop relative z-10 text-[clamp(2.75rem,8vw,7rem)] leading-[0.95] tracking-[-0.035em]">{title}</h1>
       {lead && <p className="mt-6 max-w-[46ch] text-lg text-fg-2 md:text-xl">{lead}</p>}

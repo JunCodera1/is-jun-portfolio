@@ -2,7 +2,7 @@
 
 export interface SearchEntry {
   id: string;
-  type: "page" | "project" | "garden" | "journal";
+  type: "page" | "project" | "garden" | "journal" | "vault";
   title: string;
   summary: string;
   tags: string[];
@@ -11,6 +11,8 @@ export interface SearchEntry {
   lang: string;
   /** "draft" | "untranslated" are surfaced next to results. */
   status: "translated" | "draft" | "untranslated";
+  /** Pages this entry is connected to (from the data layer). Used by Discovery to follow meaning rather than dice. */
+  related?: string[];
 }
 
 /**

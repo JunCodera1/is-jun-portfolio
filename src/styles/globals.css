@@ -1131,17 +1131,17 @@ a.card-ink:active { transform: translate(2px, 2px); box-shadow: 3px 3px 0 var(--
 .cursor-ring[data-down] { border-width: 4px; }
 @media print { .cursor-ring, .cursor-dot { display: none; } }
 
-/* ── image reveal: a grey halftone veil with a hole of colour under the pointer ── */
-.reveal-veil {
-  position: absolute;
-  inset: -12px;
-  pointer-events: none;
-  backdrop-filter: grayscale(1) contrast(0.95) brightness(1.02);
-  background-image: radial-gradient(circle at 1.5px 1.5px, color-mix(in srgb, var(--fg) 22%, transparent) 1.2px, transparent 1.6px);
-  background-size: 7px 7px;
-  /* two masks intersected: a hole of colour under the pointer, and a soft fade at the edges so there is no hard box */
-  -webkit-mask-image: radial-gradient(circle var(--rr, 0px) at var(--rx, -999px) var(--ry, -999px), transparent 0, transparent 62%, #000 100%), radial-gradient(ellipse at center, #000 52%, transparent 74%);
-  -webkit-mask-composite: source-in;
-  mask-image: radial-gradient(circle var(--rr, 0px) at var(--rx, -999px) var(--ry, -999px), transparent 0, transparent 62%, #000 100%), radial-gradient(ellipse at center, #000 52%, transparent 74%);
-  mask-composite: intersect;
-}
+/* Vault topic filter: hide entries whose topic is not the active one */
+[data-active-topic="web"] [data-topic]:not([data-topic="web"]),
+[data-active-topic="ai"] [data-topic]:not([data-topic="ai"]),
+[data-active-topic="linux"] [data-topic]:not([data-topic="linux"]),
+[data-active-topic="japanese"] [data-topic]:not([data-topic="japanese"]),
+[data-active-topic="tooling"] [data-topic]:not([data-topic="tooling"]),
+[data-active-topic="design"] [data-topic]:not([data-topic="design"]),
+[data-active-topic="general"] [data-topic]:not([data-topic="general"]) { display: none; }
+
+/* Timeline kind filter */
+[data-active-group="writing"] [data-group]:not([data-group="writing"]),
+[data-active-group="vault"] [data-group]:not([data-group="vault"]),
+[data-active-group="site"] [data-group]:not([data-group="site"]),
+[data-active-group="milestones"] [data-group]:not([data-group="milestones"]) { display: none; }

@@ -38,7 +38,7 @@ export default async function KanaPage({ params }: { params: LocaleParams }) {
   return (
     <div className="page pb-8">
       <PageHeader eyebrow="かな" title={t("title")} lead={t("lead")} />
-      <p className="mt-6"><Link href="/play" className="btn btn-primary">{t("play")}</Link></p>
+      <p className="mt-6"><Link href="/arcade" className="btn btn-primary">{t("play")}</Link></p>
       <div className="mt-12 grid gap-14 lg:grid-cols-2">
         <Table caption={`${t("hiragana")} · ${t("basic")}`} rows={BASIC_ROWS} script="h" empty={t("empty")} />
         <Table caption={`${t("katakana")} · ${t("basic")}`} rows={BASIC_ROWS} script="k" empty={t("empty")} />

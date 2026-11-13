@@ -1,22 +1,21 @@
 # Progress note
 
-**My Digital World** — an explorable personal world (Next.js 16, three languages), with the earlier site kept as the *Classic* mode.
+**A Place Called Me** — an evolving personal digital ecosystem (Next.js 16, three languages), readable without any external service. The redefinition (audit, decisions, architecture, migration, requirements) is in [docs/REDEFINITION.md](docs/REDEFINITION.md).
 
-## Shipped
-* **Entrance → City** (`/`, `/city`): title screen, illustrated city with five places and three hidden things, day/night, arrow-key navigation.
-* **The Hideout** (`/hideout`): a room whose six objects each open real content (projects, collections, latest notes, milestones with sources, day/night window, current board) and hides a card and a cat.
-* **The Lab** (`/lab`): projects as case files with an evidence board (every technology pinned to the file that proves it) + field notes (Linux, AI/ML, Unreal Engine) linking verified repositories, forks labelled as forks.
-* **The Station** (`/station`): train lines N3 → N2 (+ N1 as a closed gate and a conversation branch); seven missions with a tested engine; ≥80% earns a stamp, stored locally.
-* **The Arcade** (`/arcade`): five original games — Kana Blitz, Kana Match, Vocabulary Speedrun, Reaction Time, Typing Sprint.
-* **The Archive** (`/archive`): shelves of spines that open source-labelled cards.
-* **Backstage** (`/backstage`, hidden, noindex): found via the three city secrets or the Konami code.
-* Shared: slanted shutter transition (never delays navigation, off under reduced motion), opt-in synthesized sound (off by default), local exploration tracker, HUD, `M` for the map.
-* Classic site (`/classic`, About, Projects, Journal, Garden, Now, Timeline, Japanese notes, News, Terminal, Search, Recruiter view) is intact.
+## Shape
+* **Wander** — Entrance, City and its five places, Backstage; the knowledge graph; the Discovery Engine.
+* **Read** — About, Now, Interests, Garden, Journal, Projects, Profile, the Knowledge Vault, the unified Timeline.
+* **Japanese** — hub, kana, grammar, review cards, Station missions, Arcade.
+* **Outside** — tech news, library and playlists.
+* **Connect** — JSON Feed, RSS, open profile JSON, the Observatory.
 
-## Facts that came from the owner (editable in `src/content/data/*`)
-IT student; software development, AI/ML, Linux; JLPT N3 passed, N2 in progress, N1 longer-term; Hunter × Hunter, Hisoka. Dates were not given, so none are shown. Real-life milestones, exploration discoveries, Station stamps and game scores are four separate things and are labelled as such.
+## Architecture in one paragraph
+Identity Core (`content/data/profile.ts` and friends) → Integration Layer (`lib/*-feed.ts`, each with timeout, hostile-input parsing and graceful failure) → **Unified Data Layer** (`lib/knowledge`: `Item` + `Edge`, provenance, visibility) → Knowledge Graph and Intelligence (rule-based discovery, suggestions, translation coverage) → Experience Layer (world and classic pages, palette, terminal, feeds).
 
-## Next ideas (not started)
-Listening exercises (needs audio), reading comprehension, more N2/N1 material, owner-confirmed music/books for the Library "Mine" block, per-place ambient soundscapes, an in-world "journal" quest line.
+## Facts that came from the owner
+IT student; software development, AI/ML, Linux; JLPT N3 passed, N2 in progress, N1 longer-term; Hunter × Hunter, Hisoka. No dates were given, so none are shown. The display name "Jun" is a working name: `profile.json` publishes `name: null` until it is confirmed.
 
-Requirements matrix: `docs/REQUIREMENTS_TRACEABILITY.md` (generated). Open owner items: `CONTENT_NEEDED.md`.
+## Open
+Owner content (see CONTENT_NEEDED.md), native review of ja/vi drafts, credentials rotation in a public repository, `NEXT_PUBLIC_SITE_URL` before any deploy. Nothing has been deployed.
+
+Requirements matrix: `docs/REQUIREMENTS_TRACEABILITY.md` (generated, covers the original spreadsheet). Revised requirements: REDEFINITION.md §J.

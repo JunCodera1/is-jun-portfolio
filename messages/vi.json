@@ -1,6 +1,6 @@
 {
   "meta": {
-    "siteName": "My Digital World",
+    "siteName": "A Place Called Me",
     "description": "Một thế giới cá nhân để khám phá: căn phòng, thí nghiệm, lộ trình học tiếng Nhật, trò chơi nhỏ và bí mật, bằng tiếng Anh, Nhật và Việt."
   },
   "nav": {
@@ -14,7 +14,6 @@
     "projects": "Dự án",
     "profile": "Chuyên môn",
     "contact": "Liên hệ",
-    "terminal": "Terminal",
     "search": "Tìm kiếm",
     "primaryLabel": "Menu chính",
     "menu": "Mục lục",
@@ -30,10 +29,8 @@
       "projects": "Các sản phẩm tiêu biểu, kèm bằng chứng.",
       "profile": "Kỹ năng và công nghệ, gắn với dự án thực tế.",
       "contact": "Cách để liên lạc.",
-      "recruiter": "Bản tóm tắt gọn, dễ in.",
       "japanese": "Hành trình học và một kho kiến thức nhỏ.",
       "news": "Tin công nghệ từ chín nguồn trên thế giới.",
-      "play": "Những trò chơi nhỏ, hoàn toàn nguyên bản.",
       "kana": "Bảng hiragana và katakana.",
       "grammar": "Trợ từ, động từ và các câu thông dụng.",
       "city": "Trung tâm của thế giới.",
@@ -43,17 +40,14 @@
       "arcade": "Các trò chơi nhỏ nguyên bản.",
       "archive": "Bộ sưu tập cá nhân.",
       "library": "Anime, sách và nhạc từ nguồn công khai.",
-      "log": "Ghi chú ngắn có ngày, mới nhất trước.",
-      "links": "Những liên kết đáng giữ lại.",
       "review": "Thẻ ghi nhớ quay lại ngay trước khi bạn quên.",
       "graph": "Những thứ tôi dùng và học kết nối với nhau thế nào.",
-      "orbit": "Trang web như các hành tinh bạn có thể ghé thăm."
+      "vault": "Khái niệm, nghiên cứu, lỗi, quyết định, ý tưởng và từ điển.",
+      "observatory": "Tình trạng của các nguồn, ngôn ngữ và kết nối của trang."
     },
-    "recruiter": "Bản xem cho nhà tuyển dụng",
     "menuHint": "↑ ↓ chọn · 1–9 nhảy tới chương · Enter mở · Esc quay lại",
     "japanese": "Tiếng Nhật",
     "news": "Tin công nghệ",
-    "play": "Chơi",
     "kana": "Kana",
     "grammar": "Ngữ pháp",
     "city": "Thành phố",
@@ -63,11 +57,19 @@
     "arcade": "Tiệm game",
     "archive": "Kho lưu trữ",
     "library": "Thư viện",
-    "log": "Nhật ký ngắn",
-    "links": "Liên kết",
     "review": "Thẻ ôn tập",
     "graph": "Đồ thị kiến thức",
-    "orbit": "Hệ mặt trời"
+    "vault": "Kho kiến thức",
+    "vaultConcepts": "Giải thích khái niệm",
+    "vaultResearch": "Ghi chú nghiên cứu",
+    "vaultMistakes": "Kho lỗi đã gặp",
+    "vaultDecisions": "Nhật ký quyết định",
+    "vaultIdeas": "Ươm ý tưởng",
+    "vaultGlossary": "Từ điển cá nhân",
+    "vaultReading": "Tiến độ đọc",
+    "vaultLearning": "Theo dõi học tập",
+    "vaultRoadmap": "Lộ trình học",
+    "observatory": "Đài quan sát"
   },
   "common": {
     "skip": "Bỏ qua, đến nội dung chính",
@@ -266,14 +268,43 @@
   },
   "timeline": {
     "title": "Dòng thời gian",
-    "lead": "Các cột mốc có thể kiểm chứng. Những cột mốc cá nhân sẽ xuất hiện khi chủ trang bổ sung.",
+    "lead": "Mọi thứ có ngày thật, gom về một chỗ: ghi chú, mục trong kho, thay đổi của trang và các cột mốc.",
     "sourceGithub": "Từ GitHub",
     "sourceOwner": "Từ chủ trang",
     "accountCreated": "Tạo tài khoản GitHub",
     "firstRepo": "Repository công khai đầu tiên bằng {language}: {repo}",
     "ownerSlotTitle": "Cột mốc cá nhân",
     "ownerSlot": "Các cột mốc về học tập, công việc và cuộc sống do chủ trang bổ sung. Hiện chưa có mục nào được xác nhận.",
-    "derivedNote": "Suy ra từ ngày tạo repository trong ảnh chụp dữ liệu GitHub ngày {date}. Ngày tạo repository là lúc đăng lên, không phải lúc học được kỹ năng đó."
+    "derivedNote": "Suy ra từ ngày tạo repository trong ảnh chụp dữ liệu GitHub ngày {date}. Ngày tạo repository là lúc đăng lên, không phải lúc học được kỹ năng đó.",
+    "all": "Tất cả",
+    "filter": "Hiển thị",
+    "groups": {
+      "writing": "Ghi chú & bài viết",
+      "vault": "Kho kiến thức",
+      "site": "Nhật ký trang",
+      "milestones": "Cột mốc"
+    },
+    "kinds": {
+      "note": "Ghi chú",
+      "post": "Bài viết",
+      "decision": "Quyết định",
+      "mistake": "Lỗi",
+      "research": "Nghiên cứu",
+      "idea": "Ý tưởng",
+      "log": "Nhật ký trang",
+      "event": "Cột mốc",
+      "project": "Dự án",
+      "concept": "Khái niệm",
+      "path": "Bước học"
+    },
+    "source": {
+      "owner": "Chủ trang",
+      "site": "Trang này",
+      "github": "GitHub",
+      "public": "Tài liệu công khai"
+    },
+    "newTab": "mở trong tab mới",
+    "derivedNote2": "Dựng từ cùng dữ liệu với tìm kiếm, đồ thị và các feed. Mục không có ngày thật sẽ không xuất hiện ở đây; ngày của cột mốc đến từ chủ trang hoặc bản chụp GitHub đã lưu."
   },
   "projects": {
     "title": "Dự án",
@@ -354,7 +385,7 @@
       "activity": "Hoạt động"
     },
     "present": "hiện tại",
-    "recruiterLink": "Bản xem gọn dành cho nhà tuyển dụng"
+    "print": "In hoặc lưu thành PDF"
   },
   "search": {
     "title": "Tìm kiếm",
@@ -368,7 +399,8 @@
       "page": "Trang",
       "project": "Dự án",
       "garden": "Ghi chú",
-      "journal": "Bài viết"
+      "journal": "Bài viết",
+      "vault": "Kho"
     },
     "loadError": "Không thể tải chỉ mục tìm kiếm."
   },
@@ -391,7 +423,6 @@
   },
   "terminal": {
     "title": "Terminal",
-    "lead": "Chỉ là mô phỏng. Nó chỉ đọc nội dung của chính trang này và không bao giờ chạy lệnh thật.",
     "welcome": "Chào mừng. Gõ help để xem các lệnh có sẵn.",
     "inputLabel": "Lệnh",
     "outputLabel": "Kết quả của terminal",
@@ -427,10 +458,9 @@
       "go": "cách dùng: go city|hideout|lab|station|arcade|archive|home|news|library|graph|log|links|japanese|projects|about|garden|journal|now|contact"
     },
     "hiddenHint": "Có vài lệnh không được liệt kê ở đây. Thử vận may xem.",
-    "shortcut": "Mẹo: nhấn ` (backtick) ở bất kỳ trang nào để mở terminal này.",
     "overlayTitle": "visitor@space — nhấn Esc để đóng",
     "open": "Mở terminal",
-    "whoami": "visitor — một vị khách trong My Digital World.",
+    "whoami": "visitor — một vị khách trong A Place Called Me.",
     "sudo": "Nice try. Ở đây không cần quyền root.",
     "hisoka": "Một lá bài trượt qua mặt bàn. Bạn không thấy nó từ đâu tới.",
     "konami": "Nhớ cái này từ bàn phím không? Thử nó trên bản đồ thành phố.",
@@ -449,16 +479,6 @@
     "rights": "© {year} {name}",
     "sitemap": "Sơ đồ trang",
     "elsewhere": "Những nơi khác"
-  },
-  "recruiter": {
-    "title": "Bản xem cho nhà tuyển dụng",
-    "lead": "Bản tóm tắt gọn, dựng từ cùng dữ liệu đã kiểm chứng như phần còn lại của trang. Trải nghiệm chính vẫn là trang web đầy đủ.",
-    "print": "In hoặc lưu thành PDF",
-    "projects": "Dự án tiêu biểu",
-    "skills": "Công nghệ, kèm dự án chứng minh",
-    "career": "Học vấn & kinh nghiệm",
-    "links": "Liên kết",
-    "verifiedNote": "Mọi công nghệ bên dưới đều được ít nhất một dự án trong danh sách sử dụng; bằng chứng nằm ở trang từng dự án."
   },
   "japanese": {
     "title": "Tiếng Nhật",
@@ -684,9 +704,9 @@
   },
   "entrance": {
     "kicker": "Một thế giới nhỏ thuộc về một người",
-    "w1": "Thế giới",
-    "w2": "Số",
-    "w3": "Của tôi",
+    "w1": "Nơi",
+    "w2": "mang tên",
+    "w3": "Tôi",
     "lead": "Đi dạo qua một thành phố của những căn phòng, thí nghiệm, trò chơi và bí mật. Ở đây không có gì là khuôn mẫu.",
     "start": "Bước vào thế giới",
     "press": "Nhấn Enter",
@@ -1054,21 +1074,7 @@
     "more": "Luyện thêm ở Nhà ga →",
     "review": "Ôn bằng flashcard →"
   },
-  "log": {
-    "title": "Nhật ký ngắn",
-    "lead": "Những ghi chú nhỏ có ngày: điều đã xảy ra, điều đã học, điều đã đổi.",
-    "how": "Để thêm một dòng, sửa src/content/data/log.ts.",
-    "tags": {
-      "site": "trang web",
-      "japanese": "tiếng Nhật",
-      "code": "code",
-      "life": "đời sống",
-      "anime": "anime"
-    }
-  },
   "links": {
-    "title": "Liên kết",
-    "lead": "Các trang tham khảo và dấu trang đáng quay lại.",
     "note": "Đây là các trang tham khảo công khai, không phải nhận định về thói quen của chủ trang. Link mở trong tab mới.",
     "opensNewTab": "mở trong tab mới",
     "groups": {
@@ -1110,14 +1116,16 @@
   },
   "graph": {
     "title": "Đồ thị kiến thức",
-    "lead": "Cách dự án, công nghệ, ghi chú và lộ trình học kết nối với nhau. Bấm vào một nút để đọc và đi theo các liên kết.",
-    "note": "Mọi liên kết đều có thật: dự án chỉ nối với công nghệ khi repository chứng minh được (bằng chứng hiện trong bảng), còn ghi chú nối với nhau qua trường \"related\".",
+    "lead": "Một bản đồ của mọi thứ trên trang này: dự án, công nghệ, ghi chú, mục trong kho, lộ trình học và chủ đề. Bấm vào một nút để đọc và đi theo các liên kết.",
+    "note": "Mọi liên kết đều có thật và kèm bằng chứng: dự án chỉ nối với công nghệ khi repository chứng minh được, ghi chú nối với nhau qua \"related\", và quyết định bị thay thế sẽ trỏ tới quyết định thay thế nó.",
     "filter": "Hiển thị",
     "kinds": {
       "path": "Lộ trình học",
       "note": "Ghi chú",
       "project": "Dự án",
-      "tech": "Công nghệ"
+      "tech": "Công nghệ",
+      "vault": "Mục trong kho",
+      "topic": "Chủ đề"
     },
     "jumpToList": "Xem dạng danh sách",
     "pick": "Chọn một nút trên bản đồ để xem nó là gì và nối với những gì.",
@@ -1126,7 +1134,9 @@
       "path": "Mở trang",
       "note": "Mở ghi chú",
       "project": "Mở case study",
-      "tech": "Xem hồ sơ kỹ thuật"
+      "tech": "Xem hồ sơ kỹ thuật",
+      "vault": "Mở mục này",
+      "topic": "Tìm theo chủ đề"
     },
     "listTitle": "Cùng đồ thị này dạng danh sách",
     "listLead": "Từng mục và những mục nó nối tới.",
@@ -1137,21 +1147,235 @@
       "mobile": "Di động",
       "data": "Dữ liệu và AI",
       "tooling": "Công cụ"
-    }
+    },
+    "find": "Tìm một nút",
+    "findPlaceholder": "Gõ tên…",
+    "findResults": "Các nút khớp",
+    "provenance": "Nguồn"
   },
   "gallery": {
     "prev": "Trước",
     "next": "Sau",
     "open": "Mở case study"
   },
-  "orbit": {
-    "title": "Hệ mặt trời",
-    "lead": "Trang web như một hệ mặt trời nhỏ. Mỗi hành tinh là một phần của nó — bấm vào để xem đó là gì.",
-    "sun": "Trang chủ",
-    "sunDesc": "Trang chủ bản Classic.",
-    "planet": "Hành tinh",
-    "pick": "Chọn một hành tinh. Khi rê chuột trên bản đồ, quỹ đạo sẽ tạm dừng.",
-    "visit": "Đến {name}",
-    "list": "Tất cả hành tinh"
+  "vault": {
+    "title": "Kho kiến thức",
+    "lead": "Nơi lưu những gì đã học, đã quyết định và đã làm sai, sắp xếp theo loại và theo chủ đề.",
+    "note": "Các mục ở đây đến từ những gì thật sự đã xảy ra khi xây trang này, hoặc từ điều chủ trang đã cho biết. Các mô-đun còn trống đang chờ nội dung của chính chủ trang.",
+    "tabsLabel": "Các phần của kho",
+    "hub": "Tổng quan",
+    "empty": "Trống — đang chờ nội dung",
+    "count": "{n} mục",
+    "latest": "Mục mới nhất",
+    "allTopics": "Tất cả chủ đề",
+    "filterTopic": "Lọc theo chủ đề",
+    "newTab": "mở trong tab mới",
+    "topics": {
+      "web": "Web",
+      "ai": "AI & ML",
+      "linux": "Linux",
+      "japanese": "Tiếng Nhật",
+      "tooling": "Công cụ",
+      "design": "Thiết kế",
+      "general": "Chung"
+    },
+    "status": {
+      "active": "Đang áp dụng",
+      "superseded": "Đã bị thay thế",
+      "doing": "Đang làm",
+      "paused": "Tạm dừng",
+      "done": "Xong",
+      "planned": "Dự định"
+    },
+    "fields": {
+      "context": "Bối cảnh",
+      "decision": "Quyết định",
+      "why": "Lý do",
+      "cost": "Cái giá",
+      "happened": "Đã xảy ra gì",
+      "cause": "Nguyên nhân",
+      "fix": "Cách sửa",
+      "lesson": "Bài học",
+      "question": "Câu hỏi",
+      "findings": "Đã tìm thấy",
+      "sources": "Nguồn",
+      "next": "Bước tiếp",
+      "goal": "Mục tiêu",
+      "log": "Nhật ký học"
+    },
+    "supersededBy": "Được thay bằng:",
+    "checked": "Kiểm tra ngày {date}",
+    "mistakesNote": "Những lỗi thật đã gặp khi xây trang này. Bạn có thể thêm lỗi của mình theo cùng cách trong src/content/data/vault/mistakes.ts.",
+    "researchNote": "Mỗi phát hiện đều được kiểm tra vào ngày ghi; nguồn nằm dưới mỗi ghi chú.",
+    "ideasNote": "Các ý tưởng cho trang này, từ lúc nảy ra đến khi hoàn thành. Thêm ý tưởng dự án của bạn trong src/content/data/vault/ideas.ts.",
+    "noIdeas": "Chưa có gì.",
+    "stages": {
+      "spark": "Mới nảy ra",
+      "exploring": "Đang tìm hiểu",
+      "building": "Đang làm",
+      "shipped": "Đã ra mắt",
+      "parked": "Tạm gác"
+    },
+    "glossarySearch": "Tìm trong từ điển",
+    "glossaryPlaceholder": "Bằng ngôn ngữ nào cũng được: hydration, ハイドレーション, trợ từ…",
+    "glossaryCount": "{n} thuật ngữ",
+    "glossaryNone": "Không có thuật ngữ phù hợp.",
+    "readingEmptyTitle": "Chưa có danh sách đọc",
+    "readingEmpty": "Chưa có gì được thêm. Thêm sách, bài viết, tài liệu cùng tiến độ trong src/content/data/vault/reading.ts; chúng sẽ hiện ở đây, nhóm theo trạng thái.",
+    "readingStatus": {
+      "reading": "Đang đọc",
+      "queued": "Sắp đọc",
+      "done": "Đã đọc xong"
+    },
+    "readingKind": {
+      "book": "Sách",
+      "article": "Bài viết",
+      "doc": "Tài liệu",
+      "paper": "Bài báo khoa học"
+    },
+    "unit": {
+      "pages": "trang",
+      "chapters": "chương",
+      "minutes": "phút"
+    },
+    "startedOn": "bắt đầu {date}",
+    "logEmpty": "Chưa có nhật ký học. Thêm các dòng có ngày trong src/content/data/vault/learning.ts.",
+    "learningAdd": "Để theo dõi thêm một công nghệ hay kỹ năng, thêm một mục trong src/content/data/vault/learning.ts.",
+    "roadmapAdd": "Thêm lộ trình hoặc cột mốc trong src/content/data/vault/roadmap.ts. Ngày chỉ hiện khi bạn cung cấp.",
+    "readConcept": "Đọc phần giải thích →",
+    "relatedTerms": "Thuật ngữ liên quan",
+    "modules": {
+      "concepts": {
+        "name": "Giải thích khái niệm",
+        "desc": "Ý tưởng kỹ thuật được giải thích bằng sơ đồ và ví dụ.",
+        "lead": "Ý tưởng kỹ thuật được giải thích bằng sơ đồ và ví dụ cụ thể."
+      },
+      "research": {
+        "name": "Ghi chú nghiên cứu",
+        "desc": "Câu hỏi, phát hiện, kết luận và nguồn.",
+        "lead": "Một câu hỏi, điều tìm thấy, kết luận và nguồn tham khảo."
+      },
+      "mistakes": {
+        "name": "Kho lỗi đã gặp",
+        "desc": "Điều gì đã sai, vì sao, và bài học.",
+        "lead": "Điều gì đã sai, vì sao xảy ra và nên làm khác đi thế nào."
+      },
+      "decisions": {
+        "name": "Nhật ký quyết định",
+        "desc": "Lý do đằng sau các quyết định kỹ thuật.",
+        "lead": "Đã quyết định gì, vì sao, và phải trả giá gì."
+      },
+      "ideas": {
+        "name": "Ươm ý tưởng",
+        "desc": "Ý tưởng từ lúc nảy ra đến khi hoàn thành.",
+        "lead": "Ý tưởng từ lúc nảy ra đến khi ra mắt."
+      },
+      "glossary": {
+        "name": "Từ điển cá nhân",
+        "desc": "Thuật ngữ bằng tiếng Anh, Nhật và Việt.",
+        "lead": "Thuật ngữ bằng tiếng Anh, Nhật và Việt, tìm được bằng bất kỳ ngôn ngữ nào."
+      },
+      "reading": {
+        "name": "Tiến độ đọc",
+        "desc": "Sách, bài viết, tài liệu đang đọc.",
+        "lead": "Sách, bài viết, tài liệu kèm tiến độ, và các trang tham khảo đáng quay lại."
+      },
+      "learning": {
+        "name": "Theo dõi học tập",
+        "desc": "Theo dõi tiến trình của từng kỹ năng.",
+        "lead": "Theo dõi từng công nghệ hoặc kỹ năng một."
+      },
+      "roadmap": {
+        "name": "Lộ trình học",
+        "desc": "Các chặng và cột mốc đã đạt.",
+        "lead": "Các chặng, cột mốc và vị trí hiện tại của từng chặng."
+      }
+    },
+    "learning": {
+      "localTitle": "Đã ghi nhận trong trình duyệt này",
+      "learned": "Thẻ đã thuộc",
+      "due": "Thẻ đến hạn",
+      "stamps": "Nhiệm vụ đã đóng dấu",
+      "streak": "Chuỗi ngày học",
+      "days": "{n} ngày",
+      "localNote": "Chỉ trên thiết bị này, không phải kết quả đã được xác minh.",
+      "review": "Thẻ ôn tập"
+    },
+    "diagram": {
+      "leitner": {
+        "aria": "Năm hộp Leitner. Trả lời đúng thì thẻ lên hộp kế tiếp; sai thì về hộp 1.",
+        "box": "Hộp {n}",
+        "wait": "{n} ngày",
+        "miss": "sai → về hộp 1",
+        "right": "Tôi nhớ",
+        "wrong": "Tôi quên",
+        "reset": "Đặt lại",
+        "start": "Thẻ mới bắt đầu ở hộp 1. Hãy trả lời để di chuyển nó.",
+        "state": "Đang ở hộp {box}. Sẽ quay lại sau {wait} ngày (ngày {due})."
+      },
+      "csp": {
+        "aria": "Một trang có chính sách. Script của chính trang và ảnh từ host trong danh sách được phép; script lạ từ bên thứ ba bị chặn.",
+        "page": "Trang của bạn",
+        "policy": "có chính sách",
+        "self": "script từ cùng trang",
+        "allowed": "ảnh từ host trong danh sách",
+        "unknown": "script từ host lạ"
+      },
+      "isr": {
+        "aria": "Dựng một lần, phục vụ ngay, rồi dựng lại ngầm sau một khoảng thời gian và phục vụ bản mới.",
+        "build": "Dựng",
+        "buildSub": "HTML sẵn sàng",
+        "serve": "Phục vụ",
+        "serveSub": "ngay lập tức",
+        "regen": "Dựng lại",
+        "regenSub": "chạy ngầm",
+        "loop": "khi hết thời gian chờ"
+      },
+      "layout": {
+        "aria": "Một đồ thị nhỏ. Mỗi nút đẩy các nút khác ra; mỗi liên kết kéo hai đầu lại gần.",
+        "push": "các nút đẩy nhau",
+        "pull": "liên kết kéo lại"
+      }
+    },
+    "referencesTitle": "Tài liệu tham khảo"
+  },
+  "observatory": {
+    "title": "Đài quan sát",
+    "lead": "Nơi này đang ra sao: nguồn kết nối nào đang phản hồi, mỗi ngôn ngữ hoàn thiện tới đâu, và đồ thị kiến thức còn khoảng trống ở đâu.",
+    "sources": "Các nguồn kết nối",
+    "sourcesSummary": "{up}/{total} nguồn đang phản hồi.",
+    "sourcesNote": "Nguồn nào cũng là tùy chọn: khi một nguồn tạm ngừng, phần của nó chỉ đơn giản là trống.",
+    "live": "trực tiếp, lưu đệm tối đa 1 giờ",
+    "snapshot": "bản chụp đã lưu ngày {date}",
+    "cache": "làm mới khoảng {n} phút một lần",
+    "ok": "Sẵn sàng",
+    "down": "Hiện không phản hồi",
+    "content": "Có gì ở đây",
+    "contentNote": "{n} mục có nội dung thật (không tính công nghệ và chủ đề).",
+    "languages": "Mức hoàn thiện theo ngôn ngữ",
+    "languagesNote": "Đã dịch = đã được duyệt. Bản nháp = đã viết nhưng chưa được người bản ngữ duyệt. Thiếu = hiện bằng tiếng Anh kèm thẻ.",
+    "lang": {
+      "en": "English",
+      "ja": "日本語",
+      "vi": "Tiếng Việt"
+    },
+    "coverage": "{a} đã dịch · {b} nháp · {c} thiếu",
+    "coverageAria": "{a} đã dịch, {b} nháp, {c} thiếu",
+    "todoTitle": "Nên dịch tiếp",
+    "status": {
+      "translated": "đã dịch",
+      "draft": "bản nháp",
+      "untranslated": "chỉ tiếng Anh"
+    },
+    "graph": "Kết nối",
+    "hubs": "Nhiều kết nối nhất",
+    "orphans": "Chưa nối với gì",
+    "noOrphans": "Mọi mục đều đã có kết nối.",
+    "suggestions": "Kết nối có thể có",
+    "noSuggestions": "Hiện chưa có gợi ý.",
+    "shared": "chung",
+    "suggestNote": "Chỉ là gợi ý; không có gì được ghi lại. Để chấp nhận, thêm liên kết related trong file dữ liệu hoặc ghi chú.",
+    "open": "Dữ liệu mở",
+    "openNote": "Mọi thứ công khai đều có thể lấy dưới dạng dữ liệu thuần. Không có gì riêng tư được đưa vào."
   }
 }

@@ -1,6 +1,6 @@
 {
   "meta": {
-    "siteName": "My Digital World",
+    "siteName": "A Place Called Me",
     "description": "探検できる個人の世界。部屋、実験、日本語学習のルート、ミニゲーム、秘密を、日本語・英語・ベトナム語で。"
   },
   "nav": {
@@ -14,7 +14,6 @@
     "projects": "プロジェクト",
     "profile": "技術",
     "contact": "連絡先",
-    "terminal": "ターミナル",
     "search": "検索",
     "primaryLabel": "メインメニュー",
     "menu": "目次",
@@ -30,10 +29,8 @@
       "projects": "根拠つきで紹介する主な制作物。",
       "profile": "プロジェクトに裏づけられた技術一覧。",
       "contact": "連絡の取り方。",
-      "recruiter": "コンパクトで印刷しやすい要約。",
       "japanese": "学習の記録と、ちょっとした知識ノート。",
       "news": "世界9つの情報源からのテックニュース。",
-      "play": "オリジナルの小さなゲーム。",
       "kana": "ひらがなとカタカナの表。",
       "grammar": "助詞、動詞、よく使うフレーズ。",
       "city": "この世界の中心。",
@@ -43,17 +40,14 @@
       "arcade": "オリジナルのミニゲーム。",
       "archive": "好きなものの棚。",
       "library": "公開情報から集めたアニメ・本・音楽。",
-      "log": "日付つきの短いメモ（新しい順）。",
-      "links": "取っておきたいブックマーク。",
       "review": "忘れる前に戻ってくるフラッシュカード。",
       "graph": "使っているもの・学んでいるもののつながり。",
-      "orbit": "サイトを惑星として巡ります。"
+      "vault": "概念、調査、失敗、決定、アイデア、用語集。",
+      "observatory": "サイトの情報源・言語・つながりの状態。"
     },
-    "recruiter": "採用担当者向け表示",
     "menuHint": "↑ ↓ 選択・1〜9 で話数へ移動・Enter で開く・Esc で戻る",
     "japanese": "日本語",
     "news": "テックニュース",
-    "play": "あそぶ",
     "kana": "かな",
     "grammar": "文法",
     "city": "街",
@@ -63,11 +57,19 @@
     "arcade": "ゲームセンター",
     "archive": "アーカイブ",
     "library": "ライブラリ",
-    "log": "ログ",
-    "links": "リンク集",
     "review": "復習カード",
     "graph": "ナレッジグラフ",
-    "orbit": "太陽系"
+    "vault": "ナレッジ・ボルト",
+    "vaultConcepts": "概念の解説",
+    "vaultResearch": "リサーチノート",
+    "vaultMistakes": "失敗の記録",
+    "vaultDecisions": "決定ジャーナル",
+    "vaultIdeas": "アイデア・インキュベーター",
+    "vaultGlossary": "マイ用語集",
+    "vaultReading": "読書の進捗",
+    "vaultLearning": "学習トラッカー",
+    "vaultRoadmap": "学習ロードマップ",
+    "observatory": "観測所"
   },
   "common": {
     "skip": "本文へ移動",
@@ -266,14 +268,43 @@
   },
   "timeline": {
     "title": "年表",
-    "lead": "裏づけの取れるできごとの記録です。個人的な節目は、持ち主が追加でき次第掲載します。",
+    "lead": "実際の日付があるものすべてをひとつに：ノート、ボルトの記録、サイトの変更、マイルストーン。",
     "sourceGithub": "GitHub より",
     "sourceOwner": "持ち主より",
     "accountCreated": "GitHub アカウントを作成",
     "firstRepo": "{language}での最初の公開リポジトリ：{repo}",
     "ownerSlotTitle": "個人的な節目",
     "ownerSlot": "学業・仕事・暮らしの節目は持ち主が追加します。確認済みのものはまだありません。",
-    "derivedNote": "{date}時点の GitHub スナップショットにあるリポジトリ作成日から導いています。作成日は公開した日であり、技術を習得した日ではありません。"
+    "derivedNote": "{date}時点の GitHub スナップショットにあるリポジトリ作成日から導いています。作成日は公開した日であり、技術を習得した日ではありません。",
+    "all": "すべて",
+    "filter": "表示",
+    "groups": {
+      "writing": "ノートと投稿",
+      "vault": "ボルト",
+      "site": "サイトのログ",
+      "milestones": "マイルストーン"
+    },
+    "kinds": {
+      "note": "ノート",
+      "post": "投稿",
+      "decision": "決定",
+      "mistake": "失敗",
+      "research": "調査",
+      "idea": "アイデア",
+      "log": "サイトのログ",
+      "event": "マイルストーン",
+      "project": "プロジェクト",
+      "concept": "概念",
+      "path": "学習ステップ"
+    },
+    "source": {
+      "owner": "持ち主",
+      "site": "このサイト",
+      "github": "GitHub",
+      "public": "公開されている参考資料"
+    },
+    "newTab": "新しいタブで開きます",
+    "derivedNote2": "検索、グラフ、フィードと同じデータから作っています。実際の日付がないものは載せません。マイルストーンの日付は持ち主の申告か、保存済みの GitHub スナップショットによるものです。"
   },
   "projects": {
     "title": "プロジェクト",
@@ -354,7 +385,7 @@
       "activity": "活動"
     },
     "present": "現在",
-    "recruiterLink": "採用担当者向けの簡易表示"
+    "print": "印刷またはPDFで保存"
   },
   "search": {
     "title": "検索",
@@ -368,7 +399,8 @@
       "page": "ページ",
       "project": "プロジェクト",
       "garden": "ノート",
-      "journal": "記事"
+      "journal": "記事",
+      "vault": "ボルト"
     },
     "loadError": "検索インデックスを読み込めませんでした。"
   },
@@ -391,7 +423,6 @@
   },
   "terminal": {
     "title": "ターミナル",
-    "lead": "シミュレーションです。サイト自身の内容を読むだけで、実際のコマンドは実行しません。",
     "welcome": "ようこそ。help と入力すると使えるコマンドを表示します。",
     "inputLabel": "コマンド",
     "outputLabel": "ターミナルの出力",
@@ -427,10 +458,9 @@
       "go": "使い方：go city|hideout|lab|station|arcade|archive|home|news|library|graph|log|links|japanese|projects|about|garden|journal|now|contact"
     },
     "hiddenHint": "ここに載っていないコマンドもあります。試してみて。",
-    "shortcut": "ヒント：どのページでも ` （バッククォート）でこのターミナルが開きます。",
     "overlayTitle": "visitor@space — Esc で閉じる",
     "open": "ターミナルを開く",
-    "whoami": "visitor — My Digital World のゲスト。",
+    "whoami": "visitor — A Place Called Me のゲスト。",
     "sudo": "残念。ここに root は要りません。",
     "hisoka": "テーブルの上をカードが滑ってくる。どこから来たのかは見えなかった。",
     "konami": "キーボードで覚えがある？ 街のマップで試してみて。",
@@ -449,16 +479,6 @@
     "rights": "© {year} {name}",
     "sitemap": "サイトマップ",
     "elsewhere": "ほかの場所"
-  },
-  "recruiter": {
-    "title": "採用担当者向け表示",
-    "lead": "サイトのほかのページと同じ、確認済みのデータから作った簡易版です。主役はあくまでサイト本体です。",
-    "print": "印刷またはPDFで保存",
-    "projects": "主なプロジェクト",
-    "skills": "プロジェクトに裏づけられた技術",
-    "career": "学歴・経験",
-    "links": "リンク",
-    "verifiedNote": "以下の技術は、一覧のいずれかのプロジェクトで実際に使われています。根拠は各プロジェクトのページにあります。"
   },
   "japanese": {
     "title": "日本語",
@@ -684,9 +704,9 @@
   },
   "entrance": {
     "kicker": "ひとりのための、小さな世界",
-    "w1": "マイ",
-    "w2": "デジタル",
-    "w3": "ワールド",
+    "w1": "「わたし」",
+    "w2": "という",
+    "w3": "場所",
     "lead": "部屋、実験、ゲーム、秘密がつまった街を歩いてみてください。テンプレートはひとつもありません。",
     "start": "世界に入る",
     "press": "Enter キーを押す",
@@ -1054,21 +1074,7 @@
     "more": "駅でもっと練習 →",
     "review": "フラッシュカードで復習 →"
   },
-  "log": {
-    "title": "ログ",
-    "lead": "日付つきの小さなメモ：起きたこと、学んだこと、変わったこと。",
-    "how": "行を追加するには src/content/data/log.ts を編集します。",
-    "tags": {
-      "site": "サイト",
-      "japanese": "日本語",
-      "code": "コード",
-      "life": "生活",
-      "anime": "アニメ"
-    }
-  },
   "links": {
-    "title": "リンク集",
-    "lead": "何度も戻ってきたくなるブックマークと参考サイト。",
     "note": "公開されている参考サイトで、持ち主の習慣を示すものではありません。新しいタブで開きます。",
     "opensNewTab": "新しいタブで開きます",
     "groups": {
@@ -1110,14 +1116,16 @@
   },
   "graph": {
     "title": "ナレッジグラフ",
-    "lead": "プロジェクト、技術、ノート、学習ルートのつながりを表示します。ノードをクリックすると詳細とリンクが開きます。",
-    "note": "つながりはすべて実際のものです。プロジェクトと技術は、リポジトリで確認できる場合だけ結ばれ（根拠はパネルに表示）、ノートは「related」で結ばれます。",
+    "lead": "このサイトにあるものすべての地図：プロジェクト、技術、ノート、ボルトの記録、学習ルート、トピック。ノードをクリックすると詳細とリンクが開きます。",
+    "note": "つながりはすべて実在し、根拠つきです。プロジェクトと技術はリポジトリで確認できる場合だけ結ばれ、ノートは「related」で、置き換えられた決定は置き換え先へ結ばれます。",
     "filter": "表示",
     "kinds": {
       "path": "学習ルート",
       "note": "ノート",
       "project": "プロジェクト",
-      "tech": "技術"
+      "tech": "技術",
+      "vault": "ボルトの記録",
+      "topic": "トピック"
     },
     "jumpToList": "リストで見る",
     "pick": "マップ上のノードを選ぶと、その内容とつながりが表示されます。",
@@ -1126,7 +1134,9 @@
       "path": "ページを開く",
       "note": "ノートを開く",
       "project": "ケーススタディを開く",
-      "tech": "技術プロフィールを見る"
+      "tech": "技術プロフィールを見る",
+      "vault": "記録を開く",
+      "topic": "このトピックを検索"
     },
     "listTitle": "同じグラフをリストで",
     "listLead": "各項目と、そのつながり先。",
@@ -1137,21 +1147,235 @@
       "mobile": "モバイル",
       "data": "データ・AI",
       "tooling": "ツール"
-    }
+    },
+    "find": "ノードを探す",
+    "findPlaceholder": "名前を入力…",
+    "findResults": "一致するノード",
+    "provenance": "出典"
   },
   "gallery": {
     "prev": "前へ",
     "next": "次へ",
     "open": "ケーススタディを開く"
   },
-  "orbit": {
-    "title": "太陽系",
-    "lead": "サイトを小さな太陽系にしました。惑星はそれぞれサイトの一部です。クリックすると中身がわかります。",
-    "sun": "ホーム",
-    "sunDesc": "クラシックのホームページ。",
-    "planet": "惑星",
-    "pick": "惑星を選んでください。マップの上にいる間は公転が止まります。",
-    "visit": "{name}へ行く",
-    "list": "すべての惑星"
+  "vault": {
+    "title": "ナレッジ・ボルト",
+    "lead": "学んだこと、決めたこと、間違えたことを、種類とトピックで整理して残す場所。",
+    "note": "ここにある内容は、このサイトを作る中で実際に起きたことや、持ち主の申告によるものです。空のモジュールは持ち主自身の記録を待っています。",
+    "tabsLabel": "ボルトの項目",
+    "hub": "概要",
+    "empty": "空 — 記録を待っています",
+    "count": "{n} 件",
+    "latest": "最新の記録",
+    "allTopics": "すべてのトピック",
+    "filterTopic": "トピックで絞り込む",
+    "newTab": "新しいタブで開きます",
+    "topics": {
+      "web": "Web",
+      "ai": "AI・機械学習",
+      "linux": "Linux",
+      "japanese": "日本語",
+      "tooling": "ツール",
+      "design": "デザイン",
+      "general": "一般"
+    },
+    "status": {
+      "active": "有効",
+      "superseded": "置き換え済み",
+      "doing": "進行中",
+      "paused": "一時停止",
+      "done": "完了",
+      "planned": "予定"
+    },
+    "fields": {
+      "context": "背景",
+      "decision": "決定",
+      "why": "理由",
+      "cost": "代償",
+      "happened": "何が起きたか",
+      "cause": "原因",
+      "fix": "対処",
+      "lesson": "教訓",
+      "question": "問い",
+      "findings": "わかったこと",
+      "sources": "出典",
+      "next": "次の一歩",
+      "goal": "目標",
+      "log": "学習ログ"
+    },
+    "supersededBy": "置き換え先：",
+    "checked": "{date} に確認",
+    "mistakesNote": "このサイトを作る中で実際にした失敗です。自分の分も src/content/data/vault/mistakes.ts に同じ形式で追加できます。",
+    "researchNote": "各結果は表示の日付に確認したもので、出典は各ノートの下にあります。",
+    "ideasNote": "このサイトのアイデアを、ひらめきから公開までの段階で並べています。自分のアイデアは src/content/data/vault/ideas.ts に追加できます。",
+    "noIdeas": "まだありません。",
+    "stages": {
+      "spark": "ひらめき",
+      "exploring": "検討中",
+      "building": "制作中",
+      "shipped": "公開済み",
+      "parked": "保留"
+    },
+    "glossarySearch": "用語集を検索",
+    "glossaryPlaceholder": "どの言語でも：hydration、ハイドレーション、trợ từ…",
+    "glossaryCount": "{n} 語",
+    "glossaryNone": "一致する用語はありません。",
+    "readingEmptyTitle": "読書リストはまだありません",
+    "readingEmpty": "まだ何も追加されていません。本・記事・資料と進捗を src/content/data/vault/reading.ts に追加すると、状態別にここに表示されます。",
+    "readingStatus": {
+      "reading": "読書中",
+      "queued": "次に読む",
+      "done": "読了"
+    },
+    "readingKind": {
+      "book": "本",
+      "article": "記事",
+      "doc": "資料",
+      "paper": "論文"
+    },
+    "unit": {
+      "pages": "ページ",
+      "chapters": "章",
+      "minutes": "分"
+    },
+    "startedOn": "{date} 開始",
+    "logEmpty": "学習ログはまだありません。src/content/data/vault/learning.ts に日付つきの行を追加できます。",
+    "learningAdd": "ほかの技術やスキルを追跡するには、src/content/data/vault/learning.ts に項目を追加します。",
+    "roadmapAdd": "トラックやマイルストーンは src/content/data/vault/roadmap.ts に追加します。日付は指定した場合だけ表示されます。",
+    "readConcept": "解説を読む →",
+    "relatedTerms": "関連する用語",
+    "modules": {
+      "concepts": {
+        "name": "概念の解説",
+        "desc": "技術的な考え方を図と例で説明します。",
+        "lead": "技術的な考え方を、図と具体例で説明します。"
+      },
+      "research": {
+        "name": "リサーチノート",
+        "desc": "問い、わかったこと、結論、出典。",
+        "lead": "問い、わかったこと、結論、そして出典。"
+      },
+      "mistakes": {
+        "name": "失敗の記録",
+        "desc": "何が悪かったか、なぜか、そして教訓。",
+        "lead": "何が悪かったか、なぜ起きたか、次はどうするか。"
+      },
+      "decisions": {
+        "name": "決定ジャーナル",
+        "desc": "技術的な決定の理由。",
+        "lead": "何を決め、なぜ決め、何を犠牲にしたか。"
+      },
+      "ideas": {
+        "name": "アイデア・インキュベーター",
+        "desc": "ひらめきから公開までのアイデア。",
+        "lead": "ひらめきから公開までのアイデア。"
+      },
+      "glossary": {
+        "name": "マイ用語集",
+        "desc": "英語・日本語・ベトナム語の用語。",
+        "lead": "英語・日本語・ベトナム語の用語。どの言語でも検索できます。"
+      },
+      "reading": {
+        "name": "読書の進捗",
+        "desc": "読んでいる本・記事・資料。",
+        "lead": "本・記事・資料と進捗、そして何度も戻ってきたい参考サイト。"
+      },
+      "learning": {
+        "name": "学習トラッカー",
+        "desc": "ひとつのスキルの進み具合を追います。",
+        "lead": "技術やスキルをひとつずつ追跡します。"
+      },
+      "roadmap": {
+        "name": "学習ロードマップ",
+        "desc": "トラックと到達したマイルストーン。",
+        "lead": "トラック、マイルストーン、それぞれの現在地。"
+      }
+    },
+    "learning": {
+      "localTitle": "このブラウザに記録されたもの",
+      "learned": "覚えたカード",
+      "due": "復習待ちのカード",
+      "stamps": "スタンプ済みミッション",
+      "streak": "連続学習日数",
+      "days": "{n} 日",
+      "localNote": "この端末だけの記録で、検証された成果ではありません。",
+      "review": "復習カード"
+    },
+    "diagram": {
+      "leitner": {
+        "aria": "5つのライトナーの箱。正解ならカードは次の箱へ、不正解なら箱1へ戻ります。",
+        "box": "箱{n}",
+        "wait": "{n} 日",
+        "miss": "不正解 → 箱1へ戻る",
+        "right": "覚えていた",
+        "wrong": "忘れた",
+        "reset": "リセット",
+        "start": "新しいカードは箱1から始まります。答えると動きます。",
+        "state": "今は箱{box}。{wait}日後（{due}日目）に戻ってきます。"
+      },
+      "csp": {
+        "aria": "ポリシーを持つページ。同じサイトのスクリプトと許可リストの画像は許可、未知の外部スクリプトはブロックされます。",
+        "page": "あなたのページ",
+        "policy": "ポリシーつき",
+        "self": "同じサイトのスクリプト",
+        "allowed": "許可リストの画像",
+        "unknown": "未知のホストのスクリプト"
+      },
+      "isr": {
+        "aria": "一度ビルドして即座に配信し、タイマー後にバックグラウンドで再ビルドして新しいコピーを配信します。",
+        "build": "ビルド",
+        "buildSub": "HTML完成",
+        "serve": "配信",
+        "serveSub": "即座に",
+        "regen": "再ビルド",
+        "regenSub": "裏側で",
+        "loop": "タイマーが切れたら"
+      },
+      "layout": {
+        "aria": "小さなグラフ。ノードは互いに押し合い、リンクは両端を引き寄せます。",
+        "push": "ノードは反発",
+        "pull": "リンクは引き寄せ"
+      }
+    },
+    "referencesTitle": "参考サイト"
+  },
+  "observatory": {
+    "title": "観測所",
+    "lead": "この場所の状態を見る：つながっている情報源は応答しているか、各言語はどこまで整っているか、ナレッジグラフのどこに隙間があるか。",
+    "sources": "接続している情報源",
+    "sourcesSummary": "{total} 件中 {up} 件が応答しました。",
+    "sourcesNote": "どの情報源も任意です。止まっているときは、その部分が何も表示されないだけです。",
+    "live": "ライブ、最大1時間キャッシュ",
+    "snapshot": "{date} の保存済みスナップショット",
+    "cache": "約{n}分ごとに更新",
+    "ok": "利用可能",
+    "down": "現在応答していません",
+    "content": "ここにあるもの",
+    "contentNote": "実際の内容がある記録は {n} 件（技術とトピックは数えません）。",
+    "languages": "言語ごとの整備状況",
+    "languagesNote": "翻訳済み＝確認済み。下書き＝書いたがネイティブの確認前。未翻訳＝英語のまま表示（タグつき）。",
+    "lang": {
+      "en": "English",
+      "ja": "日本語",
+      "vi": "Tiếng Việt"
+    },
+    "coverage": "翻訳済み {a} · 下書き {b} · 未翻訳 {c}",
+    "coverageAria": "翻訳済み {a}、下書き {b}、未翻訳 {c}",
+    "todoTitle": "次に翻訳するもの",
+    "status": {
+      "translated": "翻訳済み",
+      "draft": "下書き",
+      "untranslated": "英語のみ"
+    },
+    "graph": "つながり",
+    "hubs": "つながりが多い順",
+    "orphans": "どこともつながっていないもの",
+    "noOrphans": "すべての記録がつながっています。",
+    "suggestions": "つながりの候補",
+    "noSuggestions": "今は候補がありません。",
+    "shared": "共通",
+    "suggestNote": "候補の提示のみで、何も書き込みません。採用するには、データファイルやノートに related のリンクを追加します。",
+    "open": "オープンデータ",
+    "openNote": "公開されているものはすべてプレーンなデータとしても取得できます。非公開のものは含まれません。"
   }
 }

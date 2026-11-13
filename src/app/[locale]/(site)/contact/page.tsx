@@ -30,7 +30,7 @@ export default async function ContactPage({ params }: { params: LocaleParams }) 
           <ul className="border-t border-line-strong">
             {socialLinks.map((s) => (
               <li key={s.id} className="border-b border-line">
-                <a href={s.url} target="_blank" rel="noopener noreferrer" className="index-row flex items-center justify-between gap-4 px-2 py-5 md:px-4">
+                <a href={s.url} target="_blank" rel="me noopener noreferrer" className="index-row flex items-center justify-between gap-4 px-2 py-5 md:px-4">
                   <span>
                     <span className="block font-display text-2xl tracking-tight md:text-3xl">{s.label}</span>
                     <span className="label !normal-case !tracking-normal">{s.url.replace("https://", "")}</span>

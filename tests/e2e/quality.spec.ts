@@ -1,20 +1,36 @@
 import AxeBuilder from "@axe-core/playwright";
-import { expect, test } from "@playwright/test";
+import { expect, test, type Page } from "@playwright/test";
 import { ALL_PATHS, LOCALES } from "./helpers";
 
 // Row 38 / 60: responsive without horizontal overflow at the five required widths.
 const WIDTHS = [375, 430, 768, 1366, 1920];
 
+/**
+ * These tests load ~130 pages in one browser. A long-lived Chromium tab slowly accumulates memory and eventually crashes on small machines,
+ * so every few pages the tab is replaced by a fresh one (same context, same settings).
+ */
+async function* freshPages(first: Page, setup: (p: Page) => Promise<void>, every = 12) {
+  let page = first;
+  await setup(page);
+  let n = 0;
+  while (true) {
+    if (n > 0 && n % every === 0) { const ctx = page.context(); await page.close(); page = await ctx.newPage(); await setup(page); }
+    n++;
+    yield page;
+  }
+}
+
 test.describe("no horizontal overflow", () => {
   for (const width of WIDTHS) {
     test(`@${width}px — every page, every locale`, async ({ page }) => {
-      test.setTimeout(150_000); // ~95 page loads
-      await page.setViewportSize({ width, height: 900 });
+      test.setTimeout(300_000); // ~130 page loads
+      const pages = freshPages(page, (p) => p.setViewportSize({ width, height: 900 }));
       const bad: string[] = [];
       for (const locale of LOCALES) {
         for (const path of ALL_PATHS) {
-          await page.goto(`/${locale}${path}`, { waitUntil: "load" });
-          const { sw, cw } = await page.evaluate(() => ({ sw: document.documentElement.scrollWidth, cw: document.documentElement.clientWidth }));
+          const p = (await pages.next()).value as Page;
+          await p.goto(`/${locale}${path}`, { waitUntil: "load" });
+          const { sw, cw } = await p.evaluate(() => ({ sw: document.documentElement.scrollWidth, cw: document.documentElement.clientWidth }));
           if (sw > cw) bad.push(`/${locale}${path}: scrollWidth ${sw} > ${cw}`);
         }
       }
@@ -51,12 +67,13 @@ for (const theme of ["dark", "light"] as const) {
   test.describe(`axe (${theme})`, () => {
     for (const locale of LOCALES) {
       test(`/${locale}: no violations on any page`, async ({ page }) => {
-        test.setTimeout(120_000);
-        await page.emulateMedia({ colorScheme: theme });
+        test.setTimeout(300_000);
+        const pages = freshPages(page, (p) => p.emulateMedia({ colorScheme: theme }));
         const failures: string[] = [];
         for (const path of ALL_PATHS) {
-          await page.goto(`/${locale}${path}`);
-          const results = await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"]).analyze();
+          const p = (await pages.next()).value as Page;
+          await p.goto(`/${locale}${path}`);
+          const results = await new AxeBuilder({ page: p }).withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"]).analyze();
           for (const v of results.violations) failures.push(`/${locale}${path} [${v.impact}] ${v.id}: ${v.nodes.slice(0, 2).map((n) => n.target.join(" ")).join(" | ")}`);
         }
         expect(failures).toEqual([]);

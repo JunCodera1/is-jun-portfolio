@@ -36,3 +36,13 @@ Everything below is something the site cannot honestly invent. Fill it in the fi
 ## Housekeeping
 * [ ] Rotate credentials found in another public repository of yours (reported in the chat; not repeated here)
 * [ ] Set `NEXT_PUBLIC_SITE_URL` to the real domain before deploying
+
+
+## Knowledge Vault (added)
+Seeded only with what really happened while building this site. Still waiting for the owner's own entries (edit the files in `src/content/data/vault/`):
+- `reading.ts` — books, articles and documents with progress (empty).
+- `learning.ts` — study-log lines (date, minutes, note) and more topics than Japanese.
+- `roadmap.ts` — tracks beyond JLPT (AI/ML, Linux…), with dates when known.
+- `mistakes.ts`, `decisions.ts`, `research.ts`, `ideas.ts` — the owner's own entries from their projects.
+- `concepts.ts` — more explainers; Japanese/Vietnamese translations of the concept bodies (titles and summaries are drafts, bodies are English).
+- `glossary.ts` — more terms; native review of the ja/vi wording.

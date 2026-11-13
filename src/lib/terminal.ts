@@ -23,7 +23,7 @@ export interface TerminalResult { lines: TLine[]; clear: boolean; action?: TActi
 /** `go <place>` targets (locale-less paths). */
 export const GO_TARGETS: Record<string, string> = {
   home: "/classic", classic: "/classic", city: "/city", hideout: "/hideout", lab: "/lab", station: "/station", arcade: "/arcade", archive: "/archive",
-  news: "/news", library: "/library", graph: "/graph", log: "/log", links: "/links", japanese: "/japanese", review: "/japanese/review",
+  news: "/news", library: "/library", graph: "/graph", vault: "/vault", observatory: "/observatory", japanese: "/japanese", review: "/japanese/review",
   projects: "/projects", about: "/about", garden: "/garden", journal: "/journal", now: "/now", contact: "/contact", timeline: "/timeline",
 };
 const THEMES = ["light", "dark", "auto", "system"] as const;
