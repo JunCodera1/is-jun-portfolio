@@ -41,7 +41,7 @@ export async function getTerminalData(locale: Locale): Promise<TerminalData> {
     journal: journal.length ? journal.map((e) => ({ text: `${formatDate(e.date, locale, "short")}  ${e.title}`, href: `/journal/${e.id}` })) : none,
     garden: garden.length ? garden.map((e) => ({ text: `${formatDate(e.date, locale, "short")}  ${e.title}`, href: `/garden/${e.id}` })) : none,
     now: [
-      { text: t("now.updated", { date: formatDate(nowUpdated, locale) }) },
+      ...(nowUpdated ? [{ text: t("now.updated", { date: formatDate(nowUpdated, locale) }) }] : []),
       ...nowSections.flatMap((s) => (s.items.length ? [{ text: `${t(`now.sections.${s.id}`)}: ${s.items.map((i) => textOf(i, locale)).join("; ")}` }] : [])),
       ...(nowSections.every((s) => s.items.length === 0) ? none : []),
     ],

@@ -10,7 +10,7 @@ export default async function WorldLayout({ children, params }: { children: Reac
   setRequestLocale(locale);
   return (
     <WorldProvider>
-      <WorldHud palette={<PaletteMount locale={locale as Locale} />} />
+      <WorldHud palette={<PaletteMount locale={locale as Locale} />} quietPalette={<PaletteMount locale={locale as Locale} hideTrigger />} />
       <main id="main" tabIndex={-1} className="min-h-dvh outline-none">{children}</main>
     </WorldProvider>
   );

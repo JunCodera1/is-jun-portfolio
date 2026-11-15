@@ -10,14 +10,17 @@ describe("discovery engine", () => {
     for (let i = 0; i < 30; i++) expect(pickDiscovery(all, "/en/a")!.href).not.toBe("/a");
     expect(pickDiscovery([e("/a#x")], "/ja/a")).toBeNull();
   });
-  it("follows a real connection most of the time when one exists", () => {
+  it("always goes to a real connection when one exists (never an arbitrary page)", () => {
     let seed = 7;
     const rng = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
+    for (let i = 0; i < 2000; i++) expect(pickDiscovery(all, "/en/a", rng)!.href).toBe("/b");
+  });
+  it("an explicit lower follow probability still exists for a deliberate jump-anywhere mode", () => {
+    let seed = 11;
+    const rng = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
     let followed = 0;
-    const N = 2000;
-    for (let i = 0; i < N; i++) if (pickDiscovery(all, "/en/a", rng)!.href === "/b") followed++;
-    expect(followed / N).toBeGreaterThan(0.6); // 60% by design, plus the chance draws of /b from the open pool
-    expect(followed / N).toBeLessThan(0.8);
+    for (let i = 0; i < 2000; i++) if (pickDiscovery(all, "/en/a", rng, 0.6)!.href === "/b") followed++;
+    expect(followed / 2000).toBeGreaterThan(0.6); expect(followed / 2000).toBeLessThan(0.8);
   });
   it("also follows connections that point at the current page", () => {
     const k = [e("/a"), e("/b", ["/a"]), e("/c"), e("/d")];

@@ -127,6 +127,24 @@ test.describe("discovery follows connections", () => {
   });
 });
 
+test.describe("discovery goes to something genuinely connected", () => {
+  test("from a page with recorded connections, Surprise me always lands on one of them", async ({ page, request }) => {
+    const index = (await (await request.get("/en/search-index.json")).json()) as { href: string; related?: string[] }[];
+    const here = index.find((e) => e.href === "/garden/how-this-space-is-built")!;
+    expect((here.related ?? []).length).toBeGreaterThan(0);
+    const allowed = new Set([...(here.related ?? []), ...index.filter((e) => (e.related ?? []).includes("/garden/how-this-space-is-built")).map((e) => e.href)]);
+    for (let i = 0; i < 4; i++) {
+      await page.goto("/en/garden/how-this-space-is-built", { waitUntil: "load" });
+      const surprise = page.getByRole("option", { name: /Surprise me/ });
+      await expect(async () => { await page.keyboard.press("Control+k"); await expect(surprise).toBeVisible({ timeout: 1000 }); }).toPass();
+      await surprise.click();
+      await expect(page).not.toHaveURL(/how-this-space-is-built$/);
+      const path = new URL(page.url()).pathname.replace(/^\/en/, "").split("#")[0]!;
+      expect(allowed.has(path), `landed on ${path}`).toBe(true);
+    }
+  });
+});
+
 test.describe("identity: A Place Called Me", () => {
   test("the name is in the title, the entrance, the header and the footer, in every language", async ({ page }) => {
     await page.goto("/en");

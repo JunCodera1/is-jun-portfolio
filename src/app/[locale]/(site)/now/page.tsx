@@ -19,9 +19,11 @@ export default async function NowPage({ params }: { params: LocaleParams }) {
   return (
     <div className="page pb-8">
       <PageHeader navId="now" title={t("title")} lead={t("lead")}>
-        <p className="label mt-8 inline-block border border-line-strong px-3 py-1.5">
-          <time dateTime={nowUpdated}>{t("updated", { date: formatDate(nowUpdated, locale) })}</time>
-        </p>
+        {nowUpdated && (
+          <p className="label mt-8 inline-block border border-line-strong px-3 py-1.5">
+            <time dateTime={nowUpdated}>{t("updated", { date: formatDate(nowUpdated, locale) })}</time>
+          </p>
+        )}
       </PageHeader>
 
       <div className="grid gap-x-8 md:grid-cols-2">

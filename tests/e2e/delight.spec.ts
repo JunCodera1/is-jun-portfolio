@@ -45,6 +45,19 @@ test.describe("command center, surprise and the hidden terminal", () => {
     await expect(page).not.toHaveURL(/\/en\/about$/);
     c.assertClean();
   });
+  test("Ctrl+K also works on the entrance, which has no toolbar: the dialog opens, no stray button appears, and Enter still starts the world afterwards", async ({ page }) => {
+    await page.goto("/en", { waitUntil: "load" });
+    await expect(page.getByRole("button", { name: "Open command palette" })).toHaveCount(0);
+    const dialog = page.getByRole("dialog", { name: "Command palette" });
+    await expect(async () => { await page.keyboard.press("Control+k"); await expect(dialog).toBeVisible({ timeout: 1000 }); }).toPass(); // the shortcut attaches on hydration
+    await dialog.getByRole("combobox").fill("hideout");
+    await expect(dialog.getByRole("option", { name: /Hideout/ }).first()).toBeVisible();
+    await page.keyboard.press("Escape");
+    await expect(dialog).toBeHidden();
+    await page.waitForFunction(() => !document.querySelector("dialog[open]") && document.activeElement === document.body); // closed for real, focus released
+    await page.keyboard.press("Enter");
+    await expect(page).toHaveURL(/\/en\/city$/);
+  });
   test("Ctrl+K also works inside the world", async ({ page }) => {
     await page.goto("/en/city");
     await page.keyboard.press("Control+k");

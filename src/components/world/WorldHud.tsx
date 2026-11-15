@@ -11,7 +11,7 @@ import { WorldLink } from "./WorldLink";
 import { useWorld } from "./WorldProvider";
 
 /** Heads-up display: way back to the map, language, day/night, sound, exploration tracker, plain-site escape hatch. */
-export function WorldHud({ palette }: { palette?: React.ReactNode }) {
+export function WorldHud({ palette, quietPalette }: { palette?: React.ReactNode; /** the palette without its button, for the entrance, which has no toolbar but must still answer Ctrl+K */ quietPalette?: React.ReactNode }) {
   const t = useTranslations("hud");
   const td = useTranslations("discoveries");
   const pathname = usePathname();
@@ -33,7 +33,7 @@ export function WorldHud({ palette }: { palette?: React.ReactNode }) {
     return () => window.removeEventListener("keydown", onKey);
   }, [onCity, onEntrance, go, sfx]);
 
-  if (onEntrance) return null;
+  if (onEntrance) return <>{quietPalette}</>;
   const btn = "tap inline-flex h-9 items-center gap-2 border-2 border-white/70 bg-[#0a0a0c] px-3 font-mono text-[0.72rem] font-bold uppercase tracking-wider text-white transition-colors hover:border-white hover:bg-accent";
 
   return (

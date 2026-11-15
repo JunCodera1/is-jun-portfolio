@@ -3,7 +3,7 @@
 *A Place Called Me.* Legend: ✅ built and tested · 🟡 built, owner content missing · ⏭ postponed (reason). Design rationale: [docs/REDEFINITION.md](docs/REDEFINITION.md).
 
 ## Wander (the world)
-✅ Entrance → City → Hideout, Lab, Station, Arcade, Archive, Backstage (secret) · ✅ HUD, shutter transition, opt-in sound, local discoveries · ✅ Knowledge graph (`/graph`, one map of projects, technologies, notes, Vault entries, learning paths and topics; find-a-node, provenance, list twin) · ✅ Discovery Engine (🎲, Ctrl+K, terminal `surprise`: follows real connections 60% of the time)
+✅ Entrance → City → Hideout, Lab, Station, Arcade, Archive, Backstage (secret) · ✅ HUD, shutter transition, opt-in sound, local discoveries · ✅ Knowledge graph (`/graph`, one map of projects, technologies, notes, Vault entries, learning paths and topics; find-a-node, provenance, list twin) · ✅ Discovery Engine (🎲, Ctrl+K, terminal `surprise`: always follows a recorded connection; falls back to any public page only when the current page has none)
 
 ## Read (the classic site)
 ✅ About, Now, Interests, Garden, Journal, Projects (+ exhibition), Profile (printable) · 🟡 owner facts still missing, see CONTENT_NEEDED.md · ✅ **Knowledge Vault** (`/vault`: Concept Explainer with interactive diagrams, Research Notes, Mistake Archive, Decision Journal, Idea Incubator, 3-language Glossary, Reading & references, Learning Tracker, Learning Roadmap) · ✅ **Unified Timeline** (`/timeline`: notes, posts, Vault entries, site log and milestones with real dates, filterable)

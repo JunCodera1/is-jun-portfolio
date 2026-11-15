@@ -11,7 +11,8 @@ import type { Project } from "./types";
 const d = (text: string) => ({ text, status: "draft" as const });
 const O = "JunCodera1";
 
-export const projects: Project[] = [
+/** Every project, including any marked private or unlisted. Only the data layer reads this. */
+export const allProjects: Project[] = [
   {
     slug: "green-footprint",
     name: "Green Footprint",
@@ -335,6 +336,8 @@ export const projects: Project[] = [
   },
 ];
 
+/** What every public surface sees: pages, the terminal, the sitemap, the hideout and the lab. */
+export const projects: Project[] = allProjects.filter((p) => (p.visibility ?? "public") === "public");
 export const featuredProjects = projects.filter((p) => p.featured);
 export const getProject = (slug: string) => projects.find((p) => p.slug === slug);
 export type { LocalizedText };

@@ -1030,7 +1030,7 @@
     "discover": "発見",
     "shelf": {
       "title": "棚",
-      "desc": "持ち主が好きだと話したタイトル（公開データ付き）。"
+      "desc": "持ち主が挙げたタイトル。公開データは AniList で最も近い一致から取得しています。"
     },
     "myMusic": {
       "title": "音楽",
@@ -1396,7 +1396,9 @@
       "cache": "キャッシュ",
       "fallback": "保存済みコピー"
     },
-    "latency": "{ms} ms"
+    "latency": "{ms} ms",
+    "checked": "{time} に確認",
+    "sourcesTiming": "このページの生成時（約30分ごと）の測定で、リアルタイムではありません。"
   },
   "ask": {
     "title": "質問",

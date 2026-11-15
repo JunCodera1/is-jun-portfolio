@@ -20,7 +20,7 @@ export const archiveShelves: Shelf[] = [
   {
     id: "anime",
     items: [
-      { id: "hxh", title: L("Hunter × Hunter", "HUNTER×HUNTER", "Hunter × Hunter"), note: L("An anime and manga the owner enjoys.", "持ち主が好きなアニメ・マンガ。", "Anime và manga mà chủ trang yêu thích."), source: "owner", color: "red" },
+      { id: "hxh", title: L("Hunter × Hunter", "HUNTER×HUNTER", "Hunter × Hunter"), note: L("Named by the owner as an interest.", "持ち主が興味があると挙げた作品。", "Tác phẩm mà chủ trang đã nêu là điều quan tâm."), source: "owner", color: "red" },
       { id: "hisoka", title: L("Hisoka", "ヒソカ", "Hisoka"), note: L("One of the owner's favourite characters.", "持ち主のお気に入りのキャラクターのひとり。", "Một trong những nhân vật yêu thích của chủ trang."), source: "owner", color: "white" },
     ],
   },

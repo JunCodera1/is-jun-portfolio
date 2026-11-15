@@ -1,16 +1,25 @@
-import { concepts } from "./concepts";
-import { decisions } from "./decisions";
+import { concepts as conceptsAll } from "./concepts";
+import { decisions as decisionsAll } from "./decisions";
 import { glossary } from "./glossary";
-import { ideas } from "./ideas";
+import { ideas as ideasAll } from "./ideas";
 import { learning } from "./learning";
-import { mistakes } from "./mistakes";
+import { mistakes as mistakesAll } from "./mistakes";
 import { reading } from "./reading";
-import { research } from "./research";
+import { research as researchAll } from "./research";
 import { roadmap } from "./roadmap";
-import type { ModuleId } from "./types";
+import { isListed, type ModuleId } from "./types";
 
 export * from "./types";
-export { concepts, decisions, glossary, ideas, learning, mistakes, reading, research, roadmap };
+/**
+ * What pages and public indexes see: only listed (public) entries. The unfiltered lists are exported as `*All` for the data layer,
+ * which carries each entry's visibility so the owner console and agents (and nobody else) may read the private ones.
+ */
+export const concepts = conceptsAll.filter(isListed);
+export const decisions = decisionsAll.filter(isListed);
+export const ideas = ideasAll.filter(isListed);
+export const mistakes = mistakesAll.filter(isListed);
+export const research = researchAll.filter(isListed);
+export { conceptsAll, decisionsAll, ideasAll, mistakesAll, researchAll, glossary, learning, reading, roadmap };
 export { STAGES } from "./ideas";
 
 /** How many entries each module holds (shown on the hub). */

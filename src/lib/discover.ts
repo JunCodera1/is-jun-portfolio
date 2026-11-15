@@ -3,11 +3,12 @@ import type { SearchEntry } from "@/lib/search";
 const stripLocale = (p: string) => p.replace(/^\/(en|ja|vi)(?=\/|$)/, "").split("#")[0] || "/";
 
 /**
- * Discovery Engine. From where you are, it mostly follows real connections (`related`, from the unified data layer) and sometimes
- * jumps anywhere, so wandering follows meaning but never gets stuck. It never returns the page you are already on.
- * `follow` is the probability of following a connection when one exists.
+ * Discovery Engine. From where you are it goes to something genuinely connected (`related`, from the unified data layer):
+ * a direct edge, a page that points back at this one, or an item sharing its topic. Only when the current page has no recorded
+ * connection at all does it fall back to any public page, because stopping would be worse. It never returns the page you are on.
+ * `follow` is the probability of following a connection when one exists (1 = always; lower it only for an explicit "jump anywhere" mode).
  */
-export function pickDiscovery(entries: readonly SearchEntry[], currentPath: string, rng: () => number = Math.random, follow = 0.6): SearchEntry | null {
+export function pickDiscovery(entries: readonly SearchEntry[], currentPath: string, rng: () => number = Math.random, follow = 1): SearchEntry | null {
   const here = stripLocale(currentPath);
   const pool = entries.filter((e) => stripLocale(e.href) !== here);
   if (pool.length === 0) return null;

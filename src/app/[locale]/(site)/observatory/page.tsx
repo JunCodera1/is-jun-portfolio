@@ -1,4 +1,4 @@
-import { getTranslations } from "next-intl/server";
+import { getFormatter, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { locales, type Locale } from "@/i18n/routing";
 import { glossary } from "@/content/data/vault";
@@ -22,6 +22,7 @@ export default async function ObservatoryPage({ params }: { params: LocaleParams
   const locale = await initLocale(params);
   const t = await getTranslations({ locale, namespace: "observatory" });
   const tk = await getTranslations({ locale, namespace: "timeline" });
+  const f = await getFormatter({ locale });
 
   // 1. source health: every connected service is an Integration, and the SDK keeps its health record
   const health = await refreshAll();
@@ -59,7 +60,7 @@ export default async function ObservatoryPage({ params }: { params: LocaleParams
 
       <section aria-labelledby="obs-sources" className="mt-12">
         <h2 id="obs-sources" className="text-3xl md:text-4xl">{t("sources")}</h2>
-        <p className="label mt-1 !normal-case !tracking-normal">{t("sourcesSummary", { up, total: sources.length })} {t("sourcesNote")}</p>
+        <p className="label mt-1 !normal-case !tracking-normal">{t("sourcesSummary", { up, total: sources.length })} {t("sourcesNote")} {t("sourcesTiming")}</p>
         <ul className="mt-4 grid gap-x-8 sm:grid-cols-2 lg:grid-cols-3">
           {sources.map(({ h, i }) => (
             <li key={h.id} className="flex items-baseline gap-3 border-b border-line py-2">
@@ -67,7 +68,7 @@ export default async function ObservatoryPage({ params }: { params: LocaleParams
               <span className="min-w-0">
                 <a href={i.attribution.url} target="_blank" rel="noopener noreferrer" className="font-display text-lg">{i.name}</a>{" "}
                 <span className="sr-only">{t(`status.${h.status}`)}.</span>
-                <span className="label block !normal-case !tracking-normal">{t(`health.${h.status}`)}{h.source !== "none" ? ` · ${t(`via.${h.source}`)}` : ""}{h.latencyMs > 0 ? ` · ${t("latency", { ms: h.latencyMs })}` : ""}</span>
+                <span className="label block !normal-case !tracking-normal">{t(`health.${h.status}`)}{h.source !== "none" ? ` · ${t(`via.${h.source}`)}` : ""}{h.latencyMs > 0 ? ` · ${t("latency", { ms: h.latencyMs })}` : ""} · {t("checked", { time: f.dateTime(new Date(h.checkedAt), { hour: "2-digit", minute: "2-digit" }) })}</span>
               </span>
             </li>
           ))}

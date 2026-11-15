@@ -1030,7 +1030,7 @@
     "discover": "Discover",
     "shelf": {
       "title": "Shelf",
-      "desc": "Titles the owner has said they like, with public data."
+      "desc": "Titles the owner has named, each with public data from the closest AniList match."
     },
     "myMusic": {
       "title": "Music",
@@ -1396,7 +1396,9 @@
       "cache": "cached",
       "fallback": "saved copy"
     },
-    "latency": "{ms} ms"
+    "latency": "{ms} ms",
+    "checked": "checked {time}",
+    "sourcesTiming": "Measured when this page is generated (about every 30 minutes), not live."
   },
   "ask": {
     "title": "Ask",

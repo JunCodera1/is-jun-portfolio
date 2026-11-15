@@ -16,7 +16,7 @@ export async function IndexList({ locale }: { locale: Locale }) {
     projects: t("home.entries", { count: projects.length }),
     garden: t("home.entries", { count: getEntries("garden", locale).length }),
     journal: t("home.entries", { count: getEntries("journal", locale).length }),
-    now: t("now.updated", { date: formatDate(nowUpdated, locale, "short") }),
+    now: nowUpdated ? t("now.updated", { date: formatDate(nowUpdated, locale, "short") }) : undefined,
   };
 
   const personal = indexEntries.filter((e) => e.group === "personal").length;

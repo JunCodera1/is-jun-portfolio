@@ -46,6 +46,8 @@ test.describe("Observatory reads the Integration SDK", () => {
     expect(await items.count()).toBe(13);
     for (const name of ["GitHub", "AniList", "Open Library", "Deezer", "The Verge", "Hacker News", "VnExpress"]) await expect(page.getByRole("link", { name: new RegExp(name) }).first()).toHaveAttribute("href", /^https:\/\//);
     await expect(page.getByText(/of 13 sources answered/)).toBeVisible();
+    await expect(page.getByText(/Measured when this page is generated/)).toBeVisible();
+    expect(await page.locator("#obs-sources ~ ul li").filter({ hasText: /checked \d/ }).count()).toBe(13);
     expect(await page.locator("#obs-sources ~ ul li").filter({ hasText: /Answering|Degraded|Not answering|Switched off|Needs a key/ }).count()).toBe(13);
   });
 });

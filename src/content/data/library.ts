@@ -10,7 +10,7 @@ export interface ShelfItem { id: string; kind: "anime"; lookup: string }
 export interface PlaylistTrack { id: string; title: string; artist?: string; url: string }
 export interface Playlist { id: string; title: LocalizedText; tracks: PlaylistTrack[] }
 
-export const shelf: ShelfItem[] = [{ id: "hxh", kind: "anime", lookup: "Hunter x Hunter (2011)" }];
+export const shelf: ShelfItem[] = [{ id: "hxh", kind: "anime", lookup: "Hunter x Hunter" }];
 
 /**
  * Your playlists. Paste links from anywhere: YouTube, Spotify and SoundCloud play right here; any other link (Bandcamp, Apple Music, a file…)

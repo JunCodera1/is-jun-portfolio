@@ -1030,7 +1030,7 @@
     "discover": "Khám phá",
     "shelf": {
       "title": "Kệ",
-      "desc": "Những tựa chủ trang đã nói là thích, kèm dữ liệu công khai."
+      "desc": "Những tựa chủ trang đã nêu, kèm dữ liệu công khai từ kết quả AniList gần nhất."
     },
     "myMusic": {
       "title": "Nhạc",
@@ -1396,7 +1396,9 @@
       "cache": "đã lưu đệm",
       "fallback": "bản đã lưu"
     },
-    "latency": "{ms} ms"
+    "latency": "{ms} ms",
+    "checked": "kiểm tra lúc {time}",
+    "sourcesTiming": "Đo khi trang được tạo (khoảng 30 phút một lần), không phải theo thời gian thực."
   },
   "ask": {
     "title": "Hỏi",

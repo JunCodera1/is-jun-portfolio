@@ -111,7 +111,7 @@ Edge { from, to, kind: "uses" | "related" | "topic" | "supersedes" | "next", evi
 
 | Idea | Problem it solves / why here | What makes it different | Connects to | Cost |
 |---|---|---|---|---|
-| **Discovery Engine** (context-aware) | "I read this, what next?" — wandering should follow meaning, not dice | 60% of the time it follows real edges from where you are | graph, vault, notes, projects | one pure function + tests; replaces 3 |
+| **Discovery Engine** (context-aware) | "I read this, what next?" — wandering should follow meaning, not dice | it follows a recorded connection from where you are (falls back to any public page only when the page has none) | graph, vault, notes, projects | one pure function + tests; replaces 3 |
 | **Public JSON Feed + Open Profile JSON** | A personal site should be readable by other programs, durably | Owner-approved fields only; `name` stays `null` until confirmed | all public items | 2 route handlers |
 | **Observatory** | The owner needs to see what is stale, untranslated or unlinked | Honest maintenance view: source health, translation coverage per language, orphan entries, *possible* connections | data layer, integrations | one page, no new data |
 | **Link suggestions (rule-based)** | Graphs rot when nobody adds links | Suggests pairs sharing ≥ 2 tags/terms and no edge; never writes anything | graph | ~40 lines, tested |
@@ -149,7 +149,7 @@ All data files stay. Locale-prefixed and bare URLs redirect. External links that
 | R3 | P0 | Removed pages redirect | E2E: each old URL (en/ja/vi) ends on its new page, status 200, no console errors |
 | R4 | P0 | No lost content | E2E: Links content on Reading; Log content on Timeline; recruiter facts on Profile |
 | R5 | P1 | Unified timeline | Filter by kind works; items sorted newest-first; dates are real or the item is omitted |
-| R6 | P1 | Context-aware discovery | Unit test: with a related item available, ≥ 60% of seeded draws follow an edge; never returns the current page |
+| R6 | P1 | Context-aware discovery | Unit test: with a related item available, every draw follows the connection; never returns the current page |
 | R7 | P1 | JSON Feed 1.1 and Open Profile | Valid JSON Feed fields; `name` is `null` while unconfirmed; only public items |
 | R8 | P1 | Observatory | Shows source health, per-language coverage, orphans, suggestions; works with every external source failing |
 | R9 | P2 | Name and identity | "A Place Called Me" in title, entrance, footer, OG image; en/ja/vi |

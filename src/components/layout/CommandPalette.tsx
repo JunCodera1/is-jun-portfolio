@@ -31,7 +31,7 @@ export const OPEN_PALETTE_EVENT = "open-command-palette";
 /** Searchable in every UI language: typing "japanese" works from the Vietnamese UI too. */
 const ENGLISH_NAME: Record<Locale, string> = { en: "english", ja: "japanese", vi: "vietnamese" };
 
-export function CommandPalette({ pages, githubUrl }: { pages: PalettePage[]; githubUrl: string }) {
+export function CommandPalette({ pages, githubUrl, hideTrigger = false }: { pages: PalettePage[]; githubUrl: string; /** Keep the shortcut and the dialog, omit the visible button (used on the entrance, which has no toolbar). */ hideTrigger?: boolean }) {
   const t = useTranslations();
   const locale = useLocale() as Locale;
   const router = useRouter();
@@ -162,7 +162,7 @@ export function CommandPalette({ pages, githubUrl }: { pages: PalettePage[]; git
 
   return (
     <>
-      <button
+      {!hideTrigger && <button
         type="button"
         onClick={open}
         aria-haspopup="dialog"
@@ -172,7 +172,7 @@ export function CommandPalette({ pages, githubUrl }: { pages: PalettePage[]; git
         {/* Name = visible shortcut first, then the action (WCAG 2.5.3). Below md the shortcut is display:none, so the name is just the action. */}
         <span className="hidden whitespace-nowrap font-mono text-[0.7rem] tracking-wider md:inline">{isMac ? "⌘K" : "Ctrl K"}</span>
         <span className="sr-only">{t("common.openPalette")}</span>
-      </button>
+      </button>}
 
       <dialog
         ref={dialogRef}

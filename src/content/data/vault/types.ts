@@ -15,6 +15,8 @@ import type { Visibility } from "@/lib/knowledge/types";
 export type { Visibility };
 /** Optional on every vault entry; omitted = public. "private" never leaves the data file, "unlisted" is reachable but not listed. */
 export interface Visible { visibility?: Visibility }
+/** Pages, the terminal, the sitemap and every other public surface show only entries that are explicitly or implicitly public. */
+export const isListed = (x: Visible): boolean => (x.visibility ?? "public") === "public";
 
 export type VaultTopic = "web" | "ai" | "linux" | "japanese" | "tooling" | "design" | "general";
 export const TOPICS: VaultTopic[] = ["web", "ai", "linux", "japanese", "tooling", "design", "general"];
