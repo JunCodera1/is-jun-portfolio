@@ -12,3 +12,6 @@ Nothing is deployed from this project automatically; deploying under your identi
 6. **Content updates** are Git commits; Vercel rebuilds. GitHub-derived data refreshes hourly (ISR) without a rebuild.
 
 Security headers (CSP etc.) are set in `next.config.ts`; see TECHNICAL_DECISIONS.md #4 before loosening them.
+
+## Optional services (assistant, owner console)
+See [docs/ecosystem/ARCHITECTURE.md](ecosystem/ARCHITECTURE.md) §6 for the environment variables, the owner-console setup, and backup and recovery. The public site needs none of them.

@@ -5,6 +5,8 @@ export interface Pos { x: number; y: number }
 
 /** The board is 24 × 15 abstract units; one unit is UNIT_PX pixels at the board's minimum width. */
 export const BOARD = { w: 24, h: 15 } as const;
+/** The board grows with the number of nodes (same 8:5 shape), so a larger knowledge base never means overlapping labels. */
+export const boardFor = (n: number): { w: number; h: number } => { const k = Math.max(1, Math.sqrt(n / 70)); return { w: Math.round(BOARD.w * k * 10) / 10, h: Math.round(BOARD.h * k * 10) / 10 }; };
 export const UNIT_PX = 62;
 
 /** Approximate on-screen footprint of a node in board units: wide labels take more room, CJK characters are wider, hubs are a little bigger. */
@@ -20,7 +22,7 @@ export const nodeBox = (label: string, big = false): { w: number; h: number } =>
 export function layoutGraph(nodes: { id: string; label: string; big?: boolean }[], edges: GEdge[], iterations = 320): Record<string, Pos> {
   const n = nodes.length;
   if (n === 0) return {};
-  const { w: W, h: H } = BOARD;
+  const { w: W, h: H } = boardFor(n);
   const index = new Map(nodes.map((nd, i) => [nd.id, i]));
   const px = new Float64Array(n), py = new Float64Array(n);
   // golden-angle spiral start: spread out, deterministic

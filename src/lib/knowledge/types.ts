@@ -2,7 +2,10 @@
  * The unified data model. Every dated or linkable thing on the site — a note, a project, a decision, a mistake — is normalised into an
  * `Item`; every real relationship into an `Edge`. Pure types and pure helpers only, so they are testable without Next.js.
  */
-export type Visibility = "public" | "unlisted" | "private";
+/** restricted = never in lists, search, feeds or AI context, for anyone but the owner. */
+export type Visibility = "public" | "unlisted" | "private" | "restricted";
+/** Who wrote it: the owner, a connected service, or an AI. Drives labelling and what may be published. */
+export type Authorship = "owner" | "integration" | "ai";
 export type Kind = "project" | "tech" | "note" | "post" | "concept" | "research" | "mistake" | "decision" | "idea" | "path" | "topic" | "log" | "event";
 export type Source = "owner" | "site" | "github" | "public";
 export type Status = "translated" | "draft" | "untranslated";
@@ -24,6 +27,7 @@ export interface Item {
   /** Where the item comes from and what proves it. */
   provenance: { origin: string; evidence?: string };
   visibility: Visibility;
+  authorship: Authorship;
   status: Status;
   /** Language of title/summary (differs from the requested locale on fallback). */
   lang: string;

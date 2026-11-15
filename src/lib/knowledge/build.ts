@@ -21,7 +21,7 @@ export async function getKnowledgeAll(locale: Locale): Promise<Knowledge> {
   const t = await getTranslations({ locale });
   const items: Item[] = [];
   const edges: Edge[] = [];
-  const add = (i: Item) => { items.push(i); return i.id; };
+  const add = (i: Omit<Item, "authorship">) => { items.push({ ...i, authorship: i.source === "github" || i.source === "public" ? "integration" : "owner" }); return i.id; };
   const link = (from: string, to: string, kind: Edge["kind"], evidence?: string) => { if (!edges.some((e) => e.from === from && e.to === to && e.kind === kind)) edges.push({ from, to, kind, evidence }); };
   const loc = (v: Parameters<typeof resolveText>[0]) => { const r = resolveText(v, locale); return { text: r.text, lang: r.lang, status: r.status as Status }; };
 

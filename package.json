@@ -15,6 +15,7 @@
     "docs:traceability": "tsx scripts/generate-traceability.mts",
     "content:check": "tsx --conditions=react-server scripts/check-content.mts",
     "new": "node scripts/new-entry.mjs",
+    "owner:hash": "node scripts/owner-hash.mjs",
     "snapshot:github": "tsx scripts/snapshot-github.mts",
     "check": "npm run lint && npm run typecheck && npm run test && npm run content:check && npm run i18n:status"
   },

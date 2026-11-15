@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { BOARD, UNIT_PX, neighbors, type NodeKind, type Pos } from "@/lib/graph";
+import { UNIT_PX, boardFor, neighbors, type NodeKind, type Pos } from "@/lib/graph";
 import type { Edge as GEdge } from "@/lib/knowledge/types";
 import { animate, pop, reducedMotion, spring, stagger, staggerIn } from "@/lib/motion";
 
@@ -71,7 +71,7 @@ export function KnowledgeGraph({ nodes, edges, pos }: { nodes: GraphNode[]; edge
 
       <div className="mt-6 grid gap-6 lg:grid-cols-[1fr_20rem]">
         <div className="min-w-0 overflow-x-auto overscroll-x-contain border-2 border-outline bg-surface">
-          <div ref={board} className="relative" style={{ width: `max(${BOARD.w * UNIT_PX}px, 100%)`, aspectRatio: `${BOARD.w} / ${BOARD.h}` }}>
+          <div ref={board} className="relative" style={{ width: `max(${boardFor(nodes.length).w * UNIT_PX}px, 100%)`, aspectRatio: `${boardFor(nodes.length).w} / ${boardFor(nodes.length).h}` }}>
             <svg aria-hidden focusable="false" viewBox="0 0 100 100" preserveAspectRatio="none" className="absolute inset-0 h-full w-full">
               {edges.filter((e) => visibleIds.has(e.from) && visibleIds.has(e.to)).map((e) => {
                 const a = pos[e.from], b = pos[e.to];

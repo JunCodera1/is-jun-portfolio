@@ -60,9 +60,9 @@ describe("unified data layer", () => {
 describe("visibility is enforced at one choke point", () => {
   const k: Knowledge = {
     items: [
-      { id: "a", kind: "note", title: "A", summary: "", tags: [], href: "/a", source: "owner", provenance: { origin: "t" }, visibility: "public", status: "translated", lang: "en" },
-      { id: "b", kind: "note", title: "B", summary: "", tags: [], href: "/b", source: "owner", provenance: { origin: "t" }, visibility: "private", status: "translated", lang: "en" },
-      { id: "c", kind: "note", title: "C", summary: "", tags: [], href: "/c", source: "owner", provenance: { origin: "t" }, visibility: "unlisted", status: "translated", lang: "en" },
+      { id: "a", kind: "note", title: "A", summary: "", tags: [], href: "/a", source: "owner", provenance: { origin: "t" }, visibility: "public", authorship: "owner", status: "translated", lang: "en" },
+      { id: "b", kind: "note", title: "B", summary: "", tags: [], href: "/b", source: "owner", provenance: { origin: "t" }, visibility: "private", authorship: "owner", status: "translated", lang: "en" },
+      { id: "c", kind: "note", title: "C", summary: "", tags: [], href: "/c", source: "owner", provenance: { origin: "t" }, visibility: "unlisted", authorship: "owner", status: "translated", lang: "en" },
     ],
     edges: [{ from: "a", to: "b", kind: "related" }, { from: "a", to: "c", kind: "related" }, { from: "b", to: "c", kind: "related" }],
   };
@@ -74,7 +74,7 @@ describe("visibility is enforced at one choke point", () => {
 });
 
 describe("rule-based connection suggestions", () => {
-  const mk = (id: string, title: string, tags: string[]): Knowledge["items"][number] => ({ id, kind: "note", title, summary: "", tags, href: `/${id}`, source: "owner", provenance: { origin: "t" }, visibility: "public", status: "translated", lang: "en" });
+  const mk = (id: string, title: string, tags: string[]): Knowledge["items"][number] => ({ id, kind: "note", title, summary: "", tags, href: `/${id}`, source: "owner", provenance: { origin: "t" }, visibility: "public", authorship: "owner", status: "translated", lang: "en" });
   const k: Knowledge = { items: [mk("a", "Static rendering notes", ["web", "rendering"]), mk("b", "Rendering pipeline", ["web", "rendering"]), mk("c", "Cooking", ["food"]), mk("d", "Another rendering note", ["web", "rendering"])], edges: [{ from: "a", to: "b", kind: "related" }] };
   it("suggests unlinked pairs that share enough, never already-linked ones, deterministically", () => {
     const s = suggestConnections(k, 2);
@@ -87,7 +87,7 @@ describe("rule-based connection suggestions", () => {
   it("degree counts both directions", () => { expect(degree("a", k.edges)).toBe(1); expect(degree("b", k.edges)).toBe(1); expect(degree("c", k.edges)).toBe(0); });
 });
 
-import { BOARD, layoutGraph, nodeBox } from "@/lib/graph";
+import { boardFor, layoutGraph, nodeBox } from "@/lib/graph";
 
 describe("the knowledge graph layout on the real data", () => {
   for (const locale of ["en", "ja", "vi"] as const) {
@@ -104,7 +104,7 @@ describe("the knowledge graph layout on the real data", () => {
         expect(p.x).toBeGreaterThanOrEqual(0); expect(p.x).toBeLessThanOrEqual(1); expect(p.y).toBeGreaterThanOrEqual(0); expect(p.y).toBeLessThanOrEqual(1);
         for (let j = i + 1; j < nodes.length; j++) {
           const a = nodeBox(nodes[i]!.title, big(nodes[i]!.id)), b = nodeBox(nodes[j]!.title, big(nodes[j]!.id)), q = pos[nodes[j]!.id]!;
-          const dx = Math.abs(p.x - q.x) * BOARD.w, dy = Math.abs(p.y - q.y) * BOARD.h;
+          const dx = Math.abs(p.x - q.x) * boardFor(nodes.length).w, dy = Math.abs(p.y - q.y) * boardFor(nodes.length).h;
           if (dx < (a.w + b.w) / 2 - 0.05 && dy < (a.h + b.h) / 2 - 0.05) bad.push(`${nodes[i]!.title} / ${nodes[j]!.title}`);
         }
       }

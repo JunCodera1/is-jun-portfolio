@@ -31,3 +31,11 @@ Measured with Lighthouse 13.6 against the **final production build** (`next star
 | station-en | 100 | 100 | 100 | 100 | 0.9 s | 0 | 50 ms |
 
 Notes: the targets in the brief were Performance ≥ 90, Accessibility ≥ 95, SEO ≥ 95, LCP < 2.5 s, CLS < 0.1. Two real layout-shift problems were found and fixed along the way (Vietnamese garden CLS 0.157 → 0 with metric-matched font fallbacks; mobile entrance CLS 0.186 → 0 by preloading the display font). Scores come from a local server on a fast machine and will differ on real networks.
+
+## Ecosystem layer (2026-11-15)
+- **Policy, SDK, retrieval, AI, auth, store, agents** are plain TypeScript with injected clocks, fetch, ids and stores, so they are unit-tested without a server (`tests/unit/{policy,integrations-sdk,integrations-adapters,retrieval,ai,api-ask,store-auth,agents,owner-api,knowledge}.test.ts`).
+- **API contracts** call the real route handlers with `Request` objects (`api-ask`, `owner-api`): validation, status codes, headers, rate limits, CSRF, generic error bodies.
+- **Owner console end-to-end** (`tests/e2e/owner.spec.ts`) starts a second production server on port 3101 with a password hash, a session secret and a temporary `DATA_DIR`, then drives login, agents, approvals, audit, export and purge in a real browser.
+- **Failure mode** (`tests/e2e/degraded.spec.ts`) builds a second copy of the site into `.next-degraded` with every integration disabled and checks that every core page renders in three languages with honest empty states.
+- Long page-loop tests recycle the browser tab every 12 pages (Chromium accumulated memory and crashed on a 15 GB machine).
+

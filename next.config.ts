@@ -38,6 +38,8 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  // lets the failure-mode test build a second copy of the site next to the normal one
+  distDir: process.env.NEXT_DIST_DIR || ".next",
   reactStrictMode: true,
   poweredByHeader: false,
   // hide the floating Next.js dev badge ("N · 1 Issue"); errors still show in the terminal and browser console

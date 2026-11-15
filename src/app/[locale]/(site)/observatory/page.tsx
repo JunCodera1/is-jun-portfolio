@@ -1,13 +1,11 @@
-import { getFormatter, getTranslations } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { locales, type Locale } from "@/i18n/routing";
 import { glossary } from "@/content/data/vault";
-import { getRecentRepos } from "@/lib/github-feed";
+import { listIntegrations, refreshAll } from "@/core/integrations";
 import { getKnowledge } from "@/lib/knowledge/build";
 import { degree, suggestConnections, type Kind, type Status } from "@/lib/knowledge/types";
-import { trendingAnime, trendingBooks, musicChart } from "@/lib/library-feed";
 import { resolveText } from "@/lib/localized";
-import { getNews } from "@/lib/news-feed";
 import { initLocale, pageMetadata, type LocaleParams } from "@/lib/page";
 import { PageHeader } from "@/components/ui/PageHeader";
 
@@ -24,18 +22,12 @@ export default async function ObservatoryPage({ params }: { params: LocaleParams
   const locale = await initLocale(params);
   const t = await getTranslations({ locale, namespace: "observatory" });
   const tk = await getTranslations({ locale, namespace: "timeline" });
-  const f = await getFormatter({ locale });
 
-  // 1. source health (each call degrades to an empty result on failure)
-  const [news, gh, anime, books, music] = await Promise.all([getNews(1), getRecentRepos(1), trendingAnime(1), trendingBooks(1), musicChart(1)]);
-  const sources = [
-    { id: "github", name: "GitHub", ok: gh.source === "live", note: gh.source === "live" ? t("live") : t("snapshot", { date: f.dateTime(new Date(gh.asOf), { dateStyle: "medium" }) }) },
-    ...news.sources.map((s) => ({ id: s.id, name: s.name, ok: s.ok, note: t("cache", { n: 30 }) })),
-    { id: "anilist", name: "AniList", ok: anime.length > 0, note: t("cache", { n: 360 }) },
-    { id: "openlibrary", name: "Open Library", ok: books.length > 0, note: t("cache", { n: 360 }) },
-    { id: "deezer", name: "Deezer", ok: music.length > 0, note: t("cache", { n: 360 }) },
-  ];
-  const up = sources.filter((s) => s.ok).length;
+  // 1. source health: every connected service is an Integration, and the SDK keeps its health record
+  const health = await refreshAll();
+  const meta = new Map(listIntegrations().map((i) => [i.id, i]));
+  const sources = health.flatMap((h) => { const i = meta.get(h.id); return i ? [{ h, i }] : []; });
+  const up = sources.filter((s) => s.h.status === "ok" || s.h.status === "degraded").length;
 
   // 2. content overview and language coverage, from the unified data layer
   const perLocale = await Promise.all(locales.map(async (l) => ({ l, k: await getKnowledge(l) })));
@@ -69,10 +61,14 @@ export default async function ObservatoryPage({ params }: { params: LocaleParams
         <h2 id="obs-sources" className="text-3xl md:text-4xl">{t("sources")}</h2>
         <p className="label mt-1 !normal-case !tracking-normal">{t("sourcesSummary", { up, total: sources.length })} {t("sourcesNote")}</p>
         <ul className="mt-4 grid gap-x-8 sm:grid-cols-2 lg:grid-cols-3">
-          {sources.map((s) => (
-            <li key={s.id} className="flex items-baseline gap-3 border-b border-line py-2">
-              <span aria-hidden className={`inline-block h-3 w-3 shrink-0 border-2 border-outline ${s.ok ? "bg-accent" : "bg-surface-2"}`} />
-              <span className="min-w-0"><span className="font-display text-lg">{s.name}</span> <span className="sr-only">{s.ok ? t("ok") : t("down")}.</span><span className="label block !normal-case !tracking-normal">{s.ok ? s.note : t("down")}</span></span>
+          {sources.map(({ h, i }) => (
+            <li key={h.id} className="flex items-baseline gap-3 border-b border-line py-2">
+              <span aria-hidden className={`inline-block h-3 w-3 shrink-0 border-2 border-outline ${h.status === "ok" ? "bg-accent" : h.status === "degraded" ? "bg-[#ffd23f]" : "bg-surface-2"}`} />
+              <span className="min-w-0">
+                <a href={i.attribution.url} target="_blank" rel="noopener noreferrer" className="font-display text-lg">{i.name}</a>{" "}
+                <span className="sr-only">{t(`status.${h.status}`)}.</span>
+                <span className="label block !normal-case !tracking-normal">{t(`health.${h.status}`)}{h.source !== "none" ? ` · ${t(`via.${h.source}`)}` : ""}{h.latencyMs > 0 ? ` · ${t("latency", { ms: h.latencyMs })}` : ""}</span>
+              </span>
             </li>
           ))}
         </ul>

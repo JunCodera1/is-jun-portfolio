@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { BOARD, layoutGraph, neighbors, nodeBox } from "@/lib/graph";
+import { boardFor, layoutGraph, neighbors, nodeBox } from "@/lib/graph";
 import { paths } from "@/content/data/graph";
 import { skills } from "@/content/data/skills";
 import { projects } from "@/content/data/projects";
@@ -30,7 +30,7 @@ describe("graph layout", () => {
     const bad: string[] = [];
     for (let i = 0; i < nodes.length; i++) for (let j = i + 1; j < nodes.length; j++) {
       const a = nodeBox(nodes[i]!.label), b = nodeBox(nodes[j]!.label);
-      const dx = Math.abs(pos[nodes[i]!.id]!.x - pos[nodes[j]!.id]!.x) * BOARD.w, dy = Math.abs(pos[nodes[i]!.id]!.y - pos[nodes[j]!.id]!.y) * BOARD.h;
+      const dx = Math.abs(pos[nodes[i]!.id]!.x - pos[nodes[j]!.id]!.x) * boardFor(nodes.length).w, dy = Math.abs(pos[nodes[i]!.id]!.y - pos[nodes[j]!.id]!.y) * boardFor(nodes.length).h;
       if (dx < (a.w + b.w) / 2 - 0.05 && dy < (a.h + b.h) / 2 - 0.05) bad.push(`${nodes[i]!.label} / ${nodes[j]!.label}`);
     }
     expect(bad).toEqual([]);

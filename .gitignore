@@ -11,3 +11,7 @@ test-results
 next-env.d.ts
 .DS_Store
 .vercel
+
+# owner console data (audit log, task history, proposals)
+/.data/
+/.next-degraded/

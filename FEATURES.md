@@ -20,6 +20,9 @@
 ## Tools and feel
 ✅ Ctrl+K command center (everywhere, including the world) · ✅ Hidden terminal (`` ` ``, footer button; theme/lang/go/surprise; easter eggs) · ✅ Time-of-day theme + ambient light · ✅ Magnetic cursor, kinetic type, exhibition scroll (all pointer-only and off under reduced motion)
 
+## Ecosystem (assistant, integrations, agents)
+✅ **Ask** (`/ask`, `POST /api/ask`): grounded answers over public items; quotes the site by default, optional model with citation verification and a quoted fallback; facts, inferred relations and suggestions kept apart; provenance on every source · ✅ **Integration SDK** (13 adapters: allow-listed hosts, rate limits, retries, fallback, health, kill-switch) · ✅ **Policy engine** (visitor / owner / agent levels 1-4, hard denials) · ✅ **Owner console** (`/owner`, off unless configured) with **3 agents** (Knowledge Organizer, Translation Assistant, Integration Monitor), proposals, approvals, audit log, export, delete · ⏭ OAuth integrations, embeddings, SQL store (see docs/ecosystem/ARCHITECTURE.md)
+
 ## Data layer
 ✅ `src/lib/knowledge`: one model (`Item`, `Edge`) with provenance, visibility (`public`/`unlisted`/`private`) and status; search, graph, timeline, feeds and discovery are projections of it. Only public items leave the site (tested).
 
@@ -27,4 +30,4 @@
 `/play` → `/arcade` · `/recruiter` → `/profile` · `/terminal` → overlay · `/links` → `/vault/reading` · `/log` → `/timeline` · `/orbit` → `/graph` · image veil, header float and pointer parallax removed.
 
 ## Postponed
-⏭ Semantic search / RAG / AI assistant (needs a model service; the data layer is the prerequisite) · ⏭ Webmention and ActivityPub (need an always-on receiver, storage, moderation) · ⏭ Guestbook · ⏭ 3D workspace · ⏭ Code playground · ⏭ Project explorer diagrams (needs verified architecture per project) · ⏭ Idea stage history
+⏭ Semantic (embedding) search · ⏭ Webmention and ActivityPub (need an always-on receiver, storage, moderation) · ⏭ Guestbook · ⏭ 3D workspace · ⏭ Code playground · ⏭ Project explorer diagrams (needs verified architecture per project) · ⏭ Idea stage history

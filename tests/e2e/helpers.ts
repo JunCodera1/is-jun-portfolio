@@ -1,7 +1,7 @@
 import { expect, type Page } from "@playwright/test";
 
 export const LOCALES = ["en", "ja", "vi"] as const;
-export const STATIC_PATHS = ["", "/classic", "/city", "/hideout", "/lab", "/station", "/arcade", "/archive", "/about", "/now", "/contact", "/interests", "/timeline", "/projects", "/profile", "/garden", "/journal", "/search", "/japanese", "/japanese/kana", "/japanese/grammar", "/japanese/review", "/news", "/library", "/graph", "/observatory", "/vault", "/vault/concepts", "/vault/research", "/vault/mistakes", "/vault/decisions", "/vault/ideas", "/vault/glossary", "/vault/reading", "/vault/learning", "/vault/roadmap"];
+export const STATIC_PATHS = ["", "/classic", "/city", "/hideout", "/lab", "/station", "/arcade", "/archive", "/about", "/now", "/contact", "/interests", "/timeline", "/projects", "/profile", "/garden", "/journal", "/search", "/japanese", "/japanese/kana", "/japanese/grammar", "/japanese/review", "/news", "/library", "/graph", "/observatory", "/ask", "/vault", "/vault/concepts", "/vault/research", "/vault/mistakes", "/vault/decisions", "/vault/ideas", "/vault/glossary", "/vault/reading", "/vault/learning", "/vault/roadmap"];
 export const DETAIL_PATHS = ["/projects/green-footprint", "/projects/voiceai", "/garden/how-this-space-is-built", "/journal/three-languages-from-day-one", "/vault/concepts/spaced-repetition"];
 export const ALL_PATHS = [...STATIC_PATHS, ...DETAIL_PATHS];
 
