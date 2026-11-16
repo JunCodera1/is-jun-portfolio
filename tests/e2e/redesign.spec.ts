@@ -64,11 +64,11 @@ test.describe("open data: JSON Feed and the open profile", () => {
       expect([...dates].sort().reverse()).toEqual(dates);
     }
   });
-  test("profile.json publishes only what is confirmed: no invented name, no e-mail, rel=me links, all feeds", async ({ request }) => {
+  test("profile.json publishes only what is confirmed: the confirmed name, no e-mail, rel=me links, all feeds", async ({ request }) => {
     const res = await request.get("/profile.json");
     expect(res.status()).toBe(200);
     const p = await res.json();
-    expect(p.name).toBeNull();            // display name is still unconfirmed
+    expect(p.name).toBe("Jun");           // display name confirmed by the owner (profile.displayNameConfirmed)
     expect(p.email).toBeNull();
     expect(p.handle).toBe("JunCodera1");
     expect(p.links).toEqual([{ rel: "me", label: expect.any(String), url: "https://github.com/JunCodera1" }]);

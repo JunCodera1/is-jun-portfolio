@@ -16,7 +16,7 @@ export const japanese = {
   } as LocalizedText | undefined,
   /** Milestones stated by the owner. Dates are shown only when given. */
   milestones: [
-    { id: "n3", title: { en: "Passed JLPT N3", ja: { text: "JLPT N3 に合格", status: "draft" }, vi: { text: "Đỗ JLPT N3", status: "draft" } } },
+    { id: "n3", date: "2026-08-27", title: { en: "Passed JLPT N3", ja: { text: "JLPT N3 に合格", status: "draft" }, vi: { text: "Đỗ JLPT N3", status: "draft" } } },
   ] as JourneyEntry[],
   studyLog: [] as StudyLogEntry[],
 };

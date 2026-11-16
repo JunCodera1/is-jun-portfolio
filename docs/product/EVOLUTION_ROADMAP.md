@@ -87,7 +87,7 @@
 - *Depends on:* owner key, owner tracks. *Acceptance:* results written to Research Notes (`vault/research.ts`) with date and sources; the adapter's "not verified" note removed only after a pass.
 - *Test strategy:* manual protocol with a checklist; the live-API call is not part of CI. *Complexity:* S each. *Risk:* provider behaviour differing from the stub: fix the adapter and its contract test together.
 
-**R-P1-10 · Present the working name honestly** *(F-23, constitution §3.3)*
+**R-P1-10 · Present the working name honestly** *(F-23, constitution §3.3)* — **Done 2026-11-16: the owner confirmed the name; no further work.**
 - *Problem:* "Jun" appears as the headline and in the copyright line with no qualifier although it is unconfirmed.
 - *Outcome:* while `displayNameConfirmed` is false, the footer carries a "working name" tag and the copyright credits the GitHub handle; confirming the name removes both automatically.
 - *Depends on:* the owner (OWNER_CONTENT_NEEDED #1) may make this moot. *Acceptance:* a test asserts the tag appears iff the flag is false, in 3 languages; `profile.json` still `name: null`.

@@ -12,7 +12,7 @@
 
 | # | What | Need | Where | Required? | Safe to publish? |
 |---|---|---|---|---|---|
-| 1 | **Display name** — confirm the real name or a chosen nickname, or confirm "Jun" as the permanent name | "Jun" is a working name taken from the GitHub handle; the site cannot present a name nobody confirmed (constitution §3.3) | `src/content/data/profile.ts` (`displayName`, set `displayNameConfirmed: true`) → hero, header, footer, About, `profile.json`, terminal | **Required** | Owner's call. A nickname is fine and common |
+| 1 | **Display name** — *confirmed 2026-11-16: "Jun". Nothing further needed.* | — | `profile.ts` | Done | — |
 | 2 | **Short self-introduction** (a few sentences; ideally in your own words and language) | The hero and About have an empty slot; the site is "personal-first" and this is its voice | `profile.ts` (`intro`) → hero | **Required** | Safe once you have read it; write nothing you would not say publicly |
 | 3 | **Profile photograph or avatar** (an original image you have the right to use) + alt text | Makes the owner a person, not a handle | `profile.ts` (`avatar`) → About and hero | Optional | Owner's call: a photo identifies you; an illustration/avatar is safer |
 | 4 | **Contact e-mail** you are happy to publish | The Contact page shows a placeholder and no mailto, by design | `profile.ts` (`email`) → Contact, `profile.json`, terminal `contact` | Optional | Owner's call. Public addresses attract spam; consider an alias |

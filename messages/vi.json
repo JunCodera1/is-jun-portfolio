@@ -448,7 +448,7 @@
       "surprise": "Đi tới một nơi ngẫu nhiên."
     },
     "none": "(chưa có gì)",
-    "aboutIntro": "Tên: {name} (tên tạm, chưa xác nhận)",
+    "aboutIntro": "Tên: {name}",
     "aboutGithub": "GitHub: {url}",
     "aboutBody": "Câu chuyện đầy đủ: xem {path}",
     "emailMissing": "email: chưa công bố",

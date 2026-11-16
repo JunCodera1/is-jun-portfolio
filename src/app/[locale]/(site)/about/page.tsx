@@ -22,7 +22,7 @@ export default async function AboutPage({ params }: { params: LocaleParams }) {
       <PageHeader navId="about" title={t("title")} lead={t("lead")} />
       <section aria-labelledby="glance" className="border-b border-line py-10">
         <h2 id="glance" className="label mb-4">{t("glance")}</h2>
-        <ul className="grid gap-3 md:grid-cols-3">
+        <ul className="grid gap-3 md:grid-cols-2">
           {profile.facts.map((f, i) => <li key={i} className="border-2 border-outline bg-surface p-4 shadow-[4px_4px_0_var(--accent)]"><LText value={f} locale={locale} /></li>)}
         </ul>
       </section>

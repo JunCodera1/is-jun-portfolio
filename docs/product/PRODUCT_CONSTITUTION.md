@@ -35,14 +35,15 @@ Qualities, in priority order: **truthful · personal · explorable · readable �
 - Interested in software development, AI/ML and Linux.
 - Passed JLPT N3; currently studying N2 (N1 is a long-term aim, also stated by the owner).
 - Interested in Hunter × Hunter, particularly Hisoka.
+- Display name "Jun"; fourth-year IT student from Vietnam; passed JLPT N3 on 2026-08-27; interests in anime, films, Japanese music, AI-assisted development, Unreal Engine/3D (supplied by the owner on 2026-11-16, in `about.ts`, `interests.ts`, `now.ts`). The owner chose not to publish some personal details; they stay out.
 
 Where it lives: `src/content/data/profile.ts` (`facts`), `src/content/data/japanese.ts` (`level`, `goal`, `milestones`). These are the only places personal facts may originate.
 
 ### 3.2 What is *not* confirmed and must stay unfilled
-Real name (the display name "Jun" is a **working name derived from the GitHub handle**, flagged `displayNameConfirmed: false` in `profile.ts`; `profile.json` publishes `name: null` until it is confirmed), e-mail, profile photograph, birth date, location, academic results beyond those above, employment history, personal opinions, further hobbies, project achievements, and any historical dates (including the date N3 was passed).
+Real name beyond the display name "Jun" (confirmed by the owner on 2026-11-16; `displayNameConfirmed: true`, so `profile.json` publishes `name: "Jun"`), e-mail, profile photograph, birth date, location, academic results beyond those above, employment history, personal opinions, further hobbies, project achievements, and any historical dates (including the date N3 was passed).
 
 ### 3.3 The rule for gaps
-A missing fact is rendered as a labelled placeholder (`src/components/ui/Placeholder.tsx`), never as plausible text. A dated claim without a real date shows no date (for example the Now page shows no "updated" date until the owner sets `nowUpdated`). The working name "Jun" is used as a **temporary display name** where a name is typographically needed (hero, footer); no sentence may claim it is the owner's real name, the terminal says "working name, not confirmed", and `profile.json` publishes `name: null`. Presenting it without a visible qualifier is a known, owner-decidable gap (audit F-23).
+A missing fact is rendered as a labelled placeholder (`src/components/ui/Placeholder.tsx`), never as plausible text. A dated claim without a real date shows no date (for example the Now page shows no "updated" date until the owner sets `nowUpdated`). The display name "Jun" is confirmed by the owner; nothing beyond it (real name, surname) may be implied.
 
 ## 4. The five product areas
 

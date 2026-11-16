@@ -72,9 +72,9 @@ test.describe("command center, surprise and the hidden terminal", () => {
   test("` opens the terminal anywhere; commands change theme, language and place; exit and Esc close it", async ({ page }) => {
     const c = trackConsole(page);
     await page.goto("/en/about");
-    await page.keyboard.press("`");
     const dialog = page.getByRole("dialog", { name: "Terminal" });
-    await expect(dialog).toBeVisible();
+    // the key handler exists only after hydration: retry the press until it opens
+    await expect(async () => { await page.keyboard.press("`"); await expect(dialog).toBeVisible({ timeout: 1000 }); }).toPass({ timeout: 10000 });
     const input = dialog.getByRole("textbox", { name: /Command/ });
     await expect(input).toBeFocused();
 

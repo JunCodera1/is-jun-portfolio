@@ -448,7 +448,7 @@
       "surprise": "Go somewhere random."
     },
     "none": "(nothing yet)",
-    "aboutIntro": "Name: {name} (working name, not confirmed)",
+    "aboutIntro": "Name: {name}",
     "aboutGithub": "GitHub: {url}",
     "aboutBody": "Longer story: see {path}",
     "emailMissing": "email: not published yet",

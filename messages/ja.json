@@ -448,7 +448,7 @@
       "surprise": "ランダムな場所へ移動。"
     },
     "none": "（まだありません）",
-    "aboutIntro": "名前：{name}（仮の呼び名で、未確認です）",
+    "aboutIntro": "名前：{name}",
     "aboutGithub": "GitHub：{url}",
     "aboutBody": "詳しくは {path} をご覧ください",
     "emailMissing": "メール：まだ公開されていません",

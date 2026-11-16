@@ -146,7 +146,7 @@ Each entry: current situation → proposed change → user value → engineering
 **F-21 · Operational state is per process** — Constraint
 - Rate limits, the AI budget and integration health live in memory; the Observatory shows what this process saw. Acceptable for one instance; documented. *Priority:* **P3** unless more than one instance is deployed.
 
-**F-23 · The working name is shown without a qualifier** — Evidence rule
+**F-23 · The working name is shown without a qualifier** — *Resolved 2026-11-16:* the owner confirmed "Jun" (`displayNameConfirmed: true`); the terminal no longer says "not confirmed"; `profile.json` publishes `name: "Jun"` (test updated, not weakened).
 - *Now:* "Jun" is the hero headline (`src/components/sections/Hero.tsx`) and the footer copyright (`SiteFooter.tsx`: "© 2026 Jun"); the terminal and `profile.json` are honest about it, the visible pages are not. The owner has said "Jun" is temporary.
 - *Change:* until `displayNameConfirmed` is true, show a quiet "working name" tag in the footer and credit the GitHub handle in the copyright line; no change to the hero typography. *Value:* no page implies a real name that was never given. *Cost:* S. *Risk:* low; the owner may prefer to confirm the name instead. *Priority:* **P1** (R-P1-10).
 
